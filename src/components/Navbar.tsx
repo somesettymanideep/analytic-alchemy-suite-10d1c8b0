@@ -232,6 +232,31 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
+
+                {openMenuKey === "contact" && l.hasMenu === "contact" && (
+                  <div
+                    className="fixed right-4 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    onMouseEnter={() => openMenu("contact")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-2 gap-2">
+                      {contactMenu.map((i) => (
+                        <a
+                          key={i.label}
+                          href="#contact"
+                          onClick={closeNow}
+                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                        >
+                          <span className="text-2xl">{i.icon}</span>
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                            {i.label}
+                          </span>
+                          <ArrowRight size={14} className="text-accent opacity-70" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <a
