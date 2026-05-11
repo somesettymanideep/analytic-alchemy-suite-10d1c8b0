@@ -92,7 +92,7 @@ const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products" },
-  { label: "Industries", href: "#industries" },
+  { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
