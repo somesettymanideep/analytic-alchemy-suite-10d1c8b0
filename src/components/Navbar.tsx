@@ -35,13 +35,24 @@ const solutionsMenu = [
   },
 ];
 
+const insightsMenu = [
+  { label: "Thought Leadership", icon: "✍️" },
+  { label: "Blogs", icon: "📝" },
+  { label: "Whitepapers", icon: "📃" },
+  { label: "Reports", icon: "📊" },
+  { label: "Webinars", icon: "🎥" },
+  { label: "Events", icon: "📅" },
+  { label: "Product Updates", icon: "🔄" },
+  { label: "Research", icon: "🔬" },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
-  { label: "Solutions", href: "#solutions", hasMenu: true },
+  { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products" },
   { label: "Industries", href: "#industries" },
   { label: "Client Work", href: "#cases" },
-  { label: "Insights", href: "#insights" },
+  { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
