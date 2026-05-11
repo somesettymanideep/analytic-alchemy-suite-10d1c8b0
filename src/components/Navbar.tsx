@@ -77,6 +77,16 @@ const industriesMenu = [
   ],
 }));
 
+const productsMenu = [
+  { label: "BlueGecko Platform", icon: "★" },
+  { label: "Falcon Mapping", icon: "◈" },
+  { label: "Code Cheetah", icon: "⌨️" },
+  { label: "Owl Sight", icon: "◉" },
+  { label: "Orca Migrate", icon: "↔️" },
+  { label: "AI Agents", icon: "🤖" },
+  { label: "Business Metrics", icon: "📈" },
+];
+
 const contactMenu = [
   { label: "Book Consultation Form", icon: "📆" },
   { label: "Request Demo Form", icon: "▶️" },
