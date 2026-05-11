@@ -60,26 +60,6 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden p-2 text-foreground active:scale-95 transition-transform"
-              href={l.href}
-              className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="#contact"
-            className="px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/25 active:scale-[0.97] transition-all duration-200"
-          >
-            Get a Demo
-          </a>
-        </div>
-
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-foreground active:scale-95 transition-transform"
           aria-label="Toggle menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
