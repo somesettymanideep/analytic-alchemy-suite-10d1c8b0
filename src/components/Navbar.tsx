@@ -392,6 +392,33 @@ export default function Navbar() {
                       ))}
                     </div>
                   )}
+                  {mobileMenuKey === "industries" && l.hasMenu === "industries" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2 space-y-3">
+                      {industriesMenu.map((s) => (
+                        <div key={s.title}>
+                          <p className="text-sm font-bold text-foreground mt-2 flex items-center gap-2">
+                            <span>{s.icon}</span>{s.title}
+                          </p>
+                          <ul className="mt-1">
+                            {s.items.map((item) => (
+                              <li key={item}>
+                                <a
+                                  href="#industries"
+                                  onClick={() => {
+                                    setOpen(false);
+                                    setMobileMenuKey(null);
+                                  }}
+                                  className="block py-1.5 text-sm text-foreground/70"
+                                >
+                                  {item}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   {mobileMenuKey === "insights" && l.hasMenu === "insights" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
