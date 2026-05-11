@@ -67,11 +67,11 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-card border-t border-border animate-fade-in">
+        <div className="lg:hidden bg-card border-t border-border animate-fade-in">
           <nav className="container py-4 flex flex-col gap-3">
             {navLinks.map((l) => (
               <a
-                key={l.href}
+                key={l.label}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="text-sm font-medium text-foreground/70 py-2"
@@ -83,7 +83,7 @@ export default function Navbar() {
               href="#contact"
               className="mt-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-primary-foreground text-center"
             >
-              Get a Demo
+              Book a Demo
             </a>
           </nav>
         </div>
