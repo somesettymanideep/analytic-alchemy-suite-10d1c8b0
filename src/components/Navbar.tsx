@@ -57,6 +57,17 @@ const aboutMenu = [
   { label: "Global Presence", icon: "🌐" },
 ];
 
+const contactMenu = [
+  { label: "Book Consultation Form", icon: "📆" },
+  { label: "Request Demo Form", icon: "▶️" },
+  { label: "Contact Sales", icon: "📞" },
+  { label: "Support", icon: "🎧" },
+  { label: "Office Locations", icon: "📍" },
+  { label: "Email Automation", icon: "✉️" },
+  { label: "Integration", icon: "🔗" },
+  { label: "Meeting Scheduler", icon: "📅" },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
@@ -65,10 +76,10 @@ const navLinks = [
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "#contact", hasMenu: "contact" as const },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | null;
+type MenuKey = "solutions" | "insights" | "about" | "contact" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -221,6 +232,31 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
+
+                {openMenuKey === "contact" && l.hasMenu === "contact" && (
+                  <div
+                    className="fixed right-4 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    onMouseEnter={() => openMenu("contact")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-2 gap-2">
+                      {contactMenu.map((i) => (
+                        <a
+                          key={i.label}
+                          href="#contact"
+                          onClick={closeNow}
+                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                        >
+                          <span className="text-2xl">{i.icon}</span>
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                            {i.label}
+                          </span>
+                          <ArrowRight size={14} className="text-accent opacity-70" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <a
@@ -323,6 +359,27 @@ export default function Navbar() {
                           <li key={i.label}>
                             <a
                               href="#about"
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
+                            >
+                              <span>{i.icon}</span>
+                              <span>{i.label}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {mobileMenuKey === "contact" && l.hasMenu === "contact" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <ul>
+                        {contactMenu.map((i) => (
+                          <li key={i.label}>
+                            <a
+                              href="#contact"
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
