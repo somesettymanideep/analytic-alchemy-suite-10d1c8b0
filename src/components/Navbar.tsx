@@ -101,7 +101,7 @@ const contactMenu = [
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
-  { label: "Products", href: "#products" },
+  { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
