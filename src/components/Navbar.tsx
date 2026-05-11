@@ -57,11 +57,13 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+type MenuKey = "solutions" | "insights" | null;
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
-  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const [openMenuKey, setOpenMenuKey] = useState<MenuKey>(null);
+  const [mobileMenuKey, setMobileMenuKey] = useState<MenuKey>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -70,14 +72,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const openMenu = () => {
+  const openMenu = (key: MenuKey) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setSolutionsOpen(true);
+    setOpenMenuKey(key);
   };
   const scheduleClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setSolutionsOpen(false), 120);
+    closeTimer.current = setTimeout(() => setOpenMenuKey(null), 120);
   };
+  const closeNow = () => setOpenMenuKey(null);
 
   return (
     <header
@@ -98,25 +101,27 @@ export default function Navbar() {
               <div
                 key={l.label}
                 className="relative"
-                onMouseEnter={openMenu}
+                onMouseEnter={() => openMenu(l.hasMenu as MenuKey)}
                 onMouseLeave={scheduleClose}
               >
                 <button
-                  onClick={() => setSolutionsOpen((v) => !v)}
+                  onClick={() =>
+                    setOpenMenuKey((v) => (v === l.hasMenu ? null : (l.hasMenu as MenuKey)))
+                  }
                   className="flex items-center gap-1 text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200"
-                  aria-expanded={solutionsOpen}
+                  aria-expanded={openMenuKey === l.hasMenu}
                 >
                   {l.label}
                   <ChevronDown
                     size={14}
-                    className={`transition-transform duration-200 ${solutionsOpen ? "rotate-180" : ""}`}
+                    className={`transition-transform duration-200 ${openMenuKey === l.hasMenu ? "rotate-180" : ""}`}
                   />
                 </button>
 
-                {solutionsOpen && (
+                {openMenuKey === "solutions" && l.hasMenu === "solutions" && (
                   <div
                     className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(1100px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-6 animate-fade-in"
-                    onMouseEnter={openMenu}
+                    onMouseEnter={() => openMenu("solutions")}
                     onMouseLeave={scheduleClose}
                   >
                     <div className="grid grid-cols-3 gap-4">
@@ -127,7 +132,7 @@ export default function Navbar() {
                         >
                           <a
                             href="#solutions"
-                            onClick={() => setSolutionsOpen(false)}
+                            onClick={closeNow}
                             className="flex items-center gap-2 text-base font-bold text-foreground group-hover:text-primary"
                           >
                             {s.title}
@@ -141,7 +146,7 @@ export default function Navbar() {
                               <li key={item}>
                                 <a
                                   href="#solutions"
-                                  onClick={() => setSolutionsOpen(false)}
+                                  onClick={closeNow}
                                   className="flex items-center justify-between py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                                 >
                                   {item}
@@ -151,6 +156,31 @@ export default function Navbar() {
                             ))}
                           </ul>
                         </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {openMenuKey === "insights" && l.hasMenu === "insights" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    onMouseEnter={() => openMenu("insights")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-2 gap-2">
+                      {insightsMenu.map((i) => (
+                        <a
+                          key={i.label}
+                          href="#insights"
+                          onClick={closeNow}
+                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                        >
+                          <span className="text-2xl">{i.icon}</span>
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                            {i.label}
+                          </span>
+                          <ArrowRight size={14} className="text-accent opacity-70" />
+                        </a>
                       ))}
                     </div>
                   </div>
@@ -193,16 +223,18 @@ export default function Navbar() {
               l.hasMenu ? (
                 <div key={l.label}>
                   <button
-                    onClick={() => setMobileSolutionsOpen((v) => !v)}
+                    onClick={() =>
+                      setMobileMenuKey((v) => (v === l.hasMenu ? null : (l.hasMenu as MenuKey)))
+                    }
                     className="w-full flex items-center justify-between text-sm font-medium text-foreground/80 py-2"
                   >
                     {l.label}
                     <ChevronDown
                       size={16}
-                      className={`transition-transform ${mobileSolutionsOpen ? "rotate-180" : ""}`}
+                      className={`transition-transform ${mobileMenuKey === l.hasMenu ? "rotate-180" : ""}`}
                     />
                   </button>
-                  {mobileSolutionsOpen && (
+                  {mobileMenuKey === "solutions" && l.hasMenu === "solutions" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2 space-y-3">
                       {solutionsMenu.map((s) => (
                         <div key={s.title}>
@@ -214,7 +246,7 @@ export default function Navbar() {
                                   href="#solutions"
                                   onClick={() => {
                                     setOpen(false);
-                                    setMobileSolutionsOpen(false);
+                                    setMobileMenuKey(null);
                                   }}
                                   className="block py-1.5 text-sm text-foreground/70"
                                 >
@@ -225,6 +257,27 @@ export default function Navbar() {
                           </ul>
                         </div>
                       ))}
+                    </div>
+                  )}
+                  {mobileMenuKey === "insights" && l.hasMenu === "insights" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <ul>
+                        {insightsMenu.map((i) => (
+                          <li key={i.label}>
+                            <a
+                              href="#insights"
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
+                            >
+                              <span>{i.icon}</span>
+                              <span>{i.label}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
                 </div>
