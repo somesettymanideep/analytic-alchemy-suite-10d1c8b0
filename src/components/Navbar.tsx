@@ -57,6 +57,26 @@ const aboutMenu = [
   { label: "Global Presence", icon: "🌐" },
 ];
 
+const industriesMenu = [
+  { title: "Manufacturing", icon: "🔩" },
+  { title: "Logistics & Supply Chain", icon: "🚚" },
+  { title: "Retail & Wholesale", icon: "🛒" },
+  { title: "Healthcare", icon: "⚕️" },
+  { title: "Financial Services", icon: "🏦" },
+  { title: "Staffing", icon: "👔" },
+  { title: "Energy & Utilities", icon: "⚡" },
+].map((i) => ({
+  ...i,
+  items: [
+    "Challenges",
+    "ERP Use Cases",
+    "AI Use Cases",
+    "Relevant Services",
+    "Case Studies",
+    "CTA — Explore Solutions",
+  ],
+}));
+
 const contactMenu = [
   { label: "Book Consultation Form", icon: "📆" },
   { label: "Request Demo Form", icon: "▶️" },
