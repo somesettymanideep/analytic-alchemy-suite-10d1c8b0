@@ -203,6 +203,47 @@ export default function Navbar() {
                   </div>
                 )}
 
+                {openMenuKey === "industries" && l.hasMenu === "industries" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(1100px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-6 animate-fade-in"
+                    onMouseEnter={() => openMenu("industries")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-3 gap-4">
+                      {industriesMenu.map((s) => (
+                        <div
+                          key={s.title}
+                          className="group rounded-xl border border-border/60 p-5 hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 bg-background"
+                        >
+                          <a
+                            href="#industries"
+                            onClick={closeNow}
+                            className="flex items-center gap-2 text-base font-bold text-foreground group-hover:text-primary"
+                          >
+                            <span className="text-xl">{s.icon}</span>
+                            {s.title}
+                            <ArrowRight size={14} className="text-accent ml-auto" />
+                          </a>
+                          <ul className="mt-3 border-t border-border/60 divide-y divide-border/60">
+                            {s.items.map((item) => (
+                              <li key={item}>
+                                <a
+                                  href="#industries"
+                                  onClick={closeNow}
+                                  className="flex items-center justify-between py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                                >
+                                  {item}
+                                  <ArrowRight size={12} className="opacity-60" />
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {openMenuKey === "insights" && l.hasMenu === "insights" && (
                   <div
                     className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
