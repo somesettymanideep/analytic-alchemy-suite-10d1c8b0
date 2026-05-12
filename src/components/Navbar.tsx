@@ -46,70 +46,18 @@ const insightsMenu = [
   { label: "Research", icon: "🔬" },
 ];
 
-const aboutMenu = [
-  { label: "Company Overview", icon: "🏢" },
-  { label: "Leadership Team", icon: "👔" },
-  { label: "Founding Team", icon: "⭐" },
-  { label: "Our Journey", icon: "🗺️" },
-  { label: "Partnerships", icon: "🤝" },
-  { label: "Vision & Mission", icon: "🎯" },
-  { label: "Careers", icon: "💼" },
-  { label: "Global Presence", icon: "🌐" },
-];
-
-const industriesMenu = [
-  { title: "Manufacturing", icon: "🔩" },
-  { title: "Logistics & Supply Chain", icon: "🚚" },
-  { title: "Retail & Wholesale", icon: "🛒" },
-  { title: "Healthcare", icon: "⚕️" },
-  { title: "Financial Services", icon: "🏦" },
-  { title: "Staffing", icon: "👔" },
-  { title: "Energy & Utilities", icon: "⚡" },
-].map((i) => ({
-  ...i,
-  items: [
-    "Challenges",
-    "ERP Use Cases",
-    "AI Use Cases",
-    "Relevant Services",
-    "Case Studies",
-    "CTA — Explore Solutions",
-  ],
-}));
-
-const productsMenu = [
-  { label: "BlueGecko Platform", icon: "★" },
-  { label: "Falcon Mapping", icon: "◈" },
-  { label: "Code Cheetah", icon: "⌨️" },
-  { label: "Owl Sight", icon: "◉" },
-  { label: "Orca Migrate", icon: "↔️" },
-  { label: "AI Agents", icon: "🤖" },
-  { label: "Business Metrics", icon: "📈" },
-];
-
-const contactMenu = [
-  { label: "Book Consultation Form", icon: "📆" },
-  { label: "Request Demo Form", icon: "▶️" },
-  { label: "Contact Sales", icon: "📞" },
-  { label: "Support", icon: "🎧" },
-  { label: "Office Locations", icon: "📍" },
-  { label: "Email Automation", icon: "✉️" },
-  { label: "Integration", icon: "🔗" },
-  { label: "Meeting Scheduler", icon: "📅" },
-];
-
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
-  { label: "Products", href: "#products", hasMenu: "products" as const },
-  { label: "Industries", href: "#industries", hasMenu: "industries" as const },
+  { label: "Products", href: "#products" },
+  { label: "Industries", href: "#industries" },
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
-  { label: "About", href: "#about", hasMenu: "about" as const },
-  { label: "Contact", href: "#contact", hasMenu: "contact" as const },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | "contact" | "industries" | "products" | null;
+type MenuKey = "solutions" | "insights" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -213,72 +161,6 @@ export default function Navbar() {
                   </div>
                 )}
 
-                {openMenuKey === "industries" && l.hasMenu === "industries" && (
-                  <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(1100px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-6 animate-fade-in"
-                    onMouseEnter={() => openMenu("industries")}
-                    onMouseLeave={scheduleClose}
-                  >
-                    <div className="grid grid-cols-3 gap-4">
-                      {industriesMenu.map((s) => (
-                        <div
-                          key={s.title}
-                          className="group rounded-xl border border-border/60 p-5 hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 bg-background"
-                        >
-                          <a
-                            href="#industries"
-                            onClick={closeNow}
-                            className="flex items-center gap-2 text-base font-bold text-foreground group-hover:text-primary"
-                          >
-                            <span className="text-xl">{s.icon}</span>
-                            {s.title}
-                            <ArrowRight size={14} className="text-accent ml-auto" />
-                          </a>
-                          <ul className="mt-3 border-t border-border/60 divide-y divide-border/60">
-                            {s.items.map((item) => (
-                              <li key={item}>
-                                <a
-                                  href="#industries"
-                                  onClick={closeNow}
-                                  className="flex items-center justify-between py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                                >
-                                  {item}
-                                  <ArrowRight size={12} className="opacity-60" />
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {openMenuKey === "products" && l.hasMenu === "products" && (
-                  <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
-                    onMouseEnter={() => openMenu("products")}
-                    onMouseLeave={scheduleClose}
-                  >
-                    <div className="grid grid-cols-2 gap-2">
-                      {productsMenu.map((i) => (
-                        <a
-                          key={i.label}
-                          href="#products"
-                          onClick={closeNow}
-                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
-                        >
-                          <span className="text-2xl">{i.icon}</span>
-                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
-                            {i.label}
-                          </span>
-                          <ArrowRight size={14} className="text-accent opacity-70" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
                 {openMenuKey === "insights" && l.hasMenu === "insights" && (
                   <div
                     className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
@@ -290,56 +172,6 @@ export default function Navbar() {
                         <a
                           key={i.label}
                           href="#insights"
-                          onClick={closeNow}
-                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
-                        >
-                          <span className="text-2xl">{i.icon}</span>
-                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
-                            {i.label}
-                          </span>
-                          <ArrowRight size={14} className="text-accent opacity-70" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {openMenuKey === "about" && l.hasMenu === "about" && (
-                  <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
-                    onMouseEnter={() => openMenu("about")}
-                    onMouseLeave={scheduleClose}
-                  >
-                    <div className="grid grid-cols-2 gap-2">
-                      {aboutMenu.map((i) => (
-                        <a
-                          key={i.label}
-                          href="#about"
-                          onClick={closeNow}
-                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
-                        >
-                          <span className="text-2xl">{i.icon}</span>
-                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
-                            {i.label}
-                          </span>
-                          <ArrowRight size={14} className="text-accent opacity-70" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {openMenuKey === "contact" && l.hasMenu === "contact" && (
-                  <div
-                    className="fixed right-4 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
-                    onMouseEnter={() => openMenu("contact")}
-                    onMouseLeave={scheduleClose}
-                  >
-                    <div className="grid grid-cols-2 gap-2">
-                      {contactMenu.map((i) => (
-                        <a
-                          key={i.label}
-                          href="#contact"
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
@@ -427,54 +259,6 @@ export default function Navbar() {
                       ))}
                     </div>
                   )}
-                  {mobileMenuKey === "industries" && l.hasMenu === "industries" && (
-                    <div className="pl-3 border-l border-border/60 ml-1 mb-2 space-y-3">
-                      {industriesMenu.map((s) => (
-                        <div key={s.title}>
-                          <p className="text-sm font-bold text-foreground mt-2 flex items-center gap-2">
-                            <span>{s.icon}</span>{s.title}
-                          </p>
-                          <ul className="mt-1">
-                            {s.items.map((item) => (
-                              <li key={item}>
-                                <a
-                                  href="#industries"
-                                  onClick={() => {
-                                    setOpen(false);
-                                    setMobileMenuKey(null);
-                                  }}
-                                  className="block py-1.5 text-sm text-foreground/70"
-                                >
-                                  {item}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {mobileMenuKey === "products" && l.hasMenu === "products" && (
-                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
-                      <ul>
-                        {productsMenu.map((i) => (
-                          <li key={i.label}>
-                            <a
-                              href="#products"
-                              onClick={() => {
-                                setOpen(false);
-                                setMobileMenuKey(null);
-                              }}
-                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
-                            >
-                              <span>{i.icon}</span>
-                              <span>{i.label}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                   {mobileMenuKey === "insights" && l.hasMenu === "insights" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
@@ -482,48 +266,6 @@ export default function Navbar() {
                           <li key={i.label}>
                             <a
                               href="#insights"
-                              onClick={() => {
-                                setOpen(false);
-                                setMobileMenuKey(null);
-                              }}
-                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
-                            >
-                              <span>{i.icon}</span>
-                              <span>{i.label}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {mobileMenuKey === "about" && l.hasMenu === "about" && (
-                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
-                      <ul>
-                        {aboutMenu.map((i) => (
-                          <li key={i.label}>
-                            <a
-                              href="#about"
-                              onClick={() => {
-                                setOpen(false);
-                                setMobileMenuKey(null);
-                              }}
-                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
-                            >
-                              <span>{i.icon}</span>
-                              <span>{i.label}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {mobileMenuKey === "contact" && l.hasMenu === "contact" && (
-                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
-                      <ul>
-                        {contactMenu.map((i) => (
-                          <li key={i.label}>
-                            <a
-                              href="#contact"
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
