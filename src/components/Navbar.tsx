@@ -64,7 +64,7 @@ const navLinks = [
   { label: "Industries", href: "#industries" },
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
-  { label: "About", href: "#about" },
+  { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Contact", href: "#contact" },
 ];
 
