@@ -46,6 +46,17 @@ const insightsMenu = [
   { label: "Research", icon: "🔬" },
 ];
 
+const aboutMenu = [
+  { label: "Company Overview", icon: "🏢" },
+  { label: "Leadership Team", icon: "👔" },
+  { label: "Founding Team", icon: "⭐" },
+  { label: "Our Journey", icon: "🗺️" },
+  { label: "Partnerships", icon: "🤝" },
+  { label: "Vision & Mission", icon: "🎯" },
+  { label: "Careers", icon: "💼" },
+  { label: "Global Presence", icon: "🌐" },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
@@ -53,11 +64,11 @@ const navLinks = [
   { label: "Industries", href: "#industries" },
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
-  { label: "About", href: "#about" },
+  { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Contact", href: "#contact" },
 ];
 
-type MenuKey = "solutions" | "insights" | null;
+type MenuKey = "solutions" | "insights" | "about" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -185,6 +196,31 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
+
+                {openMenuKey === "about" && l.hasMenu === "about" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    onMouseEnter={() => openMenu("about")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-2 gap-2">
+                      {aboutMenu.map((i) => (
+                        <a
+                          key={i.label}
+                          href="#about"
+                          onClick={closeNow}
+                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                        >
+                          <span className="text-2xl">{i.icon}</span>
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                            {i.label}
+                          </span>
+                          <ArrowRight size={14} className="text-accent opacity-70" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <a
@@ -266,6 +302,27 @@ export default function Navbar() {
                           <li key={i.label}>
                             <a
                               href="#insights"
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
+                            >
+                              <span>{i.icon}</span>
+                              <span>{i.label}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {mobileMenuKey === "about" && l.hasMenu === "about" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <ul>
+                        {aboutMenu.map((i) => (
+                          <li key={i.label}>
+                            <a
+                              href="#about"
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
