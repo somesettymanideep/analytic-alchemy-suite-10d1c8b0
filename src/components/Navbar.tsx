@@ -57,6 +57,16 @@ const aboutMenu = [
   { label: "Global Presence", icon: "🌐" },
 ];
 
+const productsMenu = [
+  { label: "BlueGecko Platform", icon: "★" },
+  { label: "Falcon Mapping", icon: "◈" },
+  { label: "Code Cheetah", icon: "⌨" },
+  { label: "Owl Sight", icon: "◉" },
+  { label: "Orca Migrate", icon: "↔" },
+  { label: "AI Agents", icon: "🤖" },
+  { label: "Business Metrics", icon: "📈" },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
