@@ -70,7 +70,7 @@ const productsMenu = [
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
-  { label: "Products", href: "#products" },
+  { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries" },
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
