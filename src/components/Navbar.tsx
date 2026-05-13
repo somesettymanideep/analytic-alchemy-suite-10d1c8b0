@@ -75,7 +75,7 @@ const navLinks = [
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
-  { label: "Contact", href: "#/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 type MenuKey = "solutions" | "insights" | "about" | "products" | null;
