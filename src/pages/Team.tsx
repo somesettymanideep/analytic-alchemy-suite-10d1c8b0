@@ -108,7 +108,9 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
 
       {/* Body */}
       <div className="p-5 flex-1 flex flex-col">
-        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{m.bio}</p>
+        <h3 className="text-lg font-bold text-foreground font-heading">{m.name}</h3>
+        <p className="mt-0.5 text-sm font-semibold text-primary">{m.role}</p>
+        <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">{m.bio}</p>
 
         <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
 
