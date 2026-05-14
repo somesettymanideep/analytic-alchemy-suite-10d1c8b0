@@ -191,7 +191,7 @@ export default function Team() {
         <section className="container pb-16 md:pb-24" ref={founderRef}>
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
             <div
-              className={`relative h-full lg:col-span-4 ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
+              className={`relative h-full lg:col-span-5 ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
             >
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 via-accent/10 to-transparent blur-2xl" aria-hidden />
               <div className="relative h-full min-h-[420px] rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
