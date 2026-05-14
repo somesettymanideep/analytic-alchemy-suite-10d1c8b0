@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import PageBanner from "@/components/PageBanner";
+import teamBanner from "@/assets/banner-team.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import hugoImg from "@/assets/hugo-cooijmans.jpg";
 import cofounderImg from "@/assets/team-cofounder.jpg";
