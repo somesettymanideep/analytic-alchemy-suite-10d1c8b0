@@ -77,7 +77,7 @@ const industriesMenu = [
   { label: "Retail & Wholesale", desc: "Omnichannel commerce and demand insight.", Icon: ShoppingBag },
   { label: "Healthcare", desc: "Patient-centric data and compliance.", Icon: HeartPulse },
   { label: "Financial Services", desc: "Secure, real-time financial intelligence.", Icon: Landmark },
-  { label: "Staffing", desc: "Workforce analytics and talent operations.", Icon: Users },
+  { label: "Staffing", desc: "Workforce analytics and talent operations.", Icon: Users, href: "/industries/staffing" },
   { label: "Energy & Utilities", desc: "Sustainable, data-driven grid operations.", Icon: Zap },
 ];
 
