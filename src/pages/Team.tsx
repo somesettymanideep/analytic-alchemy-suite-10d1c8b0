@@ -4,6 +4,12 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import hugoImg from "@/assets/hugo-cooijmans.jpg";
+import cofounderImg from "@/assets/team-cofounder.jpg";
+import deliveryImg from "@/assets/team-delivery.jpg";
+import microsoftImg from "@/assets/team-microsoft.jpg";
+import aiImg from "@/assets/team-ai.jpg";
+import cloudImg from "@/assets/team-cloud.jpg";
+import sapImg from "@/assets/team-sap.jpg";
 import { Linkedin, Mail, MapPin } from "lucide-react";
 
 const founder = {
