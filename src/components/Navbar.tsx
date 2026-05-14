@@ -267,7 +267,7 @@ export default function Navbar() {
 
                 {openMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
                   <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(820px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
                     onMouseEnter={() => openMenu("clientWork")}
                     onMouseLeave={scheduleClose}
                   >
@@ -279,10 +279,10 @@ export default function Navbar() {
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
-                          <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                          <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                             <Icon size={18} />
                           </span>
-                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1 whitespace-nowrap">
                             {label}
                           </span>
                           <ArrowRight size={14} className="text-accent opacity-70" />
