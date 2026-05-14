@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 
@@ -80,6 +81,8 @@ export default function Navbar() {
   const [openMenuKey, setOpenMenuKey] = useState<MenuKey>(null);
   const [mobileMenuKey, setMobileMenuKey] = useState<MenuKey>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const location = useLocation();
+  const isSubPage = location.pathname !== "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -100,7 +103,9 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        isSubPage
+          ? "bg-card shadow-[0_1px_3px_hsl(var(--border))]"
+          : scrolled
           ? "bg-card/95 backdrop-blur-md shadow-[0_1px_3px_hsl(var(--border))]"
           : "bg-transparent"
       }`}
