@@ -164,19 +164,17 @@ export default function Team() {
 
         {/* Founder spotlight */}
         <section className="container pb-16 md:pb-24" ref={founderRef}>
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
             <div
-              className={`relative ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
+              className={`relative h-full ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
             >
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 via-accent/10 to-transparent blur-2xl" aria-hidden />
-              <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={founder.image}
-                    alt={founder.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                  />
-                </div>
+              <div className="relative h-full min-h-[420px] rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent p-6">
                   <p className="text-primary-foreground/90 text-xs uppercase tracking-widest font-semibold">
                     Founder Spotlight
@@ -188,7 +186,7 @@ export default function Team() {
               </div>
             </div>
 
-            <div className={`${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
+            <div className={`flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
               <span className="text-xs font-semibold uppercase tracking-widest text-accent">
                 Co-Founder
               </span>
