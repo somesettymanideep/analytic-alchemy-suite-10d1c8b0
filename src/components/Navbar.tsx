@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap } from "lucide-react";
 
 const solutionsMenu = [
   {
@@ -71,18 +71,28 @@ const clientWorkMenu = [
   { label: "Managed Services Programs", Icon: LifeBuoy },
 ];
 
+const industriesMenu = [
+  { label: "Manufacturing", desc: "Smart factories and connected operations.", Icon: Factory },
+  { label: "Logistics & Supply Chain", desc: "End-to-end visibility and resilience.", Icon: Truck },
+  { label: "Retail & Wholesale", desc: "Omnichannel commerce and demand insight.", Icon: ShoppingBag },
+  { label: "Healthcare", desc: "Patient-centric data and compliance.", Icon: HeartPulse },
+  { label: "Financial Services", desc: "Secure, real-time financial intelligence.", Icon: Landmark },
+  { label: "Staffing", desc: "Workforce analytics and talent operations.", Icon: Users },
+  { label: "Energy & Utilities", desc: "Sustainable, data-driven grid operations.", Icon: Zap },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products", hasMenu: "products" as const },
-  { label: "Industries", href: "#industries" },
+  { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Contact", href: "/contact" },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | "products" | "clientWork" | null;
+type MenuKey = "solutions" | "insights" | "about" | "products" | "clientWork" | "industries" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -291,6 +301,38 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
+
+                {openMenuKey === "industries" && l.hasMenu === "industries" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(880px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    onMouseEnter={() => openMenu("industries")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-2">
+                      {industriesMenu.map(({ label, desc, Icon }) => (
+                        <a
+                          key={label}
+                          href="#industries"
+                          onClick={closeNow}
+                          className="flex items-start gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                        >
+                          <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                            <Icon size={18} />
+                          </span>
+                          <span className="flex-1 min-w-0">
+                            <span className="block text-sm font-semibold text-foreground group-hover:text-primary whitespace-nowrap">
+                              {label}
+                            </span>
+                            <span className="block text-xs text-muted-foreground whitespace-nowrap overflow-hidden text-ellipsis">
+                              {desc}
+                            </span>
+                          </span>
+                          <ArrowRight size={14} className="text-accent opacity-70 mt-1" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <a
@@ -443,6 +485,30 @@ export default function Navbar() {
                             >
                               <Icon size={16} className="text-primary" />
                               <span>{label}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {mobileMenuKey === "industries" && l.hasMenu === "industries" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <ul>
+                        {industriesMenu.map(({ label, desc, Icon }) => (
+                          <li key={label}>
+                            <a
+                              href="#industries"
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-start gap-2 py-2 text-sm text-foreground/80"
+                            >
+                              <Icon size={16} className="text-primary mt-0.5" />
+                              <span className="flex-1">
+                                <span className="block font-medium">{label}</span>
+                                <span className="block text-xs text-muted-foreground">{desc}</span>
+                              </span>
                             </a>
                           </li>
                         ))}
