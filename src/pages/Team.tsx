@@ -164,9 +164,9 @@ export default function Team() {
 
         {/* Founder spotlight */}
         <section className="container pb-16 md:pb-24" ref={founderRef}>
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
             <div
-              className={`relative h-full ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
+              className={`relative h-full lg:col-span-4 ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
             >
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 via-accent/10 to-transparent blur-2xl" aria-hidden />
               <div className="relative h-full min-h-[420px] rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
@@ -186,7 +186,7 @@ export default function Team() {
               </div>
             </div>
 
-            <div className={`flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
+            <div className={`lg:col-span-8 flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
               <span className="text-xs font-semibold uppercase tracking-widest text-accent">
                 Co-Founder
               </span>
