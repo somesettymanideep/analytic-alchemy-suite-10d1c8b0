@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import PageBanner from "@/components/PageBanner";
+import aboutBanner from "@/assets/banner-about.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   Building2,
