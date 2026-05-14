@@ -31,36 +31,42 @@ const team = [
     role: "Co-Founder & Data / AI Lead",
     location: "Amsterdam, NL",
     bio: "Two decades architecting data platforms and AI systems at Tier-1 SIs. Drives the BlueGecko product vision and delivery model.",
+    image: cofounderImg,
   },
   {
     name: "Delivery Lead",
     role: "Head of Delivery — India",
     location: "Hyderabad, IN",
     bio: "Runs onshore-offshore engagement orchestration. Ensures European delivery standards across Hyderabad and Lucknow specialist teams.",
+    image: deliveryImg,
   },
   {
     name: "Microsoft Practice Lead",
     role: "D365 & Azure Lead",
     location: "Amsterdam, NL",
     bio: "Microsoft stack veteran across Dynamics 365, Power Platform, and Azure data services for enterprise transformations.",
+    image: microsoftImg,
   },
   {
     name: "AI Practice Lead",
     role: "Applied AI & Agents Lead",
     location: "Amsterdam, NL",
     bio: "Leads our AI Agents portfolio — operationalising LLM and agentic systems for measurable enterprise outcomes.",
+    image: aiImg,
   },
   {
     name: "Cloud Practice Lead",
     role: "Cloud & AMS Lead",
     location: "Hyderabad, IN",
     bio: "Hybrid cloud migration, modernisation, and 24/7 application managed services across SAP, Microsoft, and data platforms.",
+    image: cloudImg,
   },
   {
     name: "SAP Architecture Lead",
     role: "S/4HANA Architect",
     location: "Lucknow, IN",
     bio: "End-to-end S/4HANA architecture, brownfield conversion, and clean-core delivery for regulated industries.",
+    image: sapImg,
   },
 ];
 
