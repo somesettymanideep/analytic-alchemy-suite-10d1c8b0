@@ -211,7 +211,7 @@ export default function Team() {
               </div>
             </div>
 
-            <div className={`lg:col-span-8 flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
+            <div className={`lg:col-span-7 flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
               <span className="text-xs font-semibold uppercase tracking-widest text-accent">
                 Co-Founder
               </span>
