@@ -72,7 +72,7 @@ const clientWorkMenu = [
 ];
 
 const industriesMenu = [
-  { label: "Manufacturing", desc: "Smart factories and connected operations.", Icon: Factory },
+  { label: "Manufacturing", desc: "Smart factories and connected operations.", Icon: Factory, href: "/industries/manufacturing" },
   { label: "Logistics & Supply Chain", desc: "End-to-end visibility and resilience.", Icon: Truck },
   { label: "Retail & Wholesale", desc: "Omnichannel commerce and demand insight.", Icon: ShoppingBag },
   { label: "Healthcare", desc: "Patient-centric data and compliance.", Icon: HeartPulse },
@@ -309,10 +309,10 @@ export default function Navbar() {
                     onMouseLeave={scheduleClose}
                   >
                     <div className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-2">
-                      {industriesMenu.map(({ label, desc, Icon }) => (
+                      {industriesMenu.map(({ label, desc, Icon, href }) => (
                         <a
                           key={label}
-                          href="#industries"
+                          href={href ?? "#industries"}
                           onClick={closeNow}
                           className="flex items-start gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
@@ -494,10 +494,10 @@ export default function Navbar() {
                   {mobileMenuKey === "industries" && l.hasMenu === "industries" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
-                        {industriesMenu.map(({ label, desc, Icon }) => (
+                        {industriesMenu.map(({ label, desc, Icon, href }) => (
                           <li key={label}>
                             <a
-                              href="#industries"
+                              href={href ?? "#industries"}
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
