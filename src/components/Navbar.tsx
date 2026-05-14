@@ -494,10 +494,10 @@ export default function Navbar() {
                   {mobileMenuKey === "industries" && l.hasMenu === "industries" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
-                        {industriesMenu.map(({ label, desc, Icon }) => (
+                        {industriesMenu.map(({ label, desc, Icon, href }) => (
                           <li key={label}>
                             <a
-                              href="#industries"
+                              href={href ?? "#industries"}
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
