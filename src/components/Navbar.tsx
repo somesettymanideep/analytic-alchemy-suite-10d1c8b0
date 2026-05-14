@@ -333,6 +333,8 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
+              </div>
+            ) : (
               <a
                 key={l.label}
                 href={l.href}
