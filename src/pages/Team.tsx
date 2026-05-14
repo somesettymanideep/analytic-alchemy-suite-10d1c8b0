@@ -101,14 +101,9 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
         ) : (
           <Initials name={m.name} />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/20 to-transparent opacity-90" />
         <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-background/90 backdrop-blur text-[10px] font-semibold uppercase tracking-wider text-primary border border-border/60 shadow-sm">
           <MapPin size={10} /> {m.location}
         </span>
-        <div className="absolute inset-x-4 bottom-3 text-primary-foreground">
-          <h3 className="text-lg font-bold font-heading drop-shadow-sm">{m.name}</h3>
-          <p className="text-xs font-medium text-primary-foreground/90">{m.role}</p>
-        </div>
       </div>
 
       {/* Body */}
