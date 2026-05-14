@@ -86,8 +86,9 @@ function Initials({ name }: { name: string }) {
 
 function TeamCard({ m }: { m: (typeof team)[number] }) {
   return (
-    <article className="group relative h-full bg-card rounded-2xl border border-border/60 shadow-md shadow-primary/5 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
-      <div className="aspect-[4/3] overflow-hidden bg-muted">
+    <article className="group relative h-full flex flex-col bg-card rounded-2xl border border-border/60 shadow-md shadow-primary/5 overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-primary/15 hover:border-primary/40">
+      {/* Image with gradient overlay & floating name plate */}
+      <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         {m.image ? (
           <img
             src={m.image}
@@ -95,28 +96,55 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
             loading="lazy"
             width={768}
             height={768}
-            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
           />
         ) : (
           <Initials name={m.name} />
         )}
-      </div>
-      <div className="p-6">
-        <h3 className="text-lg font-bold text-foreground font-heading">{m.name}</h3>
-        <p className="mt-1 text-sm font-semibold text-primary">{m.role}</p>
-        <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground inline-flex items-center gap-1">
-          <MapPin size={12} /> {m.location}
-        </p>
-        <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-4">{m.bio}</p>
-        <div className="mt-5 flex items-center gap-2 pt-4 border-t border-border/60">
-          <a href="#" aria-label={`${m.name} on LinkedIn`} className="p-2 rounded-full text-foreground/60 hover:text-primary hover:bg-primary/5 transition-colors">
-            <Linkedin size={16} />
-          </a>
-          <a href="mailto:Info@nextgenlytics.com" aria-label={`Email ${m.name}`} className="p-2 rounded-full text-foreground/60 hover:text-primary hover:bg-primary/5 transition-colors">
-            <Mail size={16} />
-          </a>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/20 to-transparent opacity-90" />
+        <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-background/90 backdrop-blur text-[10px] font-semibold uppercase tracking-wider text-primary border border-border/60 shadow-sm">
+          <MapPin size={10} /> {m.location}
+        </span>
+        <div className="absolute inset-x-4 bottom-3 text-primary-foreground">
+          <h3 className="text-lg font-bold font-heading drop-shadow-sm">{m.name}</h3>
+          <p className="text-xs font-medium text-primary-foreground/90">{m.role}</p>
         </div>
       </div>
+
+      {/* Body */}
+      <div className="p-5 flex-1 flex flex-col">
+        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{m.bio}</p>
+
+        <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+
+        <div className="mt-4 flex items-center justify-between">
+          <a
+            href="mailto:Info@nextgenlytics.com"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-accent transition-colors group/cta"
+          >
+            Connect
+            <span className="transition-transform group-hover/cta:translate-x-0.5">→</span>
+          </a>
+          <div className="flex items-center gap-1.5">
+            <a
+              href="#"
+              aria-label={`${m.name} on LinkedIn`}
+              className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
+            >
+              <Linkedin size={14} />
+            </a>
+            <a
+              href="mailto:Info@nextgenlytics.com"
+              aria-label={`Email ${m.name}`}
+              className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all hover:scale-110"
+            >
+              <Mail size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary via-accent to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
     </article>
   );
 }
@@ -164,9 +192,9 @@ export default function Team() {
 
         {/* Founder spotlight */}
         <section className="container pb-16 md:pb-24" ref={founderRef}>
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
             <div
-              className={`relative h-full ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
+              className={`relative h-full lg:col-span-4 ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
             >
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 via-accent/10 to-transparent blur-2xl" aria-hidden />
               <div className="relative h-full min-h-[420px] rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
@@ -186,7 +214,7 @@ export default function Team() {
               </div>
             </div>
 
-            <div className={`flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
+            <div className={`lg:col-span-8 flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
               <span className="text-xs font-semibold uppercase tracking-widest text-accent">
                 Co-Founder
               </span>
