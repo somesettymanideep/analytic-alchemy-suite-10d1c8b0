@@ -491,6 +491,30 @@ export default function Navbar() {
                       </ul>
                     </div>
                   )}
+                  {mobileMenuKey === "industries" && l.hasMenu === "industries" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <ul>
+                        {industriesMenu.map(({ label, desc, Icon }) => (
+                          <li key={label}>
+                            <a
+                              href="#industries"
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-start gap-2 py-2 text-sm text-foreground/80"
+                            >
+                              <Icon size={16} className="text-primary mt-0.5" />
+                              <span className="flex-1">
+                                <span className="block font-medium">{label}</span>
+                                <span className="block text-xs text-muted-foreground">{desc}</span>
+                              </span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <a
