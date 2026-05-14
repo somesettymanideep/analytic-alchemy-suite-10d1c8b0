@@ -301,8 +301,38 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
-              </div>
-            ) : (
+
+                {openMenuKey === "industries" && l.hasMenu === "industries" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(880px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    onMouseEnter={() => openMenu("industries")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-2">
+                      {industriesMenu.map(({ label, desc, Icon }) => (
+                        <a
+                          key={label}
+                          href="#industries"
+                          onClick={closeNow}
+                          className="flex items-start gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                        >
+                          <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                            <Icon size={18} />
+                          </span>
+                          <span className="flex-1 min-w-0">
+                            <span className="block text-sm font-semibold text-foreground group-hover:text-primary whitespace-nowrap">
+                              {label}
+                            </span>
+                            <span className="block text-xs text-muted-foreground whitespace-nowrap overflow-hidden text-ellipsis">
+                              {desc}
+                            </span>
+                          </span>
+                          <ArrowRight size={14} className="text-accent opacity-70 mt-1" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               <a
                 key={l.label}
                 href={l.href}
