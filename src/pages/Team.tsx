@@ -172,20 +172,13 @@ export default function Team() {
     <div className="min-h-screen bg-background">
       <ScrollToTop />
       <Navbar />
-      <main className="pt-24 md:pt-28">
-        {/* Heading */}
-        <section className="container py-12 md:py-16 text-center max-w-3xl mx-auto animate-reveal-up">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">
-            Our Team
-          </span>
-          <h1 className="mt-3 text-4xl md:text-5xl font-bold text-foreground font-heading text-balance">
-            The specialists behind Nextgenlytics
-          </h1>
-          <p className="mt-5 text-lg text-muted-foreground leading-relaxed text-pretty">
-            35+ practitioners across Amsterdam, Hyderabad, and Lucknow — combining
-            Tier-1 SI experience with deep product engineering on BlueGecko.
-          </p>
-        </section>
+      <main>
+        <PageBanner
+          image={teamBanner}
+          eyebrow="Our Team"
+          title="The specialists behind Nextgenlytics"
+          description="35+ practitioners across Amsterdam, Hyderabad, and Lucknow — combining Tier-1 SI experience with deep product engineering on BlueGecko."
+        />
 
         {/* Founder spotlight */}
         <section className="container pb-16 md:pb-24" ref={founderRef}>
