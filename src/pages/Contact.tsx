@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Mail, MapPin, ArrowLeft, CalendarCheck, MonitorPlay } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
+import contactBanner from "@/assets/banner-contact.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
