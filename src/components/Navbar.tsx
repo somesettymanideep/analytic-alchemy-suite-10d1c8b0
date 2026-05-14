@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap } from "lucide-react";
 
 const solutionsMenu = [
   {
@@ -71,18 +71,28 @@ const clientWorkMenu = [
   { label: "Managed Services Programs", Icon: LifeBuoy },
 ];
 
+const industriesMenu = [
+  { label: "Manufacturing", desc: "Smart factories and connected operations.", Icon: Factory },
+  { label: "Logistics & Supply Chain", desc: "End-to-end visibility and resilience.", Icon: Truck },
+  { label: "Retail & Wholesale", desc: "Omnichannel commerce and demand insight.", Icon: ShoppingBag },
+  { label: "Healthcare", desc: "Patient-centric data and compliance.", Icon: HeartPulse },
+  { label: "Financial Services", desc: "Secure, real-time financial intelligence.", Icon: Landmark },
+  { label: "Staffing", desc: "Workforce analytics and talent operations.", Icon: Users },
+  { label: "Energy & Utilities", desc: "Sustainable, data-driven grid operations.", Icon: Zap },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products", hasMenu: "products" as const },
-  { label: "Industries", href: "#industries" },
+  { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Contact", href: "/contact" },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | "products" | "clientWork" | null;
+type MenuKey = "solutions" | "insights" | "about" | "products" | "clientWork" | "industries" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
