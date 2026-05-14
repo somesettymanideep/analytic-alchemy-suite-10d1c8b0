@@ -84,6 +84,12 @@ function VisionMission() {
       title: "Be Europe's most trusted enterprise transformation partner.",
       body: "A consultancy where senior practitioners — not pyramids — deliver enterprise outcomes, powered by our own BlueGecko platform.",
       pillars: ["Senior-led delivery", "Productised platform", "European trust"],
+      proof: [
+        { value: "100%", label: "Senior-led engagements" },
+        { value: "3", label: "Global delivery hubs" },
+        { value: "20+", label: "Years SI heritage" },
+        { value: "9.4/10", label: "Client trust score" },
+      ],
       tone: "primary" as const,
     },
     {
@@ -93,6 +99,12 @@ function VisionMission() {
       title: "Make enterprise migrations faster, leaner, and predictable.",
       body: "We compress timelines and de-risk transformation by combining decades of SI expertise with productised delivery accelerators.",
       pillars: ["Compress timelines", "De-risk cutovers", "Predictable outcomes"],
+      proof: [
+        { value: "50%", label: "Faster migrations" },
+        { value: "35%", label: "Lower programme cost" },
+        { value: "<9 mo", label: "Avg. D365 go-live" },
+        { value: "98%", label: "On-time cutovers" },
+      ],
       tone: "accent" as const,
     },
   ];
