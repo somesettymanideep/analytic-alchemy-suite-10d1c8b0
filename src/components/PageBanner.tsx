@@ -26,7 +26,7 @@ export default function PageBanner({
         />
         {/* Black overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+        
       </div>
 
       {/* Subtle decorative grid */}
@@ -56,8 +56,6 @@ export default function PageBanner({
         </div>
       </div>
 
-      {/* Bottom fade into page */}
-      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent" aria-hidden />
     </section>
   );
 }
