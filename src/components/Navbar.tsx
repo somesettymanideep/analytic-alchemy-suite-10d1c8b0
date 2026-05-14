@@ -46,9 +46,9 @@ const insightsMenu = [
   { label: "Research", icon: "🔬" },
 ];
 
-const aboutMenu = [
-  { label: "About Nextgenlytics", icon: "🏢" },
-  { label: "Our Team", icon: "👥" },
+const aboutMenu: { label: string; icon: string; href: string }[] = [
+  { label: "About Nextgenlytics", icon: "🏢", href: "/about" },
+  { label: "Our Team", icon: "👥", href: "/team" },
 ];
 
 const productsMenu = [
