@@ -11,6 +11,7 @@ import Manufacturing from "./pages/Manufacturing.tsx";
 import Logistics from "./pages/Logistics.tsx";
 import Staffing from "./pages/Staffing.tsx";
 import Healthcare from "./pages/Healthcare.tsx";
+import Finance from "./pages/Finance.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/industries/logistics" element={<Logistics />} />
           <Route path="/industries/staffing" element={<Staffing />} />
           <Route path="/industries/healthcare" element={<Healthcare />} />
+          <Route path="/industries/financial-services" element={<Finance />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
