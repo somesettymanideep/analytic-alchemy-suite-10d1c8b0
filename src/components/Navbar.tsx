@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy } from "lucide-react";
 
 const solutionsMenu = [
   {
@@ -62,18 +62,27 @@ const productsMenu = [
   { label: "Business Metrics", icon: "📈" },
 ];
 
+const clientWorkMenu = [
+  { label: "Manufacturing SAP Transformation", Icon: Factory },
+  { label: "D365 AMS Engagement", Icon: Cog },
+  { label: "Invoice Automation", Icon: FileText },
+  { label: "AI Data Migration", Icon: Database },
+  { label: "Analytics Transformation", Icon: BarChart3 },
+  { label: "Managed Services Programs", Icon: LifeBuoy },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries" },
-  { label: "Client Work", href: "#cases" },
+  { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Contact", href: "/contact" },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | "products" | null;
+type MenuKey = "solutions" | "insights" | "about" | "products" | "clientWork" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -255,6 +264,33 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
+
+                {openMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    onMouseEnter={() => openMenu("clientWork")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-2 grid-rows-3 grid-flow-col gap-2">
+                      {clientWorkMenu.map(({ label, Icon }) => (
+                        <a
+                          key={label}
+                          href="#cases"
+                          onClick={closeNow}
+                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                        >
+                          <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                            <Icon size={18} />
+                          </span>
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                            {label}
+                          </span>
+                          <ArrowRight size={14} className="text-accent opacity-70" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <a
@@ -386,6 +422,27 @@ export default function Navbar() {
                             >
                               <span>{i.icon}</span>
                               <span>{i.label}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {mobileMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <ul>
+                        {clientWorkMenu.map(({ label, Icon }) => (
+                          <li key={label}>
+                            <a
+                              href="#cases"
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
+                            >
+                              <Icon size={16} className="text-primary" />
+                              <span>{label}</span>
                             </a>
                           </li>
                         ))}
