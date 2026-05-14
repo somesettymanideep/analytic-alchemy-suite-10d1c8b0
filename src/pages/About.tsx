@@ -192,6 +192,32 @@ function VisionMission() {
                     <p className="mt-4 text-base text-muted-foreground leading-relaxed">
                       {c.body}
                     </p>
+
+                    {/* Proof points */}
+                    <dl className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {c.proof.map((p) => (
+                        <div
+                          key={p.label}
+                          className={`relative rounded-xl border p-3 text-center transition-colors ${
+                            isAccent
+                              ? "border-accent/20 bg-accent/5 hover:bg-accent/10"
+                              : "border-primary/15 bg-primary/5 hover:bg-primary/10"
+                          }`}
+                        >
+                          <dt
+                            className={`font-heading font-bold text-lg md:text-xl leading-none ${
+                              isAccent ? "text-accent" : "text-primary"
+                            }`}
+                          >
+                            {p.value}
+                          </dt>
+                          <dd className="mt-1.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground leading-tight">
+                            {p.label}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+
                     <div className="mt-6 h-px w-full bg-gradient-to-r from-border via-border/50 to-transparent" />
                     <ul className="mt-5 flex flex-wrap gap-2">
                       {c.pillars.map((p) => (
