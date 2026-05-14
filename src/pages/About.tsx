@@ -137,56 +137,105 @@ function VisionMission() {
 function OurJourney() {
   const { ref, isVisible } = useScrollReveal(0.1);
   const milestones = [
-    { year: "2019", title: "Founding vision", body: "Hugo Cooijmans and co-founders shape the model: senior-led delivery, no pyramids." },
-    { year: "2021", title: "BlueGecko platform", body: "Internal accelerators consolidated into a productised delivery platform." },
-    { year: "2023", title: "Hyderabad hub", body: "First India delivery centre opens — onshore-orchestrated, never subcontracted." },
-    { year: "2024", title: "Amsterdam HQ", body: "Headquarters established at B. Amsterdam to anchor European clients." },
-    { year: "2025", title: "Lucknow expansion", body: "Second India hub opens, scaling specialist capacity across SAP, MS, Data & AI." },
-    { year: "2026", title: "AI Agents practice", body: "Dedicated practice operationalising agentic systems for enterprise outcomes." },
+    { year: "2019", title: "Founding vision", body: "Hugo Cooijmans and co-founders shape the model: senior-led delivery, no pyramids.", icon: Rocket },
+    { year: "2021", title: "BlueGecko platform", body: "Internal accelerators consolidated into a productised delivery platform.", icon: Zap },
+    { year: "2023", title: "Hyderabad hub", body: "First India delivery centre opens — onshore-orchestrated, never subcontracted.", icon: Building2 },
+    { year: "2024", title: "Amsterdam HQ", body: "Headquarters established at B. Amsterdam to anchor European clients.", icon: MapPin },
+    { year: "2025", title: "Lucknow expansion", body: "Second India hub opens, scaling specialist capacity across SAP, MS, Data & AI.", icon: Globe2 },
+    { year: "2026", title: "AI Agents practice", body: "Dedicated practice operationalising agentic systems for enterprise outcomes.", icon: Award },
   ];
   return (
-    <section id="journey" className="container py-20 md:py-28" ref={ref}>
-      <div className={`max-w-2xl ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-          <Rocket size={14} /> Our Journey
-        </span>
-        <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-          From founding insight to a productised delivery platform.
-        </h2>
-        <p className="mt-4 text-muted-foreground leading-relaxed">
-          A short timeline of the milestones that shaped Nextgenlytics into the firm it is today.
-        </p>
-      </div>
+    <section id="journey" className="relative overflow-hidden py-20 md:py-28" ref={ref}>
+      {/* Decorative background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-muted/40 via-background to-background" aria-hidden />
+      <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-primary/5 blur-3xl -z-10" aria-hidden />
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl -z-10" aria-hidden />
 
-      <div className="relative mt-16">
-        {/* Vertical spine (desktop) */}
-        <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border to-transparent" aria-hidden />
+      <div className="container">
+        <div className={`max-w-2xl ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
+            <Rocket size={14} /> Our Journey
+          </span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
+            From founding insight to a productised delivery platform.
+          </h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            A short timeline of the milestones that shaped Nextgenlytics into the firm it is today.
+          </p>
+        </div>
 
-        <ol className="space-y-10 md:space-y-16">
-          {milestones.map((m, i) => {
-            const left = i % 2 === 0;
-            return (
-              <li
-                key={m.year}
-                className={`relative md:grid md:grid-cols-2 md:gap-12 items-center ${
-                  isVisible ? "animate-reveal-up" : "opacity-0"
-                }`}
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                {/* Dot */}
-                <span className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent ring-4 ring-background shadow-md shadow-accent/30" />
+        <div className="relative mt-20">
+          {/* Vertical spine */}
+          <div
+            className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary/10 via-primary/40 to-accent/40"
+            aria-hidden
+          />
 
-                <div className={`${left ? "md:pr-12 md:text-right" : "md:col-start-2 md:pl-12"}`}>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider">
-                    {m.year}
+          <ol className="space-y-12 md:space-y-20">
+            {milestones.map((m, i) => {
+              const left = i % 2 === 0;
+              const Icon = m.icon;
+              return (
+                <li
+                  key={m.year}
+                  className={`relative pl-20 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center ${
+                    isVisible ? "animate-reveal-up" : "opacity-0"
+                  }`}
+                  style={{ animationDelay: `${i * 120}ms` }}
+                >
+                  {/* Icon node on spine */}
+                  <span
+                    className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl shadow-primary/30 ring-4 ring-background rotate-3 hover:rotate-0 transition-transform duration-300"
+                    aria-hidden
+                  >
+                    <Icon size={20} strokeWidth={2.2} />
+                  </span>
+
+                  {/* Spacer column on desktop for alternating layout */}
+                  {!left && <div className="hidden md:block" />}
+
+                  {/* Card */}
+                  <div className={`group relative ${left ? "md:pr-10" : "md:pl-10"}`}>
+                    {/* Connector arrow (desktop only) */}
+                    <span
+                      className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-10 h-px bg-gradient-to-r ${
+                        left ? "right-0 from-transparent to-primary/40" : "left-0 from-primary/40 to-transparent"
+                      }`}
+                      aria-hidden
+                    />
+                    <div
+                      className={`relative rounded-2xl border border-border bg-card p-6 md:p-7 shadow-sm hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 ${
+                        left ? "md:text-right" : ""
+                      }`}
+                    >
+                      <div
+                        className={`flex items-baseline gap-3 ${
+                          left ? "md:justify-end" : ""
+                        }`}
+                      >
+                        <span className="font-heading text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent leading-none">
+                          {m.year}
+                        </span>
+                        <span className="px-2.5 py-1 rounded-full bg-accent/15 text-accent text-[10px] font-bold uppercase tracking-widest">
+                          Milestone
+                        </span>
+                      </div>
+                      <h3 className="mt-4 text-xl font-bold text-foreground font-heading">
+                        {m.title}
+                      </h3>
+                      <p className="mt-2 text-muted-foreground leading-relaxed text-sm md:text-base">
+                        {m.body}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="mt-3 text-xl font-bold text-foreground font-heading">{m.title}</h3>
-                  <p className="mt-2 text-muted-foreground leading-relaxed">{m.body}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ol>
+
+                  {/* Spacer for left-aligned cards on desktop */}
+                  {left && <div className="hidden md:block" />}
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
     </section>
   );
