@@ -427,6 +427,7 @@ export default function Navbar() {
                         ))}
                       </ul>
                     </div>
+                  )}
                   {mobileMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
