@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import type { LucideIcon } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -23,7 +24,7 @@ import {
   LineChart,
 } from "lucide-react";
 
-type Challenge = { Icon: React.ComponentType<{ size?: number }>; title: string; body: string };
+type Challenge = { Icon: LucideIcon; title: string; body: string };
 
 function Section({
   eyebrow,
@@ -35,7 +36,7 @@ function Section({
   reverse,
 }: {
   eyebrow: string;
-  EyebrowIcon: React.ComponentType<{ size?: number }>;
+  EyebrowIcon: LucideIcon;
   title: string;
   intro: React.ReactNode;
   image: string;

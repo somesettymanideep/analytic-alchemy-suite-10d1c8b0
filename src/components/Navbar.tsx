@@ -74,7 +74,7 @@ const clientWorkMenu = [
 const industriesMenu = [
   { label: "Manufacturing", desc: "Smart factories and connected operations.", Icon: Factory, href: "/industries/manufacturing" },
   { label: "Logistics & Supply Chain", desc: "End-to-end visibility and resilience.", Icon: Truck, href: "/industries/logistics" },
-  { label: "Retail & Wholesale", desc: "Omnichannel commerce and demand insight.", Icon: ShoppingBag },
+  { label: "Retail & Wholesale", desc: "Omnichannel commerce and demand insight.", Icon: ShoppingBag, href: "/industries/retail" },
   { label: "Healthcare", desc: "Patient-centric data and compliance.", Icon: HeartPulse, href: "/industries/healthcare" },
   { label: "Financial Services", desc: "Secure, real-time financial intelligence.", Icon: Landmark, href: "/industries/financial-services" },
   { label: "Staffing", desc: "Workforce analytics and talent operations.", Icon: Users, href: "/industries/staffing" },
