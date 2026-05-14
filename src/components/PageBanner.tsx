@@ -15,7 +15,7 @@ export default function PageBanner({
 }: PageBannerProps) {
   const alignment = align === "center" ? "text-center mx-auto" : "text-left";
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden mt-16 md:mt-20">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
