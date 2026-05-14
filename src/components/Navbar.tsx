@@ -309,10 +309,10 @@ export default function Navbar() {
                     onMouseLeave={scheduleClose}
                   >
                     <div className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-2">
-                      {industriesMenu.map(({ label, desc, Icon }) => (
+                      {industriesMenu.map(({ label, desc, Icon, href }) => (
                         <a
                           key={label}
-                          href="#industries"
+                          href={href ?? "#industries"}
                           onClick={closeNow}
                           className="flex items-start gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
