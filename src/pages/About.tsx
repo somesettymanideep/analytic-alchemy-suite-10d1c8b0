@@ -80,20 +80,36 @@ function VisionMission() {
     {
       icon: Compass,
       tag: "Our Vision",
+      number: "01",
       title: "Be Europe's most trusted enterprise transformation partner.",
       body: "A consultancy where senior practitioners — not pyramids — deliver enterprise outcomes, powered by our own BlueGecko platform.",
-      accent: "from-primary/10 to-primary/0",
+      pillars: ["Senior-led delivery", "Productised platform", "European trust"],
+      tone: "primary" as const,
     },
     {
       icon: Target,
       tag: "Our Mission",
+      number: "02",
       title: "Make enterprise migrations faster, leaner, and predictable.",
       body: "We compress timelines and de-risk transformation by combining decades of SI expertise with productised delivery accelerators.",
-      accent: "from-accent/15 to-accent/0",
+      pillars: ["Compress timelines", "De-risk cutovers", "Predictable outcomes"],
+      tone: "accent" as const,
     },
   ];
   return (
-    <section id="vision-mission" className="section-alt py-20 md:py-28">
+    <section id="vision-mission" className="relative section-alt py-20 md:py-28 overflow-hidden">
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+        }}
+        aria-hidden
+      />
+      <div className="absolute -top-24 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-3xl -z-10" aria-hidden />
+      <div className="absolute -bottom-24 right-1/4 w-96 h-96 rounded-full bg-accent/15 blur-3xl -z-10" aria-hidden />
+
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -102,29 +118,89 @@ function VisionMission() {
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             What we're building, and why it matters.
           </h2>
+          <div className="mt-5 mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-primary via-accent to-primary" />
         </div>
-        <div className="mt-14 grid md:grid-cols-2 gap-6 lg:gap-8">
-          {cards.map((c, i) => (
-            <article
-              key={c.tag}
-              className={`group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-8 md:p-10 shadow-md shadow-primary/5 transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 ${
-                isVisible ? "animate-reveal-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${i * 150}ms` }}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${c.accent} opacity-60`} aria-hidden />
-              <div className="relative">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <c.icon size={22} />
+
+        <div className="mt-16 grid md:grid-cols-2 gap-8 lg:gap-10">
+          {cards.map((c, i) => {
+            const isAccent = c.tone === "accent";
+            return (
+              <article
+                key={c.tag}
+                className={`group relative ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
+                style={{ animationDelay: `${i * 180}ms` }}
+              >
+                <div
+                  className={`absolute -inset-0.5 rounded-3xl bg-gradient-to-br ${
+                    isAccent ? "from-accent/40 via-accent/10 to-primary/20" : "from-primary/40 via-primary/10 to-accent/20"
+                  } opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500`}
+                  aria-hidden
+                />
+                <div className="relative h-full rounded-3xl border border-border/70 bg-card overflow-hidden shadow-lg shadow-primary/5 group-hover:-translate-y-1.5 transition-transform duration-500">
+                  <div
+                    className={`h-1.5 w-full bg-gradient-to-r ${
+                      isAccent ? "from-accent via-accent/70 to-primary" : "from-primary via-primary/70 to-accent"
+                    }`}
+                    aria-hidden
+                  />
+                  <span
+                    className="pointer-events-none select-none absolute -top-6 right-4 font-heading font-black text-[120px] md:text-[160px] leading-none tracking-tighter text-transparent"
+                    style={{
+                      WebkitTextStroke: `1.5px hsl(var(--${isAccent ? "accent" : "primary"}) / 0.18)`,
+                    }}
+                    aria-hidden
+                  >
+                    {c.number}
+                  </span>
+                  <div className="relative p-8 md:p-10">
+                    <div className="flex items-center gap-4">
+                      <div
+                        className={`relative inline-flex items-center justify-center w-14 h-14 rounded-2xl shadow-lg ${
+                          isAccent
+                            ? "bg-gradient-to-br from-accent to-accent/70 text-accent-foreground shadow-accent/30"
+                            : "bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-primary/30"
+                        } rotate-3 group-hover:rotate-0 transition-transform duration-500`}
+                      >
+                        <c.icon size={24} strokeWidth={2.2} />
+                      </div>
+                      <div className="flex flex-col">
+                        <span
+                          className={`text-[11px] font-bold uppercase tracking-[0.2em] ${
+                            isAccent ? "text-accent" : "text-primary"
+                          }`}
+                        >
+                          {c.tag}
+                        </span>
+                        <span className="text-xs text-muted-foreground">Chapter {c.number}</span>
+                      </div>
+                    </div>
+                    <h3 className="mt-6 text-xl md:text-2xl font-bold text-foreground font-heading text-balance leading-snug">
+                      {c.title}
+                    </h3>
+                    <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+                      {c.body}
+                    </p>
+                    <div className="mt-6 h-px w-full bg-gradient-to-r from-border via-border/50 to-transparent" />
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {c.pillars.map((p) => (
+                        <li
+                          key={p}
+                          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${
+                            isAccent
+                              ? "border-accent/30 bg-accent/10 text-accent"
+                              : "border-primary/20 bg-primary/5 text-primary"
+                          }`}
+                        >
+                          <CheckCircle2 size={12} strokeWidth={2.5} />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-accent">{c.tag}</p>
-                <h3 className="mt-2 text-xl md:text-2xl font-bold text-foreground font-heading text-balance">
-                  {c.title}
-                </h3>
-                <p className="mt-4 text-base text-muted-foreground leading-relaxed">{c.body}</p>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
