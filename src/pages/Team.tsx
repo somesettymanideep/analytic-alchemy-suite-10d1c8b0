@@ -14,7 +14,7 @@ import microsoftImg from "@/assets/team-microsoft.jpg";
 import aiImg from "@/assets/team-ai.jpg";
 import cloudImg from "@/assets/team-cloud.jpg";
 import sapImg from "@/assets/team-sap.jpg";
-import { Linkedin, Mail, MapPin } from "lucide-react";
+import { Linkedin, Mail, MapPin, Check } from "lucide-react";
 
 const founders = [
   {
