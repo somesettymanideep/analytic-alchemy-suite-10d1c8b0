@@ -19,10 +19,10 @@ import { Linkedin, Mail, MapPin, Check } from "lucide-react";
 const founders = [
   {
     name: "Hugo Cooijmans",
-    role: "Co-Founder & SAP Lead",
+    role: "SAP Strategy & Architecture",
     location: "Amsterdam, NL",
-    focus: "SAP S/4HANA · Programme Leadership",
-    bio: "Founding figure of the Dutch SAP SI ecosystem. Decades of SAP programme leadership across major NL enterprises — the credibility that opens doors and the operator instinct that closes deals.",
+    quote:
+      "Bridging the gap between legacy enterprise systems and the speed of modern product engineering.",
     image: hugoImg,
     highlights: [
       "30+ yrs SAP programme leadership",
@@ -32,10 +32,10 @@ const founders = [
   },
   {
     name: "Rajiv Menon",
-    role: "Co-Founder & Data / AI Lead",
+    role: "Data & AI Engineering",
     location: "Amsterdam, NL",
-    focus: "Data Platforms · Applied AI · BlueGecko",
-    bio: "Two decades architecting enterprise data platforms and AI systems at Tier-1 SIs. Drives the BlueGecko product vision and the agentic delivery model behind every Nextgenlytics migration.",
+    quote:
+      "Turning abstract data lakes into concrete decision-making engines with LLMs and predictive analytics.",
     image: dataAiFounderImg,
     highlights: [
       "20+ yrs data & AI architecture",
@@ -45,10 +45,10 @@ const founders = [
   },
   {
     name: "Arjun Krishnan",
-    role: "Co-Founder & Delivery Lead",
+    role: "Global Delivery & Operations",
     location: "Hyderabad, IN",
-    focus: "Global Delivery · Onshore-Offshore",
-    bio: "Runs Nextgenlytics' onshore-offshore engagement engine across Hyderabad and Lucknow. Ensures European delivery standards at 30–40% below Tier-1 Dutch SI rates — without compromising senior-led governance.",
+    quote:
+      "Scale is only successful when paired with meticulous quality engineering and cultural alignment.",
     image: deliveryFounderImg,
     highlights: [
       "35+ specialists across IN hubs",
