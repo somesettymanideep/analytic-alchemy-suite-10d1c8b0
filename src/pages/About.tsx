@@ -278,78 +278,179 @@ function OurJourney() {
           </p>
         </div>
 
-        <div className="relative mt-20">
-          {/* Vertical spine */}
-          <div
-            className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary/10 via-primary/40 to-accent/40"
-            aria-hidden
-          />
+        {/* ---------- Curved Road Timeline ---------- */}
+        {(() => {
+          const n = milestones.length;
+          // Build a serpentine path through evenly spaced y positions
+          const pts = milestones.map((_, i) => {
+            const t = i / (n - 1);
+            const y = 6 + t * 88; // 6% → 94%
+            const x = 50 + Math.sin(t * Math.PI * (n - 1)) * 32; // weaves left/right
+            return { x, y, t };
+          });
+          let d = "";
+          pts.forEach((p, i) => {
+            if (i === 0) {
+              d += `M ${p.x} ${p.y}`;
+            } else {
+              const prev = pts[i - 1];
+              const midY = (prev.y + p.y) / 2;
+              d += ` C ${prev.x} ${midY}, ${p.x} ${midY}, ${p.x} ${p.y}`;
+            }
+          });
+          return (
+            <div className="relative mt-16 md:mt-20">
+              {/* Mobile: simple vertical road */}
+              <div className="md:hidden absolute left-6 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-primary/30 via-primary/60 to-accent/60" aria-hidden />
+              <div className="md:hidden absolute left-[27px] top-0 bottom-0 w-px border-l-2 border-dashed border-accent/70" aria-hidden />
 
-          <ol className="space-y-12 md:space-y-20">
-            {milestones.map((m, i) => {
-              const left = i % 2 === 0;
-              const Icon = m.icon;
-              return (
-                <li
-                  key={m.year}
-                  className={`relative pl-20 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center ${
-                    isVisible ? "animate-reveal-up" : "opacity-0"
-                  }`}
-                  style={{ animationDelay: `${i * 120}ms` }}
+              {/* Desktop: curved road SVG */}
+              <div className="hidden md:block relative w-full" style={{ height: `${n * 220}px` }}>
+                <svg
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  aria-hidden
                 >
-                  {/* Icon node on spine */}
-                  <span
-                    className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl shadow-primary/30 ring-4 ring-background rotate-3 hover:rotate-0 transition-transform duration-300"
-                    aria-hidden
-                  >
-                    <Icon size={20} strokeWidth={2.2} />
-                  </span>
+                  <defs>
+                    <linearGradient id="roadGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.18" />
+                      <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.55" />
+                      <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.7" />
+                    </linearGradient>
+                    <linearGradient id="roadShoulder" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.08" />
+                      <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.18" />
+                    </linearGradient>
+                  </defs>
+                  {/* Outer asphalt shoulder */}
+                  <path
+                    d={d}
+                    stroke="url(#roadShoulder)"
+                    strokeWidth="6"
+                    fill="none"
+                    strokeLinecap="round"
+                    vectorEffect="non-scaling-stroke"
+                    style={{ filter: "blur(0.5px)" }}
+                  />
+                  {/* Main road */}
+                  <path
+                    d={d}
+                    stroke="url(#roadGrad)"
+                    strokeWidth="3.2"
+                    fill="none"
+                    strokeLinecap="round"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                  {/* Dashed center line */}
+                  <path
+                    d={d}
+                    stroke="hsl(var(--accent))"
+                    strokeWidth="0.6"
+                    strokeDasharray="2 3"
+                    fill="none"
+                    strokeLinecap="round"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
 
-                  {/* Spacer column on desktop for alternating layout */}
-                  {!left && <div className="hidden md:block" />}
-
-                  {/* Card */}
-                  <div className={`group relative ${left ? "md:pr-10" : "md:pl-10"}`}>
-                    {/* Connector arrow (desktop only) */}
-                    <span
-                      className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-10 h-px bg-gradient-to-r ${
-                        left ? "right-0 from-transparent to-primary/40" : "left-0 from-primary/40 to-transparent"
-                      }`}
-                      aria-hidden
-                    />
+                {/* Milestone markers + cards on the road */}
+                {milestones.map((m, i) => {
+                  const Icon = m.icon;
+                  const p = pts[i];
+                  const onLeft = p.x < 50;
+                  return (
                     <div
-                      className={`relative rounded-2xl border border-border bg-card p-6 md:p-7 shadow-sm hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 ${
-                        left ? "md:text-right" : ""
-                      }`}
+                      key={m.year}
+                      className={`absolute ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
+                      style={{
+                        top: `${p.y}%`,
+                        left: `${p.x}%`,
+                        transform: "translate(-50%, -50%)",
+                        animationDelay: `${i * 140}ms`,
+                      }}
                     >
+                      {/* Road marker pin */}
+                      <span
+                        className="relative z-10 flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl shadow-primary/40 ring-4 ring-background"
+                        aria-hidden
+                      >
+                        <Icon size={22} strokeWidth={2.2} />
+                        <span className="absolute inset-0 rounded-full bg-primary/30 animate-ping" />
+                      </span>
+
+                      {/* Card placed beside marker, away from curve */}
                       <div
-                        className={`flex items-baseline gap-3 ${
-                          left ? "md:justify-end" : ""
+                        className={`absolute top-1/2 -translate-y-1/2 w-[320px] ${
+                          onLeft ? "left-full ml-6" : "right-full mr-6"
                         }`}
                       >
-                        <span className="font-heading text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent leading-none">
-                          {m.year}
-                        </span>
-                        <span className="px-2.5 py-1 rounded-full bg-accent/15 text-accent text-[10px] font-bold uppercase tracking-widest">
-                          Milestone
-                        </span>
+                        {/* Connector line from pin to card */}
+                        <span
+                          className={`absolute top-1/2 -translate-y-1/2 h-px w-6 bg-gradient-to-r ${
+                            onLeft
+                              ? "right-full from-primary/60 to-transparent"
+                              : "left-full from-transparent to-primary/60"
+                          }`}
+                          aria-hidden
+                        />
+                        <div
+                          className={`group relative rounded-2xl border border-border bg-card p-5 shadow-lg hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/40 transition-all duration-300 ${
+                            onLeft ? "" : "text-right"
+                          }`}
+                        >
+                          <div className={`flex items-baseline gap-3 ${onLeft ? "" : "justify-end"}`}>
+                            <span className="font-heading text-3xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent leading-none">
+                              {m.year}
+                            </span>
+                            <span className="px-2 py-0.5 rounded-full bg-accent/15 text-accent text-[10px] font-bold uppercase tracking-widest">
+                              Milestone
+                            </span>
+                          </div>
+                          <h3 className="mt-3 text-lg font-bold text-foreground font-heading">{m.title}</h3>
+                          <p className="mt-1.5 text-muted-foreground leading-relaxed text-sm">{m.body}</p>
+                        </div>
                       </div>
-                      <h3 className="mt-4 text-xl font-bold text-foreground font-heading">
-                        {m.title}
-                      </h3>
-                      <p className="mt-2 text-muted-foreground leading-relaxed text-sm md:text-base">
-                        {m.body}
-                      </p>
                     </div>
-                  </div>
+                  );
+                })}
+              </div>
 
-                  {/* Spacer for left-aligned cards on desktop */}
-                  {left && <div className="hidden md:block" />}
-                </li>
-              );
-            })}
-          </ol>
-        </div>
+              {/* Mobile fallback list */}
+              <ol className="md:hidden space-y-10">
+                {milestones.map((m, i) => {
+                  const Icon = m.icon;
+                  return (
+                    <li
+                      key={m.year}
+                      className={`relative pl-20 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
+                      style={{ animationDelay: `${i * 120}ms` }}
+                    >
+                      <span
+                        className="absolute left-0 top-0 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl shadow-primary/30 ring-4 ring-background"
+                        aria-hidden
+                      >
+                        <Icon size={20} strokeWidth={2.2} />
+                      </span>
+                      <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                        <div className="flex items-baseline gap-3">
+                          <span className="font-heading text-3xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent leading-none">
+                            {m.year}
+                          </span>
+                          <span className="px-2 py-0.5 rounded-full bg-accent/15 text-accent text-[10px] font-bold uppercase tracking-widest">
+                            Milestone
+                          </span>
+                        </div>
+                        <h3 className="mt-3 text-lg font-bold text-foreground font-heading">{m.title}</h3>
+                        <p className="mt-1.5 text-muted-foreground leading-relaxed text-sm">{m.body}</p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          );
+        })()}
       </div>
     </section>
   );
