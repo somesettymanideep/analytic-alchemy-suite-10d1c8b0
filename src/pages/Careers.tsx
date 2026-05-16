@@ -160,7 +160,7 @@ function OpenRoles() {
           </p>
         </div>
 
-        <div className="mt-14 grid lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="mt-14 space-y-6 lg:space-y-8">
           {jobs.map((job, i) => (
             <article
               key={job.id}
@@ -169,45 +169,54 @@ function OpenRoles() {
               }`}
               style={{ animationDelay: `${i * 150}ms` }}
             >
-              <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+              <span className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary via-accent to-primary" />
 
-              <div className="p-7 md:p-8">
-                <div className="flex items-start gap-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors shrink-0">
-                    <job.Icon size={22} />
+              <div className="grid lg:grid-cols-12 gap-0">
+                {/* Left rail — identity */}
+                <div className="lg:col-span-4 relative p-7 md:p-8 lg:border-r border-border/60 bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.06]">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
+                    <job.Icon size={26} />
                   </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-                      {job.department}
-                    </p>
-                    <h3 className="mt-1 text-xl md:text-2xl font-bold text-foreground font-heading leading-tight">
-                      {job.title}
-                    </h3>
+                  <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-accent">
+                    {job.department}
+                  </p>
+                  <h3 className="mt-1.5 text-xl md:text-2xl font-bold text-foreground font-heading leading-tight">
+                    {job.title}
+                  </h3>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/80 bg-card border border-border px-3 py-1.5 rounded-full">
+                      <MapPin size={12} /> {job.location}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/80 bg-card border border-border px-3 py-1.5 rounded-full">
+                      <Clock size={12} /> {job.type}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/80 bg-card border border-border px-3 py-1.5 rounded-full">
+                      <Users size={12} /> {job.experience}
+                    </span>
                   </div>
+
+                  <p className="mt-5 text-sm text-muted-foreground leading-relaxed">{job.summary}</p>
+
+                  <a
+                    href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(job.title)}`}
+                    className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                  >
+                    Apply now
+                    <ArrowRight size={16} />
+                  </a>
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/80 bg-secondary px-3 py-1.5 rounded-full">
-                    <MapPin size={12} /> {job.location}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/80 bg-secondary px-3 py-1.5 rounded-full">
-                    <Clock size={12} /> {job.type}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground/80 bg-secondary px-3 py-1.5 rounded-full">
-                    <Users size={12} /> {job.experience}
-                  </span>
-                </div>
-
-                <p className="mt-5 text-sm text-muted-foreground leading-relaxed">{job.summary}</p>
-
-                <div className="mt-6 grid gap-5">
+                {/* Right panel — details in two columns */}
+                <div className="lg:col-span-8 p-7 md:p-8 grid md:grid-cols-2 gap-6 md:gap-8">
                   <div>
-                    <h4 className="text-sm font-bold text-foreground font-heading">
+                    <h4 className="text-sm font-bold text-foreground font-heading flex items-center gap-2">
+                      <span className="w-1 h-4 bg-accent rounded-full" />
                       What you'll do
                     </h4>
-                    <ul className="mt-2.5 space-y-2">
+                    <ul className="mt-3 space-y-2.5">
                       {job.responsibilities.map((r) => (
-                        <li key={r} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                        <li key={r} className="flex items-start gap-2.5 text-sm text-foreground/85 leading-relaxed">
                           <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
                           <span>{r}</span>
                         </li>
@@ -215,31 +224,23 @@ function OpenRoles() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-foreground font-heading">
+                    <h4 className="text-sm font-bold text-foreground font-heading flex items-center gap-2">
+                      <span className="w-1 h-4 bg-primary rounded-full" />
                       What we're looking for
                     </h4>
-                    <ul className="mt-2.5 space-y-2">
+                    <ul className="mt-3 space-y-2.5">
                       {job.requirements.map((r) => (
-                        <li key={r} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                        <li key={r} className="flex items-start gap-2.5 text-sm text-foreground/85 leading-relaxed">
                           <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
                           <span>{r}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </div>
 
-                <div className="mt-7 flex flex-wrap items-center justify-between gap-3 pt-5 border-t border-border/60">
-                  <span className="text-xs text-muted-foreground">
+                  <div className="md:col-span-2 pt-4 border-t border-border/60 text-xs text-muted-foreground">
                     Send your CV to <span className="font-semibold text-foreground">careers@nextgenlytics.com</span>
-                  </span>
-                  <a
-                    href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(job.title)}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
-                  >
-                    Apply now
-                    <ArrowRight size={16} />
-                  </a>
+                  </div>
                 </div>
               </div>
             </article>
