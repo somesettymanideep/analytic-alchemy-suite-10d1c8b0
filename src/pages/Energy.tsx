@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerEnergy from "@/assets/banner-energy.jpg";
 import intelligenceImg from "@/assets/energy-intelligence.jpg";
@@ -283,6 +284,7 @@ export default function Energy() {
         <KeyChallenges />
         <OurExpertise />
         <PracticeAreas />
+              <IndustryCta sector="energy" />
       </main>
       <Footer />
     </div>

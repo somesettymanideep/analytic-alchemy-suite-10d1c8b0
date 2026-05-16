@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerLogistics from "@/assets/banner-logistics.jpg";
 import intelligenceImg from "@/assets/logistics-intelligence.jpg";
@@ -281,6 +282,7 @@ export default function Logistics() {
         <KeyChallenges />
         <OurExpertise />
         <PracticeAreas />
+              <IndustryCta sector="logistics" />
       </main>
       <Footer />
     </div>

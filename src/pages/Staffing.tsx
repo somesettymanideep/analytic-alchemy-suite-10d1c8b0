@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerStaffing from "@/assets/banner-staffing.jpg";
 import intelligenceImg from "@/assets/staffing-intelligence.jpg";
@@ -281,6 +282,7 @@ export default function Staffing() {
         <KeyChallenges />
         <OurExpertise />
         <PracticeAreas />
+              <IndustryCta sector="staffing" />
       </main>
       <Footer />
     </div>
