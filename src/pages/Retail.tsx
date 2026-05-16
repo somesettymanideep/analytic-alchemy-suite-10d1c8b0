@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerRetail from "@/assets/banner-retail.jpg";
 import retailImg from "@/assets/retail-intelligence.jpg";
@@ -294,6 +295,7 @@ export default function Retail() {
           ctaErpHref="/services/sap-erp"
           ctaD365Href="/services/dynamics-365"
         />
+              <IndustryCta sector="distribution" />
       </main>
       <Footer />
     </div>

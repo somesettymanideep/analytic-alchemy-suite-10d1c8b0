@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerHealthcare from "@/assets/banner-healthcare.jpg";
 import intelligenceImg from "@/assets/healthcare-intelligence.jpg";
@@ -281,6 +282,7 @@ export default function Healthcare() {
         <KeyChallenges />
         <OurExpertise />
         <PracticeAreas />
+              <IndustryCta sector="healthcare" />
       </main>
       <Footer />
     </div>

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerFinance from "@/assets/banner-finance.jpg";
 import intelligenceImg from "@/assets/finance-intelligence.jpg";
@@ -283,6 +284,7 @@ export default function Finance() {
         <KeyChallenges />
         <OurExpertise />
         <PracticeAreas />
+              <IndustryCta sector="financial services" />
       </main>
       <Footer />
     </div>

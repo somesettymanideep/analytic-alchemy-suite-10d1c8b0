@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerManufacturing from "@/assets/banner-manufacturing.jpg";
 import intelligenceImg from "@/assets/manufacturing-intelligence.jpg";
@@ -294,6 +295,7 @@ export default function Manufacturing() {
         <KeyChallenges />
         <OurExpertise />
         <PracticeAreas />
+              <IndustryCta sector="manufacturing" />
       </main>
       <Footer />
     </div>
