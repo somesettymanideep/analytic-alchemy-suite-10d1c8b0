@@ -6,6 +6,8 @@ import PageBanner from "@/components/PageBanner";
 import teamBanner from "@/assets/banner-team.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import hugoImg from "@/assets/hugo-cooijmans.jpg";
+import dataAiFounderImg from "@/assets/founder-data-ai.jpg";
+import deliveryFounderImg from "@/assets/founder-delivery.jpg";
 import cofounderImg from "@/assets/team-cofounder.jpg";
 import deliveryImg from "@/assets/team-delivery.jpg";
 import microsoftImg from "@/assets/team-microsoft.jpg";
