@@ -3,38 +3,6 @@ import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
 import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap } from "lucide-react";
 
-const solutionsMenu = [
-  {
-    title: "SAP Solutions",
-    desc: "Modernize your ERP backbone with SAP-led transformation.",
-    items: ["Problem Solved", "Business Outcome", "Technologies", "Industry Relevance"],
-  },
-  {
-    title: "Microsoft Solutions",
-    desc: "Unlock productivity and intelligence across the Microsoft stack.",
-    items: ["Problem Solved", "Business Outcome", "Technologies", "Industry Relevance"],
-  },
-  {
-    title: "AI Solutions",
-    desc: "Operationalize AI to drive measurable business value.",
-    items: ["Problem Solved", "Business Outcome", "Technologies", "Industry Relevance"],
-  },
-  {
-    title: "Data Engineering",
-    desc: "Build scalable data foundations for analytics and AI.",
-    items: ["Problem Solved", "Business Outcome", "Technologies", "Industry Relevance"],
-  },
-  {
-    title: "AMS Services",
-    desc: "Keep critical platforms running at enterprise standard.",
-    items: ["Problem Solved", "Business Outcome", "Technologies", "Industry Relevance"],
-  },
-  {
-    title: "Cloud Solutions",
-    desc: "Migrate, modernize and optimize across hybrid cloud.",
-    items: ["Problem Solved", "Business Outcome", "Technologies", "Industry Relevance"],
-  },
-];
 
 const insightsMenu = [
   { label: "Thought Leadership", icon: "✍️" },
