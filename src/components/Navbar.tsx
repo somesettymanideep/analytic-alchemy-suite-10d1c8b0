@@ -117,7 +117,7 @@ const industriesMenu = [
 
 const navLinks = [
   { label: "Home", href: "#" },
-  { label: "Solutions", href: "#solutions" },
+  { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
@@ -128,7 +128,7 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | null;
+type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | "solutions" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
