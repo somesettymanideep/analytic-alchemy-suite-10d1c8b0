@@ -1,7 +1,73 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server } from "lucide-react";
+
+type SolutionCategory = {
+  key: string;
+  label: string;
+  Icon: typeof Boxes;
+  items: { label: string; href: string }[];
+};
+
+const solutionsMenu: SolutionCategory[] = [
+  {
+    key: "sap",
+    label: "SAP Solutions",
+    Icon: Boxes,
+    items: [
+      { label: "S/4HANA Migration", href: "#solutions" },
+      { label: "SAP Implementation", href: "#solutions" },
+      { label: "SAP Rollouts", href: "#solutions" },
+      { label: "SAP AMS", href: "#solutions" },
+      { label: "SAP BTP", href: "#solutions" },
+      { label: "SAP Analytics Cloud", href: "#solutions" },
+      { label: "SAP Integration Suite", href: "#solutions" },
+    ],
+  },
+  {
+    key: "microsoft",
+    label: "Microsoft Solutions",
+    Icon: Cloud,
+    items: [
+      { label: "Dynamics 365 F&O", href: "#solutions" },
+      { label: "Dynamics 365 CE", href: "#solutions" },
+      { label: "Power Platform", href: "#solutions" },
+      { label: "Azure Cloud", href: "#solutions" },
+      { label: "Microsoft Fabric", href: "#solutions" },
+      { label: "Power BI", href: "#solutions" },
+      { label: "M365 Modernization", href: "#solutions" },
+    ],
+  },
+  {
+    key: "ai",
+    label: "AI Solutions",
+    Icon: Sparkles,
+    items: [
+      { label: "AI Strategy & Advisory", href: "#solutions" },
+      { label: "Generative AI", href: "#solutions" },
+      { label: "AI Agents", href: "#solutions" },
+      { label: "ML Engineering", href: "#solutions" },
+      { label: "Computer Vision", href: "#solutions" },
+      { label: "NLP Solutions", href: "#solutions" },
+      { label: "Responsible AI", href: "#solutions" },
+    ],
+  },
+  {
+    key: "data",
+    label: "Data Engineering",
+    Icon: Server,
+    items: [
+      { label: "Data Strategy", href: "#solutions" },
+      { label: "Data Migration", href: "#solutions" },
+      { label: "Data Warehousing", href: "#solutions" },
+      { label: "ETL / ELT Pipelines", href: "#solutions" },
+      { label: "Real-time Streaming", href: "#solutions" },
+      { label: "Data Governance", href: "#solutions" },
+      { label: "Master Data Management", href: "#solutions" },
+    ],
+  },
+];
 
 
 const insightsMenu = [
