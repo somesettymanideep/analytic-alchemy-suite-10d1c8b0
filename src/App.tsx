@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import Contact from "./pages/Contact.tsx";
 import About from "./pages/About.tsx";
 import Team from "./pages/Team.tsx";
+import Careers from "./pages/Careers.tsx";
 import Blog from "./pages/Blog.tsx";
 import Manufacturing from "./pages/Manufacturing.tsx";
 import Logistics from "./pages/Logistics.tsx";
