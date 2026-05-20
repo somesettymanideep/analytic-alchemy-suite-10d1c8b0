@@ -135,6 +135,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [openMenuKey, setOpenMenuKey] = useState<MenuKey>(null);
   const [mobileMenuKey, setMobileMenuKey] = useState<MenuKey>(null);
+  const [activeSolution, setActiveSolution] = useState<string>(solutionsMenu[0].key);
+  const [mobileSolution, setMobileSolution] = useState<string>(solutionsMenu[0].key);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const isSubPage = location.pathname !== "/";
