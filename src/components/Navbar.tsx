@@ -1,7 +1,73 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server } from "lucide-react";
+
+type SolutionCategory = {
+  key: string;
+  label: string;
+  Icon: typeof Boxes;
+  items: { label: string; href: string }[];
+};
+
+const solutionsMenu: SolutionCategory[] = [
+  {
+    key: "sap",
+    label: "SAP Solutions",
+    Icon: Boxes,
+    items: [
+      { label: "S/4HANA Migration", href: "#solutions" },
+      { label: "SAP Implementation", href: "#solutions" },
+      { label: "SAP Rollouts", href: "#solutions" },
+      { label: "SAP AMS", href: "#solutions" },
+      { label: "SAP BTP", href: "#solutions" },
+      { label: "SAP Analytics Cloud", href: "#solutions" },
+      { label: "SAP Integration Suite", href: "#solutions" },
+    ],
+  },
+  {
+    key: "microsoft",
+    label: "Microsoft Solutions",
+    Icon: Cloud,
+    items: [
+      { label: "Dynamics 365 F&O", href: "#solutions" },
+      { label: "Dynamics 365 CE", href: "#solutions" },
+      { label: "Power Platform", href: "#solutions" },
+      { label: "Azure Cloud", href: "#solutions" },
+      { label: "Microsoft Fabric", href: "#solutions" },
+      { label: "Power BI", href: "#solutions" },
+      { label: "M365 Modernization", href: "#solutions" },
+    ],
+  },
+  {
+    key: "ai",
+    label: "AI Solutions",
+    Icon: Sparkles,
+    items: [
+      { label: "AI Strategy & Advisory", href: "#solutions" },
+      { label: "Generative AI", href: "#solutions" },
+      { label: "AI Agents", href: "#solutions" },
+      { label: "ML Engineering", href: "#solutions" },
+      { label: "Computer Vision", href: "#solutions" },
+      { label: "NLP Solutions", href: "#solutions" },
+      { label: "Responsible AI", href: "#solutions" },
+    ],
+  },
+  {
+    key: "data",
+    label: "Data Engineering",
+    Icon: Server,
+    items: [
+      { label: "Data Strategy", href: "#solutions" },
+      { label: "Data Migration", href: "#solutions" },
+      { label: "Data Warehousing", href: "#solutions" },
+      { label: "ETL / ELT Pipelines", href: "#solutions" },
+      { label: "Real-time Streaming", href: "#solutions" },
+      { label: "Data Governance", href: "#solutions" },
+      { label: "Master Data Management", href: "#solutions" },
+    ],
+  },
+];
 
 
 const insightsMenu = [
@@ -51,7 +117,7 @@ const industriesMenu = [
 
 const navLinks = [
   { label: "Home", href: "#" },
-  { label: "Solutions", href: "#solutions" },
+  { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
@@ -62,13 +128,15 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | null;
+type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | "solutions" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openMenuKey, setOpenMenuKey] = useState<MenuKey>(null);
   const [mobileMenuKey, setMobileMenuKey] = useState<MenuKey>(null);
+  const [activeSolution, setActiveSolution] = useState<string>(solutionsMenu[0].key);
+  const [mobileSolution, setMobileSolution] = useState<string>(solutionsMenu[0].key);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const isSubPage = location.pathname !== "/";
@@ -151,6 +219,83 @@ export default function Navbar() {
                     </div>
                   </div>
                 )}
+
+                {openMenuKey === "solutions" && l.hasMenu === "solutions" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(880px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-0 animate-fade-in overflow-hidden"
+                    onMouseEnter={() => openMenu("solutions")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-[260px_1fr]">
+                      <div className="bg-muted/40 border-r border-border/60 p-3 flex flex-col gap-1">
+                        {solutionsMenu.map((cat) => {
+                          const Icon = cat.Icon;
+                          const active = activeSolution === cat.key;
+                          return (
+                            <button
+                              key={cat.key}
+                              type="button"
+                              onMouseEnter={() => setActiveSolution(cat.key)}
+                              onFocus={() => setActiveSolution(cat.key)}
+                              onClick={() => setActiveSolution(cat.key)}
+                              className={`w-full flex items-center gap-3 rounded-xl p-3 text-left transition-all duration-200 ${
+                                active
+                                  ? "bg-primary text-primary-foreground shadow-md"
+                                  : "text-foreground/80 hover:bg-background"
+                              }`}
+                            >
+                              <span
+                                className={`flex items-center justify-center w-9 h-9 rounded-lg shrink-0 transition-colors ${
+                                  active ? "bg-primary-foreground/15 text-primary-foreground" : "bg-primary/10 text-primary"
+                                }`}
+                              >
+                                <Icon size={18} />
+                              </span>
+                              <span className="text-sm font-semibold flex-1">{cat.label}</span>
+                              <ArrowRight
+                                size={14}
+                                className={active ? "opacity-100" : "opacity-50"}
+                              />
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <div className="p-5">
+                        {(() => {
+                          const cat = solutionsMenu.find((c) => c.key === activeSolution) ?? solutionsMenu[0];
+                          return (
+                            <>
+                              <div className="flex items-center justify-between mb-3">
+                                <h4 className="text-sm font-bold text-foreground uppercase tracking-wide">
+                                  {cat.label}
+                                </h4>
+                                <span className="text-xs text-muted-foreground">{cat.items.length} offerings</span>
+                              </div>
+                              <div className="grid grid-cols-2 gap-2">
+                                {cat.items.map((it) => (
+                                  <a
+                                    key={it.label}
+                                    href={it.href}
+                                    onClick={closeNow}
+                                    className="flex items-center gap-2 rounded-lg border border-border/60 p-2.5 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                                  >
+                                    <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                                    <span className="text-sm font-medium text-foreground group-hover:text-primary flex-1 truncate">
+                                      {it.label}
+                                    </span>
+                                    <ArrowRight size={12} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          );
+                        })()}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+
 
                 {openMenuKey === "about" && l.hasMenu === "about" && (
                   <div
@@ -324,6 +469,48 @@ export default function Navbar() {
                             >
                               <span>{i.icon}</span>
                               <span>{i.label}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {mobileMenuKey === "solutions" && l.hasMenu === "solutions" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <div className="flex flex-wrap gap-1.5 mb-2">
+                        {solutionsMenu.map((cat) => {
+                          const Icon = cat.Icon;
+                          const active = mobileSolution === cat.key;
+                          return (
+                            <button
+                              key={cat.key}
+                              type="button"
+                              onClick={() => setMobileSolution(cat.key)}
+                              className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                                active
+                                  ? "bg-primary text-primary-foreground"
+                                  : "bg-muted text-foreground/80"
+                              }`}
+                            >
+                              <Icon size={12} />
+                              {cat.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <ul className="grid grid-cols-2 gap-x-3">
+                        {(solutionsMenu.find((c) => c.key === mobileSolution) ?? solutionsMenu[0]).items.map((it) => (
+                          <li key={it.label}>
+                            <a
+                              href={it.href}
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-center gap-2 py-1.5 text-sm text-foreground/80"
+                            >
+                              <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                              <span className="truncate">{it.label}</span>
                             </a>
                           </li>
                         ))}
