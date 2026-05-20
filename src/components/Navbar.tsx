@@ -220,6 +220,83 @@ export default function Navbar() {
                   </div>
                 )}
 
+                {openMenuKey === "solutions" && l.hasMenu === "solutions" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(880px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-0 animate-fade-in overflow-hidden"
+                    onMouseEnter={() => openMenu("solutions")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-[260px_1fr]">
+                      <div className="bg-muted/40 border-r border-border/60 p-3 flex flex-col gap-1">
+                        {solutionsMenu.map((cat) => {
+                          const Icon = cat.Icon;
+                          const active = activeSolution === cat.key;
+                          return (
+                            <button
+                              key={cat.key}
+                              type="button"
+                              onMouseEnter={() => setActiveSolution(cat.key)}
+                              onFocus={() => setActiveSolution(cat.key)}
+                              onClick={() => setActiveSolution(cat.key)}
+                              className={`w-full flex items-center gap-3 rounded-xl p-3 text-left transition-all duration-200 ${
+                                active
+                                  ? "bg-primary text-primary-foreground shadow-md"
+                                  : "text-foreground/80 hover:bg-background"
+                              }`}
+                            >
+                              <span
+                                className={`flex items-center justify-center w-9 h-9 rounded-lg shrink-0 transition-colors ${
+                                  active ? "bg-primary-foreground/15 text-primary-foreground" : "bg-primary/10 text-primary"
+                                }`}
+                              >
+                                <Icon size={18} />
+                              </span>
+                              <span className="text-sm font-semibold flex-1">{cat.label}</span>
+                              <ArrowRight
+                                size={14}
+                                className={active ? "opacity-100" : "opacity-50"}
+                              />
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <div className="p-5">
+                        {(() => {
+                          const cat = solutionsMenu.find((c) => c.key === activeSolution) ?? solutionsMenu[0];
+                          return (
+                            <>
+                              <div className="flex items-center justify-between mb-3">
+                                <h4 className="text-sm font-bold text-foreground uppercase tracking-wide">
+                                  {cat.label}
+                                </h4>
+                                <span className="text-xs text-muted-foreground">{cat.items.length} offerings</span>
+                              </div>
+                              <div className="grid grid-cols-2 gap-2">
+                                {cat.items.map((it) => (
+                                  <a
+                                    key={it.label}
+                                    href={it.href}
+                                    onClick={closeNow}
+                                    className="flex items-center gap-2 rounded-lg border border-border/60 p-2.5 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                                  >
+                                    <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                                    <span className="text-sm font-medium text-foreground group-hover:text-primary flex-1 truncate">
+                                      {it.label}
+                                    </span>
+                                    <ArrowRight size={12} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          );
+                        })()}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+
+
                 {openMenuKey === "about" && l.hasMenu === "about" && (
                   <div
                     className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(360px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
