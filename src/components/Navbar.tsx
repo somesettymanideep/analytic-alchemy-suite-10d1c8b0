@@ -51,7 +51,7 @@ const industriesMenu = [
 
 const navLinks = [
   { label: "Home", href: "#" },
-  { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
+  { label: "Solutions", href: "#solutions" },
   { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
@@ -62,7 +62,7 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | "products" | "clientWork" | "industries" | null;
+type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -126,49 +126,6 @@ export default function Navbar() {
                     className={`transition-transform duration-200 ${openMenuKey === l.hasMenu ? "rotate-180" : ""}`}
                   />
                 </button>
-
-                {openMenuKey === "solutions" && l.hasMenu === "solutions" && (
-                  <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(1100px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-6 animate-fade-in"
-                    onMouseEnter={() => openMenu("solutions")}
-                    onMouseLeave={scheduleClose}
-                  >
-                    <div className="grid grid-cols-3 gap-4">
-                      {solutionsMenu.map((s) => (
-                        <div
-                          key={s.title}
-                          className="group rounded-xl border border-border/60 p-5 hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 bg-background"
-                        >
-                          <a
-                            href="#solutions"
-                            onClick={closeNow}
-                            className="flex items-center gap-2 text-base font-bold text-foreground group-hover:text-primary"
-                          >
-                            {s.title}
-                            <ArrowRight size={14} className="text-accent" />
-                          </a>
-                          <p className="text-xs text-muted-foreground mt-1.5 mb-3 leading-relaxed">
-                            {s.desc}
-                          </p>
-                          <ul className="border-t border-border/60 divide-y divide-border/60">
-                            {s.items.map((item) => (
-                              <li key={item}>
-                                <a
-                                  href="#solutions"
-                                  onClick={closeNow}
-                                  className="flex items-center justify-between py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                                >
-                                  {item}
-                                  <ArrowRight size={12} className="opacity-60" />
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
 
                 {openMenuKey === "insights" && l.hasMenu === "insights" && (
                   <div
@@ -352,31 +309,6 @@ export default function Navbar() {
                       className={`transition-transform ${mobileMenuKey === l.hasMenu ? "rotate-180" : ""}`}
                     />
                   </button>
-                  {mobileMenuKey === "solutions" && l.hasMenu === "solutions" && (
-                    <div className="pl-3 border-l border-border/60 ml-1 mb-2 space-y-3">
-                      {solutionsMenu.map((s) => (
-                        <div key={s.title}>
-                          <p className="text-sm font-bold text-foreground mt-2">{s.title}</p>
-                          <ul className="mt-1">
-                            {s.items.map((item) => (
-                              <li key={item}>
-                                <a
-                                  href="#solutions"
-                                  onClick={() => {
-                                    setOpen(false);
-                                    setMobileMenuKey(null);
-                                  }}
-                                  className="block py-1.5 text-sm text-foreground/70"
-                                >
-                                  {item}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                   {mobileMenuKey === "insights" && l.hasMenu === "insights" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
