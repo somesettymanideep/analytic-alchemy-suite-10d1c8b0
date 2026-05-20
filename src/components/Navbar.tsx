@@ -16,7 +16,7 @@ const solutionsMenu: SolutionCategory[] = [
     label: "SAP Solutions",
     Icon: Boxes,
     items: [
-      { label: "SAP S/4HANA Implementation", href: "#solutions" },
+      { label: "SAP S/4HANA Implementation", href: "/solutions/sap-s4hana" },
       { label: "SAP ECC Support, Optimisation & Migration Planning", href: "#solutions" },
       { label: "RISE with SAP Implementation", href: "#solutions" },
       { label: "SAP Business Data Cloud Implementation", href: "#solutions" },

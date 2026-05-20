@@ -16,6 +16,7 @@ import Healthcare from "./pages/Healthcare.tsx";
 import Finance from "./pages/Finance.tsx";
 import Energy from "./pages/Energy.tsx";
 import Retail from "./pages/Retail.tsx";
+import SapS4Hana from "./pages/SapS4Hana.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/industries/financial-services" element={<Finance />} />
           <Route path="/industries/energy" element={<Energy />} />
           <Route path="/industries/retail" element={<Retail />} />
+          <Route path="/solutions/sap-s4hana" element={<SapS4Hana />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
