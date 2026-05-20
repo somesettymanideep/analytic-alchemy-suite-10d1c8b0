@@ -475,6 +475,48 @@ export default function Navbar() {
                       </ul>
                     </div>
                   )}
+                  {mobileMenuKey === "solutions" && l.hasMenu === "solutions" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <div className="flex flex-wrap gap-1.5 mb-2">
+                        {solutionsMenu.map((cat) => {
+                          const Icon = cat.Icon;
+                          const active = mobileSolution === cat.key;
+                          return (
+                            <button
+                              key={cat.key}
+                              type="button"
+                              onClick={() => setMobileSolution(cat.key)}
+                              className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                                active
+                                  ? "bg-primary text-primary-foreground"
+                                  : "bg-muted text-foreground/80"
+                              }`}
+                            >
+                              <Icon size={12} />
+                              {cat.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <ul className="grid grid-cols-2 gap-x-3">
+                        {(solutionsMenu.find((c) => c.key === mobileSolution) ?? solutionsMenu[0]).items.map((it) => (
+                          <li key={it.label}>
+                            <a
+                              href={it.href}
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-center gap-2 py-1.5 text-sm text-foreground/80"
+                            >
+                              <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                              <span className="truncate">{it.label}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                   {mobileMenuKey === "about" && l.hasMenu === "about" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
