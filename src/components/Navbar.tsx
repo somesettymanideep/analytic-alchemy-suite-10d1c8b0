@@ -61,6 +61,7 @@ const solutionsMenu: SolutionCategory[] = [
     Icon: Server,
     items: [
       { label: "Snowflake Data Platform", href: "/solutions/snowflake" },
+      { label: "Databricks Lakehouse", href: "/solutions/databricks" },
       { label: "Data Strategy", href: "#solutions" },
       { label: "Data Migration", href: "#solutions" },
       { label: "Data Warehousing", href: "#solutions" },
