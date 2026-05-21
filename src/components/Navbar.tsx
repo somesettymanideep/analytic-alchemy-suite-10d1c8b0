@@ -60,6 +60,7 @@ const solutionsMenu: SolutionCategory[] = [
     label: "Data Engineering",
     Icon: Server,
     items: [
+      { label: "Snowflake Data Platform", href: "/solutions/snowflake" },
       { label: "Data Strategy", href: "#solutions" },
       { label: "Data Migration", href: "#solutions" },
       { label: "Data Warehousing", href: "#solutions" },
