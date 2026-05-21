@@ -25,6 +25,7 @@ import SapBtp from "./pages/SapBtp.tsx";
 import MicrosoftDynamics365 from "./pages/MicrosoftDynamics365.tsx";
 import BusinessCentral from "./pages/BusinessCentral.tsx";
 import DynamicsAx from "./pages/DynamicsAx.tsx";
+import Snowflake from "./pages/Snowflake.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/solutions/microsoft-dynamics-365" element={<MicrosoftDynamics365 />} />
           <Route path="/solutions/business-central" element={<BusinessCentral />} />
           <Route path="/solutions/dynamics-ax-migration" element={<DynamicsAx />} />
+          <Route path="/solutions/snowflake" element={<Snowflake />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
