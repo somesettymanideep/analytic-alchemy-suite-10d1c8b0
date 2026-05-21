@@ -22,6 +22,7 @@ import SapRise from "./pages/SapRise.tsx";
 import SapBdc from "./pages/SapBdc.tsx";
 import SapSac from "./pages/SapSac.tsx";
 import SapBtp from "./pages/SapBtp.tsx";
+import MicrosoftDynamics365 from "./pages/MicrosoftDynamics365.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/solutions/sap-business-data-cloud" element={<SapBdc />} />
           <Route path="/solutions/sap-analytics-cloud" element={<SapSac />} />
           <Route path="/solutions/sap-btp" element={<SapBtp />} />
+          <Route path="/solutions/microsoft-dynamics-365" element={<MicrosoftDynamics365 />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
