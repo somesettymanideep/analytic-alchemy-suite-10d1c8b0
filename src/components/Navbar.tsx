@@ -20,7 +20,7 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "SAP ECC Support, Optimisation & Migration Planning", href: "/solutions/sap-ecc" },
       { label: "RISE with SAP Implementation", href: "/solutions/rise-with-sap" },
       { label: "SAP Business Data Cloud Implementation", href: "/solutions/sap-business-data-cloud" },
-      { label: "SAP Analytics Cloud (SAC) Implementation", href: "#solutions" },
+      { label: "SAP Analytics Cloud (SAC) Implementation", href: "/solutions/sap-analytics-cloud" },
       { label: "SAP Business Technology Platform (BTP) Implementation", href: "#solutions" },
     ],
   },
