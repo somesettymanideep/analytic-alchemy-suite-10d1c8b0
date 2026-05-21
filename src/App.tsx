@@ -28,6 +28,7 @@ import BusinessCentral from "./pages/BusinessCentral.tsx";
 import DynamicsAx from "./pages/DynamicsAx.tsx";
 import Snowflake from "./pages/Snowflake.tsx";
 import Databricks from "./pages/Databricks.tsx";
+import Fabric from "./pages/Fabric.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/solutions/dynamics-ax-migration" element={<DynamicsAx />} />
           <Route path="/solutions/snowflake" element={<Snowflake />} />
           <Route path="/solutions/databricks" element={<Databricks />} />
+          <Route path="/solutions/microsoft-fabric" element={<Fabric />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
