@@ -3,16 +3,17 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
-import banner from "@/assets/banner-snowflake.jpg";
-import imgElastic from "@/assets/snowflake-elastic.jpg";
-import imgSharing from "@/assets/snowflake-sharing.jpg";
-import imgAi from "@/assets/snowflake-ai.jpg";
+import banner from "@/assets/banner-databricks.jpg";
+import imgLakehouse from "@/assets/databricks-lakehouse.jpg";
+import imgCollab from "@/assets/databricks-collab.jpg";
+import imgAi from "@/assets/databricks-ai.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   Sparkles,
+  Layers,
+  Workflow,
+  Users,
   Gauge,
-  Settings,
-  Share2,
   ShieldCheck,
   Brain,
   ArrowRight,
@@ -20,53 +21,54 @@ import {
   HelpCircle,
   Plus,
   Minus,
-  Layers,
   Network,
-  Lock,
+  Cpu,
+  Database,
 } from "lucide-react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
-    { Icon: Gauge, value: "Elastic", label: "Storage / compute decoupled" },
-    { Icon: Settings, value: "Zero-Ops", label: "Fully managed platform" },
-    { Icon: Brain, value: "AI-Ready", label: "Powered by Snowflake Cortex" },
+    { Icon: Layers, value: "Lakehouse", label: "One platform, lake + warehouse" },
+    { Icon: Workflow, value: "Delta Live", label: "Self-healing ETL pipelines" },
+    { Icon: Brain, value: "AI-Native", label: "MLflow, Mosaic AI & Genie" },
   ];
   return (
     <section className="container py-20 md:py-28" ref={ref}>
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Snowflake Data Platform
+            <Sparkles size={14} /> Databricks Lakehouse Platform
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            A cloud-native data platform that <span className="text-primary">scales with your business</span> — and powers your AI without the infrastructure headaches.
+            One unified platform for data engineering, data science, and AI — built on an <span className="text-primary">open, scalable Lakehouse</span>.
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Most organisations are sitting on enormous amounts of data that never gets fully used — because their
-            data infrastructure can't keep up. <strong className="text-foreground">Snowflake</strong> is a cloud-native data
-            platform built to change that. Its unique architecture separates storage from compute, meaning your data
-            warehousing, analytics, and AI workloads can all run simultaneously without competing for resources.
+            For years, organisations had to choose between a data warehouse (fast and structured, but rigid) and a data
+            lake (flexible and scalable, but messy). <strong className="text-foreground">Databricks</strong> invented the
+            Lakehouse — a single platform that delivers the best of both. Built on Apache Spark and Delta Lake, it gives
+            your data engineers, scientists, and analysts one collaborative environment for ETL pipelines, machine
+            learning, and real-time analytics.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> implements and optimises Snowflake so your teams spend less
-            time managing infrastructure and more time extracting value from data.
+            <strong className="text-foreground">Nextgenlytics</strong> implements and optimises Databricks Lakehouse
+            environments so your data team can move faster, at lower cost, with production-grade reliability.
           </p>
         </div>
 
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-border/60">
-            <img src={imgElastic} alt="Snowflake elastic cloud data platform" width={1280} height={896} loading="lazy" className="w-full h-[420px] object-cover" />
+            <img src={imgLakehouse} alt="Databricks Lakehouse unified architecture" width={1280} height={896} loading="lazy" className="w-full h-[420px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent" />
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <Layers size={20} />
+              <Database size={20} />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Architecture</p>
-              <p className="text-sm font-bold text-foreground font-heading">Storage ⇆ Compute</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Foundation</p>
+              <p className="text-sm font-bold text-foreground font-heading">Spark · Delta Lake</p>
             </div>
           </div>
           <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-accent/20 blur-3xl -z-10" />
@@ -96,29 +98,29 @@ function Delivers() {
 
   const services = [
     {
+      Icon: Layers,
+      title: "Unified Lakehouse Architecture",
+      body: "We implement Delta Lake on Databricks to combine your data lake and warehouse into one — giving you ACID transactions, scalable metadata handling, and unified batch and streaming data processing on a single open platform.",
+    },
+    {
+      Icon: Workflow,
+      title: "Production-Grade ETL with Delta Live Tables",
+      body: "We use Delta Live Tables (DLT) to build declarative data pipelines with automated testing, built-in data quality checks, and full lineage visibility — replacing brittle, hand-crafted ETL scripts with reliable, self-healing pipelines.",
+    },
+    {
+      Icon: Users,
+      title: "Collaborative Data Workspace",
+      body: "Data engineers, data scientists, and analysts work together in Databricks notebooks — writing SQL, Python, Scala, or R in a single version-controlled environment. No more siloed tools, no more duplicated effort.",
+    },
+    {
       Icon: Gauge,
-      title: "Elastic Performance at Any Scale",
-      body: "Snowflake's decoupled storage and compute architecture means your BI dashboards, data engineering pipelines, and AI model training all run in parallel — no queuing, no resource contention, no performance degradation at peak times.",
-    },
-    {
-      Icon: Settings,
-      title: "Zero-Maintenance Infrastructure",
-      body: "We configure Snowflake's fully managed environment to automate data partitioning, indexing, and performance tuning — eliminating the operational overhead that drains your data team's time and inflates your total cost of ownership.",
-    },
-    {
-      Icon: Share2,
-      title: "Secure Real-Time Data Sharing",
-      body: "Share live datasets with partners, suppliers, or internal teams instantly — without building slow, expensive ETL pipelines. Snowflake's Secure Data Sharing lets data move in real time while staying fully governed and access-controlled.",
+      title: "High-Performance SQL Analytics",
+      body: "We configure Databricks SQL with serverless compute for lightning-fast query performance — giving your BI tools and executive dashboards real-time operational visibility without dedicated warehouse overhead.",
     },
     {
       Icon: ShieldCheck,
-      title: "Built-in Data Resilience",
-      body: "Snowflake's Time Travel and Fail-safe features let you query or restore data from any point in history — giving your business a robust safety net for mission-critical pipelines and accidental data loss scenarios.",
-    },
-    {
-      Icon: Brain,
-      title: "AI-Ready Data Pipelines",
-      body: "We build Snowflake environments optimised for Snowflake Cortex AI — so your data is structured, governed, and immediately available for LLM-powered analytics, document intelligence, and real-time AI applications.",
+      title: "Unified Governance with Unity Catalog",
+      body: "We implement Unity Catalog to provide centralised access control, comprehensive data lineage, and consistent governance across your entire Lakehouse — so compliance is managed in one place, not patched across multiple tools.",
     },
   ];
 
@@ -127,14 +129,14 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What Nextgenlytics Delivers with Snowflake
+            <Sparkles size={14} /> What Nextgenlytics Delivers with Databricks
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            One platform for analytics, sharing, and AI — at any scale
+            One Lakehouse for engineering, analytics, and AI
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            From elastic compute to AI-ready pipelines — every Snowflake environment we deliver is engineered for cost,
-            performance, and governance from day one.
+            From Delta Lake foundations to Unity Catalog governance — every Databricks environment we deliver is engineered
+            for reliability, performance, and AI from day one.
           </p>
         </div>
 
@@ -165,14 +167,14 @@ function Delivers() {
             }`}
             style={{ animationDelay: "360ms" }}
           >
-            <img src={imgSharing} alt="Secure real-time data sharing on Snowflake" width={1280} height={896} loading="lazy" className="w-full h-[300px] md:h-[360px] object-cover transition-transform duration-700 hover:scale-105" />
+            <img src={imgCollab} alt="Collaborative Databricks workspace with notebooks" width={1280} height={896} loading="lazy" className="w-full h-[300px] md:h-[360px] object-cover transition-transform duration-700 hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background/95 backdrop-blur text-[10px] font-semibold uppercase tracking-widest text-primary border border-border">
-                Resilience & Sharing
+                SQL Analytics & Governance
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold text-primary-foreground font-heading">
-                Time Travel, Fail-safe, and Secure Data Sharing — built in.
+                Serverless SQL performance — governed by Unity Catalog.
               </h3>
             </div>
           </div>
@@ -210,19 +212,19 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Layers,
-      title: "Architectural Excellence",
-      body: "We design your Snowflake environment for cost-efficiency from the start — preventing cloud sprawl and ensuring every credit spent delivers measurable business value.",
+      Icon: Cpu,
+      title: "Spark Optimisation Expertise",
+      body: "We fine-tune Apache Spark configurations to run your jobs faster and at lower cost — eliminating idle cluster expenses and maximising ROI on every workload.",
     },
     {
       Icon: Network,
-      title: "Full Ecosystem Integration",
-      body: "We connect Snowflake seamlessly with SAP S/4HANA, Microsoft Fabric, Databricks, and your existing BI tools — creating one unified data fabric where information flows without friction.",
+      title: "Cross-Platform Integration",
+      body: "We connect your Databricks environment to Azure, AWS, SAP S/4HANA, Microsoft Fabric, and SAP DataSphere — creating a fluid, cross-cloud data ecosystem with no blind spots.",
     },
     {
-      Icon: Lock,
-      title: "Governance by Default",
-      body: "We implement role-based access controls (RBAC), dynamic data masking, and Snowflake Horizon governance policies — so your data is accessible to the right people and protected from everyone else.",
+      Icon: Brain,
+      title: "AI Acceleration",
+      body: "Databricks is built for AI. We configure your Lakehouse as the data foundation for MLflow model tracking, Mosaic AI, and Databricks Genie — so your AI initiatives start on solid, governed ground.",
     },
   ];
 
@@ -232,22 +234,22 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Nextgenlytics for Snowflake
+              <CheckCircle2 size={14} /> Why Nextgenlytics for Databricks
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
-              Architected for cost, integrated by design, governed from day one.
+              Spark-tuned, cross-cloud integrated, AI-ready from day one.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Your data is already there. Snowflake — implemented by Nextgenlytics — turns it into a scalable, AI-ready
-              competitive advantage without the infrastructure burden.
+              Data engineering is the foundation every AI initiative is built on. Nextgenlytics builds that foundation on
+              Databricks — open, scalable, and production-ready from day one.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
-              <img src={imgAi} alt="AI-ready data pipelines with Snowflake Cortex" width={1280} height={896} loading="lazy" className="w-full h-[320px] object-cover" />
+              <img src={imgAi} alt="AI acceleration on Databricks with MLflow and Mosaic AI" width={1280} height={896} loading="lazy" className="w-full h-[320px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/10 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5">
-                <p className="text-primary-foreground text-sm font-semibold">SAP · Fabric · Databricks · BI</p>
-                <p className="text-primary-foreground/80 text-xs mt-1">One unified data fabric, governed end to end.</p>
+                <p className="text-primary-foreground text-sm font-semibold">MLflow · Mosaic AI · Genie</p>
+                <p className="text-primary-foreground/80 text-xs mt-1">A governed data foundation for every AI initiative.</p>
               </div>
             </div>
 
@@ -255,7 +257,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a Snowflake specialist
+              Talk to a Databricks specialist
               <ArrowRight size={16} />
             </a>
           </div>
@@ -298,11 +300,11 @@ function WhyUs() {
                 <Brain size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
-                Cost-aware architecture. Cortex-ready data. Governance you can audit.
+                Tuned Spark. Connected clouds. Governed AI foundations.
               </h3>
               <p className="mt-3 text-sm md:text-base text-primary-foreground/85 leading-relaxed max-w-xl">
-                We pair Snowflake-certified architects with FinOps discipline — so every warehouse, every share, and every
-                pipeline you ship is right-sized, secure, and ready for AI from day one.
+                We pair Databricks-certified engineers with FinOps discipline — so every cluster, every pipeline, and every
+                model you ship is right-sized, secure, and ready for production AI.
               </p>
             </div>
           </article>
@@ -315,16 +317,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is Snowflake and what is it used for?",
-    a: "Snowflake is a cloud-native data platform that provides data warehousing, data lake, and data sharing capabilities in a single managed service. Organisations use it to store and query large volumes of structured and semi-structured data, run real-time analytics, share data securely with external partners, and power AI and machine learning workloads — all without managing physical infrastructure.",
+    q: "What is a Databricks Lakehouse?",
+    a: "A Databricks Lakehouse is a unified data platform architecture that combines the flexibility and low-cost storage of a data lake with the performance, ACID transactions, and governance of a data warehouse. Built on Apache Spark and Delta Lake, it provides a single environment for data engineering, data science, machine learning, and real-time analytics — eliminating the need for separate warehouse and lake infrastructure.",
   },
   {
-    q: "What makes Snowflake different from traditional data warehouses?",
-    a: "Traditional data warehouses couple storage and compute together, meaning expensive hardware must be provisioned for peak load even when not in use. Snowflake's architecture separates storage from compute, allowing organisations to scale each independently — running multiple workloads simultaneously at different performance tiers without resource contention or performance degradation.",
+    q: "What is Delta Lake in Databricks?",
+    a: "Delta Lake is an open-source storage layer in Databricks that brings ACID (Atomicity, Consistency, Isolation, Durability) transactions to big data workloads. It enables reliable data pipelines by supporting upserts, deletes, schema enforcement, and time travel — making data lakes as reliable and queryable as traditional data warehouses.",
   },
   {
-    q: "How does Snowflake support AI and machine learning?",
-    a: "Snowflake supports AI through Snowflake Cortex, its built-in generative AI service that allows organisations to run LLM-powered tasks — including document summarisation, sentiment analysis, and natural language data querying — directly on their Snowflake data using SQL. This eliminates the need to move data to external AI platforms, keeping all processing secure within the Snowflake environment.",
+    q: "What is Databricks Unity Catalog?",
+    a: "Databricks Unity Catalog is a unified governance solution for the Databricks Lakehouse that provides centralised access control, data lineage tracking, and audit logging across all data assets — including tables, files, machine learning models, and dashboards. It allows organisations to manage who can access what data from a single interface, ensuring consistent compliance across all workloads.",
   },
 ];
 
@@ -387,7 +389,7 @@ function Faq() {
 }
 
 /* ---------------- Page ---------------- */
-export default function Snowflake() {
+export default function Databricks() {
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -396,8 +398,8 @@ export default function Snowflake() {
         <PageBanner
           image={banner}
           eyebrow="Solutions · Data Engineering"
-          title="Snowflake Data Platform Implementation"
-          description="A cloud-native data platform that scales with your business — and powers your AI without the infrastructure headaches."
+          title="Databricks Lakehouse Implementation"
+          description="One unified platform for data engineering, data science, and AI — built on an open, scalable Lakehouse."
         />
         <Intro />
         <Delivers />
