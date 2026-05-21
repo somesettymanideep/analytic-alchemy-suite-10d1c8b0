@@ -22,6 +22,7 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "SAP Business Data Cloud Implementation", href: "/solutions/sap-business-data-cloud" },
       { label: "SAP Analytics Cloud (SAC) Implementation", href: "/solutions/sap-analytics-cloud" },
       { label: "SAP Business Technology Platform (BTP) Implementation", href: "/solutions/sap-btp" },
+      { label: "SAP DataSphere Implementation", href: "/solutions/sap-datasphere" },
     ],
   },
   {
