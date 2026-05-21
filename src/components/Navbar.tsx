@@ -32,6 +32,7 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "Microsoft Dynamics 365 Implementation", href: "/solutions/microsoft-dynamics-365" },
       { label: "Dynamics 365 F&O", href: "/solutions/microsoft-dynamics-365" },
       { label: "Dynamics 365 CE", href: "/solutions/microsoft-dynamics-365" },
+      { label: "Dynamics 365 Business Central", href: "/solutions/business-central" },
       { label: "Power Platform", href: "#solutions" },
       { label: "Azure Cloud", href: "#solutions" },
       { label: "Microsoft Fabric", href: "#solutions" },
