@@ -84,7 +84,7 @@ export default function Contact() {
             <aside className="space-y-8">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground font-heading">
-                  Reach the team directly
+                  Reach the team
                 </h2>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
                   Prefer email or a call? Use the details below — we typically respond within one business day.
@@ -223,23 +223,6 @@ export default function Contact() {
             </section>
           </div>
 
-          {/* Map */}
-          <div className="mt-14">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground font-heading">Find us on the map</h2>
-            <p className="mt-2 text-muted-foreground">{COMPANY_LOCATION}</p>
-            <div className="mt-5 rounded-2xl overflow-hidden border border-border shadow-lg shadow-primary/5">
-              <iframe
-                title="NextGenLytics office location"
-                src="https://www.google.com/maps?q=B.+Amsterdam,+Johan+Huizingalaan+763A,+1066+VH,+Amsterdam&output=embed"
-                width="100%"
-                height="420"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
-          </div>
         </div>
       </main>
       <Footer />
