@@ -17,6 +17,7 @@ import Finance from "./pages/Finance.tsx";
 import Energy from "./pages/Energy.tsx";
 import Retail from "./pages/Retail.tsx";
 import SapS4Hana from "./pages/SapS4Hana.tsx";
+import SapEcc from "./pages/SapEcc.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/industries/energy" element={<Energy />} />
           <Route path="/industries/retail" element={<Retail />} />
           <Route path="/solutions/sap-s4hana" element={<SapS4Hana />} />
+          <Route path="/solutions/sap-ecc" element={<SapEcc />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
