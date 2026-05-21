@@ -37,7 +37,7 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "Dynamics AX Migration & Modernisation", href: "/solutions/dynamics-ax-migration" },
       { label: "Power Platform", href: "#solutions" },
       { label: "Azure Cloud", href: "#solutions" },
-      { label: "Microsoft Fabric", href: "#solutions" },
+      { label: "Microsoft Fabric", href: "/solutions/microsoft-fabric" },
       { label: "Power BI", href: "#solutions" },
       { label: "M365 Modernization", href: "#solutions" },
     ],
@@ -63,6 +63,7 @@ const solutionsMenu: SolutionCategory[] = [
     items: [
       { label: "Snowflake Data Platform", href: "/solutions/snowflake" },
       { label: "Databricks Lakehouse", href: "/solutions/databricks" },
+      { label: "Microsoft Fabric Data Engineering", href: "/solutions/microsoft-fabric" },
       { label: "Data Strategy", href: "#solutions" },
       { label: "Data Migration", href: "#solutions" },
       { label: "Data Warehousing", href: "#solutions" },
