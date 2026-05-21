@@ -20,6 +20,7 @@ import SapS4Hana from "./pages/SapS4Hana.tsx";
 import SapEcc from "./pages/SapEcc.tsx";
 import SapRise from "./pages/SapRise.tsx";
 import SapBdc from "./pages/SapBdc.tsx";
+import SapSac from "./pages/SapSac.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/solutions/sap-ecc" element={<SapEcc />} />
           <Route path="/solutions/rise-with-sap" element={<SapRise />} />
           <Route path="/solutions/sap-business-data-cloud" element={<SapBdc />} />
+          <Route path="/solutions/sap-analytics-cloud" element={<SapSac />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
