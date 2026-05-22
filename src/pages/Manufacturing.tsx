@@ -261,17 +261,7 @@ function PracticeAreas() {
             </article>
           ))}
         </div>
-
-        <div className="mt-14 text-center">
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
-          >
-            Talk to a manufacturing specialist
-            <ArrowRight size={16} />
-          </a>
-        </div>
-      </div>
+</div>
     </section>
   );
 }
