@@ -77,12 +77,9 @@ const solutionsMenu: SolutionCategory[] = [
 
 
 const insightsMenu = [
-  { label: "Thought Leadership", icon: "✍️" },
   { label: "Blogs", icon: "📝" },
   { label: "Whitepapers", icon: "📃" },
-  { label: "Reports", icon: "📊" },
-  { label: "Webinars", icon: "🎥" },
-  { label: "Events", icon: "📅" },
+  { label: "Webinars & Events", icon: "🎥" },
   { label: "Product Updates", icon: "🔄" },
   { label: "Research", icon: "🔬" },
 ];
