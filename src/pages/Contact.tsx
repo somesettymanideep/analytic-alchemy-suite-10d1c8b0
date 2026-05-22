@@ -24,61 +24,18 @@ type Mode = "consultation" | "demo";
 const COMPANY_EMAIL = "Info@nextgenlytics.com";
 const COMPANY_LOCATION = "B. Amsterdam, Johan Huizingalaan 763A, 1066 VH, Amsterdam";
 
-const SOLUTION_GROUPS: { label: string; items: string[] }[] = [
-  {
-    label: "SAP Solutions",
-    items: [
-      "SAP S/4HANA Implementation",
-      "SAP ECC Support, Optimisation & Migration Planning",
-      "RISE with SAP Implementation",
-      "SAP Business Data Cloud Implementation",
-      "SAP Analytics Cloud (SAC) Implementation",
-      "SAP Business Technology Platform (BTP) Implementation",
-      "SAP DataSphere Implementation",
-    ],
-  },
-  {
-    label: "Microsoft Solutions",
-    items: [
-      "Microsoft Dynamics 365 Implementation",
-      "Dynamics 365 F&O",
-      "Dynamics 365 CE",
-      "Dynamics 365 Business Central",
-      "Dynamics AX Migration & Modernisation",
-      "Power Platform",
-      "Azure Cloud",
-      "Microsoft Fabric",
-      "Power BI",
-      "M365 Modernization",
-    ],
-  },
-  {
-    label: "AI Solutions",
-    items: [
-      "AI Strategy & Advisory",
-      "Generative AI",
-      "AI Agents",
-      "ML Engineering",
-      "Computer Vision",
-      "NLP Solutions",
-      "Responsible AI",
-    ],
-  },
-  {
-    label: "Data Engineering",
-    items: [
-      "Snowflake Data Platform",
-      "Databricks Lakehouse",
-      "Microsoft Fabric Data Engineering",
-      "Data Strategy",
-      "Data Migration",
-      "Data Warehousing",
-      "ETL / ELT Pipelines",
-      "Real-time Streaming",
-      "Data Governance",
-      "Master Data Management",
-    ],
-  },
+const SOLUTION_OPTIONS = [
+  "SAP Solutions",
+  "Microsoft Solutions",
+  "AI Solutions",
+  "Data Engineering",
+];
+
+const PRODUCT_OPTIONS = [
+  "BlueGecko Platform",
+  "Falcon Mapping",
+  "Code Cheetah",
+  "Owl Sight",
 ];
 
 export default function Contact() {
@@ -90,6 +47,7 @@ export default function Contact() {
     phone: "",
     message: "",
     solution: "",
+    product: "",
   });
 
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
@@ -121,6 +79,7 @@ export default function Contact() {
             `Email: ${form.email}`,
             `Company: ${form.company}`,
             `Phone: ${form.phone}`,
+            `Product: ${form.product}`,
             ``,
             `Message:`,
             form.message,
@@ -259,15 +218,28 @@ export default function Contact() {
                         <SelectValue placeholder="Select a solution…" />
                       </SelectTrigger>
                       <SelectContent className="max-h-80">
-                        {SOLUTION_GROUPS.map((g) => (
-                          <SelectGroup key={g.label}>
-                            <SelectLabel>{g.label}</SelectLabel>
-                            {g.items.map((it) => (
-                              <SelectItem key={it} value={it}>
-                                {it}
-                              </SelectItem>
-                            ))}
-                          </SelectGroup>
+                        {SOLUTION_OPTIONS.map((s) => (
+                          <SelectItem key={s} value={s}>
+                            {s}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+
+                {mode === "demo" && (
+                  <div className="space-y-2">
+                    <Label htmlFor="product">Select product</Label>
+                    <Select value={form.product} onValueChange={(v) => update("product", v)}>
+                      <SelectTrigger id="product">
+                        <SelectValue placeholder="Select a product…" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {PRODUCT_OPTIONS.map((p) => (
+                          <SelectItem key={p} value={p}>
+                            {p}
+                          </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
