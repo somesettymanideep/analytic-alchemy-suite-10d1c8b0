@@ -272,8 +272,8 @@ export default function Careers() {
         <PageBanner
           image={bannerCareers}
           eyebrow="Careers"
-          title="Join a senior-led team building enterprise AI"
-          description="Help us bring SAP, Microsoft, and AI together for tier-1 customers across Europe and beyond."
+          title="Build your career with Nextgenlytics"
+          description="Explore opportunities to grow with a senior-led consultancy delivering enterprise transformation across Europe and beyond."
         />
         <Intro />
         <OpenRoles />
