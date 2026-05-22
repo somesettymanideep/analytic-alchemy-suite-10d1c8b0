@@ -77,11 +77,11 @@ const solutionsMenu: SolutionCategory[] = [
 
 
 const insightsMenu = [
-  { label: "Blogs", icon: "📝" },
-  { label: "Whitepapers", icon: "📃" },
-  { label: "Webinars & Events", icon: "🎥" },
-  { label: "Product Updates", icon: "🔄" },
-  { label: "Research", icon: "🔬" },
+  { label: "Blogs", icon: "📝", href: "/blog" },
+  { label: "Whitepapers", icon: "📃", href: "#insights" },
+  { label: "Webinars & Events", icon: "🎥", href: "#insights" },
+  { label: "Product Updates", icon: "🔄", href: "#insights" },
+  { label: "Research", icon: "🔬", href: "#insights" },
 ];
 
 const aboutMenu: { label: string; icon: string; href: string }[] = [
@@ -126,7 +126,6 @@ const navLinks = [
   { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
-  { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
@@ -208,7 +207,7 @@ export default function Navbar() {
                       {insightsMenu.map((i) => (
                         <a
                           key={i.label}
-                          href="#insights"
+                          href={i.href}
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
@@ -463,7 +462,7 @@ export default function Navbar() {
                         {insightsMenu.map((i) => (
                           <li key={i.label}>
                             <a
-                              href="#insights"
+                              href={i.href}
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
