@@ -14,7 +14,7 @@ export default function TeamSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="team" className="py-20 md:py-28">
+    <section id="team" className="py-12 md:py-16">
       <div className="container" ref={ref}>
         <div className={`text-center max-w-2xl mx-auto ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="text-xs font-semibold uppercase tracking-widest text-accent">

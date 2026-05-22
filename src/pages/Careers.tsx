@@ -95,7 +95,7 @@ const benefits = [
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="container py-20 md:py-28" ref={ref}>
+    <section className="container py-12 md:py-16" ref={ref}>
       <div className="max-w-3xl mx-auto text-center">
         <span
           className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent ${
@@ -146,7 +146,7 @@ function Intro() {
 function OpenRoles() {
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="section-alt py-20 md:py-28">
+    <section className="section-alt py-12 md:py-16">
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">

@@ -30,7 +30,7 @@ export default function ServicesSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="services" className="py-20 md:py-28 section-alt">
+    <section id="services" className="py-12 md:py-16 section-alt">
       <div className="container" ref={ref}>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">

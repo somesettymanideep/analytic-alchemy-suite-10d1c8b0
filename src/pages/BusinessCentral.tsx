@@ -34,7 +34,7 @@ function Intro() {
     { Icon: TrendingUp, value: "Scales", label: "From SMB to mid-market" },
   ];
   return (
-    <section className="container py-20 md:py-28" ref={ref}>
+    <section className="container py-12 md:py-16" ref={ref}>
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -121,7 +121,7 @@ function Delivers() {
   ];
 
   return (
-    <section className="section-alt py-20 md:py-28">
+    <section className="section-alt py-12 md:py-16">
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -224,7 +224,7 @@ function WhyUs() {
   ];
 
   return (
-    <section className="container py-20 md:py-28" ref={ref}>
+    <section className="container py-12 md:py-16" ref={ref}>
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
@@ -328,7 +328,7 @@ function Faq() {
   const { ref, isVisible } = useScrollReveal();
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="section-alt py-20 md:py-28">
+    <section className="section-alt py-12 md:py-16">
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">

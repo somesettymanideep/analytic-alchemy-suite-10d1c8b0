@@ -31,7 +31,7 @@ function CompanyOverview() {
     { value: "100%", label: "Outcome-based" },
   ];
   return (
-    <section id="overview" className="container py-20 md:py-28" ref={ref}>
+    <section id="overview" className="container py-12 md:py-16" ref={ref}>
       <div className="grid lg:grid-cols-12 gap-12 items-start">
         <div className={`lg:col-span-5 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -109,7 +109,7 @@ function VisionMission() {
     },
   ];
   return (
-    <section id="vision-mission" className="relative section-alt py-20 md:py-28 overflow-hidden">
+    <section id="vision-mission" className="relative section-alt py-12 md:py-16 overflow-hidden">
       <div
         className="absolute inset-0 -z-10 opacity-[0.04]"
         style={{
@@ -259,7 +259,7 @@ function OurJourney() {
     { year: "2026", title: "AI Agents practice", body: "Dedicated practice operationalising agentic systems for enterprise outcomes.", icon: Award },
   ];
   return (
-    <section id="journey" className="relative overflow-hidden py-20 md:py-28" ref={ref}>
+    <section id="journey" className="relative overflow-hidden py-12 md:py-16" ref={ref}>
       {/* Decorative background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-muted/40 via-background to-background" aria-hidden />
       <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-primary/5 blur-3xl -z-10" aria-hidden />
@@ -485,7 +485,7 @@ function GlobalPresence() {
     },
   ];
   return (
-    <section id="presence" className="section-alt py-20 md:py-28">
+    <section id="presence" className="section-alt py-12 md:py-16">
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -572,7 +572,7 @@ function WhyChoose() {
     },
   ];
   return (
-    <section id="why" className="container py-20 md:py-28" ref={ref}>
+    <section id="why" className="container py-12 md:py-16" ref={ref}>
       <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
           <Award size={14} /> Why Choose Nextgenlytics

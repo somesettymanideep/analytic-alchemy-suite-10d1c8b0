@@ -30,7 +30,7 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
   ];
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-12 md:py-16">
       <div className="container" ref={ref}>
         <div
           className={`relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-primary to-[hsl(var(--primary)/0.85)] p-8 md:p-14 lg:p-16 ${
