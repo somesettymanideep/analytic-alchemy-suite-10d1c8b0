@@ -4,7 +4,7 @@ export default function CtaSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="py-12 md:py-16">
       <div className="container" ref={ref}>
         <div
           className={`relative rounded-3xl overflow-hidden bg-primary px-8 py-16 md:px-16 md:py-20 text-center ${

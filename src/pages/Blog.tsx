@@ -45,7 +45,7 @@ const posts = [
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="container py-20 md:py-28" ref={ref}>
+    <section className="container py-12 md:py-16" ref={ref}>
       <div className={`max-w-3xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
           <BookOpen size={14} /> Insights

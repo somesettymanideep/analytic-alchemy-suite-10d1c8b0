@@ -46,7 +46,7 @@ export default function CaseStudiesSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="cases" className="py-20 md:py-28 bg-background">
+    <section id="cases" className="py-12 md:py-16 bg-background">
       <div className="container" ref={ref}>
         {/* Header */}
         <div className="max-w-3xl mb-14">

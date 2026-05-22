@@ -23,7 +23,7 @@ import {
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="container py-20 md:py-28" ref={ref}>
+    <section className="container py-12 md:py-16" ref={ref}>
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className={isVisible ? "animate-reveal-up" : "opacity-0"}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -79,7 +79,7 @@ function KeyChallenges() {
     },
   ];
   return (
-    <section className="section-alt py-20 md:py-28">
+    <section className="section-alt py-12 md:py-16">
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -125,7 +125,7 @@ function OurExpertise() {
     "Secure, intelligent, and future-ready financial systems",
   ];
   return (
-    <section className="container py-20 md:py-28" ref={ref}>
+    <section className="container py-12 md:py-16" ref={ref}>
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className={`relative order-2 lg:order-1 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-primary/20 rounded-3xl blur-2xl" aria-hidden />
@@ -210,7 +210,7 @@ function PracticeAreas() {
     },
   ];
   return (
-    <section className="section-alt py-20 md:py-28">
+    <section className="section-alt py-12 md:py-16">
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">

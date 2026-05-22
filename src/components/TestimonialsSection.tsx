@@ -30,7 +30,7 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-12 md:py-16">
       <div className="container max-w-4xl" ref={ref}>
         <div className="text-center mb-12">
           <span className="text-xs font-semibold uppercase tracking-widest text-accent">Testimonials</span>

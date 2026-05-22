@@ -13,7 +13,7 @@ export default function StatsSection() {
   const counters = stats.map((s) => useCountUp(s.end, 2000));
 
   return (
-    <section className="relative py-16 md:py-24 bg-secondary overflow-hidden">
+    <section className="relative py-10 md:py-14 bg-secondary overflow-hidden">
       {/* Decorative dots & shapes */}
       <DotGrid className="absolute top-6 left-8 opacity-10" rows={4} cols={5} color="hsl(var(--primary))" />
       <DotGrid className="absolute bottom-10 right-12 opacity-[0.07]" rows={3} cols={4} color="hsl(var(--primary))" />

@@ -7,7 +7,7 @@ export default function VideoShowcaseSection() {
 
 
   return (
-    <section className="py-20 md:py-28 bg-background">
+    <section className="py-12 md:py-16 bg-background">
       <div className="container" ref={ref}>
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-10">

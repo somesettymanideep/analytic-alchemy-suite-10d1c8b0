@@ -63,7 +63,7 @@ export default function MigrationPathSection() {
   const resolvedActive = activeId ?? paths[0].id;
 
   return (
-    <section id="migration" className="py-20 md:py-28 bg-foreground">
+    <section id="migration" className="py-12 md:py-16 bg-foreground">
       <div className="container" ref={ref}>
         {/* Header */}
         <div className="max-w-3xl mb-12">

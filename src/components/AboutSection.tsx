@@ -37,7 +37,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-20 md:py-28 relative overflow-hidden"
+      className="py-12 md:py-16 relative overflow-hidden"
       style={{
         backgroundImage: `url(${aboutBg})`,
         backgroundSize: "cover",
