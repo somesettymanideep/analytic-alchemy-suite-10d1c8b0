@@ -8,12 +8,78 @@ import contactBanner from "@/assets/banner-contact.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 
 type Mode = "consultation" | "demo";
 
 const COMPANY_EMAIL = "Info@nextgenlytics.com";
 const COMPANY_LOCATION = "B. Amsterdam, Johan Huizingalaan 763A, 1066 VH, Amsterdam";
+
+const SOLUTION_GROUPS: { label: string; items: string[] }[] = [
+  {
+    label: "SAP Solutions",
+    items: [
+      "SAP S/4HANA Implementation",
+      "SAP ECC Support, Optimisation & Migration Planning",
+      "RISE with SAP Implementation",
+      "SAP Business Data Cloud Implementation",
+      "SAP Analytics Cloud (SAC) Implementation",
+      "SAP Business Technology Platform (BTP) Implementation",
+      "SAP DataSphere Implementation",
+    ],
+  },
+  {
+    label: "Microsoft Solutions",
+    items: [
+      "Microsoft Dynamics 365 Implementation",
+      "Dynamics 365 F&O",
+      "Dynamics 365 CE",
+      "Dynamics 365 Business Central",
+      "Dynamics AX Migration & Modernisation",
+      "Power Platform",
+      "Azure Cloud",
+      "Microsoft Fabric",
+      "Power BI",
+      "M365 Modernization",
+    ],
+  },
+  {
+    label: "AI Solutions",
+    items: [
+      "AI Strategy & Advisory",
+      "Generative AI",
+      "AI Agents",
+      "ML Engineering",
+      "Computer Vision",
+      "NLP Solutions",
+      "Responsible AI",
+    ],
+  },
+  {
+    label: "Data Engineering",
+    items: [
+      "Snowflake Data Platform",
+      "Databricks Lakehouse",
+      "Microsoft Fabric Data Engineering",
+      "Data Strategy",
+      "Data Migration",
+      "Data Warehousing",
+      "ETL / ELT Pipelines",
+      "Real-time Streaming",
+      "Data Governance",
+      "Master Data Management",
+    ],
+  },
+];
 
 export default function Contact() {
   const [mode, setMode] = useState<Mode>("consultation");
@@ -23,7 +89,7 @@ export default function Contact() {
     company: "",
     phone: "",
     message: "",
-    preferredDate: "",
+    solution: "",
   });
 
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
@@ -45,7 +111,7 @@ export default function Contact() {
             `Email: ${form.email}`,
             `Company: ${form.company}`,
             `Phone: ${form.phone}`,
-            `Preferred date: ${form.preferredDate}`,
+            `Solution of interest: ${form.solution}`,
             ``,
             `Message:`,
             form.message,
@@ -187,8 +253,24 @@ export default function Contact() {
 
                 {mode === "consultation" && (
                   <div className="space-y-2">
-                    <Label htmlFor="preferredDate">Preferred date</Label>
-                    <Input id="preferredDate" type="date" value={form.preferredDate} onChange={(e) => update("preferredDate", e.target.value)} />
+                    <Label htmlFor="solution">Solution of interest</Label>
+                    <Select value={form.solution} onValueChange={(v) => update("solution", v)}>
+                      <SelectTrigger id="solution">
+                        <SelectValue placeholder="Select a solution…" />
+                      </SelectTrigger>
+                      <SelectContent className="max-h-80">
+                        {SOLUTION_GROUPS.map((g) => (
+                          <SelectGroup key={g.label}>
+                            <SelectLabel>{g.label}</SelectLabel>
+                            {g.items.map((it) => (
+                              <SelectItem key={it} value={it}>
+                                {it}
+                              </SelectItem>
+                            ))}
+                          </SelectGroup>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                 )}
 
