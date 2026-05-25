@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound } from "lucide-react";
 import AnnouncementBar from "./AnnouncementBar";
 
 type SolutionCategory = {
@@ -72,9 +72,9 @@ const insightsMenu = [
   { label: "Research", icon: "🔬", href: "#insights" },
 ];
 
-const aboutMenu: { label: string; icon: string; href: string }[] = [
-  { label: "About Nextgenlytics", icon: "🏢", href: "/about" },
-  { label: "Our Team", icon: "👥", href: "/team" },
+const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
+  { label: "About Nextgenlytics", Icon: Building2, href: "/about" },
+  { label: "Our Team", Icon: UsersRound, href: "/team" },
 ];
 
 const productsMenu = [
@@ -302,7 +302,9 @@ export default function Navbar() {
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
-                          <span className="text-2xl">{i.icon}</span>
+                          <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                            <i.Icon size={18} />
+                          </span>
                           <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
                             {i.label}
                           </span>
@@ -521,7 +523,7 @@ export default function Navbar() {
                               }}
                               className="flex items-center gap-2 py-2 text-sm text-foreground/80"
                             >
-                              <span>{i.icon}</span>
+                              <i.Icon size={16} className="text-primary" />
                               <span>{i.label}</span>
                             </a>
                           </li>
