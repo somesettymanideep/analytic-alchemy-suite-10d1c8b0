@@ -15,6 +15,7 @@ import aiImg from "@/assets/team-ai.jpg";
 import cloudImg from "@/assets/team-cloud.jpg";
 import sapImg from "@/assets/team-sap.jpg";
 import { Linkedin, Mail, MapPin, Check } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const founders = [
   {
@@ -183,6 +184,7 @@ export default function Team() {
   const { ref: founderRef, isVisible: founderVisible } = useScrollReveal();
   const { ref: carouselRef, isVisible: carouselVisible } = useScrollReveal(0.1);
   const trackRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
 
   // Pause animation on hover for accessibility
   useEffect(() => {
@@ -197,6 +199,14 @@ export default function Team() {
       el.removeEventListener("mouseleave", onLeave);
     };
   }, []);
+
+  const scrollByCards = (dir: 1 | -1) => {
+    const el = scrollerRef.current;
+    const track = trackRef.current;
+    if (!el) return;
+    if (track) track.style.animationPlayState = "paused";
+    el.scrollBy({ left: dir * 360, behavior: "smooth" });
+  };
 
   // Duplicate the team list for a seamless infinite marquee
   const marquee = [...team, ...team];
@@ -357,11 +367,27 @@ export default function Team() {
                 The team building and running it with us
               </h2>
             </div>
-            <p className="text-sm text-muted-foreground">Hover to pause →</p>
+            <div className="flex items-center gap-3">
+              <p className="text-sm text-muted-foreground hidden sm:block">Hover to pause</p>
+              <button
+                onClick={() => scrollByCards(-1)}
+                aria-label="Scroll left"
+                className="w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 active:scale-95 transition-all shadow-md"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={() => scrollByCards(1)}
+                aria-label="Scroll right"
+                className="w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 active:scale-95 transition-all shadow-md"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
           </div>
 
           <div
-            className={`relative overflow-hidden group ${
+            className={`relative group ${
               carouselVisible ? "animate-fade-in" : "opacity-0"
             }`}
           >
@@ -369,12 +395,17 @@ export default function Team() {
             <div className="pointer-events-none absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10" />
 
-            <div ref={trackRef} className="flex gap-6 md:gap-8 w-max animate-marquee will-change-transform py-4">
-              {marquee.map((m, idx) => (
-                <div key={m.name + idx} className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0">
-                  <TeamCard m={m} />
-                </div>
-              ))}
+            <div
+              ref={scrollerRef}
+              className="overflow-x-auto scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <div ref={trackRef} className="flex gap-6 md:gap-8 w-max animate-marquee will-change-transform py-4">
+                {marquee.map((m, idx) => (
+                  <div key={m.name + idx} className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0">
+                    <TeamCard m={m} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
