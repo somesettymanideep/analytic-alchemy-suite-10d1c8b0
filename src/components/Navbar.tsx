@@ -42,8 +42,6 @@ const solutionsMenu: SolutionCategory[] = [
     label: "AI Solutions",
     Icon: Sparkles,
     items: [
-      { label: "AI Strategy & Advisory", href: "#solutions" },
-      { label: "Generative AI", href: "#solutions" },
       { label: "ERP AI Agents", href: "/solutions/erp-ai-agents" },
       { label: "AI Foundry", href: "/solutions/ai-foundry" },
       { label: "Databricks Genie", href: "/solutions/databricks-genie" },
@@ -51,10 +49,6 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "SAP Joule", href: "/solutions/sap-joule" },
       { label: "Snowflake Cortex", href: "/solutions/snowflake-cortex" },
       { label: "AI Testing & Validation", href: "/solutions/ai-testing-validation" },
-      { label: "ML Engineering", href: "#solutions" },
-      { label: "Computer Vision", href: "#solutions" },
-      { label: "NLP Solutions", href: "#solutions" },
-      { label: "Responsible AI", href: "#solutions" },
     ],
   },
   {
