@@ -36,6 +36,11 @@ import DataLedAi from "./pages/DataLedAi.tsx";
 import SapJoule from "./pages/SapJoule.tsx";
 import SnowflakeCortex from "./pages/SnowflakeCortex.tsx";
 import AiTesting from "./pages/AiTesting.tsx";
+import BlueGecko from "./pages/BlueGecko.tsx";
+import FalconMapping from "./pages/FalconMapping.tsx";
+import CodeCheetah from "./pages/CodeCheetah.tsx";
+import OwlSight from "./pages/OwlSight.tsx";
+import OrcaMigrate from "./pages/OrcaMigrate.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -80,6 +85,11 @@ const App = () => (
           <Route path="/solutions/sap-joule" element={<SapJoule />} />
           <Route path="/solutions/snowflake-cortex" element={<SnowflakeCortex />} />
           <Route path="/solutions/ai-testing-validation" element={<AiTesting />} />
+          <Route path="/products/bluegecko" element={<BlueGecko />} />
+          <Route path="/products/falcon-mapping" element={<FalconMapping />} />
+          <Route path="/products/code-cheetah" element={<CodeCheetah />} />
+          <Route path="/products/owl-sight" element={<OwlSight />} />
+          <Route path="/products/orca-migrate" element={<OrcaMigrate />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
