@@ -30,6 +30,7 @@ import Snowflake from "./pages/Snowflake.tsx";
 import Databricks from "./pages/Databricks.tsx";
 import Fabric from "./pages/Fabric.tsx";
 import ErpAiAgents from "./pages/ErpAiAgents.tsx";
+import AiFoundry from "./pages/AiFoundry.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -68,6 +69,7 @@ const App = () => (
           <Route path="/solutions/databricks" element={<Databricks />} />
           <Route path="/solutions/microsoft-fabric" element={<Fabric />} />
           <Route path="/solutions/erp-ai-agents" element={<ErpAiAgents />} />
+          <Route path="/solutions/ai-foundry" element={<AiFoundry />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
