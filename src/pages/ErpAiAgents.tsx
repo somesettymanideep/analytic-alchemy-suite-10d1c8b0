@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import banner from "@/assets/banner-erp-ai-agents.jpg";
+import introImg from "@/assets/erp-ai-agents-autonomous.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   Sparkles,
@@ -21,6 +22,7 @@ import {
   ArrowRight,
   CheckCircle2,
   Brain,
+  Cpu,
 } from "lucide-react";
 
 /* ---------------- Intro ---------------- */
@@ -28,22 +30,48 @@ function Intro() {
   const { ref, isVisible } = useScrollReveal();
   return (
     <section className="container py-12 md:py-16" ref={ref}>
-      <div className={`max-w-4xl ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-          <Sparkles size={14} /> Autonomous ERP, Powered by AI
-        </span>
-        <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-          Your ERP, working autonomously — <span className="text-primary">24/7, without manual input.</span>
-        </h2>
-        <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-          Most ERP systems are powerful but passive — they store data and wait for people to act on it.
-          <strong className="text-foreground"> Nextgenlytics</strong> changes that by deploying AI Agents that live directly
-          inside your Microsoft Dynamics 365 environment and execute real business processes end to end.
-        </p>
-        <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-          From closing the books to managing vendor communications and forecasting demand, our agents handle complex,
-          high-volume tasks so your teams can focus on decisions that actually need human judgment.
-        </p>
+      <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
+        <div className="lg:col-span-7">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
+            <Sparkles size={14} /> Autonomous ERP, Powered by AI
+          </span>
+          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
+            Your ERP, working autonomously — <span className="text-primary">24/7, without manual input.</span>
+          </h2>
+          <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
+            Most ERP systems are powerful but passive — they store data and wait for people to act on it.
+            <strong className="text-foreground"> Nextgenlytics</strong> changes that by deploying AI Agents that live directly
+            inside your Microsoft Dynamics 365 environment and execute real business processes end to end.
+          </p>
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
+            From closing the books to managing vendor communications and forecasting demand, our agents handle complex,
+            high-volume tasks so your teams can focus on decisions that actually need human judgment.
+          </p>
+        </div>
+
+        <div className="lg:col-span-5 relative">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-border/60">
+            <img
+              src={introImg}
+              alt="AI agents operating autonomously inside a Microsoft Dynamics 365 ERP dashboard"
+              width={1280}
+              height={896}
+              loading="lazy"
+              className="w-full h-[420px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent" />
+          </div>
+          <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
+            <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
+              <Cpu size={20} />
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Always On</p>
+              <p className="text-sm font-bold text-foreground font-heading">24/7 · Autonomous</p>
+            </div>
+          </div>
+          <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-accent/20 blur-3xl -z-10" />
+        </div>
       </div>
     </section>
   );
