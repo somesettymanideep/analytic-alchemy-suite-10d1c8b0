@@ -35,6 +35,7 @@ import DatabricksGenie from "./pages/DatabricksGenie.tsx";
 import DataLedAi from "./pages/DataLedAi.tsx";
 import SapJoule from "./pages/SapJoule.tsx";
 import SnowflakeCortex from "./pages/SnowflakeCortex.tsx";
+import AiTesting from "./pages/AiTesting.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -78,6 +79,7 @@ const App = () => (
           <Route path="/solutions/data-led-ai-transformation" element={<DataLedAi />} />
           <Route path="/solutions/sap-joule" element={<SapJoule />} />
           <Route path="/solutions/snowflake-cortex" element={<SnowflakeCortex />} />
+          <Route path="/solutions/ai-testing-validation" element={<AiTesting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
