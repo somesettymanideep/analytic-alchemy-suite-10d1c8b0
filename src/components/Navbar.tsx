@@ -44,7 +44,7 @@ const solutionsMenu: SolutionCategory[] = [
     items: [
       { label: "AI Strategy & Advisory", href: "#solutions" },
       { label: "Generative AI", href: "#solutions" },
-      { label: "AI Agents", href: "#solutions" },
+      { label: "ERP AI Agents", href: "/solutions/erp-ai-agents" },
       { label: "ML Engineering", href: "#solutions" },
       { label: "Computer Vision", href: "#solutions" },
       { label: "NLP Solutions", href: "#solutions" },
