@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope, LayoutGrid, Map, Code2, Eye, ArrowLeftRight } from "lucide-react";
 import AnnouncementBar from "./AnnouncementBar";
 
 type SolutionCategory = {
@@ -77,14 +77,12 @@ const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "Our Team", Icon: UsersRound, href: "/team" },
 ];
 
-const productsMenu = [
-  { label: "BlueGecko Platform", icon: "★" },
-  { label: "Falcon Mapping", icon: "◈" },
-  { label: "Code Cheetah", icon: "⌨" },
-  { label: "Owl Sight", icon: "◉" },
-  { label: "Orca Migrate", icon: "↔" },
-  { label: "AI Agents", icon: "🤖" },
-  { label: "Business Metrics", icon: "📈" },
+const productsMenu: { label: string; Icon: typeof Boxes }[] = [
+  { label: "BlueGecko Platform", Icon: LayoutGrid },
+  { label: "Falcon Mapping", Icon: Map },
+  { label: "Code Cheetah", Icon: Code2 },
+  { label: "Owl Sight", Icon: Eye },
+  { label: "Orca Migrate", Icon: ArrowLeftRight },
 ];
 
 const clientWorkMenu = [
@@ -331,7 +329,9 @@ export default function Navbar() {
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
-                          <span className="text-2xl">{i.icon}</span>
+                          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <i.Icon size={18} />
+                          </span>
                           <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
                             {i.label}
                           </span>
@@ -546,7 +546,7 @@ export default function Navbar() {
                               }}
                               className="flex items-center gap-2 py-2 text-sm text-foreground/80"
                             >
-                              <span>{i.icon}</span>
+                              <i.Icon size={16} className="text-primary" />
                               <span>{i.label}</span>
                             </a>
                           </li>
