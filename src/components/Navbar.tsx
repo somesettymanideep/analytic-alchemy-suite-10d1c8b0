@@ -46,6 +46,7 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "Generative AI", href: "#solutions" },
       { label: "ERP AI Agents", href: "/solutions/erp-ai-agents" },
       { label: "AI Foundry", href: "/solutions/ai-foundry" },
+      { label: "Databricks Genie", href: "/solutions/databricks-genie" },
       { label: "ML Engineering", href: "#solutions" },
       { label: "Computer Vision", href: "#solutions" },
       { label: "NLP Solutions", href: "#solutions" },
