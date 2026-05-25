@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
 import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server } from "lucide-react";
+import AnnouncementBar from "./AnnouncementBar";
 
 type SolutionCategory = {
   key: string;
@@ -156,6 +157,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
+      <AnnouncementBar />
       <div className="container flex items-center justify-between h-16 md:h-20">
         <a href="#" className="flex items-center gap-2">
           <img src={logo} alt="NextGenLytics" className="h-14 md:h-16 rounded" />
