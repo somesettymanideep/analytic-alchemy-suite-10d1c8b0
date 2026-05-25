@@ -77,12 +77,12 @@ const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "Our Team", Icon: UsersRound, href: "/team" },
 ];
 
-const productsMenu: { label: string; Icon: typeof Boxes }[] = [
-  { label: "BlueGecko Platform", Icon: LayoutGrid },
-  { label: "Falcon Mapping", Icon: Map },
-  { label: "Code Cheetah", Icon: Code2 },
-  { label: "Owl Sight", Icon: Eye },
-  { label: "Orca Migrate", Icon: ArrowLeftRight },
+const productsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
+  { label: "BlueGecko Platform", Icon: LayoutGrid, href: "/products/bluegecko" },
+  { label: "Falcon Mapping", Icon: Map, href: "/products/falcon-mapping" },
+  { label: "Code Cheetah", Icon: Code2, href: "/products/code-cheetah" },
+  { label: "Owl Sight", Icon: Eye, href: "/products/owl-sight" },
+  { label: "Orca Migrate", Icon: ArrowLeftRight, href: "/products/orca-migrate" },
 ];
 
 const clientWorkMenu = [
@@ -325,7 +325,7 @@ export default function Navbar() {
                       {productsMenu.map((i) => (
                         <a
                           key={i.label}
-                          href="#products"
+                          href={i.href}
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
@@ -539,7 +539,7 @@ export default function Navbar() {
                         {productsMenu.map((i) => (
                           <li key={i.label}>
                             <a
-                              href="#products"
+                              href={i.href}
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
