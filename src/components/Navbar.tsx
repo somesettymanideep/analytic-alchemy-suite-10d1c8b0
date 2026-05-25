@@ -48,6 +48,7 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "AI Foundry", href: "/solutions/ai-foundry" },
       { label: "Databricks Genie", href: "/solutions/databricks-genie" },
       { label: "Data-Led AI Transformation", href: "/solutions/data-led-ai-transformation" },
+      { label: "SAP Joule", href: "/solutions/sap-joule" },
       { label: "ML Engineering", href: "#solutions" },
       { label: "Computer Vision", href: "#solutions" },
       { label: "NLP Solutions", href: "#solutions" },
