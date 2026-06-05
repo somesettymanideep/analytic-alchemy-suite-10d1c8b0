@@ -59,48 +59,167 @@ const founders = [
   },
 ];
 
-const team = [
+type TeamMember = {
+  name: string;
+  role: string;
+  location: string;
+  bio: string;
+  image?: string;
+  email?: string;
+  linkedin?: string;
+};
+
+const team: TeamMember[] = [
   {
-    name: "Co-Founder",
-    role: "Co-Founder & Data / AI Lead",
-    location: "Amsterdam, NL",
-    bio: "Two decades architecting data platforms and AI systems at Tier-1 SIs. Drives the BlueGecko product vision and delivery model.",
-    image: cofounderImg,
+    name: "Sravya Syamala",
+    role: "SAP Data Migration Expert | SQL/ETL Developer | Certified Scrum Master | Power BI",
+    location: "7+ yrs · FTE",
+    bio: "SAP Data Migration Expert with strong SQL Server/ETL development background, Certified Scrum Master, and Power BI practitioner.",
+    email: "sravya.syamala@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/sravya-syamala-587649108/",
   },
   {
-    name: "Delivery Lead",
-    role: "Head of Delivery — India",
-    location: "Hyderabad, IN",
-    bio: "Runs onshore-offshore engagement orchestration. Ensures European delivery standards across Hyderabad and Lucknow specialist teams.",
-    image: deliveryImg,
+    name: "Sravani Vanukuri",
+    role: "AI Engineer | Power BI | Certified Azure AI Engineer Associate",
+    location: "2+ yrs · FTE",
+    bio: "AI Engineer building intelligent solutions with Power BI and Azure AI services. Certified Azure AI Engineer Associate.",
+    email: "sravani.vanukuri@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/sravani-vanukuri-42b59a267/",
   },
   {
-    name: "Microsoft Practice Lead",
-    role: "D365 & Azure Lead",
-    location: "Amsterdam, NL",
-    bio: "Microsoft stack veteran across Dynamics 365, Power Platform, and Azure data services for enterprise transformations.",
-    image: microsoftImg,
+    name: "Ankitha Sondhiya",
+    role: "SAP Data Migration Expert | SQL/ETL Developer | SAP DataSphere",
+    location: "5+ yrs · FTE",
+    bio: "SAP Data Migration specialist with deep SQL Server/ETL experience and SAP DataSphere delivery expertise.",
+    email: "ankita.sondhiya@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/ankita-sondhiya-244700233/",
   },
   {
-    name: "AI Practice Lead",
-    role: "Applied AI & Agents Lead",
-    location: "Amsterdam, NL",
-    bio: "Leads our AI Agents portfolio — operationalising LLM and agentic systems for measurable enterprise outcomes.",
-    image: aiImg,
+    name: "Nitin Mandge",
+    role: "SAP Data Migration Expert | SQL/ETL Developer | SAP DataSphere",
+    location: "3+ yrs · FTE",
+    bio: "SAP Data Migration engineer working across SQL Server/ETL pipelines and SAP DataSphere implementations.",
+    email: "nitin.mandge@nextgenlytics.com",
   },
   {
-    name: "Cloud Practice Lead",
-    role: "Cloud & AMS Lead",
-    location: "Hyderabad, IN",
-    bio: "Hybrid cloud migration, modernisation, and 24/7 application managed services across SAP, Microsoft, and data platforms.",
-    image: cloudImg,
+    name: "Parag Agrawal",
+    role: "UI Developer",
+    location: "2+ yrs · FTE",
+    bio: "UI Developer crafting responsive, performant front-end experiences for enterprise data products.",
+    email: "parag.agrawal@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/parag-agrawal-b7b72a233/",
   },
   {
-    name: "SAP Architecture Lead",
-    role: "S/4HANA Architect",
-    location: "Lucknow, IN",
-    bio: "End-to-end S/4HANA architecture, brownfield conversion, and clean-core delivery for regulated industries.",
-    image: sapImg,
+    name: "Manogya Kamarapu",
+    role: "SAP Data Migration Expert | SQL/ETL Developer | AI Engineer",
+    location: "8+ yrs · FTE",
+    bio: "Senior practitioner blending SAP Data Migration, SQL Server/ETL development, and AI engineering across complex enterprise programmes.",
+  },
+  {
+    name: "Bhuvanesh Mohan",
+    role: "Jr AI / Data Engineer",
+    location: "1.5 yrs · FTE",
+    bio: "Junior AI and Data Engineer contributing to data pipelines and machine learning workflows.",
+    email: "bhuvanesh.m@nextgenlytics.com",
+  },
+  {
+    name: "Santhosh Vemula",
+    role: "Jr Full Stack Developer",
+    location: "Fresher · FTE",
+    bio: "Full Stack Developer building modern web applications across the front-end and back-end stack.",
+    email: "santhosh.vemula@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/vemula17",
+  },
+  {
+    name: "Lokesh Pulakandam",
+    role: "Infra Engineer | Certified Azure Administrator Associate",
+    location: "3+ yrs · FTE",
+    bio: "Infrastructure Engineer managing cloud and on-prem environments. Certified Azure Administrator Associate.",
+    email: "lokesh.pulakandam@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/lokesh-reddy-pulakandam-961b33263/",
+  },
+  {
+    name: "Saraswathi Mathala",
+    role: "Jr DevOps Engineer | AWS Certified Cloud Practitioner",
+    location: "Fresher · FTE",
+    bio: "DevOps Engineer supporting CI/CD, cloud automation, and platform reliability. AWS Certified Cloud Practitioner.",
+    email: "saraswathi.mathala@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/saraswathi-mathala-443701285/",
+  },
+  {
+    name: "Mohan Reddy Dhanireddy",
+    role: "AI / Security Engineer",
+    location: "2+ yrs · FTE",
+    bio: "AI and Security Engineer hardening data and AI systems across the enterprise stack.",
+    email: "nagamohan.dhanireddy@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/dhani-reddy/",
+  },
+  {
+    name: "Srikanth T",
+    role: "Consultant | Data Architect",
+    location: "17+ yrs",
+    bio: "Senior Data Architect and consultant with deep experience designing enterprise data platforms.",
+    email: "srikanth@nextgenlytics.com",
+  },
+  {
+    name: "Sridhar Akula",
+    role: "Senior Consultant",
+    location: "20+ yrs · FTE",
+    bio: "Veteran consultant bringing two decades of enterprise delivery experience across data and SAP programmes.",
+  },
+  {
+    name: "Kavish Srivastava",
+    role: "Functional Analyst",
+    location: "6+ yrs · FTE",
+    bio: "Functional Analyst translating business requirements into clear, deliverable solutions for enterprise teams.",
+    email: "kavish.srivastava@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/kavish-srivastava-967639372/",
+  },
+  {
+    name: "Anuradha Pasupuleti",
+    role: "Functional Analyst",
+    location: "1+ yrs · FTE",
+    bio: "Functional Analyst supporting requirements gathering, process mapping, and stakeholder alignment.",
+    email: "anuradha.pasupuleti@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/anuradha-pasupuleti-2399333b/",
+  },
+  {
+    name: "Sowbarnika Saravanan",
+    role: "Technical Analyst",
+    location: "5+ yrs · FTE",
+    bio: "Technical Analyst bridging engineering and business teams to deliver data-driven solutions.",
+    email: "sowbarnika.saravanan@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/sowbarnikas/",
+  },
+  {
+    name: "Ravi Jell",
+    role: "Functional Analyst",
+    location: "10+ yrs · FTE",
+    bio: "Senior Functional Analyst with a decade of experience leading requirements and solution design.",
+    email: "ravi.j@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/ravi-j-0164792a6/",
+  },
+  {
+    name: "Saritha Reddy",
+    role: "Functional Analyst",
+    location: "1+ yrs · FTE",
+    bio: "Functional Analyst contributing to enterprise solution delivery and stakeholder engagement.",
+    email: "saritha.s@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/somanagurthy-saritha-0a3a032b9/",
+  },
+  {
+    name: "Richa Kathpalia",
+    role: "IT Operations Analyst",
+    location: "FTE",
+    bio: "IT Operations Analyst ensuring smooth day-to-day operations across enterprise IT systems.",
+    email: "richa.k@nextgenlytics.com",
+  },
+  {
+    name: "Pujesh Yadav",
+    role: "IT Database Analyst",
+    location: "FTE",
+    bio: "Database Analyst maintaining performance, integrity, and reliability across enterprise data stores.",
+    email: "pujesh.y@nextgenlytics.com",
   },
 ];
 
@@ -157,15 +276,19 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
             <span className="transition-transform group-hover/cta:translate-x-0.5">→</span>
           </a>
           <div className="flex items-center gap-1.5">
+            {m.linkedin && (
+              <a
+                href={m.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${m.name} on LinkedIn`}
+                className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
+              >
+                <Linkedin size={14} />
+              </a>
+            )}
             <a
-              href="#"
-              aria-label={`${m.name} on LinkedIn`}
-              className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
-            >
-              <Linkedin size={14} />
-            </a>
-            <a
-              href="mailto:Info@nextgenlytics.com"
+              href={`mailto:${m.email ?? "Info@nextgenlytics.com"}`}
               aria-label={`Email ${m.name}`}
               className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all hover:scale-110"
             >
