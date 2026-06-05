@@ -8,6 +8,16 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import hugoImg from "@/assets/hugo-cooijmans.jpg";
 import dataAiFounderImg from "@/assets/founder-data-ai.jpg";
 import deliveryFounderImg from "@/assets/founder-delivery.jpg";
+import lokeshAsset from "@/assets/team/lokesh.png.asset.json";
+import manognyaAsset from "@/assets/team/manognya.jpg.asset.json";
+import mohanReddyAsset from "@/assets/team/mohan_reddy.jpeg.asset.json";
+import nitinAsset from "@/assets/team/nitin.png.asset.json";
+import paragAsset from "@/assets/team/parag.png.asset.json";
+import pujeshAsset from "@/assets/team/Pujesh.jpeg.asset.json";
+import raviAsset from "@/assets/team/Ravi.png.asset.json";
+import richaAsset from "@/assets/team/Richa.jpeg.asset.json";
+import santhoshAsset from "@/assets/team/santhosh.jpg.asset.json";
+import saraswathiAsset from "@/assets/team/saraswathi.jpg.asset.json";
 import { Linkedin, Mail, MapPin, Check } from "lucide-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -94,6 +104,7 @@ const team: TeamMember[] = [
     location: "3+ yrs · FTE",
     bio: "SAP Data Migration engineer working across SQL Server/ETL pipelines and SAP DataSphere implementations.",
     email: "nitin.mandge@nextgenlytics.com",
+    image: nitinAsset.url,
   },
   {
     name: "Parag Agrawal",
@@ -102,12 +113,14 @@ const team: TeamMember[] = [
     bio: "UI Developer crafting responsive, performant front-end experiences for enterprise data products.",
     email: "parag.agrawal@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/parag-agrawal-b7b72a233/",
+    image: paragAsset.url,
   },
   {
     name: "Manogya Kamarapu",
     role: "SAP Data Migration Expert | SQL/ETL Developer | AI Engineer",
     location: "8+ yrs · FTE",
     bio: "Senior practitioner blending SAP Data Migration, SQL Server/ETL development, and AI engineering across complex enterprise programmes.",
+    image: manognyaAsset.url,
   },
   {
     name: "Bhuvanesh Mohan",
@@ -123,6 +136,7 @@ const team: TeamMember[] = [
     bio: "Full Stack Developer building modern web applications across the front-end and back-end stack.",
     email: "santhosh.vemula@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/vemula17",
+    image: santhoshAsset.url,
   },
   {
     name: "Lokesh Pulakandam",
@@ -131,6 +145,7 @@ const team: TeamMember[] = [
     bio: "Infrastructure Engineer managing cloud and on-prem environments. Certified Azure Administrator Associate.",
     email: "lokesh.pulakandam@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/lokesh-reddy-pulakandam-961b33263/",
+    image: lokeshAsset.url,
   },
   {
     name: "Saraswathi Mathala",
@@ -139,6 +154,7 @@ const team: TeamMember[] = [
     bio: "DevOps Engineer supporting CI/CD, cloud automation, and platform reliability. AWS Certified Cloud Practitioner.",
     email: "saraswathi.mathala@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/saraswathi-mathala-443701285/",
+    image: saraswathiAsset.url,
   },
   {
     name: "Mohan Reddy Dhanireddy",
@@ -147,6 +163,7 @@ const team: TeamMember[] = [
     bio: "AI and Security Engineer hardening data and AI systems across the enterprise stack.",
     email: "nagamohan.dhanireddy@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/dhani-reddy/",
+    image: mohanReddyAsset.url,
   },
   {
     name: "Srikanth T",
@@ -192,6 +209,7 @@ const team: TeamMember[] = [
     bio: "Senior Functional Analyst with a decade of experience leading requirements and solution design.",
     email: "ravi.j@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/ravi-j-0164792a6/",
+    image: raviAsset.url,
   },
   {
     name: "Saritha Reddy",
@@ -207,6 +225,7 @@ const team: TeamMember[] = [
     location: "FTE",
     bio: "IT Operations Analyst ensuring smooth day-to-day operations across enterprise IT systems.",
     email: "richa.k@nextgenlytics.com",
+    image: richaAsset.url,
   },
   {
     name: "Pujesh Yadav",
@@ -214,6 +233,7 @@ const team: TeamMember[] = [
     location: "FTE",
     bio: "Database Analyst maintaining performance, integrity, and reliability across enterprise data stores.",
     email: "pujesh.y@nextgenlytics.com",
+    image: pujeshAsset.url,
   },
 ];
 
