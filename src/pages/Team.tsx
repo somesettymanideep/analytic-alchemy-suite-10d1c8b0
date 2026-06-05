@@ -18,6 +18,14 @@ import raviAsset from "@/assets/team/Ravi.png.asset.json";
 import richaAsset from "@/assets/team/Richa.jpeg.asset.json";
 import santhoshAsset from "@/assets/team/santhosh.jpg.asset.json";
 import saraswathiAsset from "@/assets/team/saraswathi.jpg.asset.json";
+import saritaAsset from "@/assets/team/sarita.png.asset.json";
+import sowbarnikaAsset from "@/assets/team/Sowbarnika.png.asset.json";
+import sravaniAsset from "@/assets/team/sravani.jpg.asset.json";
+import sravyaAsset from "@/assets/team/sravya.jpeg.asset.json";
+import ankitaAsset from "@/assets/team/ankita.jpg.asset.json";
+import anuradhaAsset from "@/assets/team/anuradha.png.asset.json";
+import bhuvaneshAsset from "@/assets/team/bhuvanesh.png.asset.json";
+import kavishAsset from "@/assets/team/Kavish.jpeg.asset.json";
 import { Linkedin, Mail, MapPin, Check } from "lucide-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -81,6 +89,7 @@ const team: TeamMember[] = [
     bio: "SAP Data Migration Expert with strong SQL Server/ETL development background, Certified Scrum Master, and Power BI practitioner.",
     email: "sravya.syamala@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sravya-syamala-587649108/",
+    image: sravyaAsset.url,
   },
   {
     name: "Sravani Vanukuri",
@@ -89,6 +98,7 @@ const team: TeamMember[] = [
     bio: "AI Engineer building intelligent solutions with Power BI and Azure AI services. Certified Azure AI Engineer Associate.",
     email: "sravani.vanukuri@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sravani-vanukuri-42b59a267/",
+    image: sravaniAsset.url,
   },
   {
     name: "Ankitha Sondhiya",
@@ -97,6 +107,7 @@ const team: TeamMember[] = [
     bio: "SAP Data Migration specialist with deep SQL Server/ETL experience and SAP DataSphere delivery expertise.",
     email: "ankita.sondhiya@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/ankita-sondhiya-244700233/",
+    image: ankitaAsset.url,
   },
   {
     name: "Nitin Mandge",
@@ -128,6 +139,7 @@ const team: TeamMember[] = [
     location: "1.5 yrs · FTE",
     bio: "Junior AI and Data Engineer contributing to data pipelines and machine learning workflows.",
     email: "bhuvanesh.m@nextgenlytics.com",
+    image: bhuvaneshAsset.url,
   },
   {
     name: "Santhosh Vemula",
@@ -185,6 +197,7 @@ const team: TeamMember[] = [
     bio: "Functional Analyst translating business requirements into clear, deliverable solutions for enterprise teams.",
     email: "kavish.srivastava@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/kavish-srivastava-967639372/",
+    image: kavishAsset.url,
   },
   {
     name: "Anuradha Pasupuleti",
@@ -193,6 +206,7 @@ const team: TeamMember[] = [
     bio: "Functional Analyst supporting requirements gathering, process mapping, and stakeholder alignment.",
     email: "anuradha.pasupuleti@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/anuradha-pasupuleti-2399333b/",
+    image: anuradhaAsset.url,
   },
   {
     name: "Sowbarnika Saravanan",
@@ -201,6 +215,7 @@ const team: TeamMember[] = [
     bio: "Technical Analyst bridging engineering and business teams to deliver data-driven solutions.",
     email: "sowbarnika.saravanan@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sowbarnikas/",
+    image: sowbarnikaAsset.url,
   },
   {
     name: "Ravi Jell",
@@ -218,6 +233,7 @@ const team: TeamMember[] = [
     bio: "Functional Analyst contributing to enterprise solution delivery and stakeholder engagement.",
     email: "saritha.s@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/somanagurthy-saritha-0a3a032b9/",
+    image: saritaAsset.url,
   },
   {
     name: "Richa Kathpalia",
