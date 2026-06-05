@@ -8,6 +8,16 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import hugoImg from "@/assets/hugo-cooijmans.jpg";
 import dataAiFounderImg from "@/assets/founder-data-ai.jpg";
 import deliveryFounderImg from "@/assets/founder-delivery.jpg";
+import lokeshAsset from "@/assets/team/lokesh.png.asset.json";
+import manognyaAsset from "@/assets/team/manognya.jpg.asset.json";
+import mohanReddyAsset from "@/assets/team/mohan_reddy.jpeg.asset.json";
+import nitinAsset from "@/assets/team/nitin.png.asset.json";
+import paragAsset from "@/assets/team/parag.png.asset.json";
+import pujeshAsset from "@/assets/team/Pujesh.jpeg.asset.json";
+import raviAsset from "@/assets/team/Ravi.png.asset.json";
+import richaAsset from "@/assets/team/Richa.jpeg.asset.json";
+import santhoshAsset from "@/assets/team/santhosh.jpg.asset.json";
+import saraswathiAsset from "@/assets/team/saraswathi.jpg.asset.json";
 import { Linkedin, Mail, MapPin, Check } from "lucide-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
