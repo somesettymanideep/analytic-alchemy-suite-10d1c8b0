@@ -8,12 +8,6 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import hugoImg from "@/assets/hugo-cooijmans.jpg";
 import dataAiFounderImg from "@/assets/founder-data-ai.jpg";
 import deliveryFounderImg from "@/assets/founder-delivery.jpg";
-import cofounderImg from "@/assets/team-cofounder.jpg";
-import deliveryImg from "@/assets/team-delivery.jpg";
-import microsoftImg from "@/assets/team-microsoft.jpg";
-import aiImg from "@/assets/team-ai.jpg";
-import cloudImg from "@/assets/team-cloud.jpg";
-import sapImg from "@/assets/team-sap.jpg";
 import { Linkedin, Mail, MapPin, Check } from "lucide-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -269,7 +263,7 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
 
         <div className="mt-4 flex items-center justify-between">
           <a
-            href="mailto:Info@nextgenlytics.com"
+            href={`mailto:${m.email ?? "Info@nextgenlytics.com"}`}
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-accent transition-colors group/cta"
           >
             Connect
