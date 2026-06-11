@@ -105,7 +105,7 @@ const industriesMenu = [
 ];
 
 const navLinks = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "/" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries", hasMenu: "industries" as const },
@@ -157,7 +157,7 @@ export default function Navbar() {
     >
       <AnnouncementBar />
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <img src={logo} alt="NextGenLytics" className="h-14 md:h-16 rounded" />
         </a>
 
