@@ -255,86 +255,198 @@ const caseStudies: CaseStudy[] = [
 
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
+  const stats = [
+    { value: "70+", label: "Legal entities supported" },
+    { value: "9", label: "Countries" },
+    { value: "24/7", label: "BAU coverage" },
+    { value: "15min", label: "Invoice cycle" },
+  ];
   return (
     <section className="container py-12 md:py-16" ref={ref}>
-      <div className={`max-w-4xl ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-          <FileText size={14} /> Case Studies
-        </span>
-        <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading leading-[1.1]">
-          Outcomes delivered across <span className="text-primary">D365 Finance &amp; Operations</span>.
-        </h2>
-        <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
-          Real engagements, measurable results — from multi-entity managed services to invoice automation
-          and analytics enablement.
-        </p>
+      <div className={`grid lg:grid-cols-12 gap-10 items-end ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
+        <div className="lg:col-span-7">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
+            <FileText size={14} /> Case Studies
+          </span>
+          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading leading-[1.05]">
+            Outcomes delivered across{" "}
+            <span className="text-primary">D365 Finance &amp; Operations</span>.
+          </h2>
+          <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            Real engagements, measurable results — multi-entity managed services, invoice automation,
+            license optimisation and analytics enablement.
+          </p>
+        </div>
+        <div className="lg:col-span-5 grid grid-cols-2 gap-3">
+          {stats.map((s) => (
+            <div key={s.label} className="rounded-xl border border-border bg-card p-4">
+              <div className="text-2xl md:text-3xl font-bold font-heading text-primary">{s.value}</div>
+              <div className="mt-1 text-xs text-muted-foreground uppercase tracking-wide">{s.label}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-function CaseStudyCard({ cs, index }: { cs: CaseStudy; index: number }) {
+function SectionBlock({ section, index }: { section: Section; index: number }) {
+  const { Icon, title, items } = section;
+  return (
+    <div className="grid md:grid-cols-12 gap-6 py-8 border-t border-border first:border-t-0 first:pt-0">
+      <div className="md:col-span-4">
+        <div className="flex items-center gap-3">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            <Icon size={18} />
+          </span>
+          <span className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
+        <h4 className="mt-3 text-xl md:text-2xl font-bold font-heading text-foreground">{title}</h4>
+      </div>
+      <ul className="md:col-span-8 space-y-3">
+        {items.map((it, i) => (
+          <li key={i} className="flex gap-3 text-[15px] text-foreground/85 leading-relaxed">
+            <Check size={16} className="mt-1 shrink-0 text-accent" />
+            <span>{it}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function CaseStudyArticle({ cs, index, anchor }: { cs: CaseStudy; index: number; anchor: string }) {
   const { ref, isVisible } = useScrollReveal();
-  const [open, setOpen] = useState(false);
-  const visibleSections = open ? cs.sections : cs.sections.slice(0, 2);
   return (
     <article
+      id={anchor}
       ref={ref}
-      className={`rounded-2xl border border-border bg-card shadow-sm overflow-hidden ${
-        isVisible ? "animate-reveal-up" : "opacity-0"
-      }`}
+      className={`scroll-mt-28 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
     >
-      <header className="p-6 md:p-8 border-b border-border bg-gradient-to-br from-primary/5 to-transparent">
-        <div className="flex items-center gap-3">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-bold">
-            {index + 1}
-          </span>
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">{cs.tag}</span>
-        </div>
-        <h3 className="mt-3 text-2xl md:text-3xl font-bold font-heading text-foreground">{cs.title}</h3>
-        <p className="mt-3 text-muted-foreground leading-relaxed max-w-3xl">{cs.summary}</p>
-      </header>
-      <div className="p-6 md:p-8 grid md:grid-cols-2 gap-6">
-        {visibleSections.map(({ title, Icon, items }) => (
-          <div key={title} className="rounded-xl border border-border bg-background p-5">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-accent/15 text-primary">
-                <Icon size={18} />
-              </span>
-              <h4 className="text-base font-bold text-foreground font-heading">{title}</h4>
+      <div className="rounded-3xl overflow-hidden border border-border bg-card shadow-sm">
+        {/* Hero header */}
+        <header className="relative bg-primary text-primary-foreground p-8 md:p-12 overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-[0.08]"
+            style={{
+              backgroundImage:
+                "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+            aria-hidden
+          />
+          <div className="relative flex flex-col md:flex-row md:items-start gap-6">
+            <div className="text-5xl md:text-7xl font-bold font-heading text-accent leading-none">
+              {String(index + 1).padStart(2, "0")}
             </div>
-            <ul className="mt-4 space-y-2.5">
-              {items.map((it, i) => (
-                <li key={i} className="flex gap-2 text-sm text-foreground/85 leading-relaxed">
-                  <Check size={14} className="mt-1 shrink-0 text-primary" />
-                  <span>{it}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex-1">
+              <span className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-accent/20 backdrop-blur text-primary-foreground text-[10px] font-semibold uppercase tracking-widest border border-accent/40">
+                {cs.tag}
+              </span>
+              <h3 className="mt-3 text-2xl md:text-4xl font-bold font-heading leading-tight">
+                {cs.title}
+              </h3>
+              <p className="mt-3 text-primary-foreground/85 leading-relaxed max-w-3xl">
+                {cs.summary}
+              </p>
+            </div>
           </div>
-        ))}
-      </div>
-      {cs.sections.length > 2 && (
-        <div className="px-6 md:px-8 pb-6 md:pb-8">
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-          >
-            {open ? "Show less" : `Show all ${cs.sections.length} sections`}
-          </button>
+        </header>
+        {/* Body */}
+        <div className="p-6 md:p-12">
+          {cs.sections.map((s, i) => (
+            <SectionBlock key={s.title} section={s} index={i} />
+          ))}
         </div>
-      )}
+      </div>
     </article>
   );
 }
 
-function CaseStudiesList() {
+function CaseStudiesLayout() {
+  const items = caseStudies.map((c, i) => ({ ...c, anchor: `case-${i + 1}` }));
+  const [active, setActive] = useState(items[0].anchor);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+    );
+    items.forEach((i) => {
+      const el = document.getElementById(i.anchor);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="section-alt py-12 md:py-20">
-      <div className="container space-y-10">
-        {caseStudies.map((cs, i) => (
-          <CaseStudyCard key={cs.id} cs={cs} index={i} />
-        ))}
+      <div className="container">
+        <div className="grid lg:grid-cols-12 gap-10">
+          {/* Sticky index */}
+          <aside className="lg:col-span-4 xl:col-span-3">
+            <div className="lg:sticky lg:top-28">
+              <div className="text-[11px] font-semibold uppercase tracking-widest text-accent mb-4">
+                Index
+              </div>
+              <nav className="space-y-1">
+                {items.map((cs, i) => {
+                  const isActive = active === cs.anchor;
+                  return (
+                    <a
+                      key={cs.id}
+                      href={`#${cs.anchor}`}
+                      className={`group flex gap-3 items-start p-3 rounded-lg transition-all border ${
+                        isActive
+                          ? "border-primary bg-primary/5"
+                          : "border-transparent hover:border-border hover:bg-card"
+                      }`}
+                    >
+                      <span
+                        className={`text-xs font-bold font-heading mt-0.5 ${
+                          isActive ? "text-primary" : "text-muted-foreground"
+                        }`}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="flex-1">
+                        <span
+                          className={`block text-sm font-semibold leading-snug ${
+                            isActive ? "text-foreground" : "text-foreground/80"
+                          }`}
+                        >
+                          {cs.title}
+                        </span>
+                        <span className="block mt-1 text-[11px] uppercase tracking-wide text-muted-foreground">
+                          {cs.tag}
+                        </span>
+                      </span>
+                      <ArrowUpRight
+                        size={14}
+                        className={`mt-1 transition-opacity ${
+                          isActive ? "opacity-100 text-primary" : "opacity-0 group-hover:opacity-60"
+                        }`}
+                      />
+                    </a>
+                  );
+                })}
+              </nav>
+            </div>
+          </aside>
+
+          {/* Detail */}
+          <div className="lg:col-span-8 xl:col-span-9 space-y-16">
+            {items.map((cs, i) => (
+              <CaseStudyArticle key={cs.id} cs={cs} index={i} anchor={cs.anchor} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -352,7 +464,7 @@ export default function CaseStudy() {
         description="A closer look at programs delivering measurable financial, operational and automation outcomes."
       />
       <Intro />
-      <CaseStudiesList />
+      <CaseStudiesLayout />
       <Footer />
     </div>
   );
