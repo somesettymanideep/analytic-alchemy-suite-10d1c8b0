@@ -260,7 +260,6 @@ export default function Navbar() {
                                 <h4 className="text-sm font-bold text-foreground uppercase tracking-wide">
                                   {cat.label}
                                 </h4>
-                                <span className="text-xs text-muted-foreground">{cat.items.length} offerings</span>
                               </div>
                               <div className="grid grid-cols-2 gap-2">
                                 {cat.items.map((it) => (
