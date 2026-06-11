@@ -13,8 +13,7 @@ import manognyaAsset from "@/assets/team/manognya.jpg.asset.json";
 import mohanReddyAsset from "@/assets/team/mohan_reddy.jpeg.asset.json";
 import nitinAsset from "@/assets/team/nitin.png.asset.json";
 import paragAsset from "@/assets/team/parag.png.asset.json";
-import pujeshAsset from "@/assets/team/Pujesh.jpeg.asset.json";
-import pujesh2Asset from "@/assets/team/Pujesh-2.jpeg.asset.json";
+import pujeshAsset from "@/assets/team/Pujesh-2.jpeg.asset.json";
 import parikshitAsset from "@/assets/team/parikshit.png.asset.json";
 import sridharAsset from "@/assets/team/sridhar.png.asset.json";
 import raviAsset from "@/assets/team/Ravi.png.asset.json";
@@ -254,7 +253,7 @@ const team: TeamMember[] = [
     bio: "Database Analyst maintaining performance, integrity, and reliability across enterprise data stores.",
     email: "pujesh.y@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/pujeshkumaryadav",
-    image: pujesh2Asset.url,
+    image: pujeshAsset.url,
   },
   {
     name: "Parikshit Ghatage",
