@@ -13,7 +13,9 @@ import manognyaAsset from "@/assets/team/manognya.jpg.asset.json";
 import mohanReddyAsset from "@/assets/team/mohan_reddy.jpeg.asset.json";
 import nitinAsset from "@/assets/team/nitin.png.asset.json";
 import paragAsset from "@/assets/team/parag.png.asset.json";
-import pujeshAsset from "@/assets/team/Pujesh.jpeg.asset.json";
+import pujeshAsset from "@/assets/team/Pujesh-2.jpeg.asset.json";
+import parikshitAsset from "@/assets/team/parikshit.png.asset.json";
+import sridharAsset from "@/assets/team/sridhar.png.asset.json";
 import raviAsset from "@/assets/team/Ravi.png.asset.json";
 import richaAsset from "@/assets/team/Richa.jpeg.asset.json";
 import santhoshAsset from "@/assets/team/santhosh.jpg.asset.json";
@@ -189,6 +191,7 @@ const team: TeamMember[] = [
     role: "Senior Consultant",
     location: "20+ yrs · FTE",
     bio: "Veteran consultant bringing two decades of enterprise delivery experience across data and SAP programmes.",
+    image: sridharAsset.url,
   },
   {
     name: "Kavish Srivastava",
@@ -259,6 +262,7 @@ const team: TeamMember[] = [
     bio: "Transition Manager Lead with two decades of experience steering complex enterprise programme handovers and delivery transitions.",
     email: "pari.ghata@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/parikshit-ghatage-05043519/",
+    image: parikshitAsset.url,
   },
 ];
 
