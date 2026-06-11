@@ -339,15 +339,15 @@ export default function Navbar() {
 
                 {openMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
                   <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(820px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(440px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
                     onMouseEnter={() => openMenu("clientWork")}
                     onMouseLeave={scheduleClose}
                   >
-                    <div className="grid grid-cols-2 grid-rows-3 grid-flow-col gap-2">
-                      {clientWorkMenu.map(({ label, Icon }) => (
+                    <div className="grid grid-cols-1 gap-2">
+                      {clientWorkMenu.map(({ label, Icon, href }) => (
                         <a
                           key={label}
-                          href="#cases"
+                          href={href}
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
