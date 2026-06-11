@@ -5,9 +5,10 @@ import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import teamBanner from "@/assets/banner-team.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import hugoImg from "@/assets/hugo-cooijmans.jpg";
-import dataAiFounderImg from "@/assets/founder-data-ai.jpg";
-import deliveryFounderImg from "@/assets/founder-delivery.jpg";
+import rajaAsset from "@/assets/team/raja.png.asset.json";
+import hugoAsset from "@/assets/team/hugo.png.asset.json";
+import emilioAsset from "@/assets/team/emilio.png.asset.json";
+import remyAsset from "@/assets/team/remy.png.asset.json";
 import lokeshAsset from "@/assets/team/lokesh.png.asset.json";
 import manognyaAsset from "@/assets/team/manognya.jpg.asset.json";
 import mohanReddyAsset from "@/assets/team/mohan_reddy.jpeg.asset.json";
@@ -38,7 +39,7 @@ const founders = [
     location: "Hyderabad, IN",
     quote:
       "Every enterprise deserves Tier-1 thinking. We built NGSIT to make that possible.",
-    image: dataAiFounderImg,
+    image: rajaAsset.url,
     highlights: [
       "17 yrs architecting enterprise data & AI for ManpowerGroup, Nationwide, ANZ Bank",
       "Visionary architect of BlueGecko — SAP, Microsoft & ERP transformation at a fraction of Tier-1 cost",
@@ -51,7 +52,7 @@ const founders = [
     location: "North Brabant, NL",
     quote:
       "Bridging the gap between legacy enterprise systems and the speed of modern product engineering.",
-    image: hugoImg,
+    image: hugoAsset.url,
     highlights: [
       "30+ yrs building and leading SAP programmes across the Dutch enterprise market",
       "Pioneer of the Dutch SAP SI ecosystem — Tier-1 relationships built over three decades",
@@ -64,7 +65,7 @@ const founders = [
     location: "North Brabant, NL",
     quote:
       "The best technology never sells itself. The right conversation does.",
-    image: deliveryFounderImg,
+    image: emilioAsset.url,
     highlights: [
       "Enterprise tech sales leadership across TCS, Tata Communications, and KPN Netherlands",
       "Drives new business across SAP, Microsoft, Data Engineering, and AI portfolios",
@@ -77,6 +78,7 @@ const founders = [
     location: "Amsterdam, NL",
     quote:
       "Technology leaders trust people who have stood where they stand. That is why I joined NGSIT.",
+    image: remyAsset.url,
     highlights: [
       "Former CIO, CTO, and PE Operating Partner — 30+ yrs of board-level transformation",
       "Opens doors in the Dutch and European C-suite — peer to peer, executive to executive",
