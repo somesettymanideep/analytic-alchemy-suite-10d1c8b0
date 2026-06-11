@@ -85,13 +85,9 @@ const productsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "Orca Migrate", Icon: ArrowLeftRight, href: "/products/orca-migrate" },
 ];
 
-const clientWorkMenu = [
-  { label: "Manufacturing SAP Transformation", Icon: Factory },
-  { label: "D365 AMS Engagement", Icon: Cog },
-  { label: "Invoice Automation", Icon: FileText },
-  { label: "AI Data Migration", Icon: Database },
-  { label: "Analytics Transformation", Icon: BarChart3 },
-  { label: "Managed Services Programs", Icon: LifeBuoy },
+const clientWorkMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
+  { label: "AMS Services", Icon: LifeBuoy, href: "/ams-services" },
+  { label: "Case Study", Icon: FileText, href: "/case-study" },
 ];
 
 const industriesMenu = [
