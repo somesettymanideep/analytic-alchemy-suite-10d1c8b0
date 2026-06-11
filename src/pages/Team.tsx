@@ -33,42 +33,54 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const founders = [
   {
+    name: "Raja Devarapu",
+    role: "Co-Founder & CEO · Data, AI & ERP Transformation",
+    location: "Hyderabad, IN",
+    quote:
+      "Every enterprise deserves Tier-1 thinking. We built NGSIT to make that possible.",
+    image: dataAiFounderImg,
+    highlights: [
+      "17 yrs architecting enterprise data & AI for ManpowerGroup, Nationwide, ANZ Bank",
+      "Visionary architect of BlueGecko — SAP, Microsoft & ERP transformation at a fraction of Tier-1 cost",
+      "Founded NGSIT to bring Fortune-500 capability to Dutch & European SMBs",
+    ],
+  },
+  {
     name: "Hugo Cooijmans",
-    role: "SAP Strategy & Architecture",
-    location: "Amsterdam, NL",
+    role: "CRO · Advisor",
+    location: "North Brabant, NL",
     quote:
       "Bridging the gap between legacy enterprise systems and the speed of modern product engineering.",
     image: hugoImg,
     highlights: [
-      "30+ yrs SAP programme leadership",
-      "Dutch SAP SI ecosystem pioneer",
-      "Tier-1 enterprise references",
+      "30+ yrs building and leading SAP programmes across the Dutch enterprise market",
+      "Pioneer of the Dutch SAP SI ecosystem — Tier-1 relationships built over three decades",
+      "Advises NGSIT because focused, AI-native teams deliver what large consultancies no longer can",
     ],
   },
   {
-    name: "Rajiv Menon",
-    role: "Data & AI Engineering",
-    location: "Amsterdam, NL",
+    name: "Emilio Piers",
+    role: "SVP Sales · Enterprise Technology & Transformation",
+    location: "North Brabant, NL",
     quote:
-      "Turning abstract data lakes into concrete decision-making engines with LLMs and predictive analytics.",
-    image: dataAiFounderImg,
-    highlights: [
-      "20+ yrs data & AI architecture",
-      "BlueGecko product architect",
-      "Lakehouse & agentic AI delivery",
-    ],
-  },
-  {
-    name: "Arjun Krishnan",
-    role: "Global Delivery & Operations",
-    location: "Hyderabad, IN",
-    quote:
-      "Scale is only successful when paired with meticulous quality engineering and cultural alignment.",
+      "The best technology never sells itself. The right conversation does.",
     image: deliveryFounderImg,
     highlights: [
-      "35+ specialists across IN hubs",
-      "European-grade governance offshore",
-      "100% senior-led engagements",
+      "Enterprise tech sales leadership across TCS, Tata Communications, and KPN Netherlands",
+      "Drives new business across SAP, Microsoft, Data Engineering, and AI portfolios",
+      "The commercial engine connecting world-class delivery with the organisations that need it",
+    ],
+  },
+  {
+    name: "Remy Gillet",
+    role: "Business Development · CIO, CTO & PE Advisory",
+    location: "Amsterdam, NL",
+    quote:
+      "Technology leaders trust people who have stood where they stand. That is why I joined NGSIT.",
+    highlights: [
+      "Former CIO, CTO, and PE Operating Partner — 30+ yrs of board-level transformation",
+      "Opens doors in the Dutch and European C-suite — peer to peer, executive to executive",
+      "Joined NGSIT having seen first-hand what great data & AI transformation looks like",
     ],
   },
 ];
@@ -401,10 +413,10 @@ export default function Team() {
               Founding Partners
             </span>
             <h2 className="text-primary text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.05] font-heading text-balance">
-              Three operators.<br />One conviction.
+              Four operators.<br />One conviction.
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed text-pretty">
-              Nextgenlytics was built by three partners who spent careers running the kind of programmes our clients now hand to us — combining SAP heritage, AI engineering, and global delivery into a single accountable team.
+              Nextgenlytics is led by four partners who spent careers running the kind of programmes our clients now hand to us — combining SAP heritage, AI engineering, enterprise sales, and C-suite advisory into a single accountable team.
             </p>
           </div>
 
@@ -412,7 +424,7 @@ export default function Team() {
           <div className="space-y-24 md:space-y-40">
             {founders.map((f, i) => {
               const num = String(i + 1).padStart(2, "0");
-              const flipped = i === 1;
+              const flipped = i % 2 === 1;
               const shadowClass = flipped
                 ? "shadow-[-24px_24px_0_0_hsl(var(--accent)/0.12)] md:shadow-[-30px_30px_0_0_hsl(var(--accent)/0.12)]"
                 : "shadow-[24px_24px_0_0_hsl(var(--primary)/0.08)] md:shadow-[30px_30px_0_0_hsl(var(--primary)/0.08)]";
@@ -431,14 +443,20 @@ export default function Team() {
                   {/* Portrait column */}
                   <div className="w-full md:w-5/12">
                     <div className={`relative overflow-hidden rounded-sm bg-muted ${shadowClass}`}>
-                      <img
-                        src={f.image}
-                        alt={f.name}
-                        loading="lazy"
-                        width={768}
-                        height={960}
-                        className="w-full aspect-[4/5] object-cover object-top"
-                      />
+                      {f.image ? (
+                        <img
+                          src={f.image}
+                          alt={f.name}
+                          loading="lazy"
+                          width={768}
+                          height={960}
+                          className="w-full aspect-[4/5] object-cover object-top"
+                        />
+                      ) : (
+                        <div className="w-full aspect-[4/5]">
+                          <Initials name={f.name} />
+                        </div>
+                      )}
                     </div>
                   </div>
 
