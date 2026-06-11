@@ -404,7 +404,7 @@ export default function Team() {
         />
 
         {/* Founders — Magazine asymmetric editorial stack */}
-        <section className="container pb-20 md:pb-28" ref={founderRef}>
+        <section className="container pt-20 md:pt-28 pb-20 md:pb-28" ref={founderRef}>
           {/* Editorial header */}
           <div
             className={`mb-20 md:mb-28 border-l-4 border-accent pl-6 md:pl-8 max-w-4xl ${
