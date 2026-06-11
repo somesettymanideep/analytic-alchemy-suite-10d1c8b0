@@ -246,10 +246,19 @@ const team: TeamMember[] = [
   {
     name: "Pujesh Yadav",
     role: "IT Database Analyst",
-    location: "FTE",
+    location: "3+ yrs · FTE",
     bio: "Database Analyst maintaining performance, integrity, and reliability across enterprise data stores.",
     email: "pujesh.y@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/pujeshkumaryadav",
     image: pujeshAsset.url,
+  },
+  {
+    name: "Parikshit Ghatage",
+    role: "Transition Manager Lead",
+    location: "20+ yrs · FTE",
+    bio: "Transition Manager Lead with two decades of experience steering complex enterprise programme handovers and delivery transitions.",
+    email: "pari.ghata@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/parikshit-ghatage-05043519/",
   },
 ];
 
