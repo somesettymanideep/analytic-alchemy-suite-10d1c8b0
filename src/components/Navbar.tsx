@@ -552,10 +552,10 @@ export default function Navbar() {
                   {mobileMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
-                        {clientWorkMenu.map(({ label, Icon }) => (
+                        {clientWorkMenu.map(({ label, Icon, href }) => (
                           <li key={label}>
                             <a
-                              href="#cases"
+                              href={href}
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
