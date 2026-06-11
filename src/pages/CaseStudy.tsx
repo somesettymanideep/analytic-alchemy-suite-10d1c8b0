@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -15,6 +15,7 @@ import {
   Check,
   TrendingUp,
   Sparkles,
+  ArrowUpRight,
 } from "lucide-react";
 
 type Section = {
