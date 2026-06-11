@@ -413,10 +413,10 @@ export default function Team() {
               Founding Partners
             </span>
             <h2 className="text-primary text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.05] font-heading text-balance">
-              Three operators.<br />One conviction.
+              Four operators.<br />One conviction.
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed text-pretty">
-              Nextgenlytics was built by three partners who spent careers running the kind of programmes our clients now hand to us — combining SAP heritage, AI engineering, and global delivery into a single accountable team.
+              Nextgenlytics is led by four partners who spent careers running the kind of programmes our clients now hand to us — combining SAP heritage, AI engineering, enterprise sales, and C-suite advisory into a single accountable team.
             </p>
           </div>
 
@@ -424,7 +424,7 @@ export default function Team() {
           <div className="space-y-24 md:space-y-40">
             {founders.map((f, i) => {
               const num = String(i + 1).padStart(2, "0");
-              const flipped = i === 1;
+              const flipped = i % 2 === 1;
               const shadowClass = flipped
                 ? "shadow-[-24px_24px_0_0_hsl(var(--accent)/0.12)] md:shadow-[-30px_30px_0_0_hsl(var(--accent)/0.12)]"
                 : "shadow-[24px_24px_0_0_hsl(var(--primary)/0.08)] md:shadow-[30px_30px_0_0_hsl(var(--primary)/0.08)]";
@@ -443,14 +443,20 @@ export default function Team() {
                   {/* Portrait column */}
                   <div className="w-full md:w-5/12">
                     <div className={`relative overflow-hidden rounded-sm bg-muted ${shadowClass}`}>
-                      <img
-                        src={f.image}
-                        alt={f.name}
-                        loading="lazy"
-                        width={768}
-                        height={960}
-                        className="w-full aspect-[4/5] object-cover object-top"
-                      />
+                      {f.image ? (
+                        <img
+                          src={f.image}
+                          alt={f.name}
+                          loading="lazy"
+                          width={768}
+                          height={960}
+                          className="w-full aspect-[4/5] object-cover object-top"
+                        />
+                      ) : (
+                        <div className="w-full aspect-[4/5]">
+                          <Initials name={f.name} />
+                        </div>
+                      )}
                     </div>
                   </div>
 
