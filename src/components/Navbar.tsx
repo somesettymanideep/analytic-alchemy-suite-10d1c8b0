@@ -85,13 +85,9 @@ const productsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "Orca Migrate", Icon: ArrowLeftRight, href: "/products/orca-migrate" },
 ];
 
-const clientWorkMenu = [
-  { label: "Manufacturing SAP Transformation", Icon: Factory },
-  { label: "D365 AMS Engagement", Icon: Cog },
-  { label: "Invoice Automation", Icon: FileText },
-  { label: "AI Data Migration", Icon: Database },
-  { label: "Analytics Transformation", Icon: BarChart3 },
-  { label: "Managed Services Programs", Icon: LifeBuoy },
+const clientWorkMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
+  { label: "AMS Services", Icon: LifeBuoy, href: "/ams-services" },
+  { label: "Case Study", Icon: FileText, href: "/case-study" },
 ];
 
 const industriesMenu = [
@@ -343,15 +339,15 @@ export default function Navbar() {
 
                 {openMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
                   <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(820px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(440px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
                     onMouseEnter={() => openMenu("clientWork")}
                     onMouseLeave={scheduleClose}
                   >
-                    <div className="grid grid-cols-2 grid-rows-3 grid-flow-col gap-2">
-                      {clientWorkMenu.map(({ label, Icon }) => (
+                    <div className="grid grid-cols-1 gap-2">
+                      {clientWorkMenu.map(({ label, Icon, href }) => (
                         <a
                           key={label}
-                          href="#cases"
+                          href={href}
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
@@ -556,10 +552,10 @@ export default function Navbar() {
                   {mobileMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
-                        {clientWorkMenu.map(({ label, Icon }) => (
+                        {clientWorkMenu.map(({ label, Icon, href }) => (
                           <li key={label}>
                             <a
-                              href="#cases"
+                              href={href}
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
