@@ -41,6 +41,8 @@ import FalconMapping from "./pages/FalconMapping.tsx";
 import CodeCheetah from "./pages/CodeCheetah.tsx";
 import OwlSight from "./pages/OwlSight.tsx";
 import OrcaMigrate from "./pages/OrcaMigrate.tsx";
+import AmsServices from "./pages/AmsServices.tsx";
+import CaseStudy from "./pages/CaseStudy.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -90,6 +92,8 @@ const App = () => (
           <Route path="/products/code-cheetah" element={<CodeCheetah />} />
           <Route path="/products/owl-sight" element={<OwlSight />} />
           <Route path="/products/orca-migrate" element={<OrcaMigrate />} />
+          <Route path="/ams-services" element={<AmsServices />} />
+          <Route path="/case-study" element={<CaseStudy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
