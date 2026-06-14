@@ -372,12 +372,10 @@ function FeaturedCard({ cs, anchor }: { cs: CaseStudy; anchor: string }) {
     .find((s) => /solution|benefits/i.test(s.title))
     ?.items.slice(0, 3) ?? cs.sections[0].items.slice(0, 3);
   return (
+    <div ref={ref} className={isVisible ? "animate-reveal-up" : "opacity-0"}>
     <a
       href={`#${anchor}`}
-      ref={ref as React.Ref<HTMLAnchorElement>}
-      className={`group relative block overflow-hidden rounded-3xl bg-primary text-primary-foreground shadow-xl shadow-primary/20 transition-transform hover:-translate-y-1 ${
-        isVisible ? "animate-reveal-up" : "opacity-0"
-      }`}
+      className="group relative block overflow-hidden rounded-3xl bg-primary text-primary-foreground shadow-xl shadow-primary/20 transition-transform hover:-translate-y-1"
     >
       <div
         className="absolute inset-0 opacity-[0.08]"
@@ -419,18 +417,17 @@ function FeaturedCard({ cs, anchor }: { cs: CaseStudy; anchor: string }) {
         </div>
       </div>
     </a>
+    </div>
   );
 }
 
 function MagazineCard({ cs, index, anchor }: { cs: CaseStudy; index: number; anchor: string }) {
   const { ref, isVisible } = useScrollReveal();
   return (
+    <div ref={ref} className={isVisible ? "animate-reveal-up" : "opacity-0"}>
     <a
       href={`#${anchor}`}
-      ref={ref as React.Ref<HTMLAnchorElement>}
-      className={`group relative flex flex-col rounded-2xl bg-card border border-border p-6 md:p-7 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 ${
-        isVisible ? "animate-reveal-up" : "opacity-0"
-      }`}
+      className="group relative flex flex-col h-full rounded-2xl bg-card border border-border p-6 md:p-7 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
     >
       <div className="flex items-center justify-between">
         <span className="text-3xl font-bold font-heading text-primary/20 group-hover:text-primary/40 transition-colors">
@@ -454,6 +451,7 @@ function MagazineCard({ cs, index, anchor }: { cs: CaseStudy; index: number; anc
         Read case study <ArrowRight size={12} />
       </span>
     </a>
+    </div>
   );
 }
 
