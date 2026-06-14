@@ -194,13 +194,6 @@ const team: TeamMember[] = [
     image: mohanReddyAsset.url,
   },
   {
-    name: "Srikanth T",
-    role: "Consultant | Data Architect",
-    location: "17+ yrs",
-    bio: "Senior Data Architect and consultant with deep experience designing enterprise data platforms.",
-    email: "srikanth@nextgenlytics.com",
-  },
-  {
     name: "Sridhar Akula",
     role: "Senior Consultant",
     location: "20+ yrs · FTE",
