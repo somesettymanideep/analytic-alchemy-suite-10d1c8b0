@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -16,6 +16,7 @@ import {
   TrendingUp,
   Sparkles,
   ArrowUpRight,
+  ArrowRight,
 } from "lucide-react";
 
 type Section = {
@@ -365,90 +366,176 @@ function CaseStudyArticle({ cs, index, anchor }: { cs: CaseStudy; index: number;
   );
 }
 
+function FeaturedCard({ cs, anchor }: { cs: CaseStudy; anchor: string }) {
+  const { ref, isVisible } = useScrollReveal();
+  const highlights = cs.sections
+    .find((s) => /solution|benefits/i.test(s.title))
+    ?.items.slice(0, 3) ?? cs.sections[0].items.slice(0, 3);
+  return (
+    <div ref={ref} className={isVisible ? "animate-reveal-up" : "opacity-0"}>
+    <a
+      href={`#${anchor}`}
+      className="group relative block overflow-hidden rounded-3xl bg-primary text-primary-foreground shadow-xl shadow-primary/20 transition-transform hover:-translate-y-1"
+    >
+      <div
+        className="absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+        aria-hidden
+      />
+      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent/30 blur-3xl" aria-hidden />
+      <div className="relative grid md:grid-cols-12 gap-8 p-8 md:p-12">
+        <div className="md:col-span-7">
+          <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-accent">
+            <Sparkles size={12} /> Featured Case Study
+          </span>
+          <h3 className="mt-4 text-3xl md:text-5xl font-bold font-heading leading-[1.05]">
+            {cs.title}
+          </h3>
+          <p className="mt-5 text-primary-foreground/85 leading-relaxed max-w-2xl">
+            {cs.summary}
+          </p>
+          <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:gap-3 transition-all">
+            Read the full story <ArrowRight size={16} />
+          </span>
+        </div>
+        <div className="md:col-span-5 md:border-l md:border-primary-foreground/15 md:pl-8">
+          <div className="text-[10px] font-semibold uppercase tracking-widest text-primary-foreground/60">
+            {cs.tag}
+          </div>
+          <ul className="mt-4 space-y-3">
+            {highlights.map((h, i) => (
+              <li key={i} className="flex gap-3 text-sm text-primary-foreground/90 leading-relaxed">
+                <Check size={16} className="mt-0.5 shrink-0 text-accent" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </a>
+    </div>
+  );
+}
+
+function MagazineCard({ cs, index, anchor }: { cs: CaseStudy; index: number; anchor: string }) {
+  const { ref, isVisible } = useScrollReveal();
+  return (
+    <div ref={ref} className={isVisible ? "animate-reveal-up" : "opacity-0"}>
+    <a
+      href={`#${anchor}`}
+      className="group relative flex flex-col h-full rounded-2xl bg-card border border-border p-6 md:p-7 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
+    >
+      <div className="flex items-center justify-between">
+        <span className="text-3xl font-bold font-heading text-primary/20 group-hover:text-primary/40 transition-colors">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <ArrowUpRight
+          size={18}
+          className="text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all"
+        />
+      </div>
+      <span className="mt-4 inline-flex w-fit items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-wider">
+        {cs.tag}
+      </span>
+      <h3 className="mt-3 text-lg md:text-xl font-bold font-heading text-foreground leading-snug">
+        {cs.title}
+      </h3>
+      <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+        {cs.summary}
+      </p>
+      <span className="mt-5 pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-primary inline-flex items-center gap-2">
+        Read case study <ArrowRight size={12} />
+      </span>
+    </a>
+    </div>
+  );
+}
+
 function CaseStudiesLayout() {
   const items = caseStudies.map((c, i) => ({ ...c, anchor: `case-${i + 1}` }));
-  const [active, setActive] = useState(items[0].anchor);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
-    );
-    items.forEach((i) => {
-      const el = document.getElementById(i.anchor);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+  const [featured, ...rest] = items;
+  const [activeTab, setActiveTab] = useState(featured.anchor);
+  const activeArticle = items.find((i) => i.anchor === activeTab) ?? featured;
 
   return (
-    <section className="section-alt py-12 md:py-20">
-      <div className="container">
-        <div className="grid lg:grid-cols-12 gap-10">
-          {/* Sticky index */}
-          <aside className="lg:col-span-4 xl:col-span-3">
-            <div className="lg:sticky lg:top-28">
-              <div className="text-[11px] font-semibold uppercase tracking-widest text-accent mb-4">
-                Index
-              </div>
-              <nav className="space-y-1">
-                {items.map((cs, i) => {
-                  const isActive = active === cs.anchor;
-                  return (
-                    <a
-                      key={cs.id}
-                      href={`#${cs.anchor}`}
-                      className={`group flex gap-3 items-start p-3 rounded-lg transition-all border ${
-                        isActive
-                          ? "border-primary bg-primary/5"
-                          : "border-transparent hover:border-border hover:bg-card"
-                      }`}
-                    >
-                      <span
-                        className={`text-xs font-bold font-heading mt-0.5 ${
-                          isActive ? "text-primary" : "text-muted-foreground"
-                        }`}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="flex-1">
-                        <span
-                          className={`block text-sm font-semibold leading-snug ${
-                            isActive ? "text-foreground" : "text-foreground/80"
-                          }`}
-                        >
-                          {cs.title}
-                        </span>
-                        <span className="block mt-1 text-[11px] uppercase tracking-wide text-muted-foreground">
-                          {cs.tag}
-                        </span>
-                      </span>
-                      <ArrowUpRight
-                        size={14}
-                        className={`mt-1 transition-opacity ${
-                          isActive ? "opacity-100 text-primary" : "opacity-0 group-hover:opacity-60"
-                        }`}
-                      />
-                    </a>
-                  );
-                })}
-              </nav>
+    <>
+      {/* Magazine grid */}
+      <section className="section-alt py-14 md:py-20">
+        <div className="container">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-accent">
+                The Portfolio
+              </span>
+              <h3 className="mt-2 text-2xl md:text-3xl font-bold font-heading text-foreground">
+                Selected engagements
+              </h3>
             </div>
-          </aside>
+            <p className="text-sm text-muted-foreground max-w-md">
+              Tap any case to jump into the full editorial breakdown — context, challenges, solution and outcomes.
+            </p>
+          </div>
 
-          {/* Detail */}
-          <div className="lg:col-span-8 xl:col-span-9 space-y-16">
-            {items.map((cs, i) => (
-              <CaseStudyArticle key={cs.id} cs={cs} index={i} anchor={cs.anchor} />
+          <FeaturedCard cs={featured} anchor={featured.anchor} />
+
+          <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {rest.map((cs, i) => (
+              <MagazineCard key={cs.id} cs={cs} index={i + 1} anchor={cs.anchor} />
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Editorial detail */}
+      <section className="py-14 md:py-20 bg-background">
+        <div className="container">
+          <div className="max-w-2xl">
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-accent">
+              Inside the Work
+            </span>
+            <h3 className="mt-2 text-3xl md:text-4xl font-bold font-heading text-foreground leading-tight">
+              The full editorial — pick a case to read.
+            </h3>
+          </div>
+
+          {/* Tab bar */}
+          <div className="mt-8 -mx-4 px-4 overflow-x-auto">
+            <div className="inline-flex gap-2 p-1.5 bg-muted rounded-full border border-border">
+              {items.map((cs, i) => {
+                const isActive = activeTab === cs.anchor;
+                return (
+                  <button
+                    key={cs.id}
+                    onClick={() => setActiveTab(cs.anchor)}
+                    className={`whitespace-nowrap px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${
+                      isActive
+                        ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <span className="opacity-60 mr-2">{String(i + 1).padStart(2, "0")}</span>
+                    Case {i + 1}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <CaseStudyArticle
+              key={activeArticle.anchor}
+              cs={activeArticle}
+              index={items.findIndex((i) => i.anchor === activeArticle.anchor)}
+              anchor={activeArticle.anchor}
+            />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
