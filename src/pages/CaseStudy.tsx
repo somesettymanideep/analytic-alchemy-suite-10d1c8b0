@@ -39,7 +39,6 @@ type CaseStudy = {
   sections: Section[];
 };
 
-const caseImages = [cs1Asset.url, cs2Asset.url, cs3Asset.url, cs4Asset.url];
 const caseAlts = [
   "Global team reviewing finance dashboards across multiple monitors",
   "Analyst exploring Power BI style data visualizations",
@@ -349,6 +348,18 @@ function CaseStudyArticle({ cs, index, anchor }: { cs: CaseStudy; index: number;
       className={`scroll-mt-28 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
     >
       <div className="rounded-3xl overflow-hidden border border-border bg-card shadow-sm">
+        {/* Cover image */}
+        <div className="relative aspect-[21/9] w-full overflow-hidden bg-muted">
+          <img
+            src={cs.image}
+            alt={cs.imageAlt}
+            loading="lazy"
+            width={1280}
+            height={832}
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" aria-hidden />
+        </div>
         {/* Hero header */}
         <header className="relative bg-primary text-primary-foreground p-8 md:p-12 overflow-hidden">
           <div
@@ -399,18 +410,30 @@ function FeaturedCard({ cs, anchor }: { cs: CaseStudy; anchor: string }) {
       href={`#${anchor}`}
       className="group relative block overflow-hidden rounded-3xl bg-primary text-primary-foreground shadow-xl shadow-primary/20 transition-transform hover:-translate-y-1"
     >
-      <div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-        aria-hidden
-      />
-      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent/30 blur-3xl" aria-hidden />
-      <div className="relative grid md:grid-cols-12 gap-8 p-8 md:p-12">
-        <div className="md:col-span-7">
+      <div className="grid md:grid-cols-12">
+        <div className="relative md:col-span-6 aspect-[4/3] md:aspect-auto overflow-hidden">
+          <img
+            src={cs.image}
+            alt={cs.imageAlt}
+            loading="lazy"
+            width={1280}
+            height={832}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/10 to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-primary/40" aria-hidden />
+        </div>
+        <div className="relative md:col-span-6 p-8 md:p-12">
+          <div
+            className="absolute inset-0 opacity-[0.08] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
+            aria-hidden
+          />
+          <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent/30 blur-3xl pointer-events-none" aria-hidden />
+          <div className="relative">
           <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-accent">
             <Sparkles size={12} /> Featured Case Study
           </span>
@@ -420,12 +443,7 @@ function FeaturedCard({ cs, anchor }: { cs: CaseStudy; anchor: string }) {
           <p className="mt-5 text-primary-foreground/85 leading-relaxed max-w-2xl">
             {cs.summary}
           </p>
-          <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:gap-3 transition-all">
-            Read the full story <ArrowRight size={16} />
-          </span>
-        </div>
-        <div className="md:col-span-5 md:border-l md:border-primary-foreground/15 md:pl-8">
-          <div className="text-[10px] font-semibold uppercase tracking-widest text-primary-foreground/60">
+          <div className="mt-6 text-[10px] font-semibold uppercase tracking-widest text-primary-foreground/60">
             {cs.tag}
           </div>
           <ul className="mt-4 space-y-3">
@@ -436,6 +454,10 @@ function FeaturedCard({ cs, anchor }: { cs: CaseStudy; anchor: string }) {
               </li>
             ))}
           </ul>
+          <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:gap-3 transition-all">
+            Read the full story <ArrowRight size={16} />
+          </span>
+          </div>
         </div>
       </div>
     </a>
@@ -449,8 +471,23 @@ function MagazineCard({ cs, index, anchor }: { cs: CaseStudy; index: number; anc
     <div ref={ref} className={isVisible ? "animate-reveal-up" : "opacity-0"}>
     <a
       href={`#${anchor}`}
-      className="group relative flex flex-col h-full rounded-2xl bg-card border border-border p-6 md:p-7 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
+      className="group relative flex flex-col h-full overflow-hidden rounded-2xl bg-card border border-border transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
     >
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+        <img
+          src={cs.image}
+          alt={cs.imageAlt}
+          loading="lazy"
+          width={1280}
+          height={832}
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" aria-hidden />
+        <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/95 backdrop-blur text-accent text-[10px] font-semibold uppercase tracking-wider border border-border">
+          {cs.tag}
+        </span>
+      </div>
+      <div className="flex flex-col flex-1 p-6 md:p-7">
       <div className="flex items-center justify-between">
         <span className="text-3xl font-bold font-heading text-primary/20 group-hover:text-primary/40 transition-colors">
           {String(index + 1).padStart(2, "0")}
@@ -460,18 +497,16 @@ function MagazineCard({ cs, index, anchor }: { cs: CaseStudy; index: number; anc
           className="text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all"
         />
       </div>
-      <span className="mt-4 inline-flex w-fit items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-wider">
-        {cs.tag}
-      </span>
       <h3 className="mt-3 text-lg md:text-xl font-bold font-heading text-foreground leading-snug">
         {cs.title}
       </h3>
       <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">
         {cs.summary}
       </p>
-      <span className="mt-5 pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-primary inline-flex items-center gap-2">
+      <span className="mt-auto pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-primary inline-flex items-center gap-2">
         Read case study <ArrowRight size={12} />
       </span>
+      </div>
     </a>
     </div>
   );
