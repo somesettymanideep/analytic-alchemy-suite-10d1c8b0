@@ -291,16 +291,28 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
   return (
     <article className="group relative h-full flex flex-col bg-card rounded-2xl border border-border/60 shadow-md shadow-primary/5 overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-primary/15 hover:border-primary/40">
       {/* Image with gradient overlay & floating name plate */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+      <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-primary/10 via-muted to-primary/5">
         {m.image ? (
-          <img
-            src={m.image}
-            alt={m.name}
-            loading="lazy"
-            width={768}
-            height={768}
-            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
-          />
+          <>
+            {/* Blurred backdrop unifies inconsistent passport-photo backgrounds */}
+            <img
+              src={m.image}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60 saturate-150"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-primary/30" />
+            {/* Foreground portrait */}
+            <img
+              src={m.image}
+              alt={m.name}
+              loading="lazy"
+              width={768}
+              height={960}
+              className="relative w-full h-full object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.04]"
+            />
+          </>
         ) : (
           <Initials name={m.name} />
         )}
@@ -436,17 +448,27 @@ export default function Team() {
                   style={{ animationDelay: `${i * 160}ms` }}
                 >
                   {/* Portrait column */}
-                  <div className="w-full md:w-5/12">
-                    <div className={`relative overflow-hidden rounded-sm bg-muted ${shadowClass}`}>
+                  <div className="w-full md:w-4/12 max-w-sm mx-auto md:mx-0">
+                    <div className={`relative overflow-hidden rounded-sm bg-gradient-to-br from-primary/15 via-muted to-primary/5 ${shadowClass}`}>
                       {f.image ? (
-                        <img
-                          src={f.image}
-                          alt={f.name}
-                          loading="lazy"
-                          width={768}
-                          height={960}
-                          className="w-full aspect-[4/5] object-cover object-top"
-                        />
+                        <div className="relative w-full aspect-[4/5]">
+                          <img
+                            src={f.image}
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60 saturate-150"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-primary/25" />
+                          <img
+                            src={f.image}
+                            alt={f.name}
+                            loading="lazy"
+                            width={768}
+                            height={960}
+                            className="relative w-full h-full object-contain object-bottom"
+                          />
+                        </div>
                       ) : (
                         <div className="w-full aspect-[4/5]">
                           <Initials name={f.name} />
