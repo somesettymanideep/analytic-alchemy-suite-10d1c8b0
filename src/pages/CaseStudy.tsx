@@ -4,6 +4,10 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import banner from "@/assets/banner-bluegecko.jpg";
+import cs1Asset from "@/assets/case-studies/cs1.jpg.asset.json";
+import cs2Asset from "@/assets/case-studies/cs2.jpg.asset.json";
+import cs3Asset from "@/assets/case-studies/cs3.jpg.asset.json";
+import cs4Asset from "@/assets/case-studies/cs4.jpg.asset.json";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   FileText,
@@ -30,8 +34,18 @@ type CaseStudy = {
   tag: string;
   title: string;
   summary: string;
+  image: string;
+  imageAlt: string;
   sections: Section[];
 };
+
+const caseImages = [cs1Asset.url, cs2Asset.url, cs3Asset.url, cs4Asset.url];
+const caseAlts = [
+  "Global team reviewing finance dashboards across multiple monitors",
+  "Analyst exploring Power BI style data visualizations",
+  "Finance professionals collaborating around a laptop",
+  "Abstract automation flow with invoice documents in a data center",
+];
 
 const caseStudies: CaseStudy[] = [
   {
@@ -40,6 +54,8 @@ const caseStudies: CaseStudy[] = [
     title: "D365 F&O Maintenance and Support for Nash Squared",
     summary:
       "Global managed services for a 70+ entity D365 F&O footprint — keeping finance and operations running across continents.",
+    image: cs1Asset.url,
+    imageAlt: caseAlts[0],
     sections: [
       {
         title: "Client",
@@ -98,6 +114,8 @@ const caseStudies: CaseStudy[] = [
     title: "Analytics for D365 F&O Process",
     summary:
       "Lifting service quality, operational efficiency and skill development across a global recruitment platform powered by D365 F&O and Power BI.",
+    image: cs2Asset.url,
+    imageAlt: caseAlts[1],
     sections: [
       {
         title: "Client",
@@ -149,6 +167,8 @@ const caseStudies: CaseStudy[] = [
     title: "Streamlining Financial Operations with D365 F&O",
     summary:
       "License optimisation, workflow automation and end-to-end financial process improvements across a 9-country D365 F&O estate.",
+    image: cs3Asset.url,
+    imageAlt: caseAlts[2],
     sections: [
       {
         title: "Client",
@@ -207,6 +227,8 @@ const caseStudies: CaseStudy[] = [
     title: "E-Invoice Processing Automation for D365 F&O",
     summary:
       "Touchless, 24/7 invoice processing using Azure Logic Apps and OneSource API — the foundation for Agent 365 in AP.",
+    image: cs4Asset.url,
+    imageAlt: caseAlts[3],
     sections: [
       {
         title: "System Details",
