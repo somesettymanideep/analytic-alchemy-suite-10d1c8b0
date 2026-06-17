@@ -466,7 +466,7 @@ export default function Team() {
                             loading="lazy"
                             width={768}
                             height={960}
-                            className="relative w-full h-full object-contain object-bottom"
+                            className="relative w-full h-full object-cover object-top"
                           />
                         </div>
                       ) : (
