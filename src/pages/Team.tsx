@@ -310,7 +310,7 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
               loading="lazy"
               width={768}
               height={960}
-              className="relative w-full h-full object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.04]"
+              className="relative w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
             />
           </>
         ) : (
