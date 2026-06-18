@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, MapPin, ArrowLeft, CalendarCheck, MonitorPlay } from "lucide-react";
+import { Mail, MapPin, ArrowLeft, CalendarCheck, MonitorPlay, Phone, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageBanner from "@/components/PageBanner";
@@ -21,6 +21,12 @@ type Mode = "consultation" | "demo";
 
 const COMPANY_EMAIL = "Info@nextgenlytics.com";
 const COMPANY_LOCATION = "B. Amsterdam, Johan Huizingalaan 763A, 1066 VH, Amsterdam";
+const COMPANY_PHONE = "+31 (0) 20 123 4567";
+const WORKING_HOURS = [
+  { day: "Mon – Fri", hours: "9:00 AM – 6:00 PM CET" },
+  { day: "Saturday", hours: "By appointment" },
+  { day: "Sunday", hours: "Closed" },
+];
 
 const SOLUTION_OPTIONS = [
   "SAP Solutions",
@@ -104,41 +110,84 @@ export default function Contact() {
 
           <div className="mt-6 grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-14">
             {/* Left: info */}
-            <aside className="space-y-8">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground font-heading">
-                  Reach the team
-                </h2>
-                <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Prefer email or a call? Use the details below — we typically respond within one business day.
-                </p>
+            <aside className="space-y-6">
+              {/* Branded header card */}
+              <div className="relative overflow-hidden rounded-3xl bg-primary text-primary-foreground p-8 shadow-xl shadow-primary/20">
+                <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-accent/20 blur-2xl" aria-hidden />
+                <div className="absolute -bottom-16 -left-10 w-56 h-56 rounded-full bg-primary-foreground/5 blur-3xl" aria-hidden />
+                <div className="relative">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold uppercase tracking-wider">
+                    Get in touch
+                  </span>
+                  <h2 className="mt-4 text-2xl md:text-3xl font-bold font-heading leading-tight">
+                    Reach the NextGenLytics team
+                  </h2>
+                  <p className="mt-3 text-sm md:text-base text-primary-foreground/80 leading-relaxed">
+                    Prefer email or a call? Use the details below — we typically respond within one business day.
+                  </p>
+                </div>
               </div>
 
-              <div className="space-y-5 rounded-2xl border border-border bg-card p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-primary" />
+              {/* Contact info cards */}
+              <div className="space-y-3">
+                <a
+                  href={`mailto:${COMPANY_EMAIL}`}
+                  className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-md hover:shadow-primary/5 transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <Mail className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</p>
-                    <a
-                      href={`mailto:${COMPANY_EMAIL}`}
-                      className="mt-1 block font-semibold text-foreground hover:text-primary transition-colors break-all"
-                    >
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email us</p>
+                    <p className="mt-1 font-semibold text-foreground group-hover:text-primary transition-colors break-all">
                       {COMPANY_EMAIL}
-                    </a>
+                    </p>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <a
+                  href={`tel:${COMPANY_PHONE.replace(/[^+\d]/g, "")}`}
+                  className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-md hover:shadow-primary/5 transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <Phone className="w-5 h-5 text-accent-foreground" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Call us</p>
+                    <p className="mt-1 font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {COMPANY_PHONE}
+                    </p>
+                  </div>
+                </a>
+
+                <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Office</p>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Visit our office</p>
                     <p className="mt-1 font-semibold text-foreground leading-relaxed">
                       {COMPANY_LOCATION}
                     </p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-border bg-card p-5">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-accent" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Working hours</p>
+                      <ul className="mt-2 space-y-1.5">
+                        {WORKING_HOURS.map((w) => (
+                          <li key={w.day} className="flex items-center justify-between gap-3 text-sm">
+                            <span className="font-semibold text-foreground">{w.day}</span>
+                            <span className="text-muted-foreground">{w.hours}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
