@@ -3,6 +3,9 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import bannerCareers from "@/assets/banner-careers.jpg";
+import imgTeamCollab from "@/assets/careers/team-collab.jpg";
+import imgLifeInside from "@/assets/careers/life-inside.jpg";
+import imgHiringHandshake from "@/assets/careers/hiring-handshake.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState } from "react";
 import {
@@ -205,6 +208,24 @@ function WhySection() {
               isVisible ? "animate-reveal-left delay-200" : "opacity-0"
             }`}
           />
+          <div
+            className={`mt-8 relative rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/10 ${
+              isVisible ? "animate-reveal-left delay-300" : "opacity-0"
+            }`}
+          >
+            <img
+              src={imgTeamCollab}
+              alt="Senior consultants collaborating in Amsterdam office"
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground bg-primary/70 backdrop-blur-sm px-3 py-1.5 rounded-full w-fit">
+              <Sparkles size={12} /> Founder-led delivery
+            </div>
+          </div>
         </div>
 
         <div className="lg:col-span-7 space-y-10">
@@ -305,6 +326,35 @@ function LifeSection() {
             SAP Practice
           </figcaption>
         </figure>
+
+        <div
+          className={`mt-14 grid lg:grid-cols-12 gap-8 items-center ${
+            isVisible ? "animate-reveal-up delay-500" : "opacity-0"
+          }`}
+        >
+          <div className="lg:col-span-7 relative rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/10">
+            <img
+              src={imgLifeInside}
+              alt="Consultant analysing dashboards in a calm modern workspace"
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="lg:col-span-5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
+              A day with us
+            </p>
+            <h3 className="mt-3 text-2xl md:text-3xl font-bold text-foreground font-heading leading-tight text-balance">
+              Deep work, sharp reviews, real ownership.
+            </h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Long uninterrupted focus blocks, weekly architecture reviews with a partner, and the
+              autonomy to ship what the client actually needs — not what looks good on a slide.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -504,7 +554,8 @@ function ProcessSection() {
   return (
     <section id="process" className="section-alt py-16 md:py-24">
       <div className="container" ref={ref}>
-        <div className="max-w-3xl">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7 max-w-3xl">
           <span
             className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent ${
               isVisible ? "animate-reveal-up" : "opacity-0"
@@ -527,6 +578,22 @@ function ProcessSection() {
             Four steps. No panels. No riddles. Just conversations with the people you'd actually
             work with.
           </p>
+          </div>
+          <div
+            className={`lg:col-span-5 relative rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/10 ${
+              isVisible ? "animate-reveal-right delay-200" : "opacity-0"
+            }`}
+          >
+            <img
+              src={imgHiringHandshake}
+              alt="Welcoming new team member with a handshake"
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-transparent pointer-events-none" />
+          </div>
         </div>
 
         <ol className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
