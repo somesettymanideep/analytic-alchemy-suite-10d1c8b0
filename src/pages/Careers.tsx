@@ -208,6 +208,24 @@ function WhySection() {
               isVisible ? "animate-reveal-left delay-200" : "opacity-0"
             }`}
           />
+          <div
+            className={`mt-8 relative rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/10 ${
+              isVisible ? "animate-reveal-left delay-300" : "opacity-0"
+            }`}
+          >
+            <img
+              src={imgTeamCollab}
+              alt="Senior consultants collaborating in Amsterdam office"
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground bg-primary/70 backdrop-blur-sm px-3 py-1.5 rounded-full w-fit">
+              <Sparkles size={12} /> Founder-led delivery
+            </div>
+          </div>
         </div>
 
         <div className="lg:col-span-7 space-y-10">
