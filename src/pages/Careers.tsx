@@ -99,10 +99,10 @@ const benefits = [
 ];
 
 const chapters = [
-  { id: "why", label: "01 — Why Nextgenlytics" },
-  { id: "life", label: "02 — Life on the inside" },
-  { id: "roles", label: "03 — Open roles" },
-  { id: "process", label: "04 — Hiring process" },
+  { id: "why", num: "01", label: "Why Nextgenlytics", Icon: Sparkles },
+  { id: "life", num: "02", label: "Life on the inside", Icon: Users },
+  { id: "roles", num: "03", label: "Open roles", Icon: Briefcase },
+  { id: "process", num: "04", label: "Hiring process", Icon: Compass },
 ];
 
 const lifeStats = [
@@ -140,23 +140,30 @@ function ChapterIndex() {
   return (
     <section className="container py-10 md:py-14" ref={ref}>
       <div
-        className={`flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-border/60 py-5 ${
+        className={`grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 border-y border-border/60 py-5 ${
           isVisible ? "animate-reveal-up" : "opacity-0"
         }`}
       >
-        <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-          In this issue
-        </span>
         {chapters.map((c, i) => (
           <a
             key={c.id}
             href={`#${c.id}`}
-            className={`text-xs md:text-sm font-medium font-heading text-foreground/80 hover:text-primary transition-colors ${
+            className={`group flex items-center gap-3 rounded-lg border border-border/60 bg-card px-4 py-3 hover:border-primary/60 hover:shadow-sm transition-all ${
               isVisible ? "animate-reveal-up" : "opacity-0"
             }`}
             style={{ animationDelay: `${120 + i * 80}ms` }}
           >
-            {c.label}
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <c.Icon size={16} />
+            </span>
+            <span className="flex flex-col leading-tight">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Chapter {c.num}
+              </span>
+              <span className="text-sm font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
+                {c.label}
+              </span>
+            </span>
           </a>
         ))}
       </div>
