@@ -3,6 +3,9 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import bannerCareers from "@/assets/banner-careers.jpg";
+import imgTeamCollab from "@/assets/careers/team-collab.jpg";
+import imgLifeInside from "@/assets/careers/life-inside.jpg";
+import imgHiringHandshake from "@/assets/careers/hiring-handshake.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState } from "react";
 import {
