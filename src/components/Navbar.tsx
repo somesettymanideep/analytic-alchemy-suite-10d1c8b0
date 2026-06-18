@@ -87,6 +87,7 @@ const productsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
 
 const clientWorkMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "AMS Services", Icon: LifeBuoy, href: "/ams-services" },
+  { label: "Extended Delivery Team", Icon: UsersRound, href: "/edt" },
   { label: "Case Study", Icon: FileText, href: "/case-study" },
 ];
 

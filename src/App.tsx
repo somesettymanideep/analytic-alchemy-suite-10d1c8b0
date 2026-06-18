@@ -43,6 +43,7 @@ import OwlSight from "./pages/OwlSight.tsx";
 import OrcaMigrate from "./pages/OrcaMigrate.tsx";
 import AmsServices from "./pages/AmsServices.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
+import Edt from "./pages/Edt.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -94,6 +95,7 @@ const App = () => (
           <Route path="/products/orca-migrate" element={<OrcaMigrate />} />
           <Route path="/ams-services" element={<AmsServices />} />
           <Route path="/case-study" element={<CaseStudy />} />
+          <Route path="/edt" element={<Edt />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
