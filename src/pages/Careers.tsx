@@ -554,7 +554,8 @@ function ProcessSection() {
   return (
     <section id="process" className="section-alt py-16 md:py-24">
       <div className="container" ref={ref}>
-        <div className="max-w-3xl">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7 max-w-3xl">
           <span
             className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent ${
               isVisible ? "animate-reveal-up" : "opacity-0"
@@ -577,6 +578,22 @@ function ProcessSection() {
             Four steps. No panels. No riddles. Just conversations with the people you'd actually
             work with.
           </p>
+          </div>
+          <div
+            className={`lg:col-span-5 relative rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/10 ${
+              isVisible ? "animate-reveal-right delay-200" : "opacity-0"
+            }`}
+          >
+            <img
+              src={imgHiringHandshake}
+              alt="Welcoming new team member with a handshake"
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-transparent pointer-events-none" />
+          </div>
         </div>
 
         <ol className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
