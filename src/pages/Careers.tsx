@@ -385,7 +385,7 @@ function OpenRoles() {
                   <button
                     type="button"
                     onClick={() => setActiveJob(job)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-card text-primary text-sm font-semibold hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-accent-foreground text-sm font-semibold shadow-lg shadow-accent/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
                   >
                     <Eye size={15} /> View more
                   </button>
