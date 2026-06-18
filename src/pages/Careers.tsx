@@ -4,6 +4,14 @@ import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import bannerCareers from "@/assets/banner-careers.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import {
   MapPin,
   Clock,
@@ -24,6 +32,7 @@ import {
   FileSearch,
   HandshakeIcon,
   Quote,
+  Eye,
 } from "lucide-react";
 
 const jobs = [
