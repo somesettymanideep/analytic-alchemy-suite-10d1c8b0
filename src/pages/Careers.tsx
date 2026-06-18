@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import bannerCareers from "@/assets/banner-careers.jpg";
+import processBg from "@/assets/careers-process-bg.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   MapPin,
@@ -430,64 +431,85 @@ function OpenRoles() {
 function ProcessSection() {
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section id="process" className="section-alt py-16 md:py-24">
+    <section id="process" className="relative py-20 md:py-28 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={processBg}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          width={1920}
+          height={1280}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary/95" />
+      </div>
+
       <div className="container" ref={ref}>
-        <div className="max-w-3xl">
-          <span
-            className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent ${
-              isVisible ? "animate-reveal-up" : "opacity-0"
-            }`}
-          >
-            <Compass size={14} /> Chapter 04
-          </span>
-          <h2
-            className={`mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1] ${
-              isVisible ? "animate-reveal-up delay-100" : "opacity-0"
-            }`}
-          >
-            A short, honest hiring process.
-          </h2>
-          <p
-            className={`mt-4 text-muted-foreground leading-relaxed ${
-              isVisible ? "animate-reveal-up delay-200" : "opacity-0"
-            }`}
-          >
-            Four steps. No panels. No riddles. Just conversations with the people you'd actually
-            work with.
-          </p>
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <span
+              className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent ${
+                isVisible ? "animate-reveal-left" : "opacity-0"
+              }`}
+            >
+              <Compass size={14} /> Chapter 04
+            </span>
+            <h2
+              className={`mt-4 text-3xl md:text-5xl font-bold text-primary-foreground font-heading text-balance leading-[1.1] ${
+                isVisible ? "animate-reveal-left delay-100" : "opacity-0"
+              }`}
+            >
+              A short, honest hiring process.
+            </h2>
+            <div
+              className={`mt-6 h-1 w-20 bg-accent rounded-full ${
+                isVisible ? "animate-reveal-left delay-200" : "opacity-0"
+              }`}
+            />
+            <p
+              className={`mt-6 text-primary-foreground/80 leading-relaxed max-w-md ${
+                isVisible ? "animate-reveal-left delay-300" : "opacity-0"
+              }`}
+            >
+              Four steps. No panels. No riddles. Just conversations with the people you'd actually
+              work with.
+            </p>
+          </div>
+
+          <ol className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+            {processSteps.map((s, i) => (
+              <li
+                key={s.title}
+                className={`relative rounded-2xl border border-primary-foreground/15 bg-card/95 backdrop-blur p-6 hover:border-accent/60 hover:-translate-y-1 hover:shadow-2xl transition-all duration-500 ${
+                  isVisible ? "animate-reveal-right" : "opacity-0"
+                }`}
+                style={{ animationDelay: `${250 + i * 130}ms` }}
+              >
+                <span className="absolute -top-3 left-6 text-[11px] font-semibold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-2.5 py-1 rounded-full">
+                  Step {i + 1}
+                </span>
+                <div className="mt-2 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
+                  <s.Icon size={20} />
+                </div>
+                <h3 className="mt-4 text-base font-bold text-foreground font-heading">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
 
-        <ol className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {processSteps.map((s, i) => (
-            <li
-              key={s.title}
-              className={`relative rounded-2xl border border-border/60 bg-card p-6 hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-500 ${
-                isVisible ? "animate-reveal-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${250 + i * 130}ms` }}
-            >
-              <span className="absolute -top-3 left-6 text-[11px] font-semibold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-2.5 py-1 rounded-full">
-                Step {i + 1}
-              </span>
-              <div className="mt-2 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-                <s.Icon size={20} />
-              </div>
-              <h3 className="mt-4 text-base font-bold text-foreground font-heading">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.body}</p>
-            </li>
-          ))}
-        </ol>
-
-        <div className="mt-16 rounded-3xl bg-primary text-primary-foreground p-8 md:p-12 relative overflow-hidden">
+        <div className="mt-16 rounded-3xl bg-card text-foreground p-8 md:p-12 relative overflow-hidden border border-primary-foreground/10 shadow-2xl">
           <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-accent/20 blur-3xl" />
-          <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-primary-foreground/5 blur-3xl" />
+          <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-primary/10 blur-3xl" />
           <div className="relative grid md:grid-cols-3 gap-6 items-center">
-            <h3 className="md:col-span-2 text-2xl md:text-3xl font-bold font-heading text-balance leading-tight">
+            <h3 className="md:col-span-2 text-2xl md:text-3xl font-bold font-heading text-balance leading-tight text-foreground">
               Ready when you are. Tell us about the work you want to do next.
             </h3>
             <a
               href="mailto:careers@nextgenlytics.com?subject=Open Application"
-              className="justify-self-start md:justify-self-end inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-semibold shadow-lg hover:-translate-y-0.5 transition-all"
+              className="justify-self-start md:justify-self-end inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg hover:-translate-y-0.5 transition-all"
             >
               Start a conversation <ArrowRight size={16} />
             </a>
