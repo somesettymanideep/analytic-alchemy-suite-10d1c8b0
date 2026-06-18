@@ -476,7 +476,6 @@ function MagazineCard({ cs, index, anchor }: { cs: CaseStudy; index: number; anc
           height={832}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" aria-hidden />
         <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/95 backdrop-blur text-accent text-[10px] font-semibold uppercase tracking-wider border border-border">
           {cs.tag}
         </span>
