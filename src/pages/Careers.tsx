@@ -9,6 +9,7 @@ import {
   Clock,
   Briefcase,
   ArrowRight,
+  ArrowUpRight,
   CheckCircle2,
   Sparkles,
   Users,
@@ -18,6 +19,11 @@ import {
   Globe2,
   Code2,
   Database,
+  Compass,
+  MessageSquare,
+  FileSearch,
+  HandshakeIcon,
+  Quote,
 } from "lucide-react";
 
 const jobs = [
@@ -92,52 +98,197 @@ const benefits = [
   },
 ];
 
-function Intro() {
+const chapters = [
+  { id: "why", label: "01 — Why Nextgenlytics" },
+  { id: "life", label: "02 — Life on the inside" },
+  { id: "roles", label: "03 — Open roles" },
+  { id: "process", label: "04 — Hiring process" },
+];
+
+const lifeStats = [
+  { value: "92%", label: "Team retention, last 3 years" },
+  { value: "40+", label: "Senior consultants across 4 hubs" },
+  { value: "100%", label: "Projects led by named partners" },
+  { value: "€2.4k", label: "Avg. annual learning budget" },
+];
+
+const processSteps = [
+  {
+    Icon: FileSearch,
+    title: "Apply",
+    body: "Send a CV and a short note about a project you're proud of. We read every word.",
+  },
+  {
+    Icon: MessageSquare,
+    title: "Intro call",
+    body: "30 minutes with a partner. We talk craft, fit, and what you want to build next.",
+  },
+  {
+    Icon: Compass,
+    title: "Working session",
+    body: "A focused, paid working session on a realistic scenario from our pipeline.",
+  },
+  {
+    Icon: HandshakeIcon,
+    title: "Offer",
+    body: "Decision and offer within 10 business days. No ghosting, ever.",
+  },
+];
+
+function ChapterIndex() {
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="container py-12 md:py-16" ref={ref}>
-      <div className="max-w-3xl mx-auto text-center">
-        <span
-          className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent ${
-            isVisible ? "animate-reveal-up" : "opacity-0"
-          }`}
-        >
-          <Sparkles size={14} /> Careers at Nextgenlytics
+    <section className="container py-10 md:py-14" ref={ref}>
+      <div
+        className={`flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-border/60 py-5 ${
+          isVisible ? "animate-reveal-up" : "opacity-0"
+        }`}
+      >
+        <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          In this issue
         </span>
-        <h2
-          className={`mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight ${
-            isVisible ? "animate-reveal-up delay-100" : "opacity-0"
-          }`}
-        >
-          Build the next generation of enterprise intelligence
-        </h2>
-        <p
-          className={`mt-5 text-lg text-muted-foreground leading-relaxed text-pretty ${
-            isVisible ? "animate-reveal-up delay-200" : "opacity-0"
-          }`}
-        >
-          We're a founder-led consultancy of SAP, Microsoft, and AI specialists shipping outcomes
-          for European and global enterprises. If you love clean architecture, sharp delivery, and
-          working alongside operators who've done it before — we'd like to meet you.
-        </p>
-      </div>
-
-      <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {benefits.map((b, i) => (
-          <div
-            key={b.title}
-            className={`group rounded-2xl border border-border/60 bg-card p-6 hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5 transition-all ${
+        {chapters.map((c, i) => (
+          <a
+            key={c.id}
+            href={`#${c.id}`}
+            className={`text-xs md:text-sm font-medium font-heading text-foreground/80 hover:text-primary transition-colors ${
               isVisible ? "animate-reveal-up" : "opacity-0"
             }`}
-            style={{ animationDelay: `${i * 100}ms` }}
+            style={{ animationDelay: `${120 + i * 80}ms` }}
           >
-            <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-              <b.Icon size={20} />
-            </div>
-            <h3 className="mt-4 text-base font-bold text-foreground font-heading">{b.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.body}</p>
-          </div>
+            {c.label}
+          </a>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function WhySection() {
+  const { ref, isVisible } = useScrollReveal();
+  return (
+    <section id="why" className="container py-14 md:py-20" ref={ref}>
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        <div className="lg:col-span-5 lg:sticky lg:top-28">
+          <span
+            className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent ${
+              isVisible ? "animate-reveal-left" : "opacity-0"
+            }`}
+          >
+            <Sparkles size={14} /> Chapter 01
+          </span>
+          <h2
+            className={`mt-4 text-4xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.05] ${
+              isVisible ? "animate-reveal-left delay-100" : "opacity-0"
+            }`}
+          >
+            Build the next generation of enterprise intelligence.
+          </h2>
+          <div
+            className={`mt-6 h-1 w-20 bg-accent rounded-full ${
+              isVisible ? "animate-reveal-left delay-200" : "opacity-0"
+            }`}
+          />
+        </div>
+
+        <div className="lg:col-span-7 space-y-10">
+          <p
+            className={`text-lg md:text-xl text-foreground/85 leading-relaxed text-pretty font-heading ${
+              isVisible ? "animate-reveal-right delay-100" : "opacity-0"
+            }`}
+          >
+            We're a founder-led consultancy of SAP, Microsoft, and AI specialists shipping outcomes
+            for European and global enterprises. If you love clean architecture, sharp delivery,
+            and working alongside operators who've done it before — we'd like to meet you.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            {benefits.map((b, i) => (
+              <div
+                key={b.title}
+                className={`group rounded-2xl border border-border/60 bg-card p-6 hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
+                  isVisible ? "animate-reveal-up" : "opacity-0"
+                }`}
+                style={{ animationDelay: `${250 + i * 120}ms` }}
+              >
+                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <b.Icon size={20} />
+                </div>
+                <h3 className="mt-4 text-base font-bold text-foreground font-heading">{b.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LifeSection() {
+  const { ref, isVisible } = useScrollReveal();
+  return (
+    <section id="life" className="section-alt py-16 md:py-24 overflow-hidden">
+      <div className="container" ref={ref}>
+        <div className="grid lg:grid-cols-12 gap-10 items-end">
+          <div className="lg:col-span-7">
+            <span
+              className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent ${
+                isVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+            >
+              <Users size={14} /> Chapter 02
+            </span>
+            <h2
+              className={`mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1] ${
+                isVisible ? "animate-reveal-up delay-100" : "opacity-0"
+              }`}
+            >
+              Life on the inside.
+            </h2>
+          </div>
+          <p
+            className={`lg:col-span-5 text-muted-foreground leading-relaxed text-pretty ${
+              isVisible ? "animate-reveal-up delay-200" : "opacity-0"
+            }`}
+          >
+            Small teams. Real ownership. The people who started Nextgenlytics still write code,
+            shape architecture, and sit in the room with you on hard days.
+          </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-px bg-border/60 border border-border/60 rounded-2xl overflow-hidden">
+          {lifeStats.map((s, i) => (
+            <div
+              key={s.label}
+              className={`bg-card p-6 md:p-8 ${
+                isVisible ? "animate-reveal-scale" : "opacity-0"
+              }`}
+              style={{ animationDelay: `${300 + i * 120}ms` }}
+            >
+              <div className="text-3xl md:text-4xl font-bold text-primary font-heading tracking-tight">
+                {s.value}
+              </div>
+              <div className="mt-2 text-xs md:text-sm text-muted-foreground leading-snug">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <figure
+          className={`mt-14 max-w-3xl ${isVisible ? "animate-reveal-up delay-500" : "opacity-0"}`}
+        >
+          <Quote size={32} className="text-accent" />
+          <blockquote className="mt-4 text-xl md:text-2xl font-heading text-foreground/90 leading-snug text-balance">
+            "I joined to ship outcomes, not slides. Two years in, I still review every architecture
+            with a partner — and we still argue about the right answer."
+          </blockquote>
+          <figcaption className="mt-4 text-sm text-muted-foreground">
+            <span className="font-semibold text-foreground">Sridhar</span> · Principal Consultant,
+            SAP Practice
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
@@ -146,16 +297,28 @@ function Intro() {
 function OpenRoles() {
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="section-alt py-12 md:py-16">
-      <div className="container" ref={ref}>
-        <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Briefcase size={14} /> Open Roles
+    <section id="roles" className="container py-16 md:py-24">
+      <div ref={ref}>
+        <div className="max-w-3xl">
+          <span
+            className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent ${
+              isVisible ? "animate-reveal-up" : "opacity-0"
+            }`}
+          >
+            <Briefcase size={14} /> Chapter 03
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
+          <h2
+            className={`mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1] ${
+              isVisible ? "animate-reveal-up delay-100" : "opacity-0"
+            }`}
+          >
             Two seats. Both senior. Both shipping from day one.
           </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
+          <p
+            className={`mt-4 text-muted-foreground leading-relaxed ${
+              isVisible ? "animate-reveal-up delay-200" : "opacity-0"
+            }`}
+          >
             Hand-picked openings across our SAP and Data & AI practices.
           </p>
         </div>
@@ -164,15 +327,17 @@ function OpenRoles() {
           {jobs.map((job, i) => (
             <article
               key={job.id}
-              className={`group relative bg-card rounded-2xl border border-border/60 overflow-hidden shadow-md shadow-primary/5 transition-all hover:-translate-y-1 hover:shadow-2xl hover:border-primary/30 ${
+              className={`group relative bg-card rounded-2xl border border-border/60 overflow-hidden shadow-md shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:border-primary/30 ${
                 isVisible ? "animate-reveal-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${i * 150}ms` }}
+              style={{ animationDelay: `${300 + i * 180}ms` }}
             >
               <span className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary via-accent to-primary" />
+              <span className="absolute top-6 right-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground/70 font-heading">
+                Role 0{i + 1}
+              </span>
 
               <div className="grid lg:grid-cols-12 gap-0">
-                {/* Left rail — identity */}
                 <div className="lg:col-span-4 relative p-7 md:p-8 lg:border-r border-border/60 bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.06]">
                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
                     <job.Icon size={26} />
@@ -207,7 +372,6 @@ function OpenRoles() {
                   </a>
                 </div>
 
-                {/* Right panel — details in two columns */}
                 <div className="lg:col-span-8 p-7 md:p-8 grid md:grid-cols-2 gap-6 md:gap-8">
                   <div>
                     <h4 className="text-sm font-bold text-foreground font-heading flex items-center gap-2">
@@ -247,16 +411,87 @@ function OpenRoles() {
           ))}
         </div>
 
-        <div className="mt-14 text-center">
+        <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground">
             Don't see your role?{" "}
             <a
               href="mailto:careers@nextgenlytics.com?subject=Open Application"
-              className="font-semibold text-primary hover:underline"
+              className="font-semibold text-primary hover:underline inline-flex items-center gap-1"
             >
-              Send us an open application →
+              Send us an open application <ArrowUpRight size={14} />
             </a>
           </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProcessSection() {
+  const { ref, isVisible } = useScrollReveal();
+  return (
+    <section id="process" className="section-alt py-16 md:py-24">
+      <div className="container" ref={ref}>
+        <div className="max-w-3xl">
+          <span
+            className={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent ${
+              isVisible ? "animate-reveal-up" : "opacity-0"
+            }`}
+          >
+            <Compass size={14} /> Chapter 04
+          </span>
+          <h2
+            className={`mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1] ${
+              isVisible ? "animate-reveal-up delay-100" : "opacity-0"
+            }`}
+          >
+            A short, honest hiring process.
+          </h2>
+          <p
+            className={`mt-4 text-muted-foreground leading-relaxed ${
+              isVisible ? "animate-reveal-up delay-200" : "opacity-0"
+            }`}
+          >
+            Four steps. No panels. No riddles. Just conversations with the people you'd actually
+            work with.
+          </p>
+        </div>
+
+        <ol className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {processSteps.map((s, i) => (
+            <li
+              key={s.title}
+              className={`relative rounded-2xl border border-border/60 bg-card p-6 hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-500 ${
+                isVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+              style={{ animationDelay: `${250 + i * 130}ms` }}
+            >
+              <span className="absolute -top-3 left-6 text-[11px] font-semibold tracking-[0.2em] uppercase bg-primary text-primary-foreground px-2.5 py-1 rounded-full">
+                Step {i + 1}
+              </span>
+              <div className="mt-2 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
+                <s.Icon size={20} />
+              </div>
+              <h3 className="mt-4 text-base font-bold text-foreground font-heading">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.body}</p>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-16 rounded-3xl bg-primary text-primary-foreground p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-accent/20 blur-3xl" />
+          <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-primary-foreground/5 blur-3xl" />
+          <div className="relative grid md:grid-cols-3 gap-6 items-center">
+            <h3 className="md:col-span-2 text-2xl md:text-3xl font-bold font-heading text-balance leading-tight">
+              Ready when you are. Tell us about the work you want to do next.
+            </h3>
+            <a
+              href="mailto:careers@nextgenlytics.com?subject=Open Application"
+              className="justify-self-start md:justify-self-end inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-semibold shadow-lg hover:-translate-y-0.5 transition-all"
+            >
+              Start a conversation <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -273,10 +508,13 @@ export default function Careers() {
           image={bannerCareers}
           eyebrow="Careers"
           title="Build your career with Nextgenlytics"
-          description="Explore opportunities to grow with a senior-led consultancy delivering enterprise transformation across Europe and beyond."
+          description="A senior-led consultancy delivering enterprise transformation across Europe and beyond. Read the issue."
         />
-        <Intro />
+        <ChapterIndex />
+        <WhySection />
+        <LifeSection />
         <OpenRoles />
+        <ProcessSection />
       </main>
       <Footer />
     </div>
