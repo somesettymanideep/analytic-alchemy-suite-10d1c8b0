@@ -326,6 +326,35 @@ function LifeSection() {
             SAP Practice
           </figcaption>
         </figure>
+
+        <div
+          className={`mt-14 grid lg:grid-cols-12 gap-8 items-center ${
+            isVisible ? "animate-reveal-up delay-500" : "opacity-0"
+          }`}
+        >
+          <div className="lg:col-span-7 relative rounded-2xl overflow-hidden border border-border/60 shadow-xl shadow-primary/10">
+            <img
+              src={imgLifeInside}
+              alt="Consultant analysing dashboards in a calm modern workspace"
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="lg:col-span-5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
+              A day with us
+            </p>
+            <h3 className="mt-3 text-2xl md:text-3xl font-bold text-foreground font-heading leading-tight text-balance">
+              Deep work, sharp reviews, real ownership.
+            </h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Long uninterrupted focus blocks, weekly architecture reviews with a partner, and the
+              autonomy to ship what the client actually needs — not what looks good on a slide.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
