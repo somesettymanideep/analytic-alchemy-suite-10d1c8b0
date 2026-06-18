@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import bannerCareers from "@/assets/banner-careers.jpg";
+import processBg from "@/assets/careers-process-bg.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   MapPin,
