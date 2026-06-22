@@ -608,6 +608,20 @@ export default function Navbar() {
                             </button>
                             {expandedProduct === parent.label && (
                               <ul className="pl-5 border-l border-border/40 ml-1 mt-1 mb-2 space-y-1 animate-fade-in">
+                                <li>
+                                  <a
+                                    href={parent.href}
+                                    onClick={() => {
+                                      setOpen(false);
+                                      setMobileMenuKey(null);
+                                      setExpandedProduct(null);
+                                    }}
+                                    className="flex items-center gap-2 py-1.5 text-sm font-medium text-foreground/90"
+                                  >
+                                    <parent.Icon size={14} className="text-primary" />
+                                    <span>View {parent.label}</span>
+                                  </a>
+                                </li>
                                 {parent.subItems?.map((i) => (
                                   <li key={i.label}>
                                     <a
