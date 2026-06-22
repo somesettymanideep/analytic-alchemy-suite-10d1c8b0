@@ -147,7 +147,10 @@ export default function Navbar() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setOpenMenuKey(null), 120);
   };
-  const closeNow = () => setOpenMenuKey(null);
+  const closeNow = () => {
+    setOpenMenuKey(null);
+    setExpandedProduct(null);
+  };
 
   return (
     <header
