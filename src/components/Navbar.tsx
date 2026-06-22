@@ -325,11 +325,17 @@ export default function Navbar() {
                     onMouseLeave={scheduleClose}
                   >
                     {productsMenu.map((parent) => (
-                      <div key={parent.label}>
-                        <a
-                          href={parent.href}
-                          onClick={closeNow}
-                          className="flex items-center gap-4 rounded-2xl border border-border/60 p-4 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group mb-3"
+                      <div
+                        key={parent.label}
+                        onMouseEnter={() => setExpandedProduct(parent.label)}
+                        onMouseLeave={() => setExpandedProduct(null)}
+                      >
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedProduct((v) => (v === parent.label ? null : parent.label))
+                          }
+                          className="w-full flex items-center gap-4 rounded-2xl border border-border/60 p-4 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group mb-3 text-left"
                         >
                           <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
                             <parent.Icon size={24} />
@@ -342,26 +348,31 @@ export default function Navbar() {
                               AI-powered data management platform — migration, mapping, ETL and quality unified in one place.
                             </span>
                           </span>
-                          <ArrowRight size={16} className="text-accent opacity-70" />
-                        </a>
-                        <div className="grid grid-cols-2 gap-2">
-                          {parent.subItems?.map((i) => (
-                            <a
-                              key={i.label}
-                              href={i.href}
-                              onClick={closeNow}
-                              className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 bg-background group"
-                            >
-                              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                <i.Icon size={18} />
-                              </span>
-                              <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
-                                {i.label}
-                              </span>
-                              <ArrowRight size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </a>
-                          ))}
-                        </div>
+                          <ChevronDown
+                            size={18}
+                            className={`text-accent shrink-0 transition-transform duration-200 ${expandedProduct === parent.label ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                        {expandedProduct === parent.label && (
+                          <div className="grid grid-cols-2 gap-2 animate-fade-in">
+                            {parent.subItems?.map((i) => (
+                              <a
+                                key={i.label}
+                                href={i.href}
+                                onClick={closeNow}
+                                className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                              >
+                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                  <i.Icon size={18} />
+                                </span>
+                                <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                                  {i.label}
+                                </span>
+                                <ArrowRight size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                              </a>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
