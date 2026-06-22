@@ -366,7 +366,7 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
 }
 
 export default function Team() {
-  const { ref: founderRef, isVisible: founderVisible } = useScrollReveal();
+  const { ref: founderRef, isVisible: founderVisible } = useScrollReveal(0.05);
   const { ref: carouselRef, isVisible: carouselVisible } = useScrollReveal(0.1);
   const trackRef = useRef<HTMLDivElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
