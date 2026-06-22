@@ -75,6 +75,7 @@ const insightsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
 const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "About NGSIT", Icon: Building2, href: "/about" },
   { label: "Our Team", Icon: UsersRound, href: "/team" },
+  { label: "Contact", Icon: Mail, href: "/contact" },
 ];
 
 const productsMenu: { label: string; Icon: typeof Boxes; href: string; subItems?: { label: string; Icon: typeof Boxes; href: string }[] }[] = [
