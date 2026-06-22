@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope, LayoutGrid, Map, Code2, Eye, ArrowLeftRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope, LayoutGrid, Map, Code2, Eye, ArrowLeftRight, Mail } from "lucide-react";
 import AnnouncementBar from "./AnnouncementBar";
 
 type SolutionCategory = {
