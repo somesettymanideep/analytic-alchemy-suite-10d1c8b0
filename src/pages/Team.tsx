@@ -508,20 +508,16 @@ export default function Team() {
                     </blockquote>
 
                     {/* Highlights + actions */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
-                      <ul
-                        className={`space-y-3 ${
-                          flipped ? "md:order-2" : ""
-                        }`}
-                      >
+                    <div className="space-y-6">
+                      <ul className="space-y-3">
                         {f.highlights.map((h) => (
                           <li
                             key={h}
-                            className={`flex items-center gap-3 text-sm text-foreground/80 ${
+                            className={`flex items-start gap-3 text-sm text-foreground/80 ${
                               flipped ? "md:justify-end md:flex-row-reverse" : ""
                             }`}
                           >
-                            <span className="w-5 h-5 rounded-full bg-primary/5 flex items-center justify-center text-primary shrink-0">
+                            <span className="w-5 h-5 rounded-full bg-primary/5 flex items-center justify-center text-primary shrink-0 mt-0.5">
                               <Check size={12} strokeWidth={3} />
                             </span>
                             <span className="font-medium">{h}</span>
@@ -531,7 +527,7 @@ export default function Team() {
 
                       <div
                         className={`flex items-center gap-4 ${
-                          flipped ? "md:order-1 md:justify-start" : "md:justify-end"
+                          flipped ? "md:justify-end" : ""
                         }`}
                       >
                         <a
