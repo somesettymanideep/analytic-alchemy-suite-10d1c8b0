@@ -77,12 +77,18 @@ const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "Our Team", Icon: UsersRound, href: "/team" },
 ];
 
-const productsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
-  { label: "BlueGecko Platform", Icon: LayoutGrid, href: "/products/bluegecko" },
-  { label: "Falcon Mapping", Icon: Map, href: "/products/falcon-mapping" },
-  { label: "Code Cheetah", Icon: Code2, href: "/products/code-cheetah" },
-  { label: "Owl Sight", Icon: Eye, href: "/products/owl-sight" },
-  { label: "Orca Migrate", Icon: ArrowLeftRight, href: "/products/orca-migrate" },
+const productsMenu: { label: string; Icon: typeof Boxes; href: string; subItems?: { label: string; Icon: typeof Boxes; href: string }[] }[] = [
+  {
+    label: "BlueGecko Platform",
+    Icon: LayoutGrid,
+    href: "/products/bluegecko",
+    subItems: [
+      { label: "Falcon Mapping", Icon: Map, href: "/products/falcon-mapping" },
+      { label: "Code Cheetah", Icon: Code2, href: "/products/code-cheetah" },
+      { label: "Owl Sight", Icon: Eye, href: "/products/owl-sight" },
+      { label: "Orca Migrate", Icon: ArrowLeftRight, href: "/products/orca-migrate" },
+    ],
+  },
 ];
 
 const clientWorkMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
