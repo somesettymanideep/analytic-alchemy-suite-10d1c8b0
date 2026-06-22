@@ -592,10 +592,6 @@ export default function Team() {
               carouselVisible ? "animate-fade-in" : "opacity-0"
             }`}
           >
-            {/* Edge fade masks */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10" />
-
             <div
               ref={scrollerRef}
               className="overflow-x-auto scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
