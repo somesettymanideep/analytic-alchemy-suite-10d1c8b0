@@ -1,17 +1,54 @@
 import logo from "@/assets/logo.jpeg";
-import { Linkedin, Twitter, Mail } from "lucide-react";
+import footerBg from "@/assets/footer-bg.jpg";
+import { Link } from "react-router-dom";
+import { Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
 
-const footerLinks = {
-  Services: ["Data Analytics", "Data Visualization", "Business Intelligence", "AI & Predictive Analytics", "ERP Migration"],
-  Company: ["About Us", "Case Studies", "Our Process", "Careers"],
-  Contact: ["Amsterdam, Netherlands", "info@NGSIT.com", "+31 (0) 20 XXX XXXX"],
-};
+const productLinks = [
+  { label: "BlueGecko", to: "/products/bluegecko" },
+  { label: "Falcon Mapping", to: "/products/falcon-mapping" },
+  { label: "Code Cheetah", to: "/products/code-cheetah" },
+  { label: "Owl Sight", to: "/products/owl-sight" },
+  { label: "Orca Migrate", to: "/products/orca-migrate" },
+];
+
+const companyLinks = [
+  { label: "About NGSIT", to: "/about" },
+  { label: "Our Team", to: "/team" },
+  { label: "Case Study", to: "/case-study" },
+  { label: "Careers", to: "/careers" },
+];
+
+const contactItems = [
+  {
+    Icon: MapPin,
+    label: "B. Amsterdam, Johan Huizingalaan 763A, 1066 VH, Amsterdam",
+    href: "https://maps.google.com/?q=B.+Amsterdam+Johan+Huizingalaan+763A",
+  },
+  { Icon: Phone, label: "+31 (0) 20 123 4567", href: "tel:+31201234567" },
+  { Icon: Mail, label: "Info@NGSIT.com", href: "mailto:Info@NGSIT.com" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-primary-foreground/70 pt-16 pb-8">
-      <div className="container">
+    <footer
+      className="relative overflow-hidden bg-foreground text-primary-foreground/70 pt-16 pb-8"
+      style={{
+        backgroundImage: `linear-gradient(rgba(8,12,28,0.92), rgba(8,12,28,0.96)), url(${footerBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Animated decorative orbs */}
+      <div className="pointer-events-none absolute -top-32 -left-24 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-pulse" aria-hidden />
+      <div
+        className="pointer-events-none absolute -bottom-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-accent/10 blur-3xl animate-pulse"
+        style={{ animationDelay: "1.2s" }}
+        aria-hidden
+      />
+
+      <div className="container relative">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
+          {/* Brand */}
           <div>
             <img src={logo} alt="NGSIT" className="h-16 rounded mb-4" />
             <p className="text-sm leading-relaxed">
@@ -22,7 +59,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all active:scale-95"
+                  className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground hover:scale-110 transition-all duration-300 active:scale-95"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -30,22 +67,60 @@ export default function Footer() {
             </div>
           </div>
 
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-primary-foreground font-semibold mb-4">{title}</h4>
-              <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link}>
-                    <span className="text-sm hover:text-primary-foreground transition-colors cursor-pointer">
-                      {link}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+          {/* Our Products */}
+          <div>
+            <h4 className="text-primary-foreground font-semibold mb-4">Our Products</h4>
+            <ul className="space-y-2.5">
+              {productLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-sm inline-block hover:text-accent hover:translate-x-1 transition-all duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          {/* Company */}
+          <div>
+            <h4 className="text-primary-foreground font-semibold mb-4">Company</h4>
+            <ul className="space-y-2.5">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-sm inline-block hover:text-accent hover:translate-x-1 transition-all duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-primary-foreground font-semibold mb-4">Contact</h4>
+            <ul className="space-y-3.5">
+              {contactItems.map(({ Icon, label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="group flex items-start gap-3 text-sm hover:text-primary-foreground transition-colors"
+                  >
+                    <span className="mt-0.5 w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-accent-foreground group-hover:scale-110 transition-all duration-300">
+                      <Icon className="w-4 h-4" />
+                    </span>
+                    <span className="leading-relaxed">{label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         <div className="border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/40">
           © {new Date().getFullYear()} NGSIT. All rights reserved.
