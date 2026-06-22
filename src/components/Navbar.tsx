@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope, LayoutGrid, Map, Code2, Eye, ArrowLeftRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope, LayoutGrid, Map, Code2, Eye, ArrowLeftRight, Mail } from "lucide-react";
 import AnnouncementBar from "./AnnouncementBar";
 
 type SolutionCategory = {
@@ -75,6 +75,7 @@ const insightsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
 const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "About NGSIT", Icon: Building2, href: "/about" },
   { label: "Our Team", Icon: UsersRound, href: "/team" },
+  { label: "Contact", Icon: Mail, href: "/contact" },
 ];
 
 const productsMenu: { label: string; Icon: typeof Boxes; href: string; subItems?: { label: string; Icon: typeof Boxes; href: string }[] }[] = [
@@ -91,10 +92,16 @@ const productsMenu: { label: string; Icon: typeof Boxes; href: string; subItems?
   },
 ];
 
-const clientWorkMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
-  { label: "AMS Services", Icon: LifeBuoy, href: "/ams-services" },
-  { label: "Extended Delivery Team", Icon: UsersRound, href: "/edt" },
-  { label: "Case Study", Icon: FileText, href: "/case-study" },
+const clientWorkMenu: { label: string; Icon: typeof Boxes; href: string; subItems?: { label: string; Icon: typeof Boxes; href: string }[] }[] = [
+  {
+    label: "Extended Delivery Team",
+    Icon: UsersRound,
+    href: "/edt",
+    subItems: [
+      { label: "AMS Services", Icon: LifeBuoy, href: "/ams-services" },
+      { label: "Case Study", Icon: FileText, href: "/case-study" },
+    ],
+  },
 ];
 
 const industriesMenu = [
@@ -116,7 +123,6 @@ const navLinks = [
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
 ];
 
 type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | "solutions" | null;
@@ -400,24 +406,70 @@ export default function Navbar() {
                     onMouseEnter={() => openMenu("clientWork")}
                     onMouseLeave={scheduleClose}
                   >
-                    <div className="grid grid-cols-1 gap-2">
-                      {clientWorkMenu.map(({ label, Icon, href }) => (
-                        <a
-                          key={label}
-                          href={href}
-                          onClick={closeNow}
-                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                    {clientWorkMenu.map((parent) => (
+                      <div
+                        key={parent.label}
+                        onMouseEnter={() => setExpandedProduct(parent.label)}
+                        onMouseLeave={() => setExpandedProduct(null)}
+                      >
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedProduct((v) => (v === parent.label ? null : parent.label))
+                          }
+                          className="w-full flex items-center gap-4 rounded-2xl border border-border/60 p-4 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group mb-3 text-left"
                         >
-                          <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                            <Icon size={18} />
+                          <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
+                            <parent.Icon size={24} />
                           </span>
-                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1 whitespace-nowrap">
-                            {label}
+                          <span className="flex-1 min-w-0">
+                            <span className="block text-base font-bold text-foreground group-hover:text-primary">
+                              {parent.label}
+                            </span>
+                            <span className="block text-xs text-muted-foreground mt-0.5">
+                              Flexible, expert teams embedded in your organisation to accelerate delivery.
+                            </span>
                           </span>
-                          <ArrowRight size={14} className="text-accent opacity-70" />
-                        </a>
-                      ))}
-                    </div>
+                          <ChevronDown
+                            size={18}
+                            className={`text-accent shrink-0 transition-transform duration-200 ${expandedProduct === parent.label ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                        {expandedProduct === parent.label && (
+                          <div className="grid grid-cols-1 gap-2 animate-fade-in">
+                            <a
+                              href={parent.href}
+                              onClick={closeNow}
+                              className="flex items-center gap-3 rounded-xl border border-primary/30 bg-primary/5 p-3 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 group"
+                            >
+                              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                <parent.Icon size={18} />
+                              </span>
+                              <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                                View {parent.label}
+                              </span>
+                              <ArrowRight size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </a>
+                            {parent.subItems?.map((i) => (
+                              <a
+                                key={i.label}
+                                href={i.href}
+                                onClick={closeNow}
+                                className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                              >
+                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                  <i.Icon size={18} />
+                                </span>
+                                <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                                  {i.label}
+                                </span>
+                                <ArrowRight size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 )}
 
@@ -648,19 +700,58 @@ export default function Navbar() {
                   {mobileMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
-                        {clientWorkMenu.map(({ label, Icon, href }) => (
-                          <li key={label}>
-                            <a
-                              href={href}
-                              onClick={() => {
-                                setOpen(false);
-                                setMobileMenuKey(null);
-                              }}
-                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
+                        {clientWorkMenu.map((parent) => (
+                          <li key={parent.label}>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setExpandedProduct((v) => (v === parent.label ? null : parent.label))
+                              }
+                              className="w-full flex items-center justify-between py-2 text-sm font-semibold text-foreground/90"
                             >
-                              <Icon size={16} className="text-primary" />
-                              <span>{label}</span>
-                            </a>
+                              <span className="flex items-center gap-2">
+                                <parent.Icon size={18} className="text-primary" />
+                                <span>{parent.label}</span>
+                              </span>
+                              <ChevronDown
+                                size={16}
+                                className={`text-accent transition-transform ${expandedProduct === parent.label ? "rotate-180" : ""}`}
+                              />
+                            </button>
+                            {expandedProduct === parent.label && (
+                              <ul className="pl-5 border-l border-border/40 ml-1 mt-1 mb-2 space-y-1 animate-fade-in">
+                                <li>
+                                  <a
+                                    href={parent.href}
+                                    onClick={() => {
+                                      setOpen(false);
+                                      setMobileMenuKey(null);
+                                      setExpandedProduct(null);
+                                    }}
+                                    className="flex items-center gap-2 py-1.5 text-sm font-medium text-foreground/90"
+                                  >
+                                    <parent.Icon size={14} className="text-primary" />
+                                    <span>View {parent.label}</span>
+                                  </a>
+                                </li>
+                                {parent.subItems?.map((i) => (
+                                  <li key={i.label}>
+                                    <a
+                                      href={i.href}
+                                      onClick={() => {
+                                        setOpen(false);
+                                        setMobileMenuKey(null);
+                                        setExpandedProduct(null);
+                                      }}
+                                      className="flex items-center gap-2 py-1.5 text-sm text-foreground/80"
+                                    >
+                                      <i.Icon size={14} className="text-accent" />
+                                      <span>{i.label}</span>
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
                           </li>
                         ))}
                       </ul>
