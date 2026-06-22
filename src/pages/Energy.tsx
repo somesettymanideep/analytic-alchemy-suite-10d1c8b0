@@ -37,7 +37,7 @@ function Intro() {
             enterprise needs a digital infrastructure that balances reliability with innovation.
             The energy sector is evolving from traditional resource management to a data-intensive
             landscape focused on efficiency and decarbonization. At{" "}
-            <strong className="text-foreground">Nextgenlytics</strong>, we provide specialized
+            <strong className="text-foreground">NGSIT</strong>, we provide specialized
             technology consulting for oil and gas, renewables, and utility providers. We help you
             modernize legacy assets into agile, AI-driven ecosystems that optimize production and
             ensure long-term energy security.
@@ -146,8 +146,8 @@ function OurExpertise() {
             Building the foundation for sustainable, high-efficiency power
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At Nextgenlytics, we ensure your energy operations are intelligent, efficient, and
-            sustainable. Nextgenlytics provides expert AI, ERP, and data platform solutions for
+            At NGSIT, we ensure your energy operations are intelligent, efficient, and
+            sustainable. NGSIT provides expert AI, ERP, and data platform solutions for
             energy and utility organizations including oil & gas, renewable energy providers, and
             power distribution companies. Whether you are optimizing asset performance, enabling
             smart grids, or improving energy forecasting, we deliver specialized AI Agents and

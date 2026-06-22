@@ -42,7 +42,7 @@ function Intro() {
             ask complex business questions in plain English and receive accurate, visualised answers instantly.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> implements and customises Genie so it understands your
+            <strong className="text-foreground">NGSIT</strong> implements and customises Genie so it understands your
             specific business terminology, data relationships, and governance requirements.
           </p>
         </div>
@@ -169,20 +169,20 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose Nextgenlytics for Databricks Genie?
+              <CheckCircle2 size={14} /> Why Choose NGSIT for Databricks Genie?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Your data already has the answers. We make them accessible to everyone — not just your data team.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Implemented and tuned by Nextgenlytics — governed by Unity Catalog, customised for your business, and continuously learning.
+              Implemented and tuned by NGSIT — governed by Unity Catalog, customised for your business, and continuously learning.
             </p>
 
             <article className="mt-8 relative overflow-hidden rounded-2xl border border-border/60 shadow-lg bg-primary">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The Nextgenlytics Difference
+                  <Sparkles size={12} /> The NGSIT Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   Conversational analytics. Real answers. Zero SQL.
@@ -246,7 +246,7 @@ const faqs = [
   },
   {
     q: "Can Databricks Genie understand company-specific terminology?",
-    a: "Yes. Nextgenlytics configures custom Genie Spaces with your organisation's specific business terminology, example queries, and data relationships — ensuring Genie understands your business language, not just generic SQL patterns.",
+    a: "Yes. NGSIT configures custom Genie Spaces with your organisation's specific business terminology, example queries, and data relationships — ensuring Genie understands your business language, not just generic SQL patterns.",
   },
 ];
 

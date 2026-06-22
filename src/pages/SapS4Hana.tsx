@@ -60,7 +60,7 @@ function Intro() {
             foundation for autonomous agents.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> specialises in implementing S/4HANA with a Clean
+            <strong className="text-foreground">NGSIT</strong> specialises in implementing S/4HANA with a Clean
             Core approach, so your system is fast today and AI-ready for tomorrow.
           </p>
         </div>
@@ -244,7 +244,7 @@ function Capabilities() {
 }
 
 /* -------------------------------------------------------------- */
-/*  Why Nextgenlytics — split image + stacked pillars              */
+/*  Why NGSIT — split image + stacked pillars              */
 /* -------------------------------------------------------------- */
 function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
@@ -272,7 +272,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Nextgenlytics
+              <CheckCircle2 size={14} /> Why NGSIT
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Your foundation for an AI-native enterprise.
@@ -353,7 +353,7 @@ function WhyUs() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/40" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Sparkles size={12} /> The Nextgenlytics Difference
+                <Sparkles size={12} /> The NGSIT Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Clean Core means upgrade-ready for life.

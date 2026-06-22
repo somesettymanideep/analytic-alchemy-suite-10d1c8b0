@@ -111,7 +111,7 @@ const benefits = [
 ];
 
 const chapters = [
-  { id: "why", num: "01", label: "Why Nextgenlytics", Icon: Sparkles },
+  { id: "why", num: "01", label: "Why NGSIT", Icon: Sparkles },
   { id: "life", num: "02", label: "Life on the inside", Icon: Users },
   { id: "roles", num: "03", label: "Open roles", Icon: Briefcase },
   { id: "process", num: "04", label: "Hiring process", Icon: Compass },
@@ -289,7 +289,7 @@ function LifeSection() {
               isVisible ? "animate-reveal-up delay-200" : "opacity-0"
             }`}
           >
-            Small teams. Real ownership. The people who started Nextgenlytics still write code,
+            Small teams. Real ownership. The people who started NGSIT still write code,
             shape architecture, and sit in the room with you on hard days.
           </p>
         </div>
@@ -440,7 +440,7 @@ function OpenRoles() {
                     <Eye size={15} /> View more
                   </button>
                   <a
-                    href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(job.title)}`}
+                    href={`mailto:careers@NGSIT.com?subject=Application: ${encodeURIComponent(job.title)}`}
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
                   >
                     Apply now <ArrowRight size={16} />
@@ -455,7 +455,7 @@ function OpenRoles() {
           <p className="text-sm text-muted-foreground">
             Don't see your role?{" "}
             <a
-              href="mailto:careers@nextgenlytics.com?subject=Open Application"
+              href="mailto:careers@NGSIT.com?subject=Open Application"
               className="font-semibold text-primary hover:underline inline-flex items-center gap-1"
             >
               Send us an open application <ArrowUpRight size={14} />
@@ -532,10 +532,10 @@ function OpenRoles() {
               <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-border/60">
                 <p className="text-xs text-muted-foreground">
                   Send your CV to{" "}
-                  <span className="font-semibold text-foreground">careers@nextgenlytics.com</span>
+                  <span className="font-semibold text-foreground">careers@NGSIT.com</span>
                 </p>
                 <a
-                  href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(activeJob.title)}`}
+                  href={`mailto:careers@NGSIT.com?subject=Application: ${encodeURIComponent(activeJob.title)}`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all"
                 >
                   Apply now <ArrowRight size={16} />
@@ -625,7 +625,7 @@ function ProcessSection() {
               Ready when you are. Tell us about the work you want to do next.
             </h3>
             <a
-              href="mailto:careers@nextgenlytics.com?subject=Open Application"
+              href="mailto:careers@NGSIT.com?subject=Open Application"
               className="justify-self-start md:justify-self-end inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-semibold shadow-lg hover:-translate-y-0.5 transition-all"
             >
               Start a conversation <ArrowRight size={16} />
@@ -646,7 +646,7 @@ export default function Careers() {
         <PageBanner
           image={bannerCareers}
           eyebrow="Careers"
-          title="Build your career with Nextgenlytics"
+          title="Build your career with NGSIT"
           description="A senior-led consultancy delivering enterprise transformation across Europe and beyond. Read the issue."
         />
         <ChapterIndex />

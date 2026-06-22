@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "NextGenLytics reduced our D365 migration timeline from 18 months to under 9. The BlueGecko platform's automated profiling caught data quality issues we'd have missed entirely.",
+    quote: "NGSIT reduced our D365 migration timeline from 18 months to under 9. The BlueGecko platform's automated profiling caught data quality issues we'd have missed entirely.",
     name: "Marcus van den Berg",
     company: "VP Operations, Meridian Logistics",
   },

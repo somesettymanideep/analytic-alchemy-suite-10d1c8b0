@@ -4,7 +4,7 @@ import { Linkedin, Twitter, Mail } from "lucide-react";
 const footerLinks = {
   Services: ["Data Analytics", "Data Visualization", "Business Intelligence", "AI & Predictive Analytics", "ERP Migration"],
   Company: ["About Us", "Case Studies", "Our Process", "Careers"],
-  Contact: ["Amsterdam, Netherlands", "info@nextgenlytics.com", "+31 (0) 20 XXX XXXX"],
+  Contact: ["Amsterdam, Netherlands", "info@NGSIT.com", "+31 (0) 20 XXX XXXX"],
 };
 
 export default function Footer() {
@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="container">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div>
-            <img src={logo} alt="NextGenLytics" className="h-16 rounded mb-4" />
+            <img src={logo} alt="NGSIT" className="h-16 rounded mb-4" />
             <p className="text-sm leading-relaxed">
               AI-native data and transformation partner for mid-market enterprises.
             </p>
@@ -48,7 +48,7 @@ export default function Footer() {
 
 
         <div className="border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/40">
-          © {new Date().getFullYear()} NextGenLytics. All rights reserved.
+          © {new Date().getFullYear()} NGSIT. All rights reserved.
         </div>
       </div>
     </footer>

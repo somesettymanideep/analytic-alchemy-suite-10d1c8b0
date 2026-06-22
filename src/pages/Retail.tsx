@@ -196,7 +196,7 @@ export default function Retail() {
               In the era of instant gratification, retail success is defined by how well you know
               your customer. Today's retailers must bridge the gap between digital storefronts and
               physical aisles while managing complex, global inventories. At{" "}
-              <strong className="text-foreground">Nextgenlytics</strong>, we empower retailers to
+              <strong className="text-foreground">NGSIT</strong>, we empower retailers to
               deliver hyper-personalized experiences and high-efficiency operations. We help you
               transform raw consumer data into loyal, long-term relationships.
             </>
@@ -229,8 +229,8 @@ export default function Retail() {
 
         <Expertise
           heading="Building the foundation for intelligent commerce"
-          lead="At Nextgenlytics, we ensure that your retail intelligence scales as fast as your brand."
-          body="Nextgenlytics provides expert AI and ERP implementation for retail organizations managing multi-channel and high-volume environments. Whether you are a global fashion brand, a grocery chain, or a specialized boutique, we provide the specialized AI Agents and workflows to turn your transaction data into a competitive advantage."
+          lead="At NGSIT, we ensure that your retail intelligence scales as fast as your brand."
+          body="NGSIT provides expert AI and ERP implementation for retail organizations managing multi-channel and high-volume environments. Whether you are a global fashion brand, a grocery chain, or a specialized boutique, we provide the specialized AI Agents and workflows to turn your transaction data into a competitive advantage."
           points={[
             "360° customer data and personalization engines",
             "Real-time inventory and omnichannel orchestration",
@@ -251,7 +251,7 @@ export default function Retail() {
               In the high-volume world of wholesale, success is measured in pennies and seconds.
               With global supply chains becoming more volatile and B2B buyers demanding a B2C-like
               digital experience, distributors must evolve. At{" "}
-              <strong className="text-foreground">Nextgenlytics</strong>, we modernize wholesale
+              <strong className="text-foreground">NGSIT</strong>, we modernize wholesale
               operations by embedding AI. We help you optimize your inventory turnover, protect
               your margins, and build a resilient distribution network that thrives on precision.
             </>
@@ -284,7 +284,7 @@ export default function Retail() {
 
         <Expertise
           heading="Building the foundation for high-velocity, resilient value chains"
-          lead="At Nextgenlytics, we ensure that your wholesale intelligence is as robust as your warehouse."
+          lead="At NGSIT, we ensure that your wholesale intelligence is as robust as your warehouse."
           body="We bring together deep SAP S/4HANA and Microsoft Dynamics 365 expertise with a strong understanding of high-volume B2B environments. Our team combines functional excellence, operational insight, and proven experience with leading global distributors to ensure your transformation is seamless and scalable."
           points={[
             "Margin and rebate intelligence across volatile markets",

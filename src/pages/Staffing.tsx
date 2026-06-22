@@ -35,7 +35,7 @@ function Intro() {
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed text-pretty">
             In the professional staffing industry, the primary asset is time. The faster you can
             identify, vet, and deploy the right talent, the more competitive your firm becomes. At{" "}
-            <strong className="text-foreground">Nextgenlytics</strong>, we modernize staffing
+            <strong className="text-foreground">NGSIT</strong>, we modernize staffing
             operations by integrating AI-driven talent orchestration into your SAP BTP or
             Microsoft Dynamics 365 environment. We help you move beyond manual resume screening
             to a proactive, "Agentic" model where data identifies the perfect match before the
@@ -145,7 +145,7 @@ function OurExpertise() {
             Building the foundation for seamless, enterprise-grade talent integration
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At Nextgenlytics, we ensure that your staffing intelligence is as dynamic as the
+            At NGSIT, we ensure that your staffing intelligence is as dynamic as the
             global workforce. We provide expert AI and ERP implementation for staffing agencies
             and professional service firms managing high-volume talent pools. Whether you
             specialize in IT, Healthcare, or Executive Search, we provide the specialized AI

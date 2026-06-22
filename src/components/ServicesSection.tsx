@@ -53,7 +53,7 @@ export default function ServicesSection() {
               isVisible ? "animate-reveal-up delay-100" : "opacity-0"
             }`}
           >
-            Nextgenlytics keeps your ERP, data platform and cloud infrastructure operating at enterprise standard.
+            NGSIT keeps your ERP, data platform and cloud infrastructure operating at enterprise standard.
           </p>
         </div>
 

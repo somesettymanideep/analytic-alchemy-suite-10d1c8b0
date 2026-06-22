@@ -48,7 +48,7 @@ function Intro() {
             designed for small and mid-sized businesses that need to manage finance, sales, inventory, and operations from one place.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> implements and optimises Business Central so growing companies
+            <strong className="text-foreground">NGSIT</strong> implements and optimises Business Central so growing companies
             get the same data intelligence and process automation as large enterprises — without the cost or complexity.
           </p>
         </div>
@@ -125,7 +125,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What Nextgenlytics Delivers with Business Central
+            <Sparkles size={14} /> What NGSIT Delivers with Business Central
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One ERP for finance, inventory, sales, and projects
@@ -229,13 +229,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Nextgenlytics
+              <CheckCircle2 size={14} /> Why NGSIT
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Fast to deploy. Easy to adopt. Built to scale.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Business Central gives you one platform — and Nextgenlytics gets you there fast.
+              Business Central gives you one platform — and NGSIT gets you there fast.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -291,7 +291,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Bot size={12} /> The Nextgenlytics Difference
+                <Bot size={12} /> The NGSIT Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Enterprise discipline. SMB speed. AI from day one.
@@ -316,7 +316,7 @@ const faqs = [
   },
   {
     q: "How quickly can Business Central be implemented?",
-    a: "With Nextgenlytics' Quick-Start methodology, a core Business Central environment covering essential financial modules can go live in as few as 8 to 12 weeks.",
+    a: "With NGSIT' Quick-Start methodology, a core Business Central environment covering essential financial modules can go live in as few as 8 to 12 weeks.",
   },
   {
     q: "Is Business Central suitable for growing businesses?",

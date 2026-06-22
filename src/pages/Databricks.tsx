@@ -52,7 +52,7 @@ function Intro() {
             learning, and real-time analytics.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> implements and optimises Databricks Lakehouse
+            <strong className="text-foreground">NGSIT</strong> implements and optimises Databricks Lakehouse
             environments so your data team can move faster, at lower cost, with production-grade reliability.
           </p>
         </div>
@@ -129,7 +129,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What Nextgenlytics Delivers with Databricks
+            <Sparkles size={14} /> What NGSIT Delivers with Databricks
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One Lakehouse for engineering, analytics, and AI
@@ -234,13 +234,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Nextgenlytics for Databricks
+              <CheckCircle2 size={14} /> Why NGSIT for Databricks
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Spark-tuned, cross-cloud integrated, AI-ready from day one.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Data engineering is the foundation every AI initiative is built on. Nextgenlytics builds that foundation on
+              Data engineering is the foundation every AI initiative is built on. NGSIT builds that foundation on
               Databricks — open, scalable, and production-ready from day one.
             </p>
 
@@ -297,7 +297,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The Nextgenlytics Difference
+                <Brain size={12} /> The NGSIT Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Tuned Spark. Connected clouds. Governed AI foundations.
