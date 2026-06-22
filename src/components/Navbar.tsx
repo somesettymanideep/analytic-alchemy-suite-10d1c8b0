@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope, LayoutGrid, Map, Code2, Eye, ArrowLeftRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope, LayoutGrid, Map, Code2, Eye, ArrowLeftRight, Mail } from "lucide-react";
 import AnnouncementBar from "./AnnouncementBar";
 
 type SolutionCategory = {
@@ -75,6 +75,7 @@ const insightsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
 const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "About NGSIT", Icon: Building2, href: "/about" },
   { label: "Our Team", Icon: UsersRound, href: "/team" },
+  { label: "Contact", Icon: Mail, href: "/contact" },
 ];
 
 const productsMenu: { label: string; Icon: typeof Boxes; href: string; subItems?: { label: string; Icon: typeof Boxes; href: string }[] }[] = [
@@ -116,7 +117,7 @@ const navLinks = [
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
+  { label: "Extended Delivery Team", href: "/edt" },
 ];
 
 type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | "solutions" | null;
