@@ -77,12 +77,18 @@ const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "Our Team", Icon: UsersRound, href: "/team" },
 ];
 
-const productsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
-  { label: "BlueGecko Platform", Icon: LayoutGrid, href: "/products/bluegecko" },
-  { label: "Falcon Mapping", Icon: Map, href: "/products/falcon-mapping" },
-  { label: "Code Cheetah", Icon: Code2, href: "/products/code-cheetah" },
-  { label: "Owl Sight", Icon: Eye, href: "/products/owl-sight" },
-  { label: "Orca Migrate", Icon: ArrowLeftRight, href: "/products/orca-migrate" },
+const productsMenu: { label: string; Icon: typeof Boxes; href: string; subItems?: { label: string; Icon: typeof Boxes; href: string }[] }[] = [
+  {
+    label: "BlueGecko Platform",
+    Icon: LayoutGrid,
+    href: "/products/bluegecko",
+    subItems: [
+      { label: "Falcon Mapping", Icon: Map, href: "/products/falcon-mapping" },
+      { label: "Code Cheetah", Icon: Code2, href: "/products/code-cheetah" },
+      { label: "Owl Sight", Icon: Eye, href: "/products/owl-sight" },
+      { label: "Orca Migrate", Icon: ArrowLeftRight, href: "/products/orca-migrate" },
+    ],
+  },
 ];
 
 const clientWorkMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
@@ -317,24 +323,46 @@ export default function Navbar() {
                     onMouseEnter={() => openMenu("products")}
                     onMouseLeave={scheduleClose}
                   >
-                    <div className="grid grid-cols-2 gap-2">
-                      {productsMenu.map((i) => (
+                    {productsMenu.map((parent) => (
+                      <div key={parent.label}>
                         <a
-                          key={i.label}
-                          href={i.href}
+                          href={parent.href}
                           onClick={closeNow}
-                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                          className="flex items-center gap-4 rounded-2xl border border-border/60 p-4 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group mb-3"
                         >
-                          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                            <i.Icon size={18} />
+                          <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
+                            <parent.Icon size={24} />
                           </span>
-                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
-                            {i.label}
+                          <span className="flex-1 min-w-0">
+                            <span className="block text-base font-bold text-foreground group-hover:text-primary">
+                              {parent.label}
+                            </span>
+                            <span className="block text-xs text-muted-foreground mt-0.5">
+                              AI-powered data management platform — migration, mapping, ETL and quality unified in one place.
+                            </span>
                           </span>
-                          <ArrowRight size={14} className="text-accent opacity-70" />
+                          <ArrowRight size={16} className="text-accent opacity-70" />
                         </a>
-                      ))}
-                    </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          {parent.subItems?.map((i) => (
+                            <a
+                              key={i.label}
+                              href={i.href}
+                              onClick={closeNow}
+                              className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                            >
+                              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                <i.Icon size={18} />
+                              </span>
+                              <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                                {i.label}
+                              </span>
+                              <ArrowRight size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 )}
 
@@ -532,19 +560,36 @@ export default function Navbar() {
                   {mobileMenuKey === "products" && l.hasMenu === "products" && (
                     <div className="pl-3 border-l border-border/60 ml-1 mb-2">
                       <ul>
-                        {productsMenu.map((i) => (
-                          <li key={i.label}>
+                        {productsMenu.map((parent) => (
+                          <li key={parent.label}>
                             <a
-                              href={i.href}
+                              href={parent.href}
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
                               }}
-                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
+                              className="flex items-center gap-2 py-2 text-sm font-semibold text-foreground/90"
                             >
-                              <i.Icon size={16} className="text-primary" />
-                              <span>{i.label}</span>
+                              <parent.Icon size={18} className="text-primary" />
+                              <span>{parent.label}</span>
                             </a>
+                            <ul className="pl-5 border-l border-border/40 ml-1 mt-1 mb-2 space-y-1">
+                              {parent.subItems?.map((i) => (
+                                <li key={i.label}>
+                                  <a
+                                    href={i.href}
+                                    onClick={() => {
+                                      setOpen(false);
+                                      setMobileMenuKey(null);
+                                    }}
+                                    className="flex items-center gap-2 py-1.5 text-sm text-foreground/80"
+                                  >
+                                    <i.Icon size={14} className="text-accent" />
+                                    <span>{i.label}</span>
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
                           </li>
                         ))}
                       </ul>
