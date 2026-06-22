@@ -51,7 +51,7 @@ function Intro() {
             non-SAP systems, and analytics platforms.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> implements DataSphere so your AI models and
+            <strong className="text-foreground">NGSIT</strong> implements DataSphere so your AI models and
             analytics always work from data that is not just accurate — but contextually correct.
           </p>
         </div>
@@ -128,7 +128,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What Nextgenlytics Delivers with SAP DataSphere
+            <Sparkles size={14} /> What NGSIT Delivers with SAP DataSphere
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One semantic data layer — for every cloud, every team, every model
@@ -233,13 +233,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Nextgenlytics for SAP DataSphere
+              <CheckCircle2 size={14} /> Why NGSIT for SAP DataSphere
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               SAP data is only as valuable as the context around it.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              DataSphere — implemented by Nextgenlytics — ensures that context is never lost, no matter where your data
+              DataSphere — implemented by NGSIT — ensures that context is never lost, no matter where your data
               travels.
             </p>
 
@@ -296,7 +296,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <ShieldCheck size={12} /> The Nextgenlytics Difference
+                <ShieldCheck size={12} /> The NGSIT Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Semantic fidelity. Hybrid by design. AI-ready by default.

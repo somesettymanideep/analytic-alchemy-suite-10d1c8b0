@@ -32,7 +32,7 @@ export default function StatsSection() {
             Being the best by working with the best
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed text-pretty">
-            NextGenLytics is a global provider of unique end-to-end consulting
+            NGSIT is a global provider of unique end-to-end consulting
             solutions in the{" "}
             <span className="font-semibold text-primary">enterprise applications</span>,{" "}
             <span className="font-semibold text-primary">AI</span>, and{" "}

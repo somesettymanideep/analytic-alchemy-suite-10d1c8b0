@@ -24,13 +24,13 @@ export default function CtaSection() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:info@nextgenlytics.com"
+                href="mailto:info@NGSIT.com"
                 className="px-8 py-3.5 rounded-full font-semibold bg-accent text-accent-foreground hover:shadow-xl hover:shadow-accent/30 active:scale-[0.97] transition-all duration-200"
               >
                 Book Consultation
               </a>
               <a
-                href="mailto:info@nextgenlytics.com"
+                href="mailto:info@NGSIT.com"
                 className="px-8 py-3.5 rounded-full font-semibold border-2 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 active:scale-[0.97] transition-all duration-200"
               >
                 Request Proposal

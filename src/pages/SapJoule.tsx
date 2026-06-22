@@ -42,7 +42,7 @@ function Intro() {
             workflows across your entire SAP environment through a single conversational interface.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> helps enterprises unlock the full potential of
+            <strong className="text-foreground">NGSIT</strong> helps enterprises unlock the full potential of
             Joule — from initial implementation to building custom AI skills that extend Joule's capabilities to your
             unique processes and third-party integrations.
           </p>
@@ -165,7 +165,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose Nextgenlytics for SAP Joule?
+              <CheckCircle2 size={14} /> Why Choose NGSIT for SAP Joule?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               If your business runs on SAP, Joule is the AI layer that ties everything together.
@@ -178,7 +178,7 @@ function WhyUs() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The Nextgenlytics Difference
+                  <Sparkles size={12} /> The NGSIT Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   Agentic AI across S/4HANA, SuccessFactors, and BTP.
@@ -242,7 +242,7 @@ const faqs = [
   },
   {
     q: "Can SAP Joule be customised for specific business processes?",
-    a: "Yes. Using Joule Studio, Nextgenlytics builds custom AI skills that extend Joule's native capabilities to match your unique business workflows, custom SAP configurations, and third-party system integrations.",
+    a: "Yes. Using Joule Studio, NGSIT builds custom AI skills that extend Joule's native capabilities to match your unique business workflows, custom SAP configurations, and third-party system integrations.",
   },
 ];
 

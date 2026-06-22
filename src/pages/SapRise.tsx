@@ -54,7 +54,7 @@ function Intro() {
             process intelligence, and managed services into a single commercial agreement — simplifying the entire cloud journey.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> implements the RISE framework to move you beyond
+            <strong className="text-foreground">NGSIT</strong> implements the RISE framework to move you beyond
             simple cloud hosting toward genuinely autonomous, AI-powered enterprise operations.
           </p>
         </div>
@@ -235,13 +235,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Nextgenlytics
+              <CheckCircle2 size={14} /> Why NGSIT
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               The fastest path to a clean, intelligent, cloud-native enterprise.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Nextgenlytics makes sure you get there — with AI embedded from the very start, and a single partner accountable for the outcome.
+              NGSIT makes sure you get there — with AI embedded from the very start, and a single partner accountable for the outcome.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -297,7 +297,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Rocket size={12} /> The Nextgenlytics Difference
+                <Rocket size={12} /> The NGSIT Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 One partner. One agreement. One intelligent enterprise.
@@ -326,7 +326,7 @@ const faqs = [
   },
   {
     q: "How long does a RISE with SAP implementation take?",
-    a: "Implementation timelines vary based on business complexity and migration approach. Nextgenlytics uses a phased delivery model that prioritises early business value, typically delivering core cloud operations within 6 to 12 months for mid-sized organisations, with AI enablement milestones built into each phase.",
+    a: "Implementation timelines vary based on business complexity and migration approach. NGSIT uses a phased delivery model that prioritises early business value, typically delivering core cloud operations within 6 to 12 months for mid-sized organisations, with AI enablement milestones built into each phase.",
   },
 ];
 

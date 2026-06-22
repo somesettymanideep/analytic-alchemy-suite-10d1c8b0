@@ -35,7 +35,7 @@ function Intro() {
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed text-pretty">
             In a world of constant disruption, static supply chains are a liability. Today's
             logistics leaders require total visibility, predictive agility, and a
-            "frictionless" flow of goods. At <strong className="text-foreground">Nextgenlytics</strong>,
+            "frictionless" flow of goods. At <strong className="text-foreground">NGSIT</strong>,
             we modernize your logistics operations by integrating advanced AI and real-time
             tracking into your Microsoft Dynamics 365 or SAP S/4HANA ecosystem. We help you
             move beyond traditional tracking to create an autonomous supply chain that
@@ -145,7 +145,7 @@ function OurExpertise() {
             Building the foundation for the autonomous supply chain
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At Nextgenlytics, we ensure that your logistics intelligence is as mobile as your fleet.
+            At NGSIT, we ensure that your logistics intelligence is as mobile as your fleet.
             We provide expert AI and ERP implementation for logistics and transportation
             organizations managing complex global networks. Whether you are a 3PL provider, a
             freight forwarder, or a private fleet operator, we deliver the specialized AI Agents

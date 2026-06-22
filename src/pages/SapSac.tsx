@@ -54,7 +54,7 @@ function Intro() {
             that automatically surfaces the patterns and drivers behind your results.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> implements SAC so your leadership team moves from
+            <strong className="text-foreground">NGSIT</strong> implements SAC so your leadership team moves from
             reporting what happened to predicting what comes next.
           </p>
         </div>
@@ -235,13 +235,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Nextgenlytics
+              <CheckCircle2 size={14} /> Why NGSIT
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Your business generates insights every second. Make sure your leaders see and act on them.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              SAP Analytics Cloud — implemented by Nextgenlytics — turns live SAP data into stories that drive decisions.
+              SAP Analytics Cloud — implemented by NGSIT — turns live SAP data into stories that drive decisions.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -297,7 +297,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The Nextgenlytics Difference
+                <Brain size={12} /> The NGSIT Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Predict what comes next — with confidence in the data behind it.
@@ -326,7 +326,7 @@ const faqs = [
   },
   {
     q: "Can SAP Analytics Cloud replace SAP BW?",
-    a: "SAP Analytics Cloud can connect directly to SAP BW and BW/4HANA as a live data source, and in many scenarios reduces dependency on BW for reporting. However, BW/4HANA still serves a role in complex data transformation scenarios. Nextgenlytics assesses each client's architecture to recommend the right combination.",
+    a: "SAP Analytics Cloud can connect directly to SAP BW and BW/4HANA as a live data source, and in many scenarios reduces dependency on BW for reporting. However, BW/4HANA still serves a role in complex data transformation scenarios. NGSIT assesses each client's architecture to recommend the right combination.",
   },
 ];
 

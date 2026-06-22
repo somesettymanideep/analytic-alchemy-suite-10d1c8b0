@@ -43,7 +43,7 @@ function Intro() {
             governed data — inside Snowflake, where it already lives.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Nextgenlytics</strong> implements Cortex to help you build, deploy, and
+            <strong className="text-foreground">NGSIT</strong> implements Cortex to help you build, deploy, and
             scale AI applications that deliver real-time intelligence without ever taking your data outside the secure
             Snowflake perimeter.
           </p>
@@ -171,20 +171,20 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose Nextgenlytics for Snowflake Cortex?
+              <CheckCircle2 size={14} /> Why Choose NGSIT for Snowflake Cortex?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Your Snowflake data is already your most valuable asset. Cortex makes it intelligent.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Zero data movement, serverless scale, and full governance — implemented and tuned by Nextgenlytics.
+              Zero data movement, serverless scale, and full governance — implemented and tuned by NGSIT.
             </p>
 
             <article className="mt-8 relative overflow-hidden rounded-2xl border border-border/60 shadow-lg bg-primary">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The Nextgenlytics Difference
+                  <Sparkles size={12} /> The NGSIT Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   Production-grade AI — inside your Snowflake perimeter.

@@ -53,7 +53,7 @@ export default function AboutSection() {
           <div className={`md:col-span-8 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="text-xs font-semibold uppercase tracking-widest text-accent">About Us</span>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground text-balance">
-              About Nextgenlytics
+              About NGSIT
             </h2>
             <p className="mt-2 text-lg text-primary font-medium">
               Founded by people who have run these programmes.
@@ -61,7 +61,7 @@ export default function AboutSection() {
 
             <div className={`mt-6 space-y-4 text-muted-foreground leading-relaxed text-pretty ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
               <p>
-                Nextgenlytics was founded in Amsterdam in 2022 by data and ERP professionals with collective careers at Tier-1 system integrators. We understand the structural inefficiencies in enterprise migration programmes because we delivered them for two decades — and we built BlueGecko to eliminate them.
+                NGSIT was founded in Amsterdam in 2022 by data and ERP professionals with collective careers at Tier-1 system integrators. We understand the structural inefficiencies in enterprise migration programmes because we delivered them for two decades — and we built BlueGecko to eliminate them.
               </p>
               <p>
                 Our team of 35+ specialists combines Amsterdam-based programme leadership with India offshore delivery — an onshore-offshore model that maintains European standards at 30–40% below Dutch SI rates. BlueGecko has been in active development for 2+ years and is in production on live migration programmes.
