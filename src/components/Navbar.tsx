@@ -577,34 +577,42 @@ export default function Navbar() {
                       <ul>
                         {productsMenu.map((parent) => (
                           <li key={parent.label}>
-                            <a
-                              href={parent.href}
-                              onClick={() => {
-                                setOpen(false);
-                                setMobileMenuKey(null);
-                              }}
-                              className="flex items-center gap-2 py-2 text-sm font-semibold text-foreground/90"
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setExpandedProduct((v) => (v === parent.label ? null : parent.label))
+                              }
+                              className="w-full flex items-center justify-between py-2 text-sm font-semibold text-foreground/90"
                             >
-                              <parent.Icon size={18} className="text-primary" />
-                              <span>{parent.label}</span>
-                            </a>
-                            <ul className="pl-5 border-l border-border/40 ml-1 mt-1 mb-2 space-y-1">
-                              {parent.subItems?.map((i) => (
-                                <li key={i.label}>
-                                  <a
-                                    href={i.href}
-                                    onClick={() => {
-                                      setOpen(false);
-                                      setMobileMenuKey(null);
-                                    }}
-                                    className="flex items-center gap-2 py-1.5 text-sm text-foreground/80"
-                                  >
-                                    <i.Icon size={14} className="text-accent" />
-                                    <span>{i.label}</span>
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
+                              <span className="flex items-center gap-2">
+                                <parent.Icon size={18} className="text-primary" />
+                                <span>{parent.label}</span>
+                              </span>
+                              <ChevronDown
+                                size={16}
+                                className={`text-accent transition-transform ${expandedProduct === parent.label ? "rotate-180" : ""}`}
+                              />
+                            </button>
+                            {expandedProduct === parent.label && (
+                              <ul className="pl-5 border-l border-border/40 ml-1 mt-1 mb-2 space-y-1 animate-fade-in">
+                                {parent.subItems?.map((i) => (
+                                  <li key={i.label}>
+                                    <a
+                                      href={i.href}
+                                      onClick={() => {
+                                        setOpen(false);
+                                        setMobileMenuKey(null);
+                                        setExpandedProduct(null);
+                                      }}
+                                      className="flex items-center gap-2 py-1.5 text-sm text-foreground/80"
+                                    >
+                                      <i.Icon size={14} className="text-accent" />
+                                      <span>{i.label}</span>
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
                           </li>
                         ))}
                       </ul>
