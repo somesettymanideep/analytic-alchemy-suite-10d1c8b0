@@ -36,14 +36,14 @@ const founders = [
   {
     name: "Raja Devarapu",
     role: "Co-Founder & CEO · Data, AI & ERP Transformation",
-    location: "Hyderabad, IN",
+    location: "01 · Amsterdam, NL",
     quote:
       "Every enterprise deserves Tier-1 thinking. We built NGSIT to make that possible.",
     image: rajaAsset.url,
     highlights: [
-      "17 yrs architecting enterprise data & AI for ManpowerGroup, Nationwide, ANZ Bank",
-      "Visionary architect of BlueGecko — SAP, Microsoft & ERP transformation at a fraction of Tier-1 cost",
-      "Founded NGSIT to bring Fortune-500 capability to Dutch & European SMBs",
+      "17 years architecting enterprise data and AI programmes for global organisations — ManpowerGroup, Nationwide Building Society, ANZ Bank, and beyond",
+      "Visionary architect of BlueGecko — the Data and AI platform that delivers SAP, Microsoft, and any ERP transformation at a fraction of Tier-1 cost and twice the speed",
+      "Founded NGSIT to give Dutch and European SMBs what was previously reserved for the Fortune 500 — world-class data, analytics, AI, and ERP capability, without the enterprise price tag",
     ],
   },
   {
