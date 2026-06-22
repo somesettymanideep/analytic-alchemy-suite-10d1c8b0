@@ -358,6 +358,19 @@ export default function Navbar() {
                         </button>
                         {expandedProduct === parent.label && (
                           <div className="grid grid-cols-2 gap-2 animate-fade-in">
+                            <a
+                              href={parent.href}
+                              onClick={closeNow}
+                              className="col-span-2 flex items-center gap-3 rounded-xl border border-primary/30 bg-primary/5 p-3 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 group"
+                            >
+                              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                                <parent.Icon size={18} />
+                              </span>
+                              <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                                View {parent.label}
+                              </span>
+                              <ArrowRight size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </a>
                             {parent.subItems?.map((i) => (
                               <a
                                 key={i.label}
