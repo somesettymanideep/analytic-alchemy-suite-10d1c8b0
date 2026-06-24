@@ -44,7 +44,7 @@ import OrcaMigrate from "./pages/OrcaMigrate.tsx";
 import AmsServices from "./pages/AmsServices.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
 import Edt from "./pages/Edt.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import HomePage2 from "./pages/HomePage2.tsx";
 
 const queryClient = new QueryClient();
 
