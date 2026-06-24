@@ -82,21 +82,15 @@ export default function Hero2Section() {
             Amsterdam · India · Global
           </div>
 
-          <h1 className="font-heading font-bold leading-[0.95] tracking-tight text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-            {["MOST", "TRANSFORMATIONS", "FAIL", "AT", "THE"].map((w, i) => (
-              <span
-                key={w}
-                className="block animate-reveal-up"
-                style={{ animationDelay: `${100 + i * 80}ms` }}
-              >
-                {w}
+          <h1 className="font-heading font-bold leading-[1.05] tracking-tight text-[2.25rem] sm:text-4xl md:text-5xl lg:text-[3rem]">
+            <span className="block animate-reveal-up" style={{ animationDelay: "100ms" }}>
+              MOST TRANSFORMATIONS
+            </span>
+            <span className="block animate-reveal-up" style={{ animationDelay: "260ms" }}>
+              FAIL AT THE{" "}
+              <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
+                DATA LAYER.
               </span>
-            ))}
-            <span
-              className="block animate-reveal-up bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent"
-              style={{ animationDelay: "540ms" }}
-            >
-              DATA LAYER.
             </span>
           </h1>
 
