@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { useCountUp } from "@/hooks/use-count-up";
 import { MapPin, Sparkles, Network, ArrowRight } from "lucide-react";
 
 const steps = [
@@ -46,10 +45,26 @@ const STEP_SCROLL_VH = 120;
 
 const orbitNodes = ["SAP", "Microsoft", "Databricks", "AI", "Governance"];
 
-function StatCounter({ value, suffix }: { value: number; suffix: string }) {
-  const { count, ref } = useCountUp(value, 1800);
+function StatCounter({ value, suffix, active }: { value: number; suffix: string; active: boolean }) {
+  const [count, setCount] = useState(0);
+  const hasRun = useRef(false);
+  useEffect(() => {
+    if (!active || hasRun.current) return;
+    hasRun.current = true;
+    const duration = 1500;
+    const start = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setCount(Math.round(value * eased));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [active, value]);
   return (
-    <div ref={ref} className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-white tabular-nums">
+    <div className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-white tabular-nums">
       {count.toLocaleString()}
       <span className="text-[#F59E0B]">{suffix}</span>
     </div>
@@ -179,12 +194,12 @@ const WhyNgsitSection = () => {
                 return (
                   <div
                     key={s.num}
-                    className={`absolute inset-0 transition-all duration-700 ease-out ${
+                    className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       isActive
-                        ? "opacity-100 translate-y-0 blur-0"
+                        ? "opacity-100 translate-y-0"
                         : i < active
-                        ? "opacity-0 -translate-y-6 blur-sm pointer-events-none"
-                        : "opacity-0 translate-y-6 blur-sm pointer-events-none"
+                        ? "opacity-0 -translate-y-8 pointer-events-none"
+                        : "opacity-0 translate-y-8 pointer-events-none"
                     }`}
                   >
                     <div
@@ -211,13 +226,7 @@ const WhyNgsitSection = () => {
                       <div className="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-white/10 [@media(max-height:700px)]:mt-4 [@media(max-height:700px)]:pt-4">
                         {s.stats.map((st) => (
                           <div key={st.label}>
-                            {isActive ? (
-                              <StatCounter value={st.value} suffix={st.suffix} />
-                            ) : (
-                              <div className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-white/30">
-                                0{st.suffix}
-                              </div>
-                            )}
+                            <StatCounter value={st.value} suffix={st.suffix} active={isActive} />
                             <div className="mt-1 text-[11px] uppercase tracking-wider text-white/40">
                               {st.label}
                             </div>
