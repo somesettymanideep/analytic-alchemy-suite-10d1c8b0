@@ -19,7 +19,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 const HomePage2 = () => {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-clip">
       <Navbar />
       <Hero2Section />
       <ProofInNumbersSection />
