@@ -42,6 +42,8 @@ const steps = [
   },
 ];
 
+const STEP_SCROLL_VH = 72;
+
 const orbitNodes = ["SAP", "Microsoft", "Databricks", "AI", "Governance"];
 
 function StatCounter({ value, suffix }: { value: number; suffix: string }) {
@@ -100,7 +102,7 @@ const WhyNgsitSection = () => {
         (revealRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
       }}
       className="relative bg-[#070B14] text-white"
-      style={{ height: "120vh" }}
+      style={{ height: `calc(100vh + ${steps.length * STEP_SCROLL_VH}vh)` }}
     >
       {/* Sticky viewport */}
       <div ref={stickyRef} className="sticky top-0 h-screen w-full overflow-hidden">
