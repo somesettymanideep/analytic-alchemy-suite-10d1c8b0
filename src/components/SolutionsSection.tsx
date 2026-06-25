@@ -1,7 +1,17 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Database, Cloud, Sparkles, Layers, ArrowUpRight } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const solutions = [
+interface Solution {
+  num: string;
+  icon: LucideIcon;
+  title: string;
+  count: number;
+  desc: string;
+  tags: string[];
+}
+
+const solutions: Solution[] = [
   {
     num: "01",
     icon: Database,
