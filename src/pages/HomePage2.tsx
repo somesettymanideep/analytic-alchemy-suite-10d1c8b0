@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero2Section from "@/components/Hero2Section";
+import ProblemWeSolveSection from "@/components/ProblemWeSolveSection";
 import ProofInNumbersSection from "@/components/ProofInNumbersSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import SolutionsSection from "@/components/SolutionsSection";
@@ -22,6 +23,7 @@ const HomePage2 = () => {
     <div className="min-h-screen overflow-x-clip">
       <Navbar />
       <Hero2Section />
+      <ProblemWeSolveSection />
       <ProofInNumbersSection />
       <HowWeWorkSection />
       <SolutionsSection />
