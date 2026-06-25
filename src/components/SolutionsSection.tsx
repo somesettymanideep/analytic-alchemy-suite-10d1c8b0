@@ -1,7 +1,17 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Database, Cloud, Sparkles, Layers, ArrowUpRight } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const solutions = [
+interface Solution {
+  num: string;
+  icon: LucideIcon;
+  title: string;
+  count: number;
+  desc: string;
+  tags: string[];
+}
+
+const solutions: Solution[] = [
   {
     num: "01",
     icon: Database,
@@ -84,80 +94,94 @@ export default function SolutionsSection() {
         {/* 4-column cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {solutions.map((s, i) => (
-            <article
-              key={s.title}
-              className={`group relative rounded-2xl bg-gradient-to-b from-slate-50 to-blue-50/60 border border-slate-100 px-6 pt-14 pb-8 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.25)] hover:border-[#0B1F8C]/20 ${
-                isVisible ? "animate-reveal-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${250 + i * 120}ms` }}
-            >
-              {/* Floating icon circle */}
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-                <div className="w-20 h-20 rounded-full bg-white shadow-[0_12px_30px_-12px_rgba(11,31,140,0.35)] flex items-center justify-center border border-slate-100 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                  <s.icon className="w-9 h-9 text-[#0B1F8C]" strokeWidth={1.6} />
-                </div>
-              </div>
-
-              <h3 className="text-xl md:text-[1.35rem] font-bold text-[#0B1F8C] leading-tight mb-3 min-h-[3.25rem] flex items-center justify-center">
-                {s.title}
-              </h3>
-
-              <p className="text-slate-600 leading-relaxed text-[14.5px] mb-5">
-                {s.desc}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 justify-center pt-4 border-t border-slate-200/70">
-                {s.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[10.5px] font-medium px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600 group-hover:border-[#F59E0B]/50 group-hover:text-[#0B1F8C] transition-colors"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              {/* bottom accent bar */}
-              <span className="absolute left-6 right-6 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-[#F59E0B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </article>
+            <SolutionCard key={s.title} solution={s} index={i} />
           ))}
         </div>
 
         {/* BlueGecko foundation strip */}
-        <div
-          className={`mt-16 relative rounded-2xl bg-[#0B1F8C] text-white p-6 md:p-8 overflow-hidden ${
-            isVisible ? "animate-reveal-up delay-700" : "opacity-0"
-          }`}
-        >
-          <div
-            className="absolute inset-0 opacity-30 pointer-events-none"
-            style={{ background: "radial-gradient(circle at 80% 50%, #F59E0B55, transparent 60%)" }}
-          />
-          <div className="relative flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[#F59E0B] flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.6)]">
-                <Layers className="w-6 h-6 text-[#0B1F8C]" />
-              </div>
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.25em] text-[#F59E0B] font-semibold">
-                  Foundation Layer
-                </div>
-                <div className="text-xl font-bold">BlueGecko Platform</div>
-              </div>
-            </div>
-            <div className="flex-1 text-white/75 text-sm md:text-base leading-relaxed">
-              The AI-native platform underneath every practice — accelerating mapping,
-              migration, observability, and agents across SAP, Microsoft, and modern data stacks.
-            </div>
-            <a
-              href="/bluegecko"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#F59E0B] text-[#0B1F8C] font-semibold text-sm hover:bg-[#F59E0B]/90 transition-colors whitespace-nowrap"
-            >
-              Explore BlueGecko <ArrowUpRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
+        <FoundationStrip isVisible={isVisible} />
       </div>
     </section>
+  );
+}
+
+function SolutionCard({ solution, index }: { solution: Solution; index: number }) {
+  const { ref, isVisible } = useScrollReveal(0.15);
+
+  return (
+    <article
+      ref={ref}
+      className={`group relative rounded-2xl bg-gradient-to-b from-slate-50 to-blue-50/60 border border-slate-100 px-6 pt-14 pb-8 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.25)] hover:border-[#0B1F8C]/20 ${
+        isVisible ? "animate-reveal-card" : "opacity-0"
+      }`}
+      style={{ animationDelay: `${index * 120}ms` }}
+    >
+      {/* Floating icon circle */}
+      <div className="absolute -top-10 left-1/2 -translate-x-1/2">
+        <div className="w-20 h-20 rounded-full bg-white shadow-[0_12px_30px_-12px_rgba(11,31,140,0.35)] flex items-center justify-center border border-slate-100 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+          <solution.icon className="w-9 h-9 text-[#0B1F8C]" strokeWidth={1.6} />
+        </div>
+      </div>
+
+      <h3 className="text-xl md:text-[1.35rem] font-bold text-[#0B1F8C] leading-tight mb-3 min-h-[3.25rem] flex items-center justify-center">
+        {solution.title}
+      </h3>
+
+      <p className="text-slate-600 leading-relaxed text-[14.5px] mb-5">
+        {solution.desc}
+      </p>
+
+      <div className="flex flex-wrap gap-1.5 justify-center pt-4 border-t border-slate-200/70">
+        {solution.tags.map((t) => (
+          <span
+            key={t}
+            className="text-[10.5px] font-medium px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600 group-hover:border-[#F59E0B]/50 group-hover:text-[#0B1F8C] transition-colors"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+
+      {/* bottom accent bar */}
+      <span className="absolute left-6 right-6 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-[#F59E0B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    </article>
+  );
+}
+
+function FoundationStrip({ isVisible }: { isVisible: boolean }) {
+  return (
+    <div
+      className={`mt-16 relative rounded-2xl bg-[#0B1F8C] text-white p-6 md:p-8 overflow-hidden ${
+        isVisible ? "animate-reveal-card delay-500" : "opacity-0"
+      }`}
+    >
+      <div
+        className="absolute inset-0 opacity-30 pointer-events-none"
+        style={{ background: "radial-gradient(circle at 80% 50%, #F59E0B55, transparent 60%)" }}
+      />
+      <div className="relative flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-xl bg-[#F59E0B] flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.6)]">
+            <Layers className="w-6 h-6 text-[#0B1F8C]" />
+          </div>
+          <div>
+            <div className="text-[10px] uppercase tracking-[0.25em] text-[#F59E0B] font-semibold">
+              Foundation Layer
+            </div>
+            <div className="text-xl font-bold">BlueGecko Platform</div>
+          </div>
+        </div>
+        <div className="flex-1 text-white/75 text-sm md:text-base leading-relaxed">
+          The AI-native platform underneath every practice — accelerating mapping,
+          migration, observability, and agents across SAP, Microsoft, and modern data stacks.
+        </div>
+        <a
+          href="/bluegecko"
+          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#F59E0B] text-[#0B1F8C] font-semibold text-sm hover:bg-[#F59E0B]/90 transition-colors whitespace-nowrap"
+        >
+          Explore BlueGecko <ArrowUpRight className="w-4 h-4" />
+        </a>
+      </div>
+    </div>
   );
 }
