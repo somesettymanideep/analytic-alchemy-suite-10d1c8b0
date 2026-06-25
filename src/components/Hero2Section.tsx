@@ -12,12 +12,7 @@ const nodes = [
   { label: "Cloud Infra", Icon: Cloud, angle: 315 },
 ];
 
-const floatingCards = [
-  { label: "Data Migration", value: "98%", top: "8%", left: "-4%" },
-  { label: "AI Governance", value: "SOC 2", top: "12%", right: "-2%" },
-  { label: "ERP Modernization", value: "2.4x", bottom: "14%", left: "-6%" },
-  { label: "Real-Time Analytics", value: "12ms", bottom: "6%", right: "-4%" },
-];
+const floatingCards: { label: string; value: string; top?: string; left?: string; right?: string; bottom?: string }[] = [];
 
 export default function Hero2Section() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,19 +52,10 @@ export default function Hero2Section() {
   const radius = 160;
 
   return (
-    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-gradient-to-br from-[hsl(230,60%,8%)] via-[hsl(220,60%,10%)] to-[hsl(200,80%,12%)] text-white">
-      {/* grid bg */}
-      <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(190 100% 70%) 1px, transparent 1px), linear-gradient(90deg, hsl(190 100% 70%) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      {/* glow blobs */}
-      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-cyan-400/20 blur-[120px]" />
-      <div className="absolute -bottom-32 -right-32 w-[520px] h-[520px] rounded-full bg-blue-500/30 blur-[140px]" />
+    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-[#011146] text-white">
+      {/* soft glow accents */}
+      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-blue-600/10 blur-[120px]" />
+      <div className="absolute -bottom-32 -right-32 w-[520px] h-[520px] rounded-full bg-cyan-400/10 blur-[140px]" />
 
       <div className="container relative grid lg:grid-cols-2 gap-12 lg:gap-10 items-center">
         {/* LEFT */}
