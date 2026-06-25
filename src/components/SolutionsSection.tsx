@@ -118,7 +118,7 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
     >
       {/* Floating icon circle */}
       <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-        <div className="w-20 h-20 rounded-full bg-white shadow-[0_12px_30px_-12px_rgba(11,31,140,0.35)] flex items-center justify-center border border-slate-100 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+        <div className="w-20 h-20 rounded-full bg-white shadow-[0_12px_30px_-12px_rgba(11,31,140,0.35)] flex items-center justify-center border-2 border-[#0B1F8C]/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-[#0B1F8C]/40">
           <solution.icon className="w-9 h-9 text-[#0B1F8C]" strokeWidth={1.6} />
         </div>
       </div>
