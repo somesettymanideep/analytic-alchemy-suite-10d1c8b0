@@ -114,7 +114,7 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
       className={`group relative rounded-2xl bg-gradient-to-b from-slate-50 to-blue-50/60 border border-slate-100 px-6 pt-14 pb-8 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.25)] hover:border-[#0B1F8C]/20 ${
         isVisible ? "animate-reveal-card" : "opacity-0"
       }`}
-      style={{ animationDelay: `${index * 120}ms` }}
+      style={{ animationDelay: `${index * 200}ms` }}
     >
       {/* Floating icon circle */}
       <div className="absolute -top-10 left-1/2 -translate-x-1/2">
