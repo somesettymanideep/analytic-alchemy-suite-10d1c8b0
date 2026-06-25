@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Globe2, Building2, Sparkles, Rocket } from "lucide-react";
+import { Globe2, Building2, Sparkles, Rocket, ArrowUpRight } from "lucide-react";
 
 type Stat = {
   end: number;
@@ -7,14 +7,14 @@ type Stat = {
   label: string;
   desc: string;
   icon: React.ComponentType<{ className?: string }>;
-  featured?: boolean;
+  kicker: string;
 };
 
 const stats: Stat[] = [
-  { end: 50, suffix: "%+", label: "Faster Migration Cycles", desc: "vs traditional delivery baselines", icon: Rocket },
-  { end: 70, suffix: "+", label: "Legal Entities Supported", desc: "across complex multi-entity rollouts", icon: Building2, featured: true },
-  { end: 9, suffix: "", label: "Countries Delivered", desc: "global delivery footprint", icon: Globe2 },
-  { end: 4, suffix: "", label: "Years of AI & Data Delivery", desc: "enterprise transformation expertise", icon: Sparkles },
+  { end: 50, suffix: "%+", label: "Faster Migration Cycles", desc: "Versus traditional ERP delivery baselines.", icon: Rocket, kicker: "Velocity" },
+  { end: 70, suffix: "+", label: "Legal Entities Supported", desc: "Across complex multi-entity global rollouts.", icon: Building2, kicker: "Scale" },
+  { end: 9, suffix: "", label: "Countries Delivered", desc: "Active engagements across our delivery footprint.", icon: Globe2, kicker: "Reach" },
+  { end: 4, suffix: "", label: "Years of AI & Data Delivery", desc: "Compounded enterprise transformation expertise.", icon: Sparkles, kicker: "Depth" },
 ];
 
 function useCountOnView(end: number, duration = 1800) {
@@ -38,7 +38,7 @@ function useCountOnView(end: number, duration = 1800) {
           requestAnimationFrame(tick);
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.3 }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -49,7 +49,6 @@ function useCountOnView(end: number, duration = 1800) {
 export default function ProofInNumbersSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
-  const [cursor, setCursor] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -59,211 +58,149 @@ export default function ProofInNumbersSection() {
     return () => io.disconnect();
   }, []);
 
-  const onMove = (e: React.MouseEvent) => {
-    const r = sectionRef.current?.getBoundingClientRect();
-    if (!r) return;
-    setCursor({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 });
-  };
-
   return (
     <section
       ref={sectionRef}
-      onMouseMove={onMove}
-      className="relative overflow-hidden py-24 md:py-32"
-      style={{
-        background:
-          "radial-gradient(ellipse at 20% 0%, #142bb0 0%, #0b218e 40%, #060f4a 100%)",
-      }}
+      className="relative overflow-hidden bg-background py-24 md:py-32"
       aria-labelledby="proof-heading"
     >
-      {/* Mesh gradient layers */}
+      {/* Subtle grid background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-70"
-        style={{
-          background:
-            "radial-gradient(circle at 80% 20%, rgba(250,174,20,0.25), transparent 45%), radial-gradient(circle at 10% 80%, rgba(99,102,241,0.35), transparent 50%), radial-gradient(circle at 60% 90%, rgba(250,174,20,0.18), transparent 40%)",
-        }}
-      />
-
-      {/* Cursor glow */}
-      <div
-        className="pointer-events-none absolute -inset-px transition-[background] duration-300"
-        style={{
-          background: `radial-gradient(600px circle at ${cursor.x}% ${cursor.y}%, rgba(250,174,20,0.12), transparent 60%)`,
-        }}
-      />
-
-      {/* World-map dot pattern */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.08]"
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #ffffff 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 40%, transparent 75%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+            "linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
         }}
       />
 
-      {/* Floating orbs */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[#faae14]/20 blur-3xl animate-float-slow" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-[#3b5bff]/25 blur-3xl animate-float-slower" />
-      <div className="pointer-events-none absolute top-1/3 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[#faae14]/10 blur-3xl animate-float-slow" />
-
-      {/* Light streaks */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[15%] top-0 h-full w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-        <div className="absolute left-[55%] top-0 h-full w-px bg-gradient-to-b from-transparent via-[#faae14]/30 to-transparent" />
-        <div className="absolute left-[85%] top-0 h-full w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-      </div>
-
-      {/* Particles */}
-      <div className="pointer-events-none absolute inset-0">
-        {Array.from({ length: 18 }).map((_, i) => (
-          <span
-            key={i}
-            className="absolute block h-1 w-1 rounded-full bg-white/50 animate-particle"
-            style={{
-              left: `${(i * 53) % 100}%`,
-              top: `${(i * 37) % 100}%`,
-              animationDelay: `${(i % 6) * 0.8}s`,
-              animationDuration: `${8 + (i % 5) * 2}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Accent corner blobs */}
+      <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="container relative z-10">
-        {/* Header */}
-        <div className={`max-w-3xl ${visible ? "animate-reveal-up" : "opacity-0"}`}>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#faae14] shadow-[0_0_12px_#faae14]" />
-            <span className="text-xs font-medium tracking-[0.2em] text-white/80 uppercase">Proof in Numbers</span>
+        {/* Editorial header — two columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end border-b border-foreground/10 pb-12">
+          <div className={`lg:col-span-7 ${visible ? "animate-reveal-up" : "opacity-0"}`}>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-10 bg-accent" />
+              <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary">
+                Proof / 2026 Index
+              </span>
+            </div>
+            <h2
+              id="proof-heading"
+              className="font-heading text-4xl md:text-5xl lg:text-[3.75rem] font-bold leading-[1.02] text-foreground tracking-tight text-balance"
+            >
+              The receipts behind every <span className="italic text-primary">enterprise</span> promise.
+            </h2>
           </div>
-          <h2
-            id="proof-heading"
-            className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-white text-balance"
+          <div
+            className={`lg:col-span-5 lg:pl-10 lg:border-l lg:border-foreground/10 ${
+              visible ? "animate-reveal-up" : "opacity-0"
+            }`}
+            style={{ animationDelay: "180ms" }}
           >
-            Outcomes Fortune 500 leaders{" "}
-            <span className="bg-gradient-to-r from-[#faae14] via-[#ffd27a] to-[#faae14] bg-clip-text text-transparent">
-              measure us by.
-            </span>
-          </h2>
-          <p className="mt-5 max-w-2xl text-base md:text-lg text-white/70 leading-relaxed">
-            Trusted across continents to deliver complex data, AI, and ERP transformations — at scale, on time, and at enterprise grade.
-          </p>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              Four metrics. Zero spin. A look at how NGSIT delivers complex data, AI, and ERP transformations — at scale, on time, and at enterprise grade.
+            </p>
+            <a
+              href="/case-study"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent transition-colors group"
+            >
+              See the engagements
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
         </div>
 
-        {/* Grid */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 items-stretch">
+        {/* Editorial number ledger */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-2">
           {stats.map((s, i) => (
-            <StatCard
-              key={s.label}
-              stat={s}
-              index={i}
-              visible={visible}
-            />
+            <StatItem key={s.label} stat={s} index={i} visible={visible} last={i === stats.length - 1} />
           ))}
         </div>
-      </div>
 
-      {/* Local styles for animations */}
-      <style>{`
-        @keyframes float-slow { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-30px)} }
-        @keyframes float-slower { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,25px)} }
-        .animate-float-slow { animation: float-slow 14s ease-in-out infinite; }
-        .animate-float-slower { animation: float-slower 22s ease-in-out infinite; }
-        @keyframes particle {
-          0% { transform: translateY(0) scale(1); opacity: 0; }
-          20% { opacity: 1; }
-          100% { transform: translateY(-120px) scale(0.4); opacity: 0; }
-        }
-        .animate-particle { animation: particle linear infinite; }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-float-slow,.animate-float-slower,.animate-particle{animation:none}
-        }
-      `}</style>
+        {/* Footer caption row */}
+        <div
+          className={`mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-foreground/10 pt-8 ${
+            visible ? "animate-reveal-up" : "opacity-0"
+          }`}
+          style={{ animationDelay: "700ms" }}
+        >
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-background" />
+              <span className="h-2.5 w-2.5 rounded-full bg-primary ring-2 ring-background" />
+              <span className="h-2.5 w-2.5 rounded-full bg-foreground/40 ring-2 ring-background" />
+            </div>
+            <span className="text-xs tracking-widest uppercase text-muted-foreground font-medium">
+              Verified across Fortune 500 engagements · EU + APAC + NA
+            </span>
+          </div>
+          <span className="text-xs text-muted-foreground font-mono">Updated Q2 / 2026</span>
+        </div>
+      </div>
     </section>
   );
 }
 
-function StatCard({ stat, index, visible }: { stat: Stat; index: number; visible: boolean }) {
+function StatItem({
+  stat,
+  index,
+  visible,
+  last,
+}: {
+  stat: Stat;
+  index: number;
+  visible: boolean;
+  last: boolean;
+}) {
   const { ref, count } = useCountOnView(stat.end);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ rx: 0, ry: 0 });
   const Icon = stat.icon;
-
-  const onMove = (e: React.MouseEvent) => {
-    const el = cardRef.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    setTilt({ rx: -y * 6, ry: x * 8 });
-  };
-  const onLeave = () => setTilt({ rx: 0, ry: 0 });
 
   return (
     <div
-      ref={cardRef}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      style={{
-        transform: `perspective(900px) rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`,
-        animationDelay: `${200 + index * 140}ms`,
-      }}
-      className={`group relative rounded-2xl transition-transform duration-300 will-change-transform ${
-        stat.featured ? "lg:row-span-2 lg:-mt-4 lg:mb-0" : ""
-      } ${visible ? "animate-reveal-up" : "opacity-0"}`}
+      ref={ref}
+      style={{ animationDelay: `${300 + index * 140}ms` }}
+      className={`group relative px-2 md:px-6 py-10 md:py-12 ${
+        !last ? "md:border-r md:border-foreground/10" : ""
+      } border-b md:border-b-0 border-foreground/10 last:border-b-0 ${
+        visible ? "animate-reveal-up" : "opacity-0"
+      }`}
     >
-      {/* Gradient border */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/25 via-white/5 to-[#faae14]/30 opacity-80 group-hover:opacity-100 transition-opacity" />
-      <div className="relative m-[1px] rounded-2xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl p-7 md:p-8 h-full overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
-        {/* Hover glow */}
-        <div className="pointer-events-none absolute -inset-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{ background: "radial-gradient(circle at 50% 0%, rgba(250,174,20,0.25), transparent 60%)" }}
-        />
-
-        {/* Accent line */}
-        <div className="absolute top-0 left-7 right-7 h-px bg-gradient-to-r from-transparent via-[#faae14]/70 to-transparent" />
-
-        <div className="relative flex items-center justify-between">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 border border-white/15 backdrop-blur-md">
-            <Icon className="h-5 w-5 text-[#faae14]" />
-          </div>
-          {stat.featured && (
-            <span className="text-[10px] tracking-[0.18em] font-semibold uppercase text-[#faae14]/90 px-2.5 py-1 rounded-full border border-[#faae14]/40 bg-[#faae14]/10">
-              Flagship
-            </span>
-          )}
-        </div>
-
-        <div ref={ref} className={`relative ${stat.featured ? "mt-10 md:mt-16" : "mt-8"}`}>
-          <div className="flex items-baseline gap-1">
-            <span
-              className={`font-heading font-bold tabular-nums leading-none bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent ${
-                stat.featured ? "text-7xl md:text-8xl lg:text-[8.5rem]" : "text-6xl md:text-7xl"
-              }`}
-            >
-              {count}
-            </span>
-            <span
-              className={`font-heading font-bold text-[#faae14] ${
-                stat.featured ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"
-              }`}
-            >
-              {stat.suffix}
-            </span>
-          </div>
-          <p className="mt-5 text-white font-semibold text-lg md:text-xl">{stat.label}</p>
-          <p className="mt-2 text-sm text-white/60 leading-relaxed">{stat.desc}</p>
-        </div>
-
-        {/* Bottom shimmer */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      {/* Index + kicker */}
+      <div className="flex items-center justify-between mb-8">
+        <span className="font-mono text-xs text-muted-foreground">
+          0{index + 1} / 04
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-primary">
+          <Icon className="h-3 w-3" />
+          {stat.kicker}
+        </span>
       </div>
+
+      {/* Giant number */}
+      <div className="flex items-baseline gap-1 relative">
+        <span className="font-heading text-[5.5rem] md:text-[6.5rem] lg:text-[7.5rem] font-bold leading-[0.9] tracking-tight text-foreground tabular-nums">
+          {count}
+        </span>
+        <span className="font-heading text-3xl md:text-4xl font-bold text-accent leading-none">
+          {stat.suffix}
+        </span>
+        {/* Accent underline */}
+        <span className="absolute -bottom-2 left-0 h-1 w-0 bg-accent transition-[width] duration-700 group-hover:w-16" />
+      </div>
+
+      {/* Label */}
+      <p className="mt-8 font-heading text-lg md:text-xl font-semibold text-foreground leading-snug">
+        {stat.label}
+      </p>
+      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+        {stat.desc}
+      </p>
     </div>
   );
 }
