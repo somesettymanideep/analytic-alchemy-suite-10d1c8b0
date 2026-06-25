@@ -111,31 +111,31 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
   return (
     <article
       ref={ref}
-      className={`group relative rounded-2xl bg-gradient-to-b from-slate-50 to-blue-50/60 border border-slate-100 px-6 pt-14 pb-8 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.25)] hover:border-[#0B1F8C]/20 ${
+      className={`group relative rounded-2xl bg-gradient-to-b from-slate-50 to-blue-50/60 border border-slate-100 px-6 pt-14 pb-8 text-center transition-all duration-500 hover:-translate-y-2 hover:bg-[#0B1F8C] hover:border-[#0B1F8C] hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.35)] ${
         isVisible ? "animate-reveal-card" : "opacity-0"
       }`}
       style={{ animationDelay: `${index * 200}ms` }}
     >
       {/* Floating icon circle */}
       <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-        <div className="w-20 h-20 rounded-full bg-white shadow-[0_12px_30px_-12px_rgba(11,31,140,0.35)] flex items-center justify-center border border-slate-100 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-          <solution.icon className="w-9 h-9 text-[#0B1F8C]" strokeWidth={1.6} />
+        <div className="w-20 h-20 rounded-full bg-white shadow-[0_12px_30px_-12px_rgba(11,31,140,0.35)] flex items-center justify-center border border-slate-100 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-[#F59E0B] group-hover:border-[#F59E0B]">
+          <solution.icon className="w-9 h-9 text-[#0B1F8C] transition-colors duration-500 group-hover:text-[#0B1F8C]" strokeWidth={1.6} />
         </div>
       </div>
 
-      <h3 className="text-xl md:text-[1.35rem] font-bold text-[#0B1F8C] leading-tight mb-3 min-h-[3.25rem] flex items-center justify-center">
+      <h3 className="text-xl md:text-[1.35rem] font-bold text-[#0B1F8C] leading-tight mb-3 min-h-[3.25rem] flex items-center justify-center transition-colors duration-500 group-hover:text-white">
         {solution.title}
       </h3>
 
-      <p className="text-slate-600 leading-relaxed text-[14.5px] mb-5">
+      <p className="text-slate-600 leading-relaxed text-[14.5px] mb-5 transition-colors duration-500 group-hover:text-white/80">
         {solution.desc}
       </p>
 
-      <div className="flex flex-wrap gap-1.5 justify-center pt-4 border-t border-slate-200/70">
+      <div className="flex flex-wrap gap-1.5 justify-center pt-4 border-t border-slate-200/70 transition-colors duration-500 group-hover:border-white/20">
         {solution.tags.map((t) => (
           <span
             key={t}
-            className="text-[10.5px] font-medium px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600 group-hover:border-[#F59E0B]/50 group-hover:text-[#0B1F8C] transition-colors"
+            className="text-[10.5px] font-medium px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600 transition-colors duration-500 group-hover:bg-[#F59E0B] group-hover:border-[#F59E0B] group-hover:text-[#0B1F8C]"
           >
             {t}
           </span>
