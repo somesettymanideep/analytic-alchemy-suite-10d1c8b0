@@ -26,6 +26,7 @@ const HomePage2 = () => {
       <Navbar />
       <Hero2Section />
       <ProblemWeSolveSection />
+      <CapabilitiesHubSection />
       <ProofInNumbersSection />
       <HowWeWorkSection />
       <SolutionsSection />
