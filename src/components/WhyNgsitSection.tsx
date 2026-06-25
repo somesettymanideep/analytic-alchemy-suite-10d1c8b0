@@ -62,31 +62,18 @@ const WhyNgsitSection = () => {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    let raf = 0;
     const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const el = sectionRef.current;
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const total = el.offsetHeight - window.innerHeight;
-        const progress = Math.min(Math.max(-rect.top / total, 0), 1);
-        // Hysteresis-based switching: bias toward center of each segment
-        // so transitions feel decisive instead of flickering at edges.
-        const scaled = progress * steps.length;
-        const idx = Math.min(
-          steps.length - 1,
-          Math.max(0, Math.round(scaled - 0.35))
-        );
-        setActive((prev) => (prev === idx ? prev : idx));
-      });
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = el.offsetHeight - window.innerHeight;
+      const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+      const idx = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+      setActive(idx);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -112,17 +99,8 @@ const WhyNgsitSection = () => {
         (revealRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
       }}
       className="relative bg-[#070B14] text-white"
-      style={{ height: "300vh", scrollSnapType: "y proximity" }}
+      style={{ height: "250vh" }}
     >
-      {/* Snap anchors — one per step, aligned to the top of each 100vh segment */}
-      {steps.map((s, i) => (
-        <div
-          key={`snap-${s.num}`}
-          aria-hidden
-          className="absolute left-0 w-px h-screen pointer-events-none"
-          style={{ top: `${i * 100}vh`, scrollSnapAlign: "start", scrollSnapStop: "always" }}
-        />
-      ))}
       {/* Sticky viewport */}
       <div ref={stickyRef} className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Animated grid */}
