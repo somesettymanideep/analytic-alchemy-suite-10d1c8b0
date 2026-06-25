@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero2Section from "@/components/Hero2Section";
+import ProofInNumbersSection from "@/components/ProofInNumbersSection";
 import StatsSection from "@/components/StatsSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
@@ -19,6 +20,7 @@ const HomePage2 = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero2Section />
+      <ProofInNumbersSection />
       <VideoShowcaseSection />
       <MigrationPathSection />
       <StatsSection />
