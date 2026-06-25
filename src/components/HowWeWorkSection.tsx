@@ -17,7 +17,7 @@ const steps: Step[] = [
     title: "Assess",
     body: "We sit next to you. Data & AI maturity across People, Processes, Technology, and Data.",
     icon: Compass,
-    accent: "#22d3ee",
+    accent: "#faae14",
   },
   {
     num: "02",
@@ -25,7 +25,7 @@ const steps: Step[] = [
     title: "Govern",
     body: "A governance framework on four pillars — the foundation every migration and AI build needs.",
     icon: ShieldCheck,
-    accent: "#818cf8",
+    accent: "#3b5bff",
   },
   {
     num: "03",
@@ -41,7 +41,7 @@ const steps: Step[] = [
     title: "Build",
     body: "Custom AI applications on your data — LLMs, SLMs, React, APIs. Built for purpose, not off-the-shelf.",
     icon: Cpu,
-    accent: "#2dd4bf",
+    accent: "#5b7dff",
   },
   {
     num: "05",
@@ -49,7 +49,7 @@ const steps: Step[] = [
     title: "Scale",
     body: "Managed Services that stay after go-live. We do not hand over and leave.",
     icon: InfinityIcon,
-    accent: "#a78bfa",
+    accent: "#faae14",
   },
 ];
 
