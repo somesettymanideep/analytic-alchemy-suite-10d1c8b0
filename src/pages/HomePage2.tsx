@@ -37,6 +37,7 @@ const HomePage2 = () => {
       <CaseStudiesSection />
       <ProcessSection />
       <TestimonialsSection />
+      <StartWithOneDaySection />
       <DualCtaSection />
       <Footer />
       <ScrollToTop />
