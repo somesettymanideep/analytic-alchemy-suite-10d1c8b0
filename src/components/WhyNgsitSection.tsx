@@ -94,9 +94,9 @@ const WhyNgsitSection = () => {
 
   return (
     <section
-      ref={(el) => {
-        sectionRef.current = el;
-        if (revealRef) (revealRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
+      ref={(el: HTMLDivElement | null) => {
+        (sectionRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
+        (revealRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
       }}
       className="relative bg-[#070B14] text-white"
       style={{ height: "250vh" }}
