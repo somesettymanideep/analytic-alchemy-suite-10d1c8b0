@@ -17,7 +17,7 @@ const steps: Step[] = [
     title: "Assess",
     body: "We sit next to you. Data & AI maturity across People, Processes, Technology, and Data.",
     icon: Compass,
-    accent: "#22d3ee",
+    accent: "#faae14",
   },
   {
     num: "02",
@@ -25,7 +25,7 @@ const steps: Step[] = [
     title: "Govern",
     body: "A governance framework on four pillars — the foundation every migration and AI build needs.",
     icon: ShieldCheck,
-    accent: "#818cf8",
+    accent: "#3b5bff",
   },
   {
     num: "03",
@@ -41,7 +41,7 @@ const steps: Step[] = [
     title: "Build",
     body: "Custom AI applications on your data — LLMs, SLMs, React, APIs. Built for purpose, not off-the-shelf.",
     icon: Cpu,
-    accent: "#2dd4bf",
+    accent: "#5b7dff",
   },
   {
     num: "05",
@@ -49,7 +49,7 @@ const steps: Step[] = [
     title: "Scale",
     body: "Managed Services that stay after go-live. We do not hand over and leave.",
     icon: InfinityIcon,
-    accent: "#a78bfa",
+    accent: "#faae14",
   },
 ];
 
@@ -118,7 +118,7 @@ export default function HowWeWorkSection() {
       className="relative overflow-hidden py-28 md:py-36"
       style={{
         background:
-          "radial-gradient(ellipse at 20% 0%, #0e1a3d 0%, #070b22 55%, #04060f 100%)",
+          "radial-gradient(ellipse at 20% 0%, #142bb0 0%, #0b1f8c 50%, #050d3f 100%)",
       }}
     >
       {/* grain */}
@@ -136,19 +136,19 @@ export default function HowWeWorkSection() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 80% 18%, rgba(34,211,238,0.18), transparent 45%), radial-gradient(circle at 10% 75%, rgba(167,139,250,0.22), transparent 50%), radial-gradient(circle at 55% 95%, rgba(250,174,20,0.12), transparent 45%)",
+            "radial-gradient(circle at 80% 18%, rgba(250,174,20,0.22), transparent 45%), radial-gradient(circle at 10% 75%, rgba(59,91,255,0.28), transparent 50%), radial-gradient(circle at 55% 95%, rgba(250,174,20,0.14), transparent 45%)",
           transform: `translate3d(0, ${parallax * -40}px, 0)`,
           transition: "transform 200ms linear",
         }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 -left-20 h-[28rem] w-[28rem] rounded-full bg-cyan-400/15 blur-3xl"
+        className="pointer-events-none absolute -top-32 -left-20 h-[28rem] w-[28rem] rounded-full bg-[#faae14]/20 blur-3xl"
         style={{ transform: `translate3d(${parallax * 30}px, ${parallax * 20}px, 0)` }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 right-0 h-[30rem] w-[30rem] rounded-full bg-violet-500/15 blur-3xl"
+        className="pointer-events-none absolute bottom-0 right-0 h-[30rem] w-[30rem] rounded-full bg-[#3b5bff]/25 blur-3xl"
         style={{ transform: `translate3d(${parallax * -40}px, ${parallax * -30}px, 0)` }}
       />
       {/* grid lines */}
@@ -171,7 +171,7 @@ export default function HowWeWorkSection() {
           style={{ filter: visible ? "blur(0)" : "blur(8px)", transition: "filter 900ms ease" }}
         >
           <div className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_14px_#22d3ee]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#faae14] shadow-[0_0_14px_#faae14]" />
             <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-white/80">
               Operating Model
             </span>
@@ -181,7 +181,7 @@ export default function HowWeWorkSection() {
             className="mt-6 font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white text-balance"
           >
             How we{" "}
-            <span className="italic bg-gradient-to-r from-cyan-300 via-white to-violet-300 bg-clip-text text-transparent">
+            <span className="italic bg-gradient-to-r from-[#faae14] via-white to-[#faae14] bg-clip-text text-transparent">
               work
             </span>
             .
@@ -203,11 +203,11 @@ export default function HowWeWorkSection() {
                   className="absolute inset-0 opacity-60 pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(circle at 0% 0%, rgba(34,211,238,0.18), transparent 55%)",
+                      "radial-gradient(circle at 0% 0%, rgba(250,174,20,0.22), transparent 55%)",
                   }}
                 />
                 <div className="relative">
-                  <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-cyan-300/80">
+                  <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#faae14]/90">
                     Stage 0{active + 1} / 05
                   </span>
                   <h3
@@ -232,7 +232,7 @@ export default function HowWeWorkSection() {
                           <span
                             className={`h-1.5 rounded-full transition-all duration-500 ${
                               state === "active"
-                                ? "w-10 bg-cyan-300 shadow-[0_0_12px_#22d3ee]"
+                                ? "w-10 bg-[#faae14] shadow-[0_0_12px_#faae14]"
                                 : state === "done"
                                 ? "w-6 bg-white/60"
                                 : "w-3 bg-white/15"
@@ -260,7 +260,7 @@ export default function HowWeWorkSection() {
               <div className="mt-6 px-1">
                 <div className="h-[3px] w-full rounded-full bg-white/10 overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-cyan-300 via-violet-300 to-cyan-300 transition-[width] duration-300 shadow-[0_0_12px_rgba(34,211,238,0.6)]"
+                    className="h-full rounded-full bg-gradient-to-r from-[#faae14] via-white to-[#faae14] transition-[width] duration-300 shadow-[0_0_12px_rgba(250,174,20,0.6)]"
                     style={{ width: `${Math.round(progress * 100)}%` }}
                   />
                 </div>
@@ -278,7 +278,7 @@ export default function HowWeWorkSection() {
             <div className="pointer-events-none absolute left-[22px] md:left-[28px] top-2 bottom-2 w-px bg-white/10" />
             <div
               ref={railRef}
-              className="pointer-events-none absolute left-[22px] md:left-[28px] top-2 w-px bg-gradient-to-b from-cyan-300 via-violet-300 to-transparent shadow-[0_0_14px_rgba(34,211,238,0.5)] transition-[height] duration-300"
+              className="pointer-events-none absolute left-[22px] md:left-[28px] top-2 w-px bg-gradient-to-b from-[#faae14] via-[#3b5bff] to-transparent shadow-[0_0_14px_rgba(250,174,20,0.5)] transition-[height] duration-300"
               style={{ height: `${progress * 100}%` }}
             />
 
@@ -374,7 +374,7 @@ export default function HowWeWorkSection() {
                         </div>
                         <span
                           className={`text-[10px] font-mono tracking-widest uppercase transition-colors ${
-                            isDone ? "text-emerald-300/80" : isActive ? "text-cyan-300" : "text-white/30"
+                            isDone ? "text-[#faae14]/80" : isActive ? "text-[#faae14]" : "text-white/30"
                           }`}
                         >
                           {isDone ? "Completed" : isActive ? "In Progress" : "Upcoming"}
