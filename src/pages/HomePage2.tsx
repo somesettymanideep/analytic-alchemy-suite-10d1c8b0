@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero2Section from "@/components/Hero2Section";
 import ProofInNumbersSection from "@/components/ProofInNumbersSection";
+import HowWeWorkSection from "@/components/HowWeWorkSection";
 import StatsSection from "@/components/StatsSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
@@ -21,6 +22,7 @@ const HomePage2 = () => {
       <Navbar />
       <Hero2Section />
       <ProofInNumbersSection />
+      <HowWeWorkSection />
       <VideoShowcaseSection />
       <MigrationPathSection />
       <StatsSection />
