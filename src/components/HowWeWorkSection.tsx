@@ -56,7 +56,7 @@ const steps: Step[] = [
 export default function HowWeWorkSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
   const [visible, setVisible] = useState(false);
   const [progress, setProgress] = useState(0); // 0..1 fill of rail
   const [active, setActive] = useState(0);
@@ -312,10 +312,9 @@ export default function HowWeWorkSection() {
                             : "none",
                         }}
                       >
-                        <Icon
-                          className="h-5 w-5 md:h-6 md:w-6 transition-colors"
-                          style={{ color: isActive ? s.accent : "rgba(255,255,255,0.55)" }}
-                        />
+                        <span style={{ color: isActive ? s.accent : "rgba(255,255,255,0.55)" }}>
+                          <Icon className="h-5 w-5 md:h-6 md:w-6 transition-colors" />
+                        </span>
                         {isActive && (
                           <span
                             aria-hidden
