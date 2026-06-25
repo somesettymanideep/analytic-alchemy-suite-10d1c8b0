@@ -1,45 +1,41 @@
 import { useEffect, useRef, useState } from "react";
-import { Globe2, Building2, Sparkles, Rocket, ArrowUpRight } from "lucide-react";
 
 type Stat = {
-  end: number;
+  value: string;
+  num: number;
   suffix: string;
   label: string;
-  desc: string;
-  icon: React.ComponentType<{ className?: string }>;
-  kicker: string;
+  sub: string;
+  bar: string; // hex
 };
 
 const stats: Stat[] = [
-  { end: 50, suffix: "%+", label: "Faster Migration Cycles", desc: "Versus traditional ERP delivery baselines.", icon: Rocket, kicker: "Velocity" },
-  { end: 70, suffix: "+", label: "Legal Entities Supported", desc: "Across complex multi-entity global rollouts.", icon: Building2, kicker: "Scale" },
-  { end: 9, suffix: "", label: "Countries Delivered", desc: "Active engagements across our delivery footprint.", icon: Globe2, kicker: "Reach" },
-  { end: 4, suffix: "", label: "Years of AI & Data Delivery", desc: "Compounded enterprise transformation expertise.", icon: Sparkles, kicker: "Depth" },
+  { value: "70%", num: 70, suffix: "%", label: "Faster delivery", sub: "avg. across migration programmes", bar: "#faae14" },
+  { value: "90%", num: 90, suffix: "%", label: "Data accuracy", sub: "vs manual validation baseline", bar: "#22c55e" },
+  { value: "40%", num: 40, suffix: "%", label: "Cost reduction", sub: "estimate", bar: "#0B1F8C" },
+  { value: "6+", num: 6, suffix: "+", label: "Platform coverage", sub: "ERP systems supported", bar: "#ef4444" },
 ];
 
-function useCountOnView(end: number, duration = 1800) {
+function useCountOnView(end: number, duration = 1600) {
   const ref = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
   const done = useRef(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting && !done.current) {
-          done.current = true;
-          const start = performance.now();
-          const tick = (now: number) => {
-            const p = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            setCount(Math.round(end * eased));
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        }
-      },
-      { threshold: 0.3 }
-    );
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !done.current) {
+        done.current = true;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          setCount(Math.round(end * eased));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.4 });
     io.observe(el);
     return () => io.disconnect();
   }, [end, duration]);
@@ -61,146 +57,93 @@ export default function ProofInNumbersSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-background py-24 md:py-32"
       aria-labelledby="proof-heading"
+      className="relative overflow-hidden bg-[#f4f6fb] py-24 md:py-32"
     >
-      {/* Subtle grid background */}
+      {/* Decorative dot clusters */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        aria-hidden
+        className="pointer-events-none absolute top-10 left-10 h-24 w-24 opacity-60"
         style={{
-          backgroundImage:
-            "linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
+          backgroundImage: "radial-gradient(circle, #cbd5e1 1.5px, transparent 1.5px)",
+          backgroundSize: "14px 14px",
         }}
       />
-
-      {/* Accent corner blobs */}
-      <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-16 right-8 h-28 w-28 opacity-60"
+        style={{
+          backgroundImage: "radial-gradient(circle, #cbd5e1 1.5px, transparent 1.5px)",
+          backgroundSize: "14px 14px",
+        }}
+      />
+      {/* Floating accent dots */}
+      <span aria-hidden className="absolute top-16 right-24 h-3 w-3 rounded-full bg-[#faae14]" />
+      <span aria-hidden className="absolute bottom-24 left-1/3 h-2.5 w-2.5 rounded-full bg-[#faae14]/80" />
+      <span aria-hidden className="absolute top-1/2 left-8 h-2 w-2 rounded-full bg-[#0B1F8C]/40" />
 
       <div className="container relative z-10">
-        {/* Editorial header — two columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end border-b border-foreground/10 pb-12">
-          <div className={`lg:col-span-7 ${visible ? "animate-reveal-up" : "opacity-0"}`}>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="h-px w-10 bg-accent" />
-              <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary">
-                Proof / 2026 Index
-              </span>
-            </div>
-            <h2
-              id="proof-heading"
-              className="font-heading text-4xl md:text-5xl lg:text-[3.75rem] font-bold leading-[1.02] text-foreground tracking-tight text-balance"
-            >
-              The receipts behind every <span className="italic text-primary">enterprise</span> promise.
-            </h2>
-          </div>
-          <div
-            className={`lg:col-span-5 lg:pl-10 lg:border-l lg:border-foreground/10 ${
-              visible ? "animate-reveal-up" : "opacity-0"
-            }`}
-            style={{ animationDelay: "180ms" }}
+        {/* Heading */}
+        <div className={`text-center max-w-4xl mx-auto ${visible ? "animate-reveal-up" : "opacity-0"}`}>
+          <h2
+            id="proof-heading"
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-[#0f172a] text-balance"
           >
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Four metrics. Zero spin. A look at how NGSIT delivers complex data, AI, and ERP transformations — at scale, on time, and at enterprise grade.
-            </p>
-            <a
-              href="/case-study"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent transition-colors group"
-            >
-              See the engagements
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            Being the best by working with the best
+          </h2>
+          <p className="mt-8 text-base md:text-lg leading-relaxed text-slate-500 max-w-3xl mx-auto">
+            NGSIT is a global provider of unique end-to-end consulting solutions in the{" "}
+            <span className="font-semibold text-[#0B1F8C]">enterprise applications</span>,{" "}
+            <span className="font-semibold text-[#0B1F8C]">AI</span>, and{" "}
+            <span className="font-semibold text-[#0B1F8C]">cloud</span> space.
+          </p>
+
+          {/* tiny dot row */}
+          <div className="mt-10 flex items-center justify-center gap-1.5">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <span key={i} className="h-1 w-1 rounded-full bg-slate-300" />
+            ))}
           </div>
         </div>
 
-        {/* Editorial number ledger */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-2">
+        {/* Cards */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((s, i) => (
-            <StatItem key={s.label} stat={s} index={i} visible={visible} last={i === stats.length - 1} />
+            <StatCard key={s.label} stat={s} index={i} visible={visible} />
           ))}
-        </div>
-
-        {/* Footer caption row */}
-        <div
-          className={`mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-foreground/10 pt-8 ${
-            visible ? "animate-reveal-up" : "opacity-0"
-          }`}
-          style={{ animationDelay: "700ms" }}
-        >
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-background" />
-              <span className="h-2.5 w-2.5 rounded-full bg-primary ring-2 ring-background" />
-              <span className="h-2.5 w-2.5 rounded-full bg-foreground/40 ring-2 ring-background" />
-            </div>
-            <span className="text-xs tracking-widest uppercase text-muted-foreground font-medium">
-              Verified across Fortune 500 engagements · EU + APAC + NA
-            </span>
-          </div>
-          <span className="text-xs text-muted-foreground font-mono">Updated Q2 / 2026</span>
         </div>
       </div>
     </section>
   );
 }
 
-function StatItem({
-  stat,
-  index,
-  visible,
-  last,
-}: {
-  stat: Stat;
-  index: number;
-  visible: boolean;
-  last: boolean;
-}) {
-  const { ref, count } = useCountOnView(stat.end);
-  const Icon = stat.icon;
+function StatCard({ stat, index, visible }: { stat: Stat; index: number; visible: boolean }) {
+  const { ref, count } = useCountOnView(stat.num);
 
   return (
     <div
       ref={ref}
-      style={{ animationDelay: `${300 + index * 140}ms` }}
-      className={`group relative px-2 md:px-6 py-10 md:py-12 ${
-        !last ? "md:border-r md:border-foreground/10" : ""
-      } border-b md:border-b-0 border-foreground/10 last:border-b-0 ${
+      style={{ animationDelay: `${200 + index * 130}ms` }}
+      className={`group relative rounded-2xl bg-white px-8 py-12 text-center shadow-[0_4px_24px_-12px_rgba(15,23,42,0.18)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_22px_50px_-22px_rgba(11,31,140,0.35)] ${
         visible ? "animate-reveal-up" : "opacity-0"
       }`}
     >
-      {/* Index + kicker */}
-      <div className="flex items-center justify-between mb-8">
-        <span className="font-mono text-xs text-muted-foreground">
-          0{index + 1} / 04
-        </span>
-        <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-primary">
-          <Icon className="h-3 w-3" />
-          {stat.kicker}
-        </span>
-      </div>
+      {/* Top color bar */}
+      <div className="mx-auto mb-8 h-[3px] w-12 rounded-full transition-all duration-500 group-hover:w-20" style={{ backgroundColor: stat.bar }} />
 
-      {/* Giant number */}
-      <div className="flex items-baseline gap-1 relative">
-        <span className="font-heading text-[5.5rem] md:text-[6.5rem] lg:text-[7.5rem] font-bold leading-[0.9] tracking-tight text-foreground tabular-nums">
+      {/* Number */}
+      <div className="flex items-baseline justify-center gap-0.5">
+        <span className="font-heading text-6xl md:text-7xl font-bold tabular-nums text-[#0B1F8C] leading-none tracking-tight">
           {count}
         </span>
-        <span className="font-heading text-3xl md:text-4xl font-bold text-accent leading-none">
+        <span className="font-heading text-4xl md:text-5xl font-bold text-[#0B1F8C] leading-none">
           {stat.suffix}
         </span>
-        {/* Accent underline */}
-        <span className="absolute -bottom-2 left-0 h-1 w-0 bg-accent transition-[width] duration-700 group-hover:w-16" />
       </div>
 
       {/* Label */}
-      <p className="mt-8 font-heading text-lg md:text-xl font-semibold text-foreground leading-snug">
-        {stat.label}
-      </p>
-      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-        {stat.desc}
-      </p>
+      <p className="mt-8 font-heading text-lg font-semibold text-[#0f172a]">{stat.label}</p>
+      <p className="mt-2 text-sm text-slate-500 leading-relaxed">{stat.sub}</p>
     </div>
   );
 }
