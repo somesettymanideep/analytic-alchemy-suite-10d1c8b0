@@ -100,7 +100,7 @@ const WhyNgsitSection = () => {
         (revealRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
       }}
       className="relative bg-[#070B14] text-white"
-      style={{ height: "180vh" }}
+      style={{ height: "120vh" }}
     >
       {/* Sticky viewport */}
       <div ref={stickyRef} className="sticky top-0 h-screen w-full overflow-hidden">
