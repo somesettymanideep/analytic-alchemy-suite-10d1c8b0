@@ -12,12 +12,7 @@ const nodes = [
   { label: "Cloud Infra", Icon: Cloud, angle: 315 },
 ];
 
-const floatingCards = [
-  { label: "Data Migration", value: "98%", top: "8%", left: "-4%" },
-  { label: "AI Governance", value: "SOC 2", top: "12%", right: "-2%" },
-  { label: "ERP Modernization", value: "2.4x", bottom: "14%", left: "-6%" },
-  { label: "Real-Time Analytics", value: "12ms", bottom: "6%", right: "-4%" },
-];
+const floatingCards: { label: string; value: string; top?: string; left?: string; right?: string; bottom?: string }[] = [];
 
 export default function Hero2Section() {
   const containerRef = useRef<HTMLDivElement>(null);
