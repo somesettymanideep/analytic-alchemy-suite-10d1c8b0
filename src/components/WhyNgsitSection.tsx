@@ -42,7 +42,7 @@ const steps = [
   },
 ];
 
-const STEP_SCROLL_VH = 90;
+const STEP_SCROLL_VH = 100;
 
 const orbitNodes = ["SAP", "Microsoft", "Databricks", "AI", "Governance"];
 
@@ -135,17 +135,17 @@ const WhyNgsitSection = () => {
         />
 
         {/* Header */}
-        <div className="absolute top-0 left-0 right-0 z-20 px-6 md:px-12 pt-10 md:pt-14">
+        <div className="absolute top-0 left-0 right-0 z-20 px-6 md:px-12 pt-10 md:pt-14 [@media(max-height:700px)]:pt-5">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div className={isVisible ? "animate-reveal-up" : "opacity-0"}>
               <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-white/50">
                 <span className="w-8 h-px bg-[#F59E0B]" />
                 Chapter · Why NGSIT
               </div>
-              <h2 className="mt-4 font-[Space_Grotesk] text-4xl md:text-6xl font-bold leading-[1.05]">
+              <h2 className="mt-4 font-[Space_Grotesk] text-4xl md:text-6xl font-bold leading-[1.05] [@media(max-height:700px)]:mt-2 [@media(max-height:700px)]:text-4xl">
                 Why <span className="text-[#F59E0B]">NGSIT</span>
               </h2>
-              <p className="mt-2 text-white/60 text-base md:text-lg max-w-xl">
+              <p className="mt-2 text-white/60 text-base md:text-lg max-w-xl [@media(max-height:700px)]:text-sm">
                 Tier-1 capability. SMB accountability.
               </p>
             </div>
@@ -170,9 +170,9 @@ const WhyNgsitSection = () => {
 
         {/* Main content grid */}
         <div className="absolute inset-0 z-10 flex items-center">
-          <div className="max-w-7xl mx-auto w-full px-6 md:px-12 grid md:grid-cols-2 gap-10 md:gap-16 items-center pt-32 md:pt-40">
+          <div className="max-w-7xl mx-auto w-full px-6 md:px-12 grid lg:grid-cols-2 gap-10 md:gap-16 items-center pt-32 md:pt-40 [@media(max-height:700px)]:pt-20">
             {/* LEFT — Stepped narrative */}
-            <div className="relative min-h-[420px]">
+            <div className="relative min-h-[390px] md:min-h-[420px] [@media(max-height:700px)]:min-h-[340px]">
               {steps.map((s, i) => {
                 const Icon = s.icon;
                 const isActive = i === active;
@@ -188,12 +188,12 @@ const WhyNgsitSection = () => {
                     }`}
                   >
                     <div
-                      className="rounded-2xl p-8 md:p-10 backdrop-blur-xl border border-white/10 bg-white/[0.03] shadow-[0_20px_80px_-20px_rgba(11,31,140,0.6)]"
+                      className="rounded-2xl p-8 md:p-10 backdrop-blur-xl border border-white/10 bg-white/[0.03] shadow-[0_20px_80px_-20px_rgba(11,31,140,0.6)] [@media(max-height:700px)]:p-5"
                       style={{
                         transform: `perspective(1200px) rotateY(${mouse.x * 4}deg) rotateX(${mouse.y * -4}deg)`,
                       }}
                     >
-                      <div className="flex items-center gap-4 mb-6">
+                      <div className="flex items-center gap-4 mb-6 [@media(max-height:700px)]:mb-3">
                         <div className="w-12 h-12 rounded-xl bg-[#F59E0B]/15 border border-[#F59E0B]/30 flex items-center justify-center">
                           <Icon className="w-5 h-5 text-[#F59E0B]" />
                         </div>
@@ -201,14 +201,14 @@ const WhyNgsitSection = () => {
                           Step {s.num}
                         </div>
                       </div>
-                      <h3 className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold leading-tight">
+                      <h3 className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold leading-tight [@media(max-height:700px)]:text-2xl">
                         {s.title}
                       </h3>
-                      <p className="mt-5 text-white/65 text-base md:text-lg leading-relaxed">
+                      <p className="mt-5 text-white/65 text-base md:text-lg leading-relaxed [@media(max-height:700px)]:mt-3 [@media(max-height:700px)]:text-sm">
                         {s.body}
                       </p>
 
-                      <div className="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+                      <div className="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-white/10 [@media(max-height:700px)]:mt-4 [@media(max-height:700px)]:pt-4">
                         {s.stats.map((st) => (
                           <div key={st.label}>
                             {isActive ? (
@@ -231,7 +231,7 @@ const WhyNgsitSection = () => {
             </div>
 
             {/* RIGHT — Visual canvas */}
-            <div className="relative h-[420px] md:h-[520px]">
+            <div className="relative hidden lg:block h-[420px] md:h-[520px]">
               {/* Orbital rings */}
               <div className="absolute inset-0 flex items-center justify-center">
                 {[1, 1.4, 1.8].map((s, i) => (
@@ -269,7 +269,7 @@ const WhyNgsitSection = () => {
         </div>
 
         {/* Bottom CTA strip */}
-        <div className="absolute bottom-6 left-0 right-0 z-20 px-6 md:px-12">
+        <div className="absolute bottom-6 left-0 right-0 z-20 px-6 md:px-12 [@media(max-height:700px)]:hidden">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 text-xs font-mono text-white/40">
             <span>NGSIT · Amsterdam ⇄ India · Est. 2022</span>
             <a href="/about" className="group inline-flex items-center gap-2 text-white/70 hover:text-[#F59E0B] transition-colors">
