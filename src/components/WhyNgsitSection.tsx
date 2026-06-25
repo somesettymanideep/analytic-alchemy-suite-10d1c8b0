@@ -42,7 +42,7 @@ const steps = [
   },
 ];
 
-const STEP_SCROLL_VH = 72;
+const STEP_SCROLL_VH = 90;
 
 const orbitNodes = ["SAP", "Microsoft", "Databricks", "AI", "Governance"];
 
@@ -101,6 +101,7 @@ const WhyNgsitSection = () => {
         (sectionRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
         (revealRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
       }}
+      data-section="why-ngsit"
       className="relative bg-[#070B14] text-white"
       style={{ height: `calc(100vh + ${steps.length * STEP_SCROLL_VH}vh)` }}
     >
