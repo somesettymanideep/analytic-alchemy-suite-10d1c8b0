@@ -67,7 +67,8 @@ const WhyNgsitSection = () => {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
-      const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+      if (total <= 0) return;
+      const progress = Math.min(Math.max(-rect.top / total, 0), 0.9999);
       const idx = Math.min(steps.length - 1, Math.floor(progress * steps.length));
       setActive(idx);
     };
@@ -99,7 +100,7 @@ const WhyNgsitSection = () => {
         (revealRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
       }}
       className="relative bg-[#070B14] text-white"
-      style={{ height: "250vh" }}
+      style={{ height: "180vh" }}
     >
       {/* Sticky viewport */}
       <div ref={stickyRef} className="sticky top-0 h-screen w-full overflow-hidden">
