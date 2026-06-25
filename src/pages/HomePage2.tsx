@@ -13,6 +13,7 @@ import MigrationPathSection from "@/components/MigrationPathSection";
 import VideoShowcaseSection from "@/components/VideoShowcaseSection";
 import ProcessSection from "@/components/ProcessSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import StartWithOneDaySection from "@/components/StartWithOneDaySection";
 import CtaSection from "@/components/CtaSection";
 import DualCtaSection from "@/components/DualCtaSection";
 import Footer from "@/components/Footer";
@@ -36,6 +37,7 @@ const HomePage2 = () => {
       <CaseStudiesSection />
       <ProcessSection />
       <TestimonialsSection />
+      <StartWithOneDaySection />
       <DualCtaSection />
       <Footer />
       <ScrollToTop />
