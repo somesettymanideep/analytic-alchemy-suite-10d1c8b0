@@ -5,7 +5,6 @@ import HowWeWorkSection from "@/components/HowWeWorkSection";
 import SolutionsSection from "@/components/SolutionsSection";
 import StatsSection from "@/components/StatsSection";
 import ServicesSection from "@/components/ServicesSection";
-import AboutSection from "@/components/AboutSection";
 import WhyUsSection from "@/components/WhyUsSection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import MigrationPathSection from "@/components/MigrationPathSection";
@@ -29,7 +28,6 @@ const HomePage2 = () => {
       <MigrationPathSection />
       <StatsSection />
       <ServicesSection />
-      <AboutSection />
       <WhyUsSection />
       <CaseStudiesSection />
       <ProcessSection />
