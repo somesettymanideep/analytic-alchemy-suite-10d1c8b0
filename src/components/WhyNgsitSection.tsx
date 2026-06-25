@@ -93,8 +93,8 @@ const WhyNgsitSection = () => {
   const StepIcon = steps[active].icon;
 
   return (
-    <section
-      ref={(el: HTMLDivElement | null) => {
+    <div
+      ref={(el) => {
         (sectionRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
         (revealRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
       }}
@@ -275,7 +275,7 @@ const WhyNgsitSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
