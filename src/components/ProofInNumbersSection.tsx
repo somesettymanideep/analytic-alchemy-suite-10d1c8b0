@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from "react";
+import { Globe2, Building2, Sparkles, Rocket, ArrowUpRight } from "lucide-react";
 
 type Stat = {
   end: number;
   suffix: string;
   label: string;
   desc: string;
-  barColor: string;
+  icon: React.ComponentType<{ className?: string }>;
+  kicker: string;
 };
 
 const stats: Stat[] = [
-  { end: 70, suffix: "%", label: "Faster delivery", desc: "avg. across migration programmes", barColor: "bg-amber-400" },
-  { end: 90, suffix: "%", label: "Data accuracy", desc: "vs manual validation baseline", barColor: "bg-emerald-500" },
-  { end: 40, suffix: "%", label: "Cost reduction", desc: "estimate", barColor: "bg-primary" },
-  { end: 6, suffix: "+", label: "Platform coverage", desc: "ERP systems supported", barColor: "bg-rose-500" },
+  { end: 50, suffix: "%+", label: "Faster Migration Cycles", desc: "Versus traditional ERP delivery baselines.", icon: Rocket, kicker: "Velocity" },
+  { end: 70, suffix: "+", label: "Legal Entities Supported", desc: "Across complex multi-entity global rollouts.", icon: Building2, kicker: "Scale" },
+  { end: 9, suffix: "", label: "Countries Delivered", desc: "Active engagements across our delivery footprint.", icon: Globe2, kicker: "Reach" },
+  { end: 4, suffix: "", label: "Years of AI & Data Delivery", desc: "Compounded enterprise transformation expertise.", icon: Sparkles, kicker: "Depth" },
 ];
 
 function useCountOnView(end: number, duration = 1800) {
@@ -59,47 +61,86 @@ export default function ProofInNumbersSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#F4F6FB] py-24 md:py-32"
+      className="relative overflow-hidden bg-background py-24 md:py-32"
       aria-labelledby="proof-heading"
     >
-      {/* Dot pattern background */}
+      {/* Subtle grid background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.5]"
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: "radial-gradient(hsl(var(--primary) / 0.18) 1.2px, transparent 1.2px)",
-          backgroundSize: "28px 28px",
-          maskImage: "radial-gradient(ellipse at top left, black 0%, transparent 35%), radial-gradient(ellipse at top right, black 0%, transparent 25%)",
-          WebkitMaskImage: "radial-gradient(ellipse at top left, black 0%, transparent 35%), radial-gradient(ellipse at top right, black 0%, transparent 25%)",
+          backgroundImage:
+            "linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
         }}
       />
 
-      {/* Floating dots */}
-      <span className="pointer-events-none absolute top-16 right-24 h-3 w-3 rounded-full bg-amber-400/70" />
-      <span className="pointer-events-none absolute bottom-24 left-16 h-2.5 w-2.5 rounded-full bg-primary/60" />
-      <span className="pointer-events-none absolute top-1/2 right-10 h-2 w-2 rounded-full bg-rose-400/70" />
+      {/* Accent corner blobs */}
+      <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="container relative z-10">
-        {/* Centered editorial header */}
-        <div className={`mx-auto max-w-4xl text-center ${visible ? "animate-reveal-up" : "opacity-0"}`}>
-          <h2
-            id="proof-heading"
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-foreground tracking-tight text-balance"
+        {/* Editorial header — two columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end border-b border-foreground/10 pb-12">
+          <div className={`lg:col-span-7 ${visible ? "animate-reveal-up" : "opacity-0"}`}>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-10 bg-accent" />
+              <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-primary">
+                Proof / 2026 Index
+              </span>
+            </div>
+            <h2
+              id="proof-heading"
+              className="font-heading text-4xl md:text-5xl lg:text-[3.75rem] font-bold leading-[1.02] text-foreground tracking-tight text-balance"
+            >
+              The receipts behind every <span className="italic text-primary">enterprise</span> promise.
+            </h2>
+          </div>
+          <div
+            className={`lg:col-span-5 lg:pl-10 lg:border-l lg:border-foreground/10 ${
+              visible ? "animate-reveal-up" : "opacity-0"
+            }`}
+            style={{ animationDelay: "180ms" }}
           >
-            Being the best by working with the best
-          </h2>
-          <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            NGSIT is a global provider of unique end-to-end consulting solutions in the{" "}
-            <span className="text-primary font-semibold">enterprise applications</span>,{" "}
-            <span className="text-primary font-semibold">AI</span>, and{" "}
-            <span className="text-primary font-semibold">cloud</span> space.
-          </p>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              Four metrics. Zero spin. A look at how NGSIT delivers complex data, AI, and ERP transformations — at scale, on time, and at enterprise grade.
+            </p>
+            <a
+              href="/case-study"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent transition-colors group"
+            >
+              See the engagements
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
         </div>
 
-        {/* Stat cards */}
-        <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        {/* Editorial number ledger */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-2">
           {stats.map((s, i) => (
-            <StatItem key={s.label} stat={s} index={i} visible={visible} />
+            <StatItem key={s.label} stat={s} index={i} visible={visible} last={i === stats.length - 1} />
           ))}
+        </div>
+
+        {/* Footer caption row */}
+        <div
+          className={`mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-foreground/10 pt-8 ${
+            visible ? "animate-reveal-up" : "opacity-0"
+          }`}
+          style={{ animationDelay: "700ms" }}
+        >
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-background" />
+              <span className="h-2.5 w-2.5 rounded-full bg-primary ring-2 ring-background" />
+              <span className="h-2.5 w-2.5 rounded-full bg-foreground/40 ring-2 ring-background" />
+            </div>
+            <span className="text-xs tracking-widest uppercase text-muted-foreground font-medium">
+              Verified across Fortune 500 engagements · EU + APAC + NA
+            </span>
+          </div>
+          <span className="text-xs text-muted-foreground font-mono">Updated Q2 / 2026</span>
         </div>
       </div>
     </section>
@@ -110,34 +151,50 @@ function StatItem({
   stat,
   index,
   visible,
+  last,
 }: {
   stat: Stat;
   index: number;
   visible: boolean;
+  last: boolean;
 }) {
   const { ref, count } = useCountOnView(stat.end);
+  const Icon = stat.icon;
 
   return (
     <div
       ref={ref}
-      style={{ animationDelay: `${200 + index * 120}ms` }}
-      className={`group relative bg-white rounded-2xl px-6 py-10 md:py-12 text-center shadow-[0_4px_24px_-8px_rgba(11,31,140,0.08)] ring-1 ring-black/[0.04] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_rgba(11,31,140,0.18)] ${
+      style={{ animationDelay: `${300 + index * 140}ms` }}
+      className={`group relative px-2 md:px-6 py-10 md:py-12 ${
+        !last ? "md:border-r md:border-foreground/10" : ""
+      } border-b md:border-b-0 border-foreground/10 last:border-b-0 ${
         visible ? "animate-reveal-up" : "opacity-0"
       }`}
     >
-      {/* Top accent bar */}
-      <span className={`absolute left-1/2 -translate-x-1/2 top-6 h-1 w-10 rounded-full ${stat.barColor}`} />
-
-      {/* Giant number */}
-      <div className="mt-6 flex items-baseline justify-center">
-        <span className="font-heading text-6xl md:text-7xl font-bold leading-none tracking-tight text-primary tabular-nums">
-          {count}
+      {/* Index + kicker */}
+      <div className="flex items-center justify-between mb-8">
+        <span className="font-mono text-xs text-muted-foreground">
+          0{index + 1} / 04
         </span>
-        <span className="font-heading text-5xl md:text-6xl font-bold text-primary leading-none">
-          {stat.suffix}
+        <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-primary">
+          <Icon className="h-3 w-3" />
+          {stat.kicker}
         </span>
       </div>
 
+      {/* Giant number */}
+      <div className="flex items-baseline gap-1 relative">
+        <span className="font-heading text-[5.5rem] md:text-[6.5rem] lg:text-[7.5rem] font-bold leading-[0.9] tracking-tight text-foreground tabular-nums">
+          {count}
+        </span>
+        <span className="font-heading text-3xl md:text-4xl font-bold text-accent leading-none">
+          {stat.suffix}
+        </span>
+        {/* Accent underline */}
+        <span className="absolute -bottom-2 left-0 h-1 w-0 bg-accent transition-[width] duration-700 group-hover:w-16" />
+      </div>
+
+      {/* Label */}
       <p className="mt-8 font-heading text-lg md:text-xl font-semibold text-foreground leading-snug">
         {stat.label}
       </p>
