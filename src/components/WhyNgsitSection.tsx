@@ -42,7 +42,7 @@ const steps = [
   },
 ];
 
-const STEP_SCROLL_VH = 100;
+const STEP_SCROLL_VH = 120;
 
 const orbitNodes = ["SAP", "Microsoft", "Databricks", "AI", "Governance"];
 
