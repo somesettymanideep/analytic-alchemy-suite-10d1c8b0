@@ -58,6 +58,7 @@ export default function HowWeWorkSection() {
   const railRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
   const [visible, setVisible] = useState(false);
+  const [cardVisible, setCardVisible] = useState<boolean[]>(() => new Array(steps.length).fill(false));
   const [progress, setProgress] = useState(0); // 0..1 fill of rail
   const [active, setActive] = useState(0);
   const [parallax, setParallax] = useState(0);
