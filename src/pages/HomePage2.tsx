@@ -5,6 +5,7 @@ import ProofInNumbersSection from "@/components/ProofInNumbersSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import SolutionsSection from "@/components/SolutionsSection";
 import WhyNgsitSection from "@/components/WhyNgsitSection";
+import ProvenInFieldSection from "@/components/ProvenInFieldSection";
 import StatsSection from "@/components/StatsSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyUsSection from "@/components/WhyUsSection";
@@ -26,6 +27,7 @@ const HomePage2 = () => {
       <HowWeWorkSection />
       <SolutionsSection />
       <WhyNgsitSection />
+      <ProvenInFieldSection />
       <MigrationPathSection />
       <StatsSection />
       <ServicesSection />
