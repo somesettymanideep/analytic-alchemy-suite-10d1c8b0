@@ -27,6 +27,7 @@ const HomePage2 = () => {
       <HowWeWorkSection />
       <SolutionsSection />
       <WhyNgsitSection />
+      <ProvenInFieldSection />
       <MigrationPathSection />
       <StatsSection />
       <ServicesSection />
