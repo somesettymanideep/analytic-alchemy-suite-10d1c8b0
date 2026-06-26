@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { TrendingUp, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { TrendingUp, ArrowUpRight, CheckCircle2, Quote } from "lucide-react";
 
 interface Stat {
   value: string;
@@ -25,6 +25,7 @@ const caseStudies: CaseStudy[] = [
     category: "DATA STRATEGY & MIGRATION",
     platform: "SAP",
     client: "European Bed Manufacturer",
+    clientNote: "Manufacturing · EU",
     stats: [
       { value: "4", label: "Countries" },
       { value: "250+", label: "Dealers & studios" },
@@ -115,7 +116,8 @@ export default function ProvenInFieldSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-24 md:py-32"
+      aria-labelledby="proven-heading"
+      className="relative overflow-hidden py-20 md:py-28 lg:py-32"
       style={{ background: "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)" }}
     >
       {/* Soft background accents */}
@@ -129,48 +131,77 @@ export default function ProvenInFieldSection() {
         className="pointer-events-none absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full opacity-25"
         style={{ background: "radial-gradient(circle, #F59E0B18, transparent 70%)" }}
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0B1F8C]/15 to-transparent"
+      />
 
       <div className="container relative z-10">
-        {/* Section header */}
-        <div className="max-w-3xl mb-16 md:mb-20">
-          <div
-            className={`inline-flex items-center gap-2.5 rounded-full border border-[#0B1F8C]/15 bg-white px-4 py-1.5 shadow-sm mb-6 ${
-              sectionVisible ? "animate-reveal-up" : "opacity-0"
-            }`}
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#F59E0B]" />
-            <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-[#0B1F8C]">
-              Case Studies
-            </span>
+        {/* Section header — editorial split */}
+        <header className="grid lg:grid-cols-12 gap-8 lg:gap-12 mb-14 md:mb-20 items-end">
+          <div className="lg:col-span-8">
+            <div
+              className={`inline-flex items-center gap-2.5 rounded-full border border-[#0B1F8C]/15 bg-white px-4 py-1.5 shadow-sm mb-6 ${
+                sectionVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+            >
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[#F59E0B]" />
+              <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-[#0B1F8C]">
+                Case Studies
+              </span>
+            </div>
+
+            <h2
+              id="proven-heading"
+              className={`font-[Space_Grotesk] text-[2.25rem] sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-[#0B1F8C] ${
+                sectionVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+              style={{ animationDelay: "100ms" }}
+            >
+              Proven in the{" "}
+              <span className="relative inline-block">
+                Field
+                <span aria-hidden className="absolute -bottom-2 left-0 right-0 h-1.5 bg-[#F59E0B] rounded-full" />
+              </span>
+            </h2>
+
+            <p
+              className={`mt-6 text-base md:text-lg text-slate-600 leading-relaxed max-w-xl ${
+                sectionVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+              style={{ animationDelay: "200ms" }}
+            >
+              Real engagements. Real outcomes. Two flagship transformations across SAP and Microsoft —
+              delivered end-to-end by NGSIT teams.
+            </p>
           </div>
 
-          <h2
-            className={`font-[Space_Grotesk] text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-[#0B1F8C] ${
+          <dl
+            className={`lg:col-span-4 grid grid-cols-3 gap-4 lg:gap-6 lg:border-l lg:border-slate-200 lg:pl-8 ${
               sectionVisible ? "animate-reveal-up" : "opacity-0"
             }`}
-            style={{ animationDelay: "100ms" }}
+            style={{ animationDelay: "260ms" }}
+            aria-label="Programme summary"
           >
-            Proven in the{" "}
-            <span className="relative inline-block">
-              Field
-              <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-[#F59E0B] rounded-full" />
-            </span>
-          </h2>
-
-          <p
-            className={`mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl ${
-              sectionVisible ? "animate-reveal-up" : "opacity-0"
-            }`}
-            style={{ animationDelay: "200ms" }}
-          >
-            Real engagements. Real outcomes.
-          </p>
-        </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-slate-500">Studies</dt>
+              <dd className="mt-1 text-3xl font-bold text-[#0B1F8C] font-[Space_Grotesk]">02</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-slate-500">Platforms</dt>
+              <dd className="mt-1 text-3xl font-bold text-[#0B1F8C] font-[Space_Grotesk]">SAP · MS</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.18em] text-slate-500">Coverage</dt>
+              <dd className="mt-1 text-3xl font-bold text-[#F59E0B] font-[Space_Grotesk]">EU+</dd>
+            </div>
+          </dl>
+        </header>
 
         {/* Case study cards */}
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+        <ul role="list" className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {caseStudies.map((study, i) => (
-            <div
+            <li
               key={study.id}
               ref={(el) => (cardRefs.current[i] = el)}
               className={`group relative ${
@@ -179,14 +210,16 @@ export default function ProvenInFieldSection() {
               style={{ animationDelay: `${i * 180}ms` }}
             >
               <article
-                className={`relative h-full rounded-2xl border bg-white p-7 md:p-9 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.18)] ${
+                aria-labelledby={`cs-${study.id}-title`}
+                className={`relative flex h-full flex-col overflow-hidden rounded-3xl border bg-white p-6 sm:p-7 md:p-9 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.22)] focus-within:ring-2 focus-within:ring-[#0B1F8C]/40 focus-within:ring-offset-2 ${
                   study.accent === "blue"
-                    ? "border-[#0B1F8C]/15 hover:border-[#0B1F8C]/40"
-                    : "border-[#F59E0B]/25 hover:border-[#F59E0B]/60"
+                    ? "border-[#0B1F8C]/15 hover:border-[#0B1F8C]/45"
+                    : "border-[#F59E0B]/25 hover:border-[#F59E0B]/65"
                 }`}
               >
                 {/* Top accent stripe */}
                 <div
+                  aria-hidden
                   className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
                   style={{
                     background:
@@ -196,80 +229,99 @@ export default function ProvenInFieldSection() {
                   }}
                 />
 
-                {/* Platform tag */}
-                <div className="flex items-center justify-between mb-6">
-                  <div
-                    className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-[11px] font-bold tracking-[0.2em] uppercase ${
-                      study.accent === "blue"
-                        ? "bg-[#0B1F8C]/10 text-[#0B1F8C]"
-                        : "bg-[#F59E0B]/15 text-[#0B1F8C]"
-                    }`}
-                  >
-                    {study.platform}
-                    <span className="text-slate-400">·</span>
-                    {study.category}
-                  </div>
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-45 ${
-                      study.accent === "blue" ? "bg-[#0B1F8C]/10" : "bg-[#F59E0B]/15"
-                    }`}
-                  >
-                    <ArrowUpRight
-                      className={`w-5 h-5 ${
-                        study.accent === "blue" ? "text-[#0B1F8C]" : "text-[#F59E0B]"
+                {/* Header row */}
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className={`inline-flex items-center rounded-md px-2.5 py-1 text-[10px] font-bold tracking-[0.22em] uppercase ${
+                        study.accent === "blue"
+                          ? "bg-[#0B1F8C] text-white"
+                          : "bg-[#F59E0B] text-[#0B1F8C]"
                       }`}
-                    />
+                    >
+                      {study.platform}
+                    </span>
+                    <span className="inline-flex items-center rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-slate-600">
+                      {study.category}
+                    </span>
                   </div>
+                  <span aria-hidden className="font-[Space_Grotesk] text-xs font-bold tracking-[0.2em] text-slate-400">
+                    0{i + 1} / 0{caseStudies.length}
+                  </span>
                 </div>
 
                 {/* Client name */}
-                <h3 className="font-[Space_Grotesk] text-2xl md:text-3xl font-bold text-[#0B1F8C] leading-tight">
+                <h3
+                  id={`cs-${study.id}-title`}
+                  className="font-[Space_Grotesk] text-2xl sm:text-3xl md:text-[2rem] font-bold text-[#0B1F8C] leading-[1.1] tracking-tight"
+                >
                   {study.client}
                 </h3>
                 {study.clientNote && (
-                  <p className="mt-1 text-sm font-medium text-slate-500">{study.clientNote}</p>
+                  <p className="mt-1.5 text-sm font-medium text-slate-500">{study.clientNote}</p>
                 )}
 
                 {/* Stats grid */}
-                <div className="mt-8 grid grid-cols-3 gap-4">
+                <dl
+                  className="mt-7 grid grid-cols-3 gap-3 sm:gap-4 rounded-2xl border border-slate-100 bg-slate-50/60 p-4 sm:p-5"
+                  aria-label={`Key metrics for ${study.client}`}
+                >
                   {study.stats.map((stat) => (
-                    <div key={stat.label} className="relative">
-                      <div
-                        className={`text-3xl md:text-4xl font-bold font-[Space_Grotesk] tabular-nums ${
+                    <div key={stat.label} className="relative px-1">
+                      <dt className="sr-only">{stat.label}</dt>
+                      <dd
+                        className={`text-2xl sm:text-3xl md:text-4xl font-bold font-[Space_Grotesk] tabular-nums leading-none ${
                           study.accent === "blue" ? "text-[#0B1F8C]" : "text-[#F59E0B]"
                         }`}
                       >
                         <AnimatedCounter value={stat.value} active={cardVisible[i]} />
-                      </div>
-                      <div className="mt-1.5 text-[11px] uppercase tracking-wider text-slate-500 leading-tight">
+                      </dd>
+                      <div aria-hidden className="mt-2 text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 leading-tight">
                         {stat.label}
                       </div>
-                      {/* Vertical divider */}
-                      <div className="absolute right-0 top-1 bottom-1 w-px bg-slate-200 last:hidden" />
                     </div>
                   ))}
-                </div>
+                </dl>
 
                 {/* Description */}
-                <p className="mt-8 text-slate-600 leading-relaxed text-[15px] md:text-base">
+                <p className="mt-6 text-slate-600 leading-relaxed text-[15px] md:text-base">
                   {study.description}
                 </p>
 
                 {/* Highlights */}
-                <div className="mt-6 flex flex-wrap gap-2">
+                <ul role="list" className="mt-6 flex flex-wrap gap-2">
                   {study.highlights.map((h) => (
-                    <span
-                      key={h}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-[11px] font-medium text-slate-600 group-hover:border-[#0B1F8C]/20 group-hover:bg-[#0B1F8C]/5 transition-colors duration-300"
-                    >
-                      <CheckCircle2 className="w-3 h-3 text-[#F59E0B]" />
-                      {h}
-                    </span>
+                    <li key={h}>
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-medium text-slate-700 group-hover:border-[#0B1F8C]/25 group-hover:bg-[#0B1F8C]/5 transition-colors duration-300">
+                        <CheckCircle2 aria-hidden className="w-3 h-3 text-[#F59E0B]" />
+                        {h}
+                      </span>
+                    </li>
                   ))}
+                </ul>
+
+                {/* Footer link */}
+                <div className="mt-auto pt-7 flex items-center justify-between gap-4 border-t border-slate-100 mt-7">
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-slate-500">
+                    Programme highlights
+                  </span>
+                  <a
+                    href="/case-study"
+                    aria-label={`Read the full ${study.client} case study`}
+                    className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 min-h-11 ${
+                      study.accent === "blue"
+                        ? "text-[#0B1F8C] hover:bg-[#0B1F8C] hover:text-white focus-visible:ring-[#0B1F8C]"
+                        : "text-[#0B1F8C] hover:bg-[#F59E0B] focus-visible:ring-[#F59E0B]"
+                    }`}
+                  >
+                    Read case
+                    <ArrowUpRight aria-hidden className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
                 </div>
 
                 {/* Bottom hover bar */}
                 <div
+                  aria-hidden
                   className="absolute bottom-0 left-6 right-6 h-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background:
@@ -290,29 +342,29 @@ export default function ProvenInFieldSection() {
                   }}
                 />
               </article>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {/* Bottom CTA */}
         <div
-          className={`mt-14 md:mt-18 flex flex-col sm:flex-row items-center justify-center gap-4 ${
+          className={`mt-14 md:mt-20 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 ${
             sectionVisible ? "animate-reveal-up" : "opacity-0"
           }`}
           style={{ animationDelay: "500ms" }}
         >
           <a
             href="/case-study"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#0B1F8C] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#0B1F8C]/90 transition-colors shadow-[0_12px_30px_-12px_rgba(11,31,140,0.4)]"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#0B1F8C] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#0B1F8C]/90 active:scale-[0.98] transition-all shadow-[0_12px_30px_-12px_rgba(11,31,140,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1F8C] focus-visible:ring-offset-2 min-h-11"
           >
             Explore all case studies
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight aria-hidden className="w-4 h-4" />
           </a>
           <a
             href="/ams-services"
-            className="inline-flex items-center gap-2 rounded-xl border-2 border-[#0B1F8C]/20 px-6 py-3.5 text-sm font-semibold text-[#0B1F8C] hover:border-[#0B1F8C]/40 hover:bg-[#0B1F8C]/5 transition-colors"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border-2 border-[#0B1F8C]/20 px-6 py-3.5 text-sm font-semibold text-[#0B1F8C] hover:border-[#0B1F8C]/40 hover:bg-[#0B1F8C]/5 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1F8C] focus-visible:ring-offset-2 min-h-11"
           >
-            <TrendingUp className="w-4 h-4" />
+            <TrendingUp aria-hidden className="w-4 h-4" />
             AMS Services
           </a>
         </div>
