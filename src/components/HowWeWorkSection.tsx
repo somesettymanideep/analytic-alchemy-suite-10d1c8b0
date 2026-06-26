@@ -8,6 +8,7 @@ type Step = {
   body: string;
   icon: React.ComponentType<{ className?: string }>;
   accent: string;
+  cardBg: string;
 };
 
 const steps: Step[] = [
@@ -18,6 +19,7 @@ const steps: Step[] = [
     body: "We sit next to you. Data & AI maturity across People, Processes, Technology, and Data.",
     icon: Compass,
     accent: "#faae14",
+    cardBg: "linear-gradient(135deg, rgba(250,174,20,0.18) 0%, rgba(11,31,140,0.25) 100%)",
   },
   {
     num: "02",
@@ -26,6 +28,7 @@ const steps: Step[] = [
     body: "A governance framework on four pillars — the foundation every migration and AI build needs.",
     icon: ShieldCheck,
     accent: "#3b5bff",
+    cardBg: "linear-gradient(135deg, rgba(59,91,255,0.22) 0%, rgba(11,31,140,0.30) 100%)",
   },
   {
     num: "03",
@@ -34,6 +37,7 @@ const steps: Step[] = [
     body: "Any application to any application — 50%+ faster with BlueGecko, our AI migration platform.",
     icon: ArrowRightLeft,
     accent: "#faae14",
+    cardBg: "linear-gradient(135deg, rgba(250,174,20,0.15) 0%, rgba(59,91,255,0.20) 100%)",
   },
   {
     num: "04",
@@ -42,6 +46,7 @@ const steps: Step[] = [
     body: "Custom AI applications on your data — LLMs, SLMs, React, APIs. Built for purpose, not off-the-shelf.",
     icon: Cpu,
     accent: "#5b7dff",
+    cardBg: "linear-gradient(135deg, rgba(91,125,255,0.22) 0%, rgba(11,31,140,0.28) 100%)",
   },
   {
     num: "05",
@@ -50,6 +55,7 @@ const steps: Step[] = [
     body: "Managed Services that stay after go-live. We do not hand over and leave.",
     icon: InfinityIcon,
     accent: "#faae14",
+    cardBg: "linear-gradient(135deg, rgba(11,31,140,0.35) 0%, rgba(250,174,20,0.18) 100%)",
   },
 ];
 
@@ -329,10 +335,11 @@ export default function HowWeWorkSection() {
                     <article
                       className={`group relative rounded-2xl border backdrop-blur-xl p-7 md:p-9 transition-all duration-500 overflow-hidden ${
                         isActive
-                          ? "border-white/20 bg-white/[0.06] -translate-y-0.5"
-                          : "border-white/10 bg-white/[0.025] hover:border-white/20 hover:bg-white/[0.05] hover:-translate-y-0.5"
+                          ? "border-white/30 bg-white/[0.04] -translate-y-0.5"
+                          : "border-white/10 bg-white/[0.02] hover:border-white/25 hover:-translate-y-0.5"
                       }`}
                       style={{
+                        background: s.cardBg,
                         boxShadow: isActive
                           ? `0 24px 60px -30px ${s.accent}66`
                           : "0 18px 40px -30px rgba(0,0,0,0.6)",
