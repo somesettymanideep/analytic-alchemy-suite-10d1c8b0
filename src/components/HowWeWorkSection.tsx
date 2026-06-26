@@ -58,6 +58,7 @@ export default function HowWeWorkSection() {
   const railRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
   const [visible, setVisible] = useState(false);
+  const [cardVisible, setCardVisible] = useState<boolean[]>(() => new Array(steps.length).fill(false));
   const [progress, setProgress] = useState(0); // 0..1 fill of rail
   const [active, setActive] = useState(0);
   const [parallax, setParallax] = useState(0);
@@ -71,6 +72,30 @@ export default function HowWeWorkSection() {
     });
     io.observe(el);
     return () => io.disconnect();
+  }, []);
+
+  // Per-card scroll reveal
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    stepRefs.current.forEach((node, i) => {
+      if (!node) return;
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setCardVisible((prev) => {
+              const next = [...prev];
+              next[i] = true;
+              return next;
+            });
+            io.unobserve(node);
+          }
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      );
+      io.observe(node);
+      observers.push(io);
+    });
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   // Scroll-driven rail progress + active step + parallax
@@ -291,9 +316,9 @@ export default function HowWeWorkSection() {
                   <li
                     key={s.num}
                     ref={(el) => (stepRefs.current[i] = el)}
-                    style={{ animationDelay: `${250 + i * 140}ms` }}
+                    style={{ animationDelay: `${150 + i * 120}ms` }}
                     className={`relative pl-16 md:pl-24 ${
-                      visible ? "animate-reveal-up" : "opacity-0"
+                      cardVisible[i] ? "animate-reveal-up" : "opacity-0"
                     }`}
                   >
                     {/* Badge on rail */}
