@@ -55,16 +55,19 @@ const caseStudies: CaseStudy[] = [
 
 function AnimatedCounter({ value, active }: { value: string; active: boolean }) {
   const [display, setDisplay] = useState("0");
-  const match = value.match(/^(\d+)(.*)$/);
-  const numeric = match ? parseInt(match[1], 10) : 0;
-  const suffix = match ? match[2] : value;
+  const hasRun = useRef(false);
 
   useEffect(() => {
-    if (!active || !match) {
-      if (match) setDisplay(`${numeric}${suffix}`);
-      else setDisplay(value);
+    if (!active || hasRun.current) return;
+    const match = value.match(/^(\d+)(.*)$/);
+    if (!match) {
+      setDisplay(value);
+      hasRun.current = true;
       return;
     }
+    const numeric = parseInt(match[1], 10);
+    const suffix = match[2];
+    hasRun.current = true;
     const duration = 1600;
     const start = performance.now();
     let raf = 0;
@@ -76,7 +79,7 @@ function AnimatedCounter({ value, active }: { value: string; active: boolean }) 
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [active, numeric, suffix, match, value]);
+  }, [active, value]);
 
   return <span className="tabular-nums">{display}</span>;
 }
