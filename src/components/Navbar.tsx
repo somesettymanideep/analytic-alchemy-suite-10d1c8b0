@@ -67,8 +67,6 @@ const solutionsMenu: SolutionCategory[] = [
 const insightsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
   { label: "Blogs", Icon: PenLine, href: "/blog" },
   { label: "Whitepapers", Icon: ScrollText, href: "#insights" },
-  { label: "Webinars & Events", Icon: Video, href: "#insights" },
-  { label: "Product Updates", Icon: RefreshCw, href: "#insights" },
   { label: "Research", Icon: Microscope, href: "#insights" },
 ];
 
