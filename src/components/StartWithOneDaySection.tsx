@@ -1,17 +1,33 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { ArrowRight, Calendar, Download } from "lucide-react";
+import bannerAsset from "@/assets/start-with-one-day-banner.png.asset.json";
 
 export default function StartWithOneDaySection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-16 md:py-24 bg-primary text-primary-foreground relative overflow-hidden">
+    <section className="relative py-16 md:py-24 text-primary-foreground overflow-hidden">
+      {/* Background banner image */}
+      <div className="absolute inset-0">
+        <img
+          src={bannerAsset.url}
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover"
+          loading="lazy"
+          width={1920}
+          height={1080}
+        />
+        <div className="absolute inset-0 bg-primary/80" />
+      </div>
+
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-white/5 blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/5" />
       </div>
+
 
       <div className="container relative z-10" ref={ref}>
         <div className={`max-w-4xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
