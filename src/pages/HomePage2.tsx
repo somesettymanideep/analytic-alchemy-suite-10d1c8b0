@@ -29,12 +29,10 @@ const HomePage2 = () => {
       <HowWeWorkSection />
       <SolutionsSection />
       <WhyNgsitSection />
-      <VideoShowcaseSection />
       <MigrationPathSection />
       <StatsSection />
       <ServicesSection />
       <WhyUsSection />
-      <CaseStudiesSection />
       <ProcessSection />
       <TestimonialsSection />
       <StartWithOneDaySection />
