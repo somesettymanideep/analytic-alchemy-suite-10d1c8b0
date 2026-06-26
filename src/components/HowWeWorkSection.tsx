@@ -335,10 +335,11 @@ export default function HowWeWorkSection() {
                     <article
                       className={`group relative rounded-2xl border backdrop-blur-xl p-7 md:p-9 transition-all duration-500 overflow-hidden ${
                         isActive
-                          ? "border-white/20 bg-white/[0.06] -translate-y-0.5"
-                          : "border-white/10 bg-white/[0.025] hover:border-white/20 hover:bg-white/[0.05] hover:-translate-y-0.5"
+                          ? "border-white/30 bg-white/[0.04] -translate-y-0.5"
+                          : "border-white/10 bg-white/[0.02] hover:border-white/25 hover:-translate-y-0.5"
                       }`}
                       style={{
+                        background: s.cardBg,
                         boxShadow: isActive
                           ? `0 24px 60px -30px ${s.accent}66`
                           : "0 18px 40px -30px rgba(0,0,0,0.6)",
