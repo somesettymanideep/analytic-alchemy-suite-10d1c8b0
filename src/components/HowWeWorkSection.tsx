@@ -327,16 +327,15 @@ export default function HowWeWorkSection() {
 
                     {/* Card */}
                     <article
-                      className={`group relative rounded-2xl border backdrop-blur-xl p-7 md:p-9 transition-all duration-500 overflow-hidden ${
+                      className={`group relative rounded-2xl border p-7 md:p-9 transition-all duration-500 overflow-hidden bg-white ${
                         isActive
-                          ? "border-white/30 bg-white/[0.04] -translate-y-0.5"
-                          : "border-white/10 bg-white/[0.02] hover:border-white/25 hover:-translate-y-0.5"
+                          ? "border-primary/30 shadow-lg -translate-y-0.5"
+                          : "border-gray-100 hover:border-primary/20 hover:-translate-y-0.5"
                       }`}
                       style={{
-                        background: s.cardBg,
                         boxShadow: isActive
-                          ? `0 24px 60px -30px ${s.accent}66`
-                          : "0 18px 40px -30px rgba(0,0,0,0.6)",
+                          ? `0 24px 60px -30px rgba(11,31,140,0.25)`
+                          : "0 18px 40px -30px rgba(0,0,0,0.06)",
                       }}
                     >
                       {/* corner glow */}
@@ -344,7 +343,7 @@ export default function HowWeWorkSection() {
                         aria-hidden
                         className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                         style={{
-                          background: `radial-gradient(450px circle at 0% 0%, ${s.accent}22, transparent 60%)`,
+                          background: `radial-gradient(450px circle at 0% 0%, ${s.accent}18, transparent 60%)`,
                         }}
                       />
                       {/* edge accent */}
@@ -363,29 +362,29 @@ export default function HowWeWorkSection() {
                           <span
                             className="font-heading text-4xl md:text-5xl font-bold tracking-tight tabular-nums"
                             style={{
-                              color: isActive ? s.accent : "rgba(255,255,255,0.85)",
-                              textShadow: isActive ? `0 0 24px ${s.accent}55` : "none",
+                              color: isActive ? s.accent : "#0B1F8C",
+                              textShadow: isActive ? `0 0 24px ${s.accent}33` : "none",
                             }}
                           >
                             {s.num}
                           </span>
-                          <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-white/55">
+                          <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-gray-500">
                             · {s.tag}
                           </span>
                         </div>
                         <span
                           className={`text-[10px] font-mono tracking-widest uppercase transition-colors ${
-                            isDone ? "text-[#faae14]/80" : isActive ? "text-[#faae14]" : "text-white/30"
+                            isDone ? "text-[#faae14]" : isActive ? "text-[#0B1F8C]" : "text-gray-400"
                           }`}
                         >
                           {isDone ? "Completed" : isActive ? "In Progress" : "Upcoming"}
                         </span>
                       </div>
 
-                      <h3 className="relative mt-6 font-heading text-2xl md:text-3xl font-bold text-white leading-tight">
+                      <h3 className="relative mt-6 font-heading text-2xl md:text-3xl font-bold text-[#0B1F8C] leading-tight">
                         {s.title}
                       </h3>
-                      <p className="relative mt-3 text-sm md:text-base leading-relaxed text-white/65 max-w-2xl">
+                      <p className="relative mt-3 text-sm md:text-base leading-relaxed text-gray-600 max-w-2xl">
                         {s.body}
                       </p>
 
@@ -394,7 +393,7 @@ export default function HowWeWorkSection() {
                         aria-hidden
                         className="pointer-events-none absolute bottom-0 left-0 right-0 h-px"
                         style={{
-                          background: `linear-gradient(to right, transparent, ${s.accent}88, transparent)`,
+                          background: `linear-gradient(to right, transparent, ${s.accent}66, transparent)`,
                           opacity: isActive ? 0.9 : 0.2,
                           transition: "opacity 400ms",
                         }}
