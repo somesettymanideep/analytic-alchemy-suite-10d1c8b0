@@ -316,9 +316,9 @@ export default function HowWeWorkSection() {
                   <li
                     key={s.num}
                     ref={(el) => (stepRefs.current[i] = el)}
-                    style={{ animationDelay: `${250 + i * 140}ms` }}
+                    style={{ animationDelay: `${150 + i * 120}ms` }}
                     className={`relative pl-16 md:pl-24 ${
-                      visible ? "animate-reveal-up" : "opacity-0"
+                      cardVisible[i] ? "animate-reveal-up" : "opacity-0"
                     }`}
                   >
                     {/* Badge on rail */}
