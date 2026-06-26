@@ -8,7 +8,6 @@ type Step = {
   body: string;
   icon: React.ComponentType<{ className?: string }>;
   accent: string;
-  cardBg: string;
 };
 
 const steps: Step[] = [
