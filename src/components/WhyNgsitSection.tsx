@@ -64,7 +64,7 @@ function StatCounter({ value, suffix, active }: { value: number; suffix: string;
     return () => cancelAnimationFrame(raf);
   }, [active, value]);
   return (
-    <div className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-white tabular-nums">
+    <div className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-[#0B1F8C] tabular-nums">
       {count.toLocaleString()}
       <span className="text-[#F59E0B]">{suffix}</span>
     </div>
