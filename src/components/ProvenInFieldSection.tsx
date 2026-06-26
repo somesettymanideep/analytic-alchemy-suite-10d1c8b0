@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { TrendingUp, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 interface Stat {
@@ -312,25 +313,3 @@ export default function ProvenInFieldSection() {
   );
 }
 
-function useScrollReveal(threshold = 0.1) {
-  const ref = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          io.unobserve(el);
-        }
-      },
-      { threshold }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold]);
-
-  return { ref, isVisible };
-}
