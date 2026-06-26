@@ -132,7 +132,7 @@ export default function BlueGeckoPlatformSection() {
         </div>
 
         {/* RIGHT — AI Command Center */}
-        <div ref={wrapRef} className="relative h-[520px] md:h-[600px]" style={{ perspective: "1400px" }}>
+        <div ref={wrapRef} className="relative h-[420px] sm:h-[520px] md:h-[600px] min-w-0" style={{ perspective: "1400px" }}>
           {/* metric chips */}
           {chips.map((c, i) => (
             <div key={c.label}
@@ -203,7 +203,7 @@ export default function BlueGeckoPlatformSection() {
               const active = highlight === idx;
               return (
                 <div key={m.name}
-                  className="absolute top-1/2 left-1/2 group"
+                  className="absolute top-1/2 left-1/2 group z-30"
                   style={{
                     transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
                     animation: `bg-float ${6 + idx}s ease-in-out ${idx * 0.5}s infinite`,
