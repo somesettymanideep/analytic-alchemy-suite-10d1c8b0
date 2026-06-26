@@ -4,7 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerLogistics from "@/assets/banner-logistics.jpg";
-import intelligenceVideo from "@/assets/logistics-intelligence.mp4";
+const intelligenceVideo = "/__l5e/assets-v1/b0419ba7-2f83-407d-ac0d-ba1876bc68e0/logistics-intelligence.mp4";
 import expertiseImg from "@/assets/logistics-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
