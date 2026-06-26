@@ -20,6 +20,7 @@ export default function BlueGeckoPlatformSection() {
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const [autoIdx, setAutoIdx] = useState(0);
+  const [radius, setRadius] = useState(170);
 
   useEffect(() => {
     const el = wrapRef.current;
@@ -45,7 +46,21 @@ export default function BlueGeckoPlatformSection() {
     return () => clearInterval(id);
   }, []);
 
-  const radius = 170;
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const compute = () => {
+      const r = el.getBoundingClientRect();
+      // leave ~70px padding for node card width
+      const max = Math.min(r.width, r.height) / 2 - 80;
+      setRadius(Math.max(110, Math.min(180, max)));
+    };
+    compute();
+    const ro = new ResizeObserver(compute);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   const highlight = activeIdx ?? autoIdx;
 
   return (
