@@ -74,6 +74,30 @@ export default function HowWeWorkSection() {
     return () => io.disconnect();
   }, []);
 
+  // Per-card scroll reveal
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    stepRefs.current.forEach((node, i) => {
+      if (!node) return;
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setCardVisible((prev) => {
+              const next = [...prev];
+              next[i] = true;
+              return next;
+            });
+            io.unobserve(node);
+          }
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      );
+      io.observe(node);
+      observers.push(io);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   // Scroll-driven rail progress + active step + parallax
   useEffect(() => {
     const onScroll = () => {
