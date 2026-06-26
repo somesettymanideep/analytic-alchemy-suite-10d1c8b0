@@ -18,6 +18,7 @@ const steps: Step[] = [
     body: "We sit next to you. Data & AI maturity across People, Processes, Technology, and Data.",
     icon: Compass,
     accent: "#faae14",
+    cardBg: "linear-gradient(135deg, rgba(250,174,20,0.18) 0%, rgba(11,31,140,0.25) 100%)",
   },
   {
     num: "02",
@@ -26,6 +27,7 @@ const steps: Step[] = [
     body: "A governance framework on four pillars — the foundation every migration and AI build needs.",
     icon: ShieldCheck,
     accent: "#3b5bff",
+    cardBg: "linear-gradient(135deg, rgba(59,91,255,0.22) 0%, rgba(11,31,140,0.30) 100%)",
   },
   {
     num: "03",
@@ -34,6 +36,7 @@ const steps: Step[] = [
     body: "Any application to any application — 50%+ faster with BlueGecko, our AI migration platform.",
     icon: ArrowRightLeft,
     accent: "#faae14",
+    cardBg: "linear-gradient(135deg, rgba(250,174,20,0.15) 0%, rgba(59,91,255,0.20) 100%)",
   },
   {
     num: "04",
@@ -42,6 +45,7 @@ const steps: Step[] = [
     body: "Custom AI applications on your data — LLMs, SLMs, React, APIs. Built for purpose, not off-the-shelf.",
     icon: Cpu,
     accent: "#5b7dff",
+    cardBg: "linear-gradient(135deg, rgba(91,125,255,0.22) 0%, rgba(11,31,140,0.28) 100%)",
   },
   {
     num: "05",
@@ -50,6 +54,7 @@ const steps: Step[] = [
     body: "Managed Services that stay after go-live. We do not hand over and leave.",
     icon: InfinityIcon,
     accent: "#faae14",
+    cardBg: "linear-gradient(135deg, rgba(11,31,140,0.35) 0%, rgba(250,174,20,0.18) 100%)",
   },
 ];
 
