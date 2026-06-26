@@ -203,18 +203,20 @@ export default function BlueGeckoPlatformSection() {
               const active = highlight === idx;
               return (
                 <div key={m.name}
-                  className="absolute top-1/2 left-1/2 group z-30"
+                  className="absolute top-1/2 left-1/2 z-30"
                   style={{
                     transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                    animation: `bg-float ${6 + idx}s ease-in-out ${idx * 0.5}s infinite`,
                   }}
                   onMouseEnter={() => setActiveIdx(idx)}
                   onMouseLeave={() => setActiveIdx(null)}>
-                  <div className={`relative flex flex-col items-center gap-2 px-4 py-3 rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
+                  <div
+                    className={`group relative flex flex-col items-center gap-2 px-4 py-3 rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
                     active
                       ? "scale-[1.08] border-[#FFC72C]/70 bg-white/[0.14] shadow-[0_0_40px_rgba(87,166,255,0.5)]"
                       : "border-white/15 bg-white/[0.08] hover:scale-[1.06]"
-                  }`}>
+                  }`}
+                    style={{ animation: `bg-float ${6 + idx}s ease-in-out ${idx * 0.5}s infinite` }}
+                  >
                     <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors ${
                       active ? "bg-[#FFC72C] text-[#031C58]" : "bg-white/10 text-[#57A6FF]"
                     }`}>
