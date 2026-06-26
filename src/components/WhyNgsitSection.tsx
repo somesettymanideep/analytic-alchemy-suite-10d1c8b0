@@ -64,7 +64,7 @@ function StatCounter({ value, suffix, active }: { value: number; suffix: string;
     return () => cancelAnimationFrame(raf);
   }, [active, value]);
   return (
-    <div className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-white tabular-nums">
+    <div className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-[#0B1F8C] tabular-nums">
       {count.toLocaleString()}
       <span className="text-[#F59E0B]">{suffix}</span>
     </div>
@@ -203,31 +203,31 @@ const WhyNgsitSection = () => {
                     }`}
                   >
                     <div
-                      className="rounded-2xl p-8 md:p-10 backdrop-blur-xl border border-white/10 bg-white/[0.03] shadow-[0_20px_80px_-20px_rgba(11,31,140,0.6)] [@media(max-height:700px)]:p-5"
+                      className="rounded-2xl p-8 md:p-10 backdrop-blur-xl border border-[#0B1F8C]/15 bg-white shadow-[0_20px_80px_-20px_rgba(11,31,140,0.25)] [@media(max-height:700px)]:p-5"
                       style={{
                         transform: `perspective(1200px) rotateY(${mouse.x * 4}deg) rotateX(${mouse.y * -4}deg)`,
                       }}
                     >
                       <div className="flex items-center gap-4 mb-6 [@media(max-height:700px)]:mb-3">
-                        <div className="w-12 h-12 rounded-xl bg-[#F59E0B]/15 border border-[#F59E0B]/30 flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-[#F59E0B]" />
+                        <div className="w-12 h-12 rounded-xl bg-[#0B1F8C]/10 border border-[#0B1F8C]/20 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-[#0B1F8C]" />
                         </div>
-                        <div className="font-mono text-xs uppercase tracking-[0.3em] text-white/40">
+                        <div className="font-mono text-xs uppercase tracking-[0.3em] text-[#0B1F8C]/60">
                           Step {s.num}
                         </div>
                       </div>
-                      <h3 className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold leading-tight [@media(max-height:700px)]:text-2xl">
+                      <h3 className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold leading-tight text-[#0B1F8C] [@media(max-height:700px)]:text-2xl">
                         {s.title}
                       </h3>
-                      <p className="mt-5 text-white/65 text-base md:text-lg leading-relaxed [@media(max-height:700px)]:mt-3 [@media(max-height:700px)]:text-sm">
+                      <p className="mt-5 text-[#0B1F8C]/70 text-base md:text-lg leading-relaxed [@media(max-height:700px)]:mt-3 [@media(max-height:700px)]:text-sm">
                         {s.body}
                       </p>
 
-                      <div className="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-white/10 [@media(max-height:700px)]:mt-4 [@media(max-height:700px)]:pt-4">
+                      <div className="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-[#0B1F8C]/10 [@media(max-height:700px)]:mt-4 [@media(max-height:700px)]:pt-4">
                         {s.stats.map((st) => (
                           <div key={st.label}>
                             <StatCounter value={st.value} suffix={st.suffix} active={isActive} />
-                            <div className="mt-1 text-[11px] uppercase tracking-wider text-white/40">
+                            <div className="mt-1 text-[11px] uppercase tracking-wider text-[#0B1F8C]/50">
                               {st.label}
                             </div>
                           </div>
