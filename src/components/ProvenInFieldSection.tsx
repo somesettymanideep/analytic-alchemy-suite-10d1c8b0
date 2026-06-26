@@ -87,7 +87,7 @@ function AnimatedCounter({ value, active }: { value: string; active: boolean }) 
 
 export default function ProvenInFieldSection() {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal(0.08);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLLIElement | null)[]>([]);
   const [cardVisible, setCardVisible] = useState<boolean[]>(() => new Array(caseStudies.length).fill(false));
 
   useEffect(() => {
