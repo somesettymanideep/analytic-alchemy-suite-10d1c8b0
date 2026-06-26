@@ -222,13 +222,13 @@ export default function HowWeWorkSection() {
           {/* Sticky narrative rail */}
           <aside className="hidden lg:block lg:col-span-4">
             <div className="sticky top-28">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-7 overflow-hidden relative">
+              <div className="rounded-2xl border border-white/10 bg-primary p-7 overflow-hidden relative shadow-2xl">
                 <div
                   aria-hidden
-                  className="absolute inset-0 opacity-60 pointer-events-none"
+                  className="absolute inset-0 opacity-40 pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(circle at 0% 0%, rgba(250,174,20,0.22), transparent 55%)",
+                      "radial-gradient(circle at 0% 0%, rgba(250,174,20,0.35), transparent 55%)",
                   }}
                 />
                 <div className="relative">
