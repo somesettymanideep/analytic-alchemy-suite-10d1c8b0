@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState, useCallback, KeyboardEvent } from "react";
+import { ArrowRight, Database, Cpu, Globe2, Building2, CheckCircle2 } from "lucide-react";
 
 interface Stat {
   value: string;
@@ -15,7 +15,10 @@ interface CaseStudy {
   clientNote: string;
   stats: Stat[];
   description: string;
+  highlights: string[];
   tags: string[];
+  accent: string;
+  icon: typeof Database;
 }
 
 const caseStudies: CaseStudy[] = [
@@ -33,7 +36,14 @@ const caseStudies: CaseStudy[] = [
     ],
     description:
       "Data strategy advisory across 32 stakeholders and 39 workshops, S/4HANA Public Cloud migration, and SAP Datasphere analytics unifying 4 fragmented warehouses.",
+    highlights: [
+      "32 stakeholders aligned across 39 workshops",
+      "S/4HANA Public Cloud go-live in 4 countries",
+      "4 warehouses unified into one Datasphere model",
+    ],
     tags: ["SAP", "S/4HANA", "Datasphere", "Azure", "Power BI"],
+    accent: "#0B4BFF",
+    icon: Building2,
   },
   {
     id: "microsoft-nash",
@@ -49,7 +59,14 @@ const caseStudies: CaseStudy[] = [
     ],
     description:
       "D365 F&O managed services across 6 ISVs, financial process automation, and e-invoice automation via Azure Logic Apps — manual effort eliminated.",
+    highlights: [
+      "D365 F&O AMS across 6 ISVs in production",
+      "Finance close automation across 70+ entities",
+      "E-invoicing via Azure Logic Apps, fully unattended",
+    ],
     tags: ["Dynamics 365", "Azure", "Logic Apps", "Fabric", "AI"],
+    accent: "#FFC72C",
+    icon: Cpu,
   },
 ];
 
@@ -85,280 +102,351 @@ function AnimatedCounter({ value, active }: { value: string; active: boolean }) 
 }
 
 export default function ProvenInFieldSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [revealed, setRevealed] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  // Sticky scroll progression
   useEffect(() => {
-    const onScroll = () => {
-      const el = containerRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const total = el.offsetHeight - vh;
-      const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      const p = total > 0 ? scrolled / total : 0;
-      setProgress(p);
-      const idx = Math.min(caseStudies.length - 1, Math.floor(p * caseStudies.length * 0.999));
-      setActiveIndex(idx);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setRevealed(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.12 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
+
+  const onTabKey = useCallback(
+    (e: KeyboardEvent<HTMLButtonElement>) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        setActiveIndex((i) => (i + 1) % caseStudies.length);
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        setActiveIndex((i) => (i - 1 + caseStudies.length) % caseStudies.length);
+      } else if (e.key === "Home") {
+        e.preventDefault();
+        setActiveIndex(0);
+      } else if (e.key === "End") {
+        e.preventDefault();
+        setActiveIndex(caseStudies.length - 1);
+      }
+    },
+    [],
+  );
+
+  const active = caseStudies[activeIndex];
 
   return (
     <section
+      ref={sectionRef}
       aria-labelledby="proven-heading"
-      className="relative overflow-hidden"
-      style={{
-        background: "#FAFBFD",
-        backgroundImage:
-          "linear-gradient(rgba(11,75,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(11,75,255,0.04) 1px, transparent 1px)",
-        backgroundSize: "56px 56px",
-      }}
+      className="relative overflow-hidden bg-[#FAFBFD]"
     >
-      {/* Background glows */}
+      {/* Subtle grid */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 -right-40 w-[720px] h-[720px] rounded-full blur-3xl"
-        style={{ background: "#0B4BFF", opacity: 0.06, animation: "float-glow 22s ease-in-out infinite" }}
+        className="absolute inset-0 pointer-events-none opacity-60"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(11,75,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,75,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+          maskImage:
+            "radial-gradient(ellipse at 50% 30%, black 30%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at 50% 30%, black 30%, transparent 80%)",
+        }}
+      />
+      {/* Ambient glows */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 -right-40 w-[640px] h-[640px] rounded-full blur-3xl"
+        style={{ background: "#0B4BFF", opacity: 0.07 }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 -left-40 w-[640px] h-[640px] rounded-full blur-3xl"
-        style={{ background: "#FFC72C", opacity: 0.06, animation: "float-glow 26s ease-in-out infinite reverse" }}
+        className="pointer-events-none absolute -bottom-40 -left-40 w-[560px] h-[560px] rounded-full blur-3xl"
+        style={{ background: "#FFC72C", opacity: 0.06 }}
       />
 
-      {/* Header */}
-      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#0B4BFF]/15 bg-white/70 backdrop-blur px-4 py-1.5 mb-8">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#FFC72C]" />
-          <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#0B4BFF]">
-            Proven in the field
-          </span>
-        </div>
-        <h2
-          id="proven-heading"
-          className="font-[Playfair_Display,'Space_Grotesk',serif] text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-tight text-[#081A45]"
+      <div className="relative max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10 py-20 md:py-28 lg:py-32">
+        {/* Header */}
+        <div
+          className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 transition-all duration-700 ${
+            revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
         >
-          Real Engagements.
-          <br />
-          <span className="italic font-light text-[#0B4BFF]">Real Outcomes.</span>
-        </h2>
-        <p className="mt-8 max-w-xl text-lg text-slate-600 leading-relaxed">
-          Two flagship enterprise transformations across SAP and Microsoft — delivered end-to-end by
-          NGSIT teams. Scroll to read the stories.
-        </p>
-      </div>
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#0B4BFF]/20 bg-white px-3.5 py-1.5 mb-6 shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#FFC72C]" />
+              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] uppercase text-[#0B4BFF]">
+                Proven in the field
+              </span>
+            </div>
+            <h2
+              id="proven-heading"
+              className="font-[Playfair_Display,'Space_Grotesk',serif] text-[2.25rem] sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight text-[#081A45]"
+            >
+              Real engagements.{" "}
+              <span className="italic font-light text-[#0B4BFF]">
+                Real outcomes.
+              </span>
+            </h2>
+            <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed">
+              Two flagship enterprise transformations — SAP and Microsoft — delivered
+              end-to-end by NGSIT teams.
+            </p>
+          </div>
 
-      {/* Sticky scroll storytelling */}
-      <div
-        ref={containerRef}
-        className="relative max-w-[1400px] mx-auto px-6 lg:px-10"
-        style={{ height: `${caseStudies.length * 100}vh` }}
-      >
-        <div className="sticky top-0 h-screen flex items-center">
-          <div className="grid grid-cols-12 gap-10 w-full">
-            {/* LEFT — Sticky index */}
-            <aside className="col-span-12 lg:col-span-4 hidden lg:flex flex-col justify-center">
-              <div className="text-[11px] font-semibold tracking-[0.3em] uppercase text-slate-500 mb-6">
-                Case Study {String(activeIndex + 1).padStart(2, "0")} / {String(caseStudies.length).padStart(2, "0")}
+          {/* Quick stats summary */}
+          <dl className="grid grid-cols-3 gap-6 sm:gap-10 lg:text-right">
+            {[
+              { v: "2", l: "Flagship cases" },
+              { v: "13", l: "Countries" },
+              { v: "320+", l: "Entities served" },
+            ].map((s) => (
+              <div key={s.l}>
+                <dt className="text-[10px] uppercase tracking-[0.22em] text-slate-500 font-semibold">
+                  {s.l}
+                </dt>
+                <dd className="mt-1.5 font-[Space_Grotesk] text-2xl sm:text-3xl font-bold text-[#081A45] tabular-nums">
+                  {s.v}
+                </dd>
               </div>
-              <div className="font-[Space_Grotesk] text-[7rem] xl:text-[9rem] font-extrabold leading-none bg-gradient-to-br from-[#0B4BFF] to-[#081A45] bg-clip-text text-transparent transition-all duration-700">
-                {caseStudies[activeIndex].index}
-              </div>
-              <div className="mt-8 max-w-xs">
-                <div className="text-[11px] tracking-[0.25em] uppercase text-[#FFC72C] font-semibold mb-3">
-                  {caseStudies[activeIndex].category}
-                </div>
-                <h3 className="font-[Playfair_Display,serif] text-3xl xl:text-4xl text-[#081A45] leading-tight transition-all duration-700">
-                  {caseStudies[activeIndex].client}
-                </h3>
-                <p className="mt-3 text-sm text-slate-500">{caseStudies[activeIndex].clientNote}</p>
-              </div>
+            ))}
+          </dl>
+        </div>
 
-              {/* Progress indicator */}
-              <ol className="mt-10 space-y-4">
-                {caseStudies.map((s, i) => {
-                  const isActive = i === activeIndex;
-                  const isPast = i < activeIndex;
-                  return (
-                    <li key={s.id} className="flex items-center gap-4">
-                      <span
-                        className={`font-mono text-xs w-6 transition-colors ${
-                          isActive ? "text-[#0B4BFF] font-bold" : isPast ? "text-slate-400" : "text-slate-300"
-                        }`}
-                      >
-                        {s.index}
-                      </span>
-                      <span className="relative block h-[2px] flex-1 bg-slate-200 overflow-hidden rounded-full">
-                        <span
-                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#0B4BFF] to-[#FFC72C] transition-all duration-700 ease-out"
-                          style={{
-                            width: isPast ? "100%" : isActive ? `${Math.min(100, (progress * caseStudies.length - i) * 100)}%` : "0%",
-                          }}
-                        />
-                      </span>
-                      <span
-                        className={`h-2 w-2 rounded-full border transition-all ${
-                          isActive
-                            ? "bg-[#FFC72C] border-[#FFC72C] scale-125"
-                            : isPast
-                            ? "bg-[#0B4BFF] border-[#0B4BFF]"
-                            : "bg-white border-slate-300"
-                        }`}
-                      />
-                    </li>
-                  );
-                })}
-              </ol>
-            </aside>
+        {/* Tabs */}
+        <div
+          role="tablist"
+          aria-label="Case studies"
+          className="mt-12 md:mt-16 flex flex-wrap gap-3"
+        >
+          {caseStudies.map((s, i) => {
+            const isActive = i === activeIndex;
+            return (
+              <button
+                key={s.id}
+                role="tab"
+                id={`proven-tab-${s.id}`}
+                aria-selected={isActive}
+                aria-controls={`proven-panel-${s.id}`}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => setActiveIndex(i)}
+                onKeyDown={onTabKey}
+                className={`group inline-flex items-center gap-3 rounded-full border px-4 py-2.5 text-sm font-medium transition-all min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4BFF] focus-visible:ring-offset-2 ${
+                  isActive
+                    ? "border-[#0B4BFF] bg-[#0B4BFF] text-white shadow-[0_10px_30px_-10px_rgba(11,75,255,0.5)]"
+                    : "border-slate-200 bg-white text-[#081A45] hover:border-[#0B4BFF]/40 hover:bg-[#0B4BFF]/[0.04]"
+                }`}
+              >
+                <span
+                  className={`font-mono text-[11px] font-bold ${
+                    isActive ? "text-[#FFC72C]" : "text-slate-400"
+                  }`}
+                >
+                  {s.index}
+                </span>
+                <span className="hidden xs:inline">{s.platform}</span>
+                <span className="sm:inline truncate max-w-[180px] sm:max-w-none">
+                  {s.client}
+                </span>
+              </button>
+            );
+          })}
+        </div>
 
-            {/* RIGHT — Animated cards stack */}
-            <div className="col-span-12 lg:col-span-8 relative h-[560px] md:h-[600px]">
-              {caseStudies.map((study, i) => {
-                const isActive = i === activeIndex;
-                const isPast = i < activeIndex;
-                const isFuture = i > activeIndex;
-                return (
-                  <article
-                    key={study.id}
-                    aria-hidden={!isActive}
-                    className="absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                    style={{
-                      opacity: isActive ? 1 : 0,
-                      transform: isActive
-                        ? "translateY(0) scale(1)"
-                        : isFuture
-                        ? `translateY(${i % 2 === 0 ? "120px" : "80px"}) translateX(${i % 2 === 0 ? "0" : "60px"}) scale(0.95)`
-                        : "translateY(-80px) scale(0.96)",
-                      pointerEvents: isActive ? "auto" : "none",
-                      zIndex: isActive ? 10 : 1,
-                    }}
-                  >
-                    <CaseCard study={study} active={isActive} />
-                  </article>
-                );
-              })}
+        {/* Panels */}
+        <div className="mt-8 md:mt-10">
+          {caseStudies.map((s, i) => (
+            <CasePanel
+              key={s.id}
+              study={s}
+              active={i === activeIndex}
+              caseCount={caseStudies.length}
+            />
+          ))}
+        </div>
+
+        {/* Bottom CTA strip */}
+        <div className="mt-14 md:mt-20 rounded-2xl border border-[#0B4BFF]/15 bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-[0_20px_60px_-30px_rgba(11,75,255,0.25)]">
+          <div className="flex items-start gap-4">
+            <div className="h-11 w-11 shrink-0 rounded-xl bg-gradient-to-br from-[#0B4BFF] to-[#081A45] text-white flex items-center justify-center">
+              <Globe2 className="w-5 h-5" aria-hidden="true" />
+            </div>
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.28em] text-[#0B4BFF] font-semibold">
+                Want the full deck?
+              </div>
+              <p className="text-[15px] sm:text-base text-[#081A45] mt-1.5 font-medium">
+                Browse every NGSIT engagement — SAP, Microsoft, Databricks and beyond.
+              </p>
             </div>
           </div>
+          <a
+            href="/case-study"
+            className="group inline-flex items-center gap-2 rounded-full bg-[#081A45] px-6 py-3.5 text-sm font-semibold text-white min-h-11 transition-all hover:bg-[#0B4BFF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4BFF] focus-visible:ring-offset-2"
+          >
+            All case studies
+            <ArrowRight
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </a>
         </div>
       </div>
-
-      <div className="h-24" />
-
-      <style>{`
-        @keyframes float-glow {
-          0%, 100% { transform: translate(0,0); }
-          50% { transform: translate(40px,-30px); }
-        }
-        @keyframes pill-float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
-        }
-      `}</style>
     </section>
   );
 }
 
-function CaseCard({ study, active }: { study: CaseStudy; active: boolean }) {
+function CasePanel({
+  study,
+  active,
+  caseCount,
+}: {
+  study: CaseStudy;
+  active: boolean;
+  caseCount: number;
+}) {
+  const Icon = study.icon;
   return (
-    <div className="group relative h-full w-full rounded-[28px] bg-white p-7 md:p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_40px_120px_-30px_rgba(11,75,255,0.35)] overflow-hidden"
-      style={{ boxShadow: "0 25px 80px rgba(8,26,69,0.08)" }}
+    <article
+      id={`proven-panel-${study.id}`}
+      role="tabpanel"
+      aria-labelledby={`proven-tab-${study.id}`}
+      hidden={!active}
+      className={`relative overflow-hidden rounded-3xl bg-white border border-slate-200/80 shadow-[0_30px_80px_-40px_rgba(8,26,69,0.25)] ${
+        active ? "animate-fade-in" : ""
+      }`}
     >
-      {/* Animated gradient left border */}
+      {/* Accent rail */}
       <div
         aria-hidden
-        className="absolute left-0 top-0 bottom-0 w-[5px] rounded-l-[28px] overflow-hidden"
-      >
-        <div
-          className="w-full transition-all duration-1000 ease-out"
-          style={{
-            height: active ? "100%" : "0%",
-            background: "linear-gradient(180deg, #FFC72C 0%, #FF8A3D 40%, #0B4BFF 100%)",
-          }}
-        />
-      </div>
-
-      {/* Top meta */}
-      <div className="flex items-start justify-between gap-4 pl-3">
-        <div className="flex items-center gap-3">
-          <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#0B4BFF] to-[#081A45] text-white flex items-center justify-center font-[Space_Grotesk] font-bold text-xs tracking-wider">
-            LOGO
-          </div>
-          <div>
-            <div className="text-[10px] tracking-[0.28em] uppercase font-semibold text-[#0B4BFF]">
-              {study.category}
-            </div>
-            <div className="text-[15px] font-semibold text-[#081A45] mt-0.5">{study.client}</div>
-          </div>
-        </div>
-        <span className="font-[Space_Grotesk] text-xs font-bold tracking-[0.25em] text-slate-300">
-          {study.index} / {String(caseStudies.length).padStart(2, "0")}
-        </span>
-      </div>
-
-      {/* KPIs */}
-      <div className="mt-8 pl-3 grid grid-cols-3 gap-4 md:gap-6">
-        {study.stats.map((s, i) => (
-          <div key={s.label} className="relative">
-            <div className="font-[Space_Grotesk] text-3xl md:text-5xl font-extrabold tabular-nums leading-none bg-gradient-to-br from-[#0B4BFF] to-[#081A45] bg-clip-text text-transparent">
-              <Counter value={s.value} active={active} delay={i * 120} />
-            </div>
-            <div className="mt-3 text-[11px] uppercase tracking-[0.18em] text-slate-500 leading-tight">
-              {s.label}
-            </div>
-            <div className="mt-3 h-[2px] w-10 rounded-full bg-gradient-to-r from-[#FFC72C] to-transparent" />
-          </div>
-        ))}
-      </div>
-
-      {/* Description */}
-      <p className="mt-8 pl-3 max-w-2xl text-[15px] md:text-base text-slate-600 leading-relaxed">
-        {study.description}
-      </p>
-
-      {/* Floating tech pills */}
-      <div className="mt-8 pl-3 flex flex-wrap gap-2">
-        {study.tags.map((t, i) => (
-          <span
-            key={t}
-            className="inline-flex items-center rounded-full border border-[#0B4BFF]/15 bg-[#0B4BFF]/[0.04] px-3 py-1.5 text-[11px] font-medium text-[#081A45]"
-            style={{ animation: active ? `pill-float 4s ease-in-out ${i * 0.2}s infinite` : "none" }}
-          >
-            {t}
-          </span>
-        ))}
-      </div>
-
-      {/* CTA */}
-      <div className="absolute bottom-7 md:bottom-10 left-10 right-10 flex items-center justify-between">
-        <span className="text-[11px] uppercase tracking-[0.25em] text-slate-400">
-          Programme highlights
-        </span>
-        <a
-          href="/case-study"
-          className="group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#081A45] px-5 py-3 text-xs font-semibold text-white transition-all hover:bg-[#0B4BFF]"
-        >
-          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-[#0B4BFF] to-[#FFC72C] transition-transform duration-500 group-hover/btn:translate-x-0" />
-          <span className="relative">View Full Case Study</span>
-          <ArrowRight className="relative w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
-        </a>
-      </div>
-
+        className="absolute left-0 top-0 bottom-0 w-1.5"
+        style={{
+          background: `linear-gradient(180deg, ${study.accent} 0%, #081A45 100%)`,
+        }}
+      />
       {/* Corner glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl"
-        style={{ background: "#0B4BFF", opacity: 0.08 }}
+        className="pointer-events-none absolute -top-32 -right-32 w-80 h-80 rounded-full blur-3xl"
+        style={{ background: study.accent, opacity: 0.1 }}
       />
-    </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+        {/* LEFT — identity */}
+        <div className="lg:col-span-5 p-6 sm:p-10 lg:p-12 lg:border-r lg:border-slate-200/80 relative">
+          <div className="flex items-center justify-between gap-4">
+            <div
+              className="h-14 w-14 rounded-2xl flex items-center justify-center text-white shrink-0"
+              style={{
+                background: `linear-gradient(135deg, ${study.accent} 0%, #081A45 100%)`,
+              }}
+            >
+              <Icon className="w-6 h-6" aria-hidden="true" />
+            </div>
+            <span className="font-mono text-xs font-bold tracking-[0.3em] text-slate-300">
+              {study.index} / {String(caseCount).padStart(2, "0")}
+            </span>
+          </div>
+
+          <div className="mt-6">
+            <div className="text-[10px] sm:text-[11px] tracking-[0.28em] uppercase font-semibold text-[#0B4BFF]">
+              {study.category}
+            </div>
+            <h3 className="mt-3 font-[Playfair_Display,serif] text-2xl sm:text-3xl lg:text-4xl text-[#081A45] leading-tight">
+              {study.client}
+            </h3>
+            <p className="mt-2 text-sm text-slate-500">{study.clientNote}</p>
+          </div>
+
+          <p className="mt-6 text-[15px] text-slate-600 leading-relaxed">
+            {study.description}
+          </p>
+
+          <div className="mt-8">
+            <div className="text-[10px] uppercase tracking-[0.25em] text-slate-500 font-semibold mb-3">
+              Tech stack
+            </div>
+            <ul className="flex flex-wrap gap-2">
+              {study.tags.map((t) => (
+                <li key={t}>
+                  <span className="inline-flex items-center rounded-full border border-[#0B4BFF]/15 bg-[#0B4BFF]/[0.04] px-3 py-1.5 text-[11px] font-medium text-[#081A45]">
+                    {t}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* RIGHT — outcomes */}
+        <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-[#FAFBFD] to-white">
+          <div className="text-[10px] uppercase tracking-[0.28em] text-[#FFC72C] font-bold mb-6">
+            Outcomes delivered
+          </div>
+          <dl className="grid grid-cols-3 gap-4 sm:gap-8">
+            {study.stats.map((s, i) => (
+              <div key={s.label} className="relative">
+                <dt className="sr-only">{s.label}</dt>
+                <dd className="font-[Space_Grotesk] text-3xl sm:text-4xl lg:text-5xl font-extrabold tabular-nums leading-none bg-gradient-to-br from-[#0B4BFF] to-[#081A45] bg-clip-text text-transparent">
+                  <Counter value={s.value} active={active} delay={i * 120} />
+                </dd>
+                <div
+                  aria-hidden
+                  className="mt-3 h-[2px] w-10 rounded-full bg-gradient-to-r from-[#FFC72C] to-transparent"
+                />
+                <div className="mt-3 text-[11px] uppercase tracking-[0.18em] text-slate-500 leading-tight">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </dl>
+
+          <hr className="my-8 border-slate-200" />
+
+          <div className="text-[10px] uppercase tracking-[0.28em] text-[#0B4BFF] font-bold mb-4">
+            Programme highlights
+          </div>
+          <ul className="space-y-3">
+            {study.highlights.map((h) => (
+              <li key={h} className="flex items-start gap-3 text-[15px] text-slate-700 leading-relaxed">
+                <CheckCircle2
+                  className="w-5 h-5 mt-0.5 shrink-0 text-[#0B4BFF]"
+                  aria-hidden="true"
+                />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:justify-between">
+            <span className="text-[11px] uppercase tracking-[0.25em] text-slate-400">
+              End-to-end · NGSIT
+            </span>
+            <a
+              href="/case-study"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#081A45] px-5 py-3 text-xs font-semibold text-white min-h-11 transition-all hover:bg-[#0B4BFF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4BFF] focus-visible:ring-offset-2"
+              aria-label={`Read full case study: ${study.client}`}
+            >
+              View full case study
+              <ArrowRight
+                className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }
 
