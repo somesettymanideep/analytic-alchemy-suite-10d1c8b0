@@ -20,6 +20,7 @@ export default function BlueGeckoPlatformSection() {
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const [autoIdx, setAutoIdx] = useState(0);
+  const [radius, setRadius] = useState(170);
 
   useEffect(() => {
     const el = wrapRef.current;
@@ -45,7 +46,21 @@ export default function BlueGeckoPlatformSection() {
     return () => clearInterval(id);
   }, []);
 
-  const radius = 170;
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const compute = () => {
+      const r = el.getBoundingClientRect();
+      // leave ~70px padding for node card width
+      const max = Math.min(r.width, r.height) / 2 - 80;
+      setRadius(Math.max(110, Math.min(180, max)));
+    };
+    compute();
+    const ro = new ResizeObserver(compute);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   const highlight = activeIdx ?? autoIdx;
 
   return (
@@ -117,7 +132,7 @@ export default function BlueGeckoPlatformSection() {
         </div>
 
         {/* RIGHT — AI Command Center */}
-        <div ref={wrapRef} className="relative h-[520px] md:h-[600px]" style={{ perspective: "1400px" }}>
+        <div ref={wrapRef} className="relative h-[420px] sm:h-[520px] md:h-[600px] min-w-0" style={{ perspective: "1400px" }}>
           {/* metric chips */}
           {chips.map((c, i) => (
             <div key={c.label}
@@ -188,7 +203,7 @@ export default function BlueGeckoPlatformSection() {
               const active = highlight === idx;
               return (
                 <div key={m.name}
-                  className="absolute top-1/2 left-1/2 group"
+                  className="absolute top-1/2 left-1/2 group z-30"
                   style={{
                     transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
                     animation: `bg-float ${6 + idx}s ease-in-out ${idx * 0.5}s infinite`,
