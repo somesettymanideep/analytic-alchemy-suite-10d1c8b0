@@ -70,37 +70,6 @@ const caseStudies: CaseStudy[] = [
   },
 ];
 
-function AnimatedCounter({ value, active }: { value: string; active: boolean }) {
-  const [display, setDisplay] = useState("0");
-  const hasRun = useRef(false);
-
-  useEffect(() => {
-    if (!active || hasRun.current) return;
-    const match = value.match(/^(\d+)(.*)$/);
-    if (!match) {
-      setDisplay(value);
-      hasRun.current = true;
-      return;
-    }
-    const numeric = parseInt(match[1], 10);
-    const suffix = match[2];
-    hasRun.current = true;
-    const duration = 1600;
-    const start = performance.now();
-    let raf = 0;
-    const tick = (now: number) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setDisplay(`${Math.round(numeric * eased)}${suffix}`);
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [active, value]);
-
-  return <span className="tabular-nums">{display}</span>;
-}
-
 export default function ProvenInFieldSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
