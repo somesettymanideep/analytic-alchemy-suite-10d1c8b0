@@ -468,10 +468,10 @@ function CustomersViewPremium() {
             <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">What your EDT delivers.</h2>
           </Reveal>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 md:auto-rows-[220px] gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {bento.map((b, i) => (
             <Reveal key={b.title} delay={i * 80}>
-              <div className={`group relative h-full rounded-[28px] p-6 md:p-7 border border-border bg-gradient-to-br ${b.gradient} bg-card overflow-hidden hover:-translate-y-1 transition-all duration-500 hover:shadow-2xl ${b.span}`}>
+              <div className={`group relative h-full min-h-[220px] rounded-[28px] p-6 md:p-7 border border-border bg-gradient-to-br ${b.gradient} bg-card overflow-hidden hover:-translate-y-1 transition-all duration-500 hover:shadow-2xl ${b.span}`}>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/40 to-transparent" />
                 <div className="absolute inset-0 rounded-[28px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 gradient-border" />
                 <div className="relative h-full flex flex-col">
