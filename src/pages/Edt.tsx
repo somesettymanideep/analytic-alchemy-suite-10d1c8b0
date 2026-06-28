@@ -678,110 +678,284 @@ function PartnersView() {
     ["No overhead", "No India entity, no HR, no compliance burden"],
   ];
 
-  return (
-    <div className="space-y-24 md:space-y-32">
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-accent/[0.08] via-background to-primary/[0.06]" />
-        <div className="absolute top-20 -left-20 w-[420px] h-[420px] rounded-full bg-accent/10 blur-3xl -z-10" />
-        <div className="absolute bottom-0 -right-20 w-[420px] h-[420px] rounded-full bg-primary/10 blur-3xl -z-10" />
+  return <PartnersViewPremium valueProps={valueProps} streams={streams} engagements={engagements} matrix={matrix} />;
+}
 
-        <div className="container grid lg:grid-cols-2 gap-12 items-center">
+/* ---------------------- PREMIUM PARTNERS REDESIGN ---------------------- */
+
+type PartnerVP = { n: string; tag: string; icon: any; title: string; body: string; highlight: string };
+type PartnerStream = { icon: any; title: string; items: string[] };
+type PartnerEng = { title: string; body: string; icon: any };
+
+function PartnersViewPremium({
+  valueProps,
+  streams,
+  engagements,
+  matrix,
+}: {
+  valueProps: PartnerVP[];
+  streams: PartnerStream[];
+  engagements: PartnerEng[];
+  matrix: string[][];
+}) {
+  const [selectedEng, setSelectedEng] = useState(2);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Scroll progress bar
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const h = document.documentElement;
+      const total = h.scrollHeight - h.clientHeight;
+      setProgress(total > 0 ? (h.scrollTop / total) * 100 : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Bento layout for streams
+  const bentoSpan = [
+    "md:col-span-2 md:row-span-2", // SAP large
+    "md:col-span-2",                // Microsoft medium
+    "md:col-span-2 md:row-span-2", // Data Engineering large
+    "md:col-span-2",                // AI medium
+    "md:col-span-2",                // AMS small/medium
+  ];
+
+  return (
+    <div ref={rootRef} className="relative">
+      <CursorGlow targetRef={rootRef} />
+
+      {/* Scroll progress */}
+      <div className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-transparent pointer-events-none">
+        <div
+          className="h-full bg-gradient-to-r from-primary via-[#2958FF] to-accent transition-[width] duration-150"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
+      {/* Global ambient background */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-[55vw] h-[55vw] rounded-full bg-primary/[0.10] blur-[120px] animate-aurora" />
+        <div className="absolute top-1/3 -right-40 w-[50vw] h-[50vw] rounded-full bg-accent/[0.10] blur-[120px] animate-aurora-2" />
+        <div className="absolute bottom-0 left-1/4 w-[40vw] h-[40vw] rounded-full bg-[#6C63FF]/[0.08] blur-[120px] animate-aurora" />
+      </div>
+
+      {/* ============== HERO ============== */}
+      <section className="relative pt-16 md:pt-24 pb-20 overflow-hidden">
+        {/* Animated grid */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.35] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]">
+          <div
+            className="absolute inset-0 animate-grid-pan"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, rgba(22,54,184,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(22,54,184,0.08) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+        </div>
+        {/* Floating particles */}
+        <div className="pointer-events-none absolute inset-0">
+          {[...Array(14)].map((_, i) => (
+            <span
+              key={i}
+              className="absolute block w-1.5 h-1.5 rounded-full bg-primary/40 animate-float-y-slow"
+              style={{
+                top: `${(i * 53) % 90 + 5}%`,
+                left: `${(i * 37) % 95 + 2}%`,
+                animationDelay: `${(i % 7) * 0.6}s`,
+                opacity: 0.4 + ((i % 5) / 10),
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="container relative grid lg:grid-cols-[45%_55%] gap-12 lg:gap-10 items-center">
+          {/* LEFT */}
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full bg-accent/15 text-accent-foreground px-3 py-1 text-xs font-semibold mb-6">
-              <Handshake size={14} /> For SI Partners
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur border border-primary/15 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-primary shadow-sm">
+              <span className="relative inline-flex w-1.5 h-1.5">
+                <span className="absolute inset-0 rounded-full bg-accent animate-pulse-ring" />
+                <span className="relative rounded-full w-1.5 h-1.5 bg-accent" />
+              </span>
+              Built for SI Partners
             </div>
-            <h1 className="text-4xl md:text-6xl font-display font-bold tracking-tight text-foreground leading-[1.05]">
-              EDT for SI Partners
-            </h1>
-            <p className="mt-6 text-xl md:text-2xl text-foreground/80 font-display">
-              Scale your India delivery.
+            <h1 className="mt-7 font-display font-bold text-foreground leading-[0.98] tracking-[-0.02em] text-[clamp(2.6rem,6.4vw,5rem)]">
+              Scale Your{" "}
+              <span className="relative inline-block">
+                <span className="text-gradient-flow">Delivery</span>
+                <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-gradient-to-r from-primary via-[#2958FF] to-accent" />
+              </span>
+              .
               <br />
-              <span className="text-primary">Fast. Flexible. No overhead.</span>
+              Not Your{" "}
+              <span className="relative inline-block">
+                <span className="text-gradient-flow">Overhead</span>
+                <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-gradient-to-r from-accent via-[#F5B51A] to-primary" />
+              </span>
+              .
+            </h1>
+            <p className="mt-7 text-lg md:text-xl text-foreground/75 leading-relaxed max-w-xl">
+              Your pipeline grows faster than your team. NGSIT's EDT model gives you a pre-assembled{" "}
+              <span className="relative inline-block font-semibold text-foreground">
+                India Team
+                <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-primary to-accent" />
+              </span>{" "}
+              — activated in weeks, not months. One contract. One invoice. One point of contact.
             </p>
-            <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl">
-              Your clients need delivery. Your pipeline is growing faster than your team. NGSIT's EDT model gives you a pre-assembled India delivery layer — activated in weeks, not months.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all">
-                Talk to Us About Your Pipeline <ArrowRight size={16} />
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a
+                href="/contact"
+                className="group relative inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-4 rounded-full font-semibold shadow-[0_18px_50px_-15px_rgba(22,54,184,0.55)] hover:shadow-[0_22px_60px_-12px_rgba(22,54,184,0.7)] transition-all overflow-hidden hover:-translate-y-0.5 min-h-[48px]"
+              >
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:translate-x-full transition-transform duration-700" />
+                <span className="relative">Talk to Our Partner Team</span>
+                <ArrowRight size={18} className="relative transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="#engagement" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-full font-semibold shadow-lg hover:-translate-y-0.5 transition-all">
-                <FileText size={16} /> Download Partner Overview
+              <a
+                href="#engagement"
+                className="group inline-flex items-center gap-2 bg-white/70 backdrop-blur border border-primary/15 text-foreground px-7 py-4 rounded-full font-semibold hover:bg-white hover:border-primary/30 hover:-translate-y-0.5 transition-all min-h-[48px]"
+              >
+                <FileText size={16} className="text-primary" /> Download Partner Guide
               </a>
             </div>
-            <p className="mt-8 text-base font-display italic text-primary">
+            <p className="mt-8 text-sm font-display italic text-foreground/60">
               "Your brand. Your client relationship. NGSIT's delivery depth."
             </p>
           </Reveal>
 
+          {/* RIGHT — DASHBOARD SCENE */}
           <Reveal delay={150}>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-accent/30 via-primary/20 to-transparent rounded-3xl blur-2xl" />
-              <img
-                src={partnersHero}
-                alt="SI partner handshake with NGSIT delivery operations"
-                className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
-                width={1536}
-                height={1024}
-              />
-              <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-2xl shadow-xl p-4 max-w-[240px]">
-                <div className="text-xs text-muted-foreground">One simple model</div>
-                <div className="text-lg font-bold text-primary">1 contract · 1 invoice</div>
-                <div className="text-xs text-foreground/70">One point of contact</div>
-              </div>
-            </div>
+            <PartnerDashboardScene />
           </Reveal>
         </div>
       </section>
 
-      {/* VALUE PROPS */}
+      {/* ============== FLOATING METRICS STRIP ============== */}
+      <section className="container -mt-6 md:-mt-10 relative z-10">
+        <Reveal>
+          <div className="relative rounded-[28px] glass-card gradient-border shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] p-6 md:p-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-2">
+              {[
+                { v: "2–4", suf: " Weeks", label: "Activation Time", Icon: Rocket },
+                { v: "1", suf: " Contract", label: "Single Commercial Layer", Icon: FileText },
+                { v: "100%", suf: "", label: "Amsterdam Governance", Icon: ShieldCheck },
+                { v: "100%", suf: "", label: "Pre-Vetted Team", Icon: Users },
+              ].map((m, i) => (
+                <div
+                  key={m.label}
+                  className="group flex items-center gap-4 px-4 md:px-5 py-2 md:border-r md:last:border-r-0 border-primary/10 hover:-translate-y-0.5 transition-all"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  <span className="relative inline-flex w-12 h-12 items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors shrink-0">
+                    <m.Icon size={20} />
+                    <span className="absolute inset-0 rounded-2xl ring-2 ring-accent/0 group-hover:ring-accent/40 transition-all" />
+                  </span>
+                  <div>
+                    <div className="text-2xl md:text-3xl font-display font-bold text-foreground tracking-tight">
+                      {m.v}
+                      <span className="text-foreground/60 text-base font-semibold">{m.suf}</span>
+                    </div>
+                    <div className="text-xs uppercase tracking-[0.16em] text-foreground/55 mt-0.5">{m.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <SectionDivider />
+
+      {/* ============== FEATURE CARDS ============== */}
       <section className="container">
+        <Reveal>
+          <div className="max-w-2xl mb-12">
+            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why Partners Choose NGSIT</div>
+            <h2 className="text-4xl md:text-[3.4rem] font-display font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
+              Three forces behind every partner win.
+            </h2>
+          </div>
+        </Reveal>
         <div className="grid md:grid-cols-3 gap-6">
           {valueProps.map((v, i) => (
             <Reveal key={v.n} delay={i * 120}>
-              <div className="group h-full relative bg-card border border-border rounded-2xl p-7 hover:-translate-y-1 hover:shadow-2xl hover:border-accent/50 transition-all overflow-hidden">
-                <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-accent/10 blur-2xl group-hover:bg-accent/20 transition-colors" />
-                <div className="flex items-center justify-between">
-                  <span className="text-xs uppercase tracking-[0.2em] text-accent font-bold">{v.n} · {v.tag}</span>
-                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <v.icon size={20} />
+              <article
+                className="group relative h-full rounded-[28px] bg-white/70 backdrop-blur border border-white/60 p-8 overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:rotate-[1.2deg] hover:shadow-[0_40px_80px_-30px_rgba(22,54,184,0.4)]"
+                style={{ boxShadow: "0 10px 40px -20px rgba(15,23,42,0.15)" }}
+              >
+                {/* gradient border on hover */}
+                <span className="absolute inset-0 rounded-[28px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{
+                  background: "linear-gradient(135deg, rgba(22,54,184,0.5), rgba(245,181,26,0.5))",
+                  WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                  WebkitMaskComposite: "xor",
+                  maskComposite: "exclude",
+                  padding: "1.5px",
+                }} />
+                {/* moving glow */}
+                <span className="absolute -top-24 -right-24 w-60 h-60 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-colors duration-500" />
+                <span className="absolute -bottom-24 -left-24 w-60 h-60 rounded-full bg-accent/10 blur-3xl group-hover:bg-accent/20 transition-colors duration-500" />
+
+                <div className="relative flex items-start justify-between">
+                  <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-[#2958FF] text-primary-foreground shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
+                    <v.icon size={22} />
+                  </span>
+                  <span className="font-display font-bold text-[3.5rem] leading-none text-foreground/10 group-hover:text-primary/20 transition-colors">
+                    {v.n}
                   </span>
                 </div>
-                <h3 className="mt-5 text-2xl font-display font-bold text-foreground">{v.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{v.body}</p>
-                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary bg-accent/15 px-3 py-1.5 rounded-full">
-                  <CheckCircle2 size={14} /> {v.highlight}
+                <div className="relative mt-6">
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold">{v.tag}</span>
+                  <h3 className="mt-2 text-2xl font-display font-bold text-foreground tracking-tight">{v.title}</h3>
+                  <p className="mt-4 text-[15px] text-foreground/70 leading-relaxed">{v.body}</p>
                 </div>
-              </div>
+                <div className="relative mt-7 pt-5 border-t border-foreground/10 flex items-center gap-2 text-sm font-semibold text-primary">
+                  <CheckCircle2 size={16} className="text-accent" /> {v.highlight}
+                </div>
+              </article>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* DELIVERY STREAMS */}
-      <section className="bg-muted/30 py-20 md:py-28">
+      <SectionDivider />
+
+      {/* ============== BENTO — DELIVERY STREAMS ============== */}
+      <section className="relative py-20 md:py-28">
         <div className="container">
           <Reveal>
-            <div className="max-w-2xl mb-12">
-              <div className="text-xs uppercase tracking-[0.2em] text-accent font-bold mb-3">Delivery Streams</div>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">What Your EDT Covers</h2>
+            <div className="max-w-3xl mb-14">
+              <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Delivery Streams</div>
+              <h2 className="text-4xl md:text-[3.4rem] font-display font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
+                One India layer. <span className="text-primary">Every stream you sell.</span>
+              </h2>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div className="grid md:grid-cols-4 md:auto-rows-[220px] gap-5">
             {streams.map((s, i) => (
-              <Reveal key={s.title} delay={i * 80}>
-                <div className="h-full bg-card border border-border rounded-2xl p-7 hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all">
-                  <div className="flex items-center gap-3 mb-5">
-                    <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary">
+              <Reveal key={s.title} delay={i * 90}>
+                <div
+                  className={`group relative h-full rounded-[28px] bg-white/75 backdrop-blur border border-white/60 p-7 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-25px_rgba(22,54,184,0.35)] ${bentoSpan[i] || ""}`}
+                  style={{ boxShadow: "0 10px 35px -22px rgba(15,23,42,0.18)" }}
+                >
+                  {/* light sweep */}
+                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                  {/* corner gradient */}
+                  <span className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-colors" />
+
+                  <div className="relative flex items-start justify-between mb-5">
+                    <div className="text-[10px] uppercase tracking-[0.22em] text-accent font-bold">Stream · 0{i + 1}</div>
+                    <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/15 text-primary group-hover:rotate-6 group-hover:scale-110 transition-transform">
                       <s.icon size={20} />
                     </span>
-                    <h3 className="text-xl font-display font-bold text-foreground">{s.title}</h3>
                   </div>
-                  <ul className="space-y-2">
+                  <h3 className="relative text-2xl font-display font-bold text-foreground tracking-tight">{s.title}</h3>
+                  <ul className="relative mt-4 space-y-2">
                     {s.items.map((it) => (
-                      <li key={it} className="flex items-start gap-2 text-sm text-foreground/80">
-                        <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
+                      <li key={it} className="flex items-start gap-2 text-[13.5px] text-foreground/75">
+                        <CheckCircle2 size={14} className="text-accent shrink-0 mt-1" />
                         <span>{it}</span>
                       </li>
                     ))}
@@ -793,80 +967,162 @@ function PartnersView() {
         </div>
       </section>
 
-      {/* COMMERCIAL MODEL */}
+      <SectionDivider />
+
+      {/* ============== COMMERCIAL MODEL — PRICING SELECTOR ============== */}
       <section id="engagement" className="container">
-        <Reveal>
-          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
-            <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-accent font-bold mb-3">Commercial Model</div>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground leading-tight">
-                No setup cost. <br />
-                <span className="text-primary">No overhead.</span>
-              </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
-                No long-term commitment before you know the team works. One contract. One invoice. One point of contact. We handle the India entity, the HR, the compliance. You focus on delivering for your client.
-              </p>
+        <div className="grid lg:grid-cols-[0.9fr_1.3fr] gap-12 lg:gap-16 items-start">
+          <Reveal>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Commercial Model</div>
+            <h2 className="text-4xl md:text-[3.4rem] font-display font-bold text-foreground leading-[1.02] tracking-[-0.02em]">
+              No setup.
+              <br />
+              No overhead.
+              <br />
+              <span className="text-gradient-flow">Just delivery.</span>
+            </h2>
+            <p className="mt-7 text-lg text-foreground/70 leading-relaxed">
+              Pick the engagement that matches your pipeline. Switch freely as your programme evolves. One contract handles all of them.
+            </p>
+            <div className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-primary/[0.05] border border-primary/10">
+              <ShieldCheck size={18} className="text-primary" />
+              <span className="text-sm font-semibold text-foreground/80">Amsterdam-governed · India-delivered</span>
             </div>
-            <div className="grid gap-4">
-              {engagements.map((e, i) => (
-                <Reveal key={e.title} delay={i * 100}>
-                  <div className="group flex gap-5 bg-card border border-border rounded-2xl p-6 hover:border-primary/40 hover:shadow-lg transition-all">
-                    <span className="inline-flex items-center justify-center w-12 h-12 shrink-0 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <e.icon size={22} />
-                    </span>
-                    <div>
-                      <h3 className="text-lg font-display font-bold text-foreground">{e.title}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
+          </Reveal>
+
+          <div className="grid gap-5">
+            {engagements.map((e, i) => {
+              const selected = i === selectedEng;
+              return (
+                <Reveal key={e.title} delay={i * 120}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedEng(i)}
+                    className={`group relative w-full text-left rounded-[28px] p-7 transition-all duration-500 overflow-hidden min-h-[48px] ${
+                      selected
+                        ? "bg-white border-2 border-primary shadow-[0_30px_70px_-25px_rgba(22,54,184,0.45)] -translate-y-1"
+                        : "bg-white/70 backdrop-blur border border-white/60 hover:-translate-y-1 hover:shadow-xl"
+                    }`}
+                  >
+                    {selected && (
+                      <span className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-[#F5B51A] to-accent" />
+                    )}
+                    <div className="flex items-start gap-5">
+                      <span className={`inline-flex items-center justify-center w-14 h-14 shrink-0 rounded-2xl transition-all ${selected ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"}`}>
+                        <e.icon size={22} />
+                      </span>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <h3 className="text-xl font-display font-bold text-foreground tracking-tight">{e.title}</h3>
+                          {selected && (
+                            <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.18em] px-2 py-0.5 rounded-full bg-accent text-accent-foreground">
+                              <CheckCircle2 size={11} /> Most Chosen
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-2 text-[15px] text-foreground/70 leading-relaxed">{e.body}</p>
+                      </div>
+                      <ArrowRight size={18} className={`shrink-0 mt-2 transition-all ${selected ? "text-primary translate-x-1" : "text-foreground/30 group-hover:text-primary group-hover:translate-x-1"}`} />
                     </div>
-                  </div>
+                  </button>
                 </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ============== COMPARISON BOARD ============== */}
+      <section className="container">
+        <Reveal>
+          <div className="max-w-2xl mb-12">
+            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why NGSIT</div>
+            <h2 className="text-4xl md:text-[3.4rem] font-display font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
+              What you need. <span className="text-primary">What we deliver.</span>
+            </h2>
+          </div>
+        </Reveal>
+        <Reveal delay={150}>
+          <div className="relative rounded-[28px] glass-card gradient-border overflow-hidden shadow-[0_30px_80px_-30px_rgba(15,23,42,0.2)]">
+            <div className="sticky top-0 z-10 grid grid-cols-1 md:grid-cols-[1fr_1.5fr] bg-gradient-to-r from-primary to-[#1c2f8a] text-primary-foreground text-xs font-bold uppercase tracking-[0.18em]">
+              <div className="px-7 py-5 border-b md:border-b-0 md:border-r border-primary-foreground/15">What you need</div>
+              <div className="px-7 py-5">NGSIT delivers</div>
+            </div>
+            <div>
+              {matrix.map(([k, v], i) => (
+                <div
+                  key={k}
+                  className={`group grid grid-cols-1 md:grid-cols-[1fr_1.5fr] transition-colors duration-300 ${i % 2 ? "bg-white/40" : "bg-white/70"} hover:bg-primary/[0.06]`}
+                >
+                  <div className="px-7 py-5 font-semibold text-foreground border-b border-foreground/10 md:border-b md:border-r flex items-center gap-3">
+                    <span className="w-7 h-7 inline-flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xs font-bold">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {k}
+                  </div>
+                  <div className="px-7 py-5 text-foreground/80 border-b border-foreground/10 flex items-center gap-3">
+                    <span className="relative inline-flex w-7 h-7 items-center justify-center rounded-full bg-accent/15 text-accent">
+                      <CheckCircle2 size={16} className="transition-transform group-hover:scale-110" />
+                    </span>
+                    <span>{v}</span>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </Reveal>
       </section>
 
-      {/* MATRIX */}
-      <section className="container">
+      {/* ============== CINEMATIC CTA ============== */}
+      <section className="container py-24 md:py-32">
         <Reveal>
-          <div className="max-w-2xl mb-10">
-            <div className="text-xs uppercase tracking-[0.2em] text-accent font-bold mb-3">Why NGSIT</div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">What You Need. What We Deliver.</h2>
-          </div>
-        </Reveal>
-        <Reveal delay={150}>
-          <div className="overflow-hidden rounded-2xl border border-border shadow-lg bg-card">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] bg-primary text-primary-foreground text-sm font-bold uppercase tracking-wide">
-              <div className="px-6 py-4 border-b md:border-b-0 md:border-r border-primary-foreground/15">What you need</div>
-              <div className="px-6 py-4">NGSIT delivers</div>
+          <div className="relative overflow-hidden rounded-[28px] p-12 md:p-20 text-center" style={{ background: "linear-gradient(135deg, #050a26 0%, #0a1547 50%, #050a26 100%)" }}>
+            {/* aurora layers */}
+            <div className="absolute -top-32 -left-32 w-[36rem] h-[36rem] rounded-full bg-primary/40 blur-[120px] animate-aurora" />
+            <div className="absolute -bottom-32 -right-32 w-[36rem] h-[36rem] rounded-full bg-accent/30 blur-[120px] animate-aurora-2" />
+            <div className="absolute inset-0 bg-grid-soft opacity-40" />
+            {/* particles */}
+            <div className="absolute inset-0 pointer-events-none">
+              {[...Array(18)].map((_, i) => (
+                <span
+                  key={i}
+                  className="absolute block w-1 h-1 rounded-full bg-white/60 animate-float-y-slow"
+                  style={{
+                    top: `${(i * 47) % 92 + 4}%`,
+                    left: `${(i * 31) % 96 + 2}%`,
+                    animationDelay: `${(i % 6) * 0.5}s`,
+                  }}
+                />
+              ))}
             </div>
-            {matrix.map(([k, v], i) => (
-              <div key={k} className={`grid grid-cols-1 md:grid-cols-[1fr_1.4fr] ${i % 2 ? "bg-muted/30" : "bg-card"}`}>
-                <div className="px-6 py-5 font-semibold text-foreground border-b border-border md:border-b md:border-r">{k}</div>
-                <div className="px-6 py-5 text-foreground/80 border-b border-border flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-accent shrink-0" />
-                  <span>{v}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </section>
 
-      {/* CTA */}
-      <section className="container pb-20">
-        <Reveal>
-          <div className="relative overflow-hidden bg-foreground text-primary-foreground rounded-3xl p-10 md:p-16 text-center">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-accent/25 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary/30 rounded-full blur-3xl" />
             <div className="relative">
-              <h2 className="text-3xl md:text-5xl font-display font-bold">Let us talk about your pipeline.</h2>
-              <p className="mt-4 text-lg text-primary-foreground/80">We will tell you exactly what we can activate and when.</p>
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <a href="/contact" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded-full font-bold shadow-xl hover:-translate-y-0.5 transition-all">
-                  Start the Partner Conversation <ArrowRight size={16} />
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 backdrop-blur px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/90 mb-8">
+                <Handshake size={12} /> Partner Programme
+              </div>
+              <h2 className="text-4xl md:text-[4.5rem] font-display font-bold text-white leading-[1] tracking-[-0.02em]">
+                Let's Build
+                <br />
+                Your Delivery Engine.
+              </h2>
+              <p className="mt-7 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+                We'll tell you exactly what we can activate, who's on the team, and when they start.
+              </p>
+              <div className="mt-10 flex flex-wrap justify-center gap-4">
+                <a
+                  href="/contact"
+                  className="group relative inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-full font-bold shadow-[0_20px_60px_-15px_rgba(245,181,26,0.6)] hover:shadow-[0_25px_70px_-12px_rgba(245,181,26,0.8)] hover:-translate-y-0.5 transition-all overflow-hidden min-h-[48px]"
+                >
+                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:translate-x-full transition-transform duration-700" />
+                  <span className="relative">Start the Partner Conversation</span>
+                  <ArrowRight size={18} className="relative transition-transform group-hover:translate-x-1.5" />
                 </a>
-                <a href="/contact" className="inline-flex items-center gap-2 bg-card/10 border border-primary-foreground/20 text-primary-foreground px-7 py-3.5 rounded-full font-bold hover:bg-card/20 transition-all">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-white/10 border border-white/25 backdrop-blur text-white px-8 py-4 rounded-full font-bold hover:bg-white/15 hover:-translate-y-0.5 transition-all min-h-[48px]"
+                >
                   <FileText size={16} /> Download Partner Programme
                 </a>
               </div>
@@ -874,6 +1130,151 @@ function PartnersView() {
           </div>
         </Reveal>
       </section>
+    </div>
+  );
+}
+
+function SectionDivider() {
+  return (
+    <div className="container py-2">
+      <div className="relative h-px">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent shadow-[0_0_18px_4px_rgba(245,181,26,0.45)]" />
+      </div>
+    </div>
+  );
+}
+
+function PartnerDashboardScene() {
+  const ref = useRef<HTMLDivElement>(null);
+  // 3D parallax on mouse move
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width - 0.5) * 12;
+      const y = ((e.clientY - r.top) / r.height - 0.5) * -12;
+      el.style.transform = `perspective(1100px) rotateY(${x}deg) rotateX(${y}deg)`;
+    };
+    const onLeave = () => { el.style.transform = "perspective(1100px) rotateY(0) rotateX(0)"; };
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseleave", onLeave);
+    return () => { el.removeEventListener("mousemove", onMove); el.removeEventListener("mouseleave", onLeave); };
+  }, []);
+
+  return (
+    <div className="relative" style={{ perspective: "1100px" }}>
+      <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 via-[#6C63FF]/15 to-accent/20 rounded-[36px] blur-3xl" />
+      <div
+        ref={ref}
+        className="relative rounded-[28px] gradient-border bg-white/80 backdrop-blur-xl shadow-[0_40px_100px_-30px_rgba(15,23,42,0.35)] overflow-hidden animate-float-y-slow transition-transform duration-200 ease-out"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* dashboard header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-foreground/5 bg-white/60">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/70" />
+            <span className="ml-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/60">NGSIT · Partner Console</span>
+          </div>
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Live
+          </span>
+        </div>
+
+        <div className="p-6 grid grid-cols-6 gap-4">
+          {/* Pipeline progress */}
+          <div className="col-span-6 md:col-span-4 rounded-2xl bg-gradient-to-br from-primary to-[#2958FF] text-primary-foreground p-5 shadow-lg shadow-primary/30 relative overflow-hidden">
+            <div className="absolute inset-0 bg-grid-soft opacity-40" />
+            <div className="relative flex items-start justify-between">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.22em] text-white/70 font-bold">Active Pipeline</div>
+                <div className="mt-2 text-3xl font-display font-bold tracking-tight">€ 4.8M</div>
+                <div className="text-xs text-white/70 mt-1">Across 12 partner programmes</div>
+              </div>
+              <span className="inline-flex items-center gap-1 text-xs font-semibold bg-white/15 px-2 py-1 rounded-full">
+                <TrendingUp size={12} /> +28%
+              </span>
+            </div>
+            <div className="relative mt-5">
+              <div className="flex justify-between text-[10px] text-white/70 mb-1.5 font-semibold uppercase tracking-wider">
+                <span>Discovery</span><span>Build</span><span>Migrate</span><span>AMS</span>
+              </div>
+              <div className="h-2 rounded-full bg-white/15 overflow-hidden">
+                <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-accent to-[#F5B51A] shadow-[0_0_18px_rgba(245,181,26,0.6)]" />
+              </div>
+            </div>
+          </div>
+
+          {/* AI assistant */}
+          <div className="col-span-6 md:col-span-2 rounded-2xl bg-white border border-foreground/5 p-5 shadow-sm relative overflow-hidden">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex w-9 h-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#6C63FF] to-primary text-primary-foreground">
+                <Bot size={16} />
+              </span>
+              <div>
+                <div className="text-xs font-bold text-foreground">AI Assistant</div>
+                <div className="text-[10px] text-foreground/60">Pipeline insight</div>
+              </div>
+            </div>
+            <p className="mt-3 text-[12px] text-foreground/70 leading-snug">
+              Staffing for <span className="font-semibold text-primary">Acme S/4HANA</span> is on track — team ready in <span className="font-semibold">11 days</span>.
+            </p>
+            <div className="mt-3 flex gap-1">
+              {[...Array(3)].map((_, i) => (
+                <span key={i} className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-pulse" style={{ animationDelay: `${i * 200}ms` }} />
+              ))}
+            </div>
+          </div>
+
+          {/* Contract card */}
+          <div className="col-span-3 md:col-span-2 rounded-2xl border border-foreground/10 bg-white p-4 shadow-sm">
+            <div className="text-[10px] uppercase tracking-[0.18em] text-accent font-bold">Contract</div>
+            <div className="mt-1 font-display font-bold text-foreground text-base">MSA · v3.2</div>
+            <div className="mt-2 text-[11px] text-foreground/60">1 doc · 1 invoice · 1 POC</div>
+            <div className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+              <CheckCircle2 size={11} /> Signed
+            </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="col-span-3 md:col-span-2 rounded-2xl border border-foreground/10 bg-white p-4 shadow-sm">
+            <div className="text-[10px] uppercase tracking-[0.18em] text-accent font-bold">Activation</div>
+            <div className="mt-1 font-display font-bold text-foreground text-base">Week 03 / 04</div>
+            <div className="mt-3 flex gap-1">
+              {[1, 2, 3, 4].map((w) => (
+                <span key={w} className={`flex-1 h-1.5 rounded-full ${w <= 3 ? "bg-primary" : "bg-foreground/10"}`} />
+              ))}
+            </div>
+            <div className="mt-2 text-[11px] text-foreground/60">Team handover Friday</div>
+          </div>
+
+          {/* Project status */}
+          <div className="col-span-6 md:col-span-2 rounded-2xl border border-foreground/10 bg-white p-4 shadow-sm">
+            <div className="text-[10px] uppercase tracking-[0.18em] text-accent font-bold">Status</div>
+            <div className="mt-2 space-y-2">
+              {[
+                { l: "Discovery", v: "On track", c: "emerald" },
+                { l: "Build", v: "On track", c: "emerald" },
+                { l: "Cutover", v: "Planning", c: "amber" },
+              ].map((r) => (
+                <div key={r.l} className="flex items-center justify-between text-[11px]">
+                  <span className="text-foreground/70">{r.l}</span>
+                  <span className={`font-semibold ${r.c === "emerald" ? "text-emerald-600" : "text-amber-600"}`}>{r.v}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating tech pills */}
+      <FloatPill className="-top-4 -left-3 animate-float-y" label="SAP" color="#1636B8" />
+      <FloatPill className="-top-3 right-6 animate-float-y-slow" label="Microsoft" color="#2958FF" />
+      <FloatPill className="-bottom-3 left-8 animate-float-y-slow" label="Azure" color="#6C63FF" />
+      <FloatPill className="-bottom-5 -right-3 animate-float-y" label="Databricks" color="#F5B51A" />
     </div>
   );
 }
