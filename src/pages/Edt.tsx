@@ -196,7 +196,7 @@ function HeroDashboard() {
 
 function FloatPill({ className, label, color }: { className?: string; label: string; color: string }) {
   return (
-    <div className={`glass-card gradient-border rounded-full px-3.5 py-2 shadow-lg flex items-center gap-2 ${className ?? ""}`}>
+    <div className={`glass-card gradient-border rounded-full px-3.5 py-2 shadow-lg inline-flex items-center gap-2 w-fit max-w-max whitespace-nowrap ${className ?? ""}`}>
       <span className="w-2 h-2 rounded-full" style={{ background: color, boxShadow: `0 0 12px ${color}` }} />
       <span className="text-xs font-semibold text-foreground">{label}</span>
     </div>
@@ -262,7 +262,7 @@ function CustomersViewPremium() {
   ];
 
   return (
-    <div className="space-y-28 md:space-y-36">
+    <div className="space-y-20 md:space-y-24">
       {/* ============ HERO ============ */}
       <section ref={heroRef} className="relative overflow-hidden">
         <CursorGlow targetRef={heroRef} />
@@ -333,7 +333,7 @@ function CustomersViewPremium() {
         </div>
 
         {/* Trust marquee */}
-        <div className="mt-24 md:mt-32 relative">
+        <div className="mt-16 md:mt-20 relative">
           <div className="text-center text-[11px] uppercase tracking-[0.3em] text-foreground/50 font-semibold mb-6">
             Delivered across the enterprise stack
           </div>
@@ -468,7 +468,7 @@ function CustomersViewPremium() {
             <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">What your EDT delivers.</h2>
           </Reveal>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 md:auto-rows-[180px] gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 md:auto-rows-[220px] gap-4">
           {bento.map((b, i) => (
             <Reveal key={b.title} delay={i * 80}>
               <div className={`group relative h-full rounded-[28px] p-6 md:p-7 border border-border bg-gradient-to-br ${b.gradient} bg-card overflow-hidden hover:-translate-y-1 transition-all duration-500 hover:shadow-2xl ${b.span}`}>
@@ -542,15 +542,15 @@ function CustomersViewPremium() {
                   </div>
                 </div>
                 {/* Floating metric chips */}
-                <div className="absolute top-5 left-5 glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y">
+                <div className="absolute top-5 left-5 w-fit max-w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y">
                   <div className="text-[10px] uppercase tracking-wider text-foreground/60 font-semibold">Entities</div>
                   <div className="text-xl font-display font-bold text-primary">70+</div>
                 </div>
-                <div className="absolute bottom-5 left-5 glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y-slow">
+                <div className="absolute bottom-5 left-5 w-fit max-w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y-slow">
                   <div className="text-[10px] uppercase tracking-wider text-foreground/60 font-semibold">Faster</div>
                   <div className="text-xl font-display font-bold text-primary">50%</div>
                 </div>
-                <div className="absolute top-5 right-5 glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y">
+                <div className="absolute top-5 right-5 w-fit max-w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y">
                   <div className="text-[10px] uppercase tracking-wider text-foreground/60 font-semibold">Support</div>
                   <div className="text-xl font-display font-bold text-primary">24/7</div>
                 </div>
@@ -1271,10 +1271,10 @@ function PartnerDashboardScene() {
       </div>
 
       {/* Floating tech pills */}
-      <FloatPill className="-top-4 -left-3 animate-float-y" label="SAP" color="#1636B8" />
-      <FloatPill className="-top-3 right-6 animate-float-y-slow" label="Microsoft" color="#2958FF" />
-      <FloatPill className="-bottom-3 left-8 animate-float-y-slow" label="Azure" color="#6C63FF" />
-      <FloatPill className="-bottom-5 -right-3 animate-float-y" label="Databricks" color="#F5B51A" />
+      <FloatPill className="absolute -top-4 -left-3 animate-float-y" label="SAP" color="#1636B8" />
+      <FloatPill className="absolute -top-3 right-6 animate-float-y-slow" label="Microsoft" color="#2958FF" />
+      <FloatPill className="absolute -bottom-3 left-8 animate-float-y-slow" label="Azure" color="#6C63FF" />
+      <FloatPill className="absolute -bottom-5 -right-3 animate-float-y" label="Databricks" color="#F5B51A" />
     </div>
   );
 }
