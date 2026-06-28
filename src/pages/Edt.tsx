@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useCountUp } from "@/hooks/use-count-up";
 import {
   ArrowRight,
   Users,
@@ -21,8 +22,12 @@ import {
   Gauge,
   TrendingUp,
   FileText,
+  Play,
+  Star,
+  Bot,
+  Activity,
+  Zap,
 } from "lucide-react";
-import customersHero from "@/assets/edt/customers-hero.jpg";
 import partnersHero from "@/assets/edt/partners-hero.jpg";
 
 type Audience = "customers" | "partners";
