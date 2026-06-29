@@ -4,7 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerEnergy from "@/assets/banner-energy.jpg";
-import intelligenceImg from "@/assets/energy-intelligence.jpg";
+import intelligenceAsset from "@/assets/energy-intelligence.jpg.asset.json";
 import expertiseImg from "@/assets/energy-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
@@ -46,7 +46,7 @@ function Intro() {
         <div className={`relative ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
           <img
-            src={intelligenceImg}
+            src={intelligenceAsset.url}
             alt="Energy operations intelligence dashboard"
             loading="lazy"
             width={1280}
