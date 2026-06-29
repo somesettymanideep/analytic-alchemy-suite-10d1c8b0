@@ -6,7 +6,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerRetail from "@/assets/banner-retail.jpg";
-import retailImg from "@/assets/retail-intelligence.jpg";
+import retailVideo from "@/assets/retail-intelligence.mp4.asset.json";
 import wholesaleImg from "@/assets/wholesale-intelligence.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
@@ -33,6 +33,7 @@ function Section({
   title,
   intro,
   image,
+  video,
   imageAlt,
   reverse,
 }: {
@@ -40,7 +41,8 @@ function Section({
   EyebrowIcon: LucideIcon;
   title: string;
   intro: React.ReactNode;
-  image: string;
+  image?: string;
+  video?: string;
   imageAlt: string;
   reverse?: boolean;
 }) {
@@ -59,14 +61,26 @@ function Section({
         </div>
         <div className={`relative ${reverse ? "lg:order-1" : ""} ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
-          <img
-            src={image}
-            alt={imageAlt}
-            loading="lazy"
-            width={1280}
-            height={896}
-            className="relative w-full h-auto rounded-2xl shadow-xl border border-border/60 object-cover"
-          />
+          {video ? (
+            <video
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-label={imageAlt}
+              className="relative w-full h-auto rounded-2xl shadow-xl border border-border/60 object-cover aspect-video bg-black"
+            />
+          ) : (
+            <img
+              src={image}
+              alt={imageAlt}
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="relative w-full h-auto rounded-2xl shadow-xl border border-border/60 object-cover"
+            />
+          )}
         </div>
       </div>
     </section>
@@ -201,7 +215,7 @@ export default function Retail() {
               transform raw consumer data into loyal, long-term relationships.
             </>
           }
-          image={retailImg}
+          video={retailVideo.url}
           imageAlt="Retail customer analytics dashboard"
         />
 
