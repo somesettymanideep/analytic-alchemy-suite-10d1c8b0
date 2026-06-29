@@ -4,7 +4,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerFinance from "@/assets/banner-finance.jpg";
-import intelligenceImg from "@/assets/finance-intelligence.jpg";
+import intelligenceAsset from "@/assets/finance-intelligence.webp.asset.json";
+const intelligenceImg = intelligenceAsset.url;
 import expertiseImg from "@/assets/finance-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
