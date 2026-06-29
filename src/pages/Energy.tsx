@@ -46,7 +46,7 @@ function Intro() {
         <div className={`relative ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
           <img
-            src={intelligenceImg}
+            src={intelligenceAsset.url}
             alt="Energy operations intelligence dashboard"
             loading="lazy"
             width={1280}
