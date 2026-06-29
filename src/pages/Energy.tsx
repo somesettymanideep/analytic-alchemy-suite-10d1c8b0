@@ -4,7 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerEnergy from "@/assets/banner-energy.jpg";
-import intelligenceImg from "@/assets/energy-intelligence.jpg";
+import intelligenceAsset from "@/assets/energy-intelligence.jpg.asset.json";
 import expertiseImg from "@/assets/energy-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
