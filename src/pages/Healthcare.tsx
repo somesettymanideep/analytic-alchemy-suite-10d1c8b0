@@ -50,7 +50,7 @@ function Intro() {
             loop
             muted
             playsInline
-            className="relative w-full h-auto rounded-2xl shadow-xl border border-border/60 object-cover"
+            className="relative w-full aspect-video rounded-2xl shadow-xl border border-border/60 object-cover bg-background"
           />
         </div>
       </div>
