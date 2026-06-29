@@ -22,14 +22,27 @@ export default function Hero2Section() {
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    let raf = 0;
+    let pending: { x: number; y: number } | null = null;
     const onMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-      const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-      setParallax({ x, y });
+      pending = {
+        x: (e.clientX - rect.left - rect.width / 2) / rect.width,
+        y: (e.clientY - rect.top - rect.height / 2) / rect.height,
+      };
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          if (pending) setParallax(pending);
+          raf = 0;
+        });
+      }
     };
-    el.addEventListener("mousemove", onMove);
-    return () => el.removeEventListener("mousemove", onMove);
+    el.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   useEffect(() => {

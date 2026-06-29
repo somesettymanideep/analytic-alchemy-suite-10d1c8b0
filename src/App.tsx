@@ -1,53 +1,70 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
-import Contact from "./pages/Contact.tsx";
-import About from "./pages/About.tsx";
-import Team from "./pages/Team.tsx";
-import Careers from "./pages/Careers.tsx";
-import Blog from "./pages/Blog.tsx";
-import Manufacturing from "./pages/Manufacturing.tsx";
-import Logistics from "./pages/Logistics.tsx";
-import Staffing from "./pages/Staffing.tsx";
-import Healthcare from "./pages/Healthcare.tsx";
-import Finance from "./pages/Finance.tsx";
-import Energy from "./pages/Energy.tsx";
-import Retail from "./pages/Retail.tsx";
-import SapS4Hana from "./pages/SapS4Hana.tsx";
-import SapEcc from "./pages/SapEcc.tsx";
-import SapRise from "./pages/SapRise.tsx";
-import SapBdc from "./pages/SapBdc.tsx";
-import SapSac from "./pages/SapSac.tsx";
-import SapBtp from "./pages/SapBtp.tsx";
-import SapDataSphere from "./pages/SapDataSphere.tsx";
-import MicrosoftDynamics365 from "./pages/MicrosoftDynamics365.tsx";
-import BusinessCentral from "./pages/BusinessCentral.tsx";
-import DynamicsAx from "./pages/DynamicsAx.tsx";
-import Snowflake from "./pages/Snowflake.tsx";
-import Databricks from "./pages/Databricks.tsx";
-import Fabric from "./pages/Fabric.tsx";
-import ErpAiAgents from "./pages/ErpAiAgents.tsx";
-import AiFoundry from "./pages/AiFoundry.tsx";
-import DatabricksGenie from "./pages/DatabricksGenie.tsx";
-import DataLedAi from "./pages/DataLedAi.tsx";
-import SapJoule from "./pages/SapJoule.tsx";
-import SnowflakeCortex from "./pages/SnowflakeCortex.tsx";
-import AiTesting from "./pages/AiTesting.tsx";
-import BlueGecko from "./pages/BlueGecko.tsx";
-import FalconMapping from "./pages/FalconMapping.tsx";
-import CodeCheetah from "./pages/CodeCheetah.tsx";
-import OwlSight from "./pages/OwlSight.tsx";
-import OrcaMigrate from "./pages/OrcaMigrate.tsx";
-import AmsServices from "./pages/AmsServices.tsx";
-import CaseStudy from "./pages/CaseStudy.tsx";
-import Edt from "./pages/Edt.tsx";
-import HomePage2 from "./pages/HomePage2.tsx";
-import NotFound from "./pages/NotFound.tsx";
 
-const queryClient = new QueryClient();
+const Contact = lazy(() => import("./pages/Contact.tsx"));
+const About = lazy(() => import("./pages/About.tsx"));
+const Team = lazy(() => import("./pages/Team.tsx"));
+const Careers = lazy(() => import("./pages/Careers.tsx"));
+const Blog = lazy(() => import("./pages/Blog.tsx"));
+const Manufacturing = lazy(() => import("./pages/Manufacturing.tsx"));
+const Logistics = lazy(() => import("./pages/Logistics.tsx"));
+const Staffing = lazy(() => import("./pages/Staffing.tsx"));
+const Healthcare = lazy(() => import("./pages/Healthcare.tsx"));
+const Finance = lazy(() => import("./pages/Finance.tsx"));
+const Energy = lazy(() => import("./pages/Energy.tsx"));
+const Retail = lazy(() => import("./pages/Retail.tsx"));
+const SapS4Hana = lazy(() => import("./pages/SapS4Hana.tsx"));
+const SapEcc = lazy(() => import("./pages/SapEcc.tsx"));
+const SapRise = lazy(() => import("./pages/SapRise.tsx"));
+const SapBdc = lazy(() => import("./pages/SapBdc.tsx"));
+const SapSac = lazy(() => import("./pages/SapSac.tsx"));
+const SapBtp = lazy(() => import("./pages/SapBtp.tsx"));
+const SapDataSphere = lazy(() => import("./pages/SapDataSphere.tsx"));
+const MicrosoftDynamics365 = lazy(() => import("./pages/MicrosoftDynamics365.tsx"));
+const BusinessCentral = lazy(() => import("./pages/BusinessCentral.tsx"));
+const DynamicsAx = lazy(() => import("./pages/DynamicsAx.tsx"));
+const Snowflake = lazy(() => import("./pages/Snowflake.tsx"));
+const Databricks = lazy(() => import("./pages/Databricks.tsx"));
+const Fabric = lazy(() => import("./pages/Fabric.tsx"));
+const ErpAiAgents = lazy(() => import("./pages/ErpAiAgents.tsx"));
+const AiFoundry = lazy(() => import("./pages/AiFoundry.tsx"));
+const DatabricksGenie = lazy(() => import("./pages/DatabricksGenie.tsx"));
+const DataLedAi = lazy(() => import("./pages/DataLedAi.tsx"));
+const SapJoule = lazy(() => import("./pages/SapJoule.tsx"));
+const SnowflakeCortex = lazy(() => import("./pages/SnowflakeCortex.tsx"));
+const AiTesting = lazy(() => import("./pages/AiTesting.tsx"));
+const BlueGecko = lazy(() => import("./pages/BlueGecko.tsx"));
+const FalconMapping = lazy(() => import("./pages/FalconMapping.tsx"));
+const CodeCheetah = lazy(() => import("./pages/CodeCheetah.tsx"));
+const OwlSight = lazy(() => import("./pages/OwlSight.tsx"));
+const OrcaMigrate = lazy(() => import("./pages/OrcaMigrate.tsx"));
+const AmsServices = lazy(() => import("./pages/AmsServices.tsx"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy.tsx"));
+const Edt = lazy(() => import("./pages/Edt.tsx"));
+const HomePage2 = lazy(() => import("./pages/HomePage2.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      gcTime: 10 * 60 * 1000,
+      refetchOnWindowFocus: false,
+      retry: 1,
+    },
+  },
+});
+
+const RouteFallback = () => (
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="h-8 w-8 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
+  </div>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -55,6 +72,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />
@@ -101,6 +119,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
