@@ -23,8 +23,8 @@ const COMPANY_EMAIL = "Info@NGSIT.com";
 const COMPANY_LOCATION = "B. Amsterdam, Johan Huizingalaan 763A, 1066 VH, Amsterdam";
 const COMPANY_PHONE = "+31 (0) 20 123 4567";
 const WORKING_HOURS = [
-  { day: "Mon – Fri", hours: "9:00 AM – 6:00 PM CET" },
-  { day: "Saturday", hours: "By appointment" },
+  { day: "Mon – Fri", hours: "8:00 AM – 5:00 PM" },
+  { day: "Saturday", hours: "Closed" },
   { day: "Sunday", hours: "Closed" },
 ];
 
