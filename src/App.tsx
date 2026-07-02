@@ -9,6 +9,10 @@ import About from "./pages/About.tsx";
 import Team from "./pages/Team.tsx";
 import Careers from "./pages/Careers.tsx";
 import Blog from "./pages/Blog.tsx";
+import BlogDetail from "./pages/BlogDetail.tsx";
+import Whitepapers from "./pages/Whitepapers.tsx";
+import Research from "./pages/Research.tsx";
+import ResearchDetail from "./pages/ResearchDetail.tsx";
 import Manufacturing from "./pages/Manufacturing.tsx";
 import Logistics from "./pages/Logistics.tsx";
 import Staffing from "./pages/Staffing.tsx";
@@ -63,6 +67,10 @@ const App = () => (
           <Route path="/team" element={<Team />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/whitepapers" element={<Whitepapers />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/research/:id" element={<ResearchDetail />} />
           <Route path="/industries/manufacturing" element={<Manufacturing />} />
           <Route path="/industries/logistics" element={<Logistics />} />
           <Route path="/industries/staffing" element={<Staffing />} />
