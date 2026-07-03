@@ -294,7 +294,7 @@ export default function Navbar() {
 
                 {openMenuKey === "about" && l.hasMenu === "about" && (
                   <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(360px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    className="absolute right-0 top-full mt-2 w-[min(360px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
                     onMouseEnter={() => openMenu("about")}
                     onMouseLeave={scheduleClose}
                   >
