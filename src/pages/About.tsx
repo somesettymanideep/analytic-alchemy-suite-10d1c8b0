@@ -250,34 +250,37 @@ function VisionMission() {
 /* -------------------------------------------------------------- */
 function OurJourney() {
   const { ref, isVisible } = useScrollReveal(0.1);
+  type Bullet = { text: string; highlight?: boolean };
   const milestones: {
     year: string;
     title: string;
-    bullets: string[];
+    bullets: Bullet[];
     icon: typeof Rocket;
+    highlight?: boolean;
   }[] = [
     {
       year: "2022",
       title: "Nextgenlytics founded",
-      bullets: ["Founded in Amsterdam"],
+      bullets: [{ text: "Founded in Amsterdam" }],
       icon: Rocket,
     },
     {
       year: "2023",
       title: "First customer & offshore hub",
       bullets: [
-        "Onboarded 1st NL customer",
-        "1st offshore delivery center: Hyderabad",
-        "Advisory, Data Strategy, Data Analytics, Digital Transformation",
+        { text: "Onboarded 1st NL customer" },
+        { text: "1st offshore delivery center: Hyderabad", highlight: true },
+        { text: "Advisory, Data Strategy, Data Analytics, Digital Transformation" },
       ],
       icon: Building2,
+      highlight: true,
     },
     {
       year: "2024",
       title: "AI & business applications",
       bullets: [
-        "Expanded focus: implementing AI services",
-        "Business Application expertise & services: SAP, D365 & Salesforce",
+        { text: "Expanded focus: implementing AI services" },
+        { text: "Business Application expertise & services: SAP, D365 & Salesforce" },
       ],
       icon: Zap,
     },
@@ -285,13 +288,14 @@ function OurJourney() {
       year: "2025",
       title: "Global scale & BlueGecko",
       bullets: [
-        "Onboarded 1st UK customer",
-        "Launched Application Managed Services (AMS)",
-        "Cloud Infra Managed Services",
-        "2nd offshore delivery center: Lucknow",
-        "Global launch of flagship platform: BlueGecko",
+        { text: "Onboarded 1st UK customer" },
+        { text: "Launched Application Managed Services (AMS)", highlight: true },
+        { text: "Cloud Infra Managed Services" },
+        { text: "2nd offshore delivery center: Lucknow", highlight: true },
+        { text: "Global launch of flagship platform: BlueGecko", highlight: true },
       ],
       icon: Globe2,
+      highlight: true,
     },
   ];
   return (
@@ -431,24 +435,56 @@ function OurJourney() {
                           aria-hidden
                         />
                         <div
-                          className={`group relative rounded-2xl border border-border bg-card p-5 shadow-lg hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/40 transition-all duration-300 ${
-                            onLeft ? "" : "text-right"
-                          }`}
+                          className={`group relative rounded-2xl border bg-card p-5 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-primary/15 hover:border-primary/50 ${
+                            m.highlight ? "border-accent/50 ring-1 ring-accent/30" : "border-border"
+                          } ${onLeft ? "" : "text-right"}`}
                         >
+                          {m.highlight && (
+                            <span
+                              className="absolute -top-2 right-4 px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-widest shadow-md"
+                              aria-hidden
+                            >
+                              Key year
+                            </span>
+                          )}
                           <div className={`flex items-baseline gap-3 ${onLeft ? "" : "justify-end"}`}>
-                            <span className="font-heading text-3xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent leading-none">
+                            <span
+                              className={`font-heading text-3xl font-bold leading-none transition-transform duration-300 group-hover:scale-110 ${
+                                m.highlight
+                                  ? "text-accent"
+                                  : "bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent"
+                              }`}
+                            >
                               {m.year}
                             </span>
-                            <span className="px-2 py-0.5 rounded-full bg-accent/15 text-accent text-[10px] font-bold uppercase tracking-widest">
+                            <span
+                              className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest ${
+                                m.highlight
+                                  ? "bg-primary text-primary-foreground"
+                                  : "bg-accent/15 text-accent"
+                              }`}
+                            >
                               Milestone
                             </span>
                           </div>
                           <h3 className="mt-3 text-lg font-bold text-foreground font-heading">{m.title}</h3>
-                          <ul className={`mt-2 space-y-1.5 text-sm text-muted-foreground leading-relaxed ${onLeft ? "" : "text-right"}`}>
+                          <ul className={`mt-2 space-y-1.5 text-sm leading-relaxed ${onLeft ? "" : "text-right"}`}>
                             {m.bullets.map((b) => (
-                              <li key={b} className={`flex gap-2 ${onLeft ? "" : "flex-row-reverse"}`}>
-                                <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
-                                <span>{b}</span>
+                              <li
+                                key={b.text}
+                                className={`flex gap-2 ${onLeft ? "" : "flex-row-reverse"} ${
+                                  b.highlight
+                                    ? "text-foreground font-semibold"
+                                    : "text-muted-foreground"
+                                }`}
+                              >
+                                <span
+                                  className={`mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
+                                    b.highlight ? "bg-primary ring-2 ring-accent/40" : "bg-accent"
+                                  }`}
+                                  aria-hidden
+                                />
+                                <span>{b.text}</span>
                               </li>
                             ))}
                           </ul>
@@ -460,36 +496,78 @@ function OurJourney() {
               </div>
 
               {/* Mobile fallback list */}
-              <ol className="md:hidden space-y-10">
+              <ol className="md:hidden space-y-8">
                 {milestones.map((m, i) => {
                   const Icon = m.icon;
                   return (
                     <li
                       key={m.year}
-                      className={`relative pl-20 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
+                      className={`relative pl-16 sm:pl-20 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
                       style={{ animationDelay: `${i * 120}ms` }}
                     >
                       <span
-                        className="absolute left-0 top-0 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl shadow-primary/30 ring-4 ring-background"
+                        className={`absolute left-0 top-0 z-10 flex items-center justify-center w-12 h-12 rounded-full text-primary-foreground shadow-xl ring-4 ring-background ${
+                          m.highlight
+                            ? "bg-gradient-to-br from-accent to-primary shadow-accent/40"
+                            : "bg-gradient-to-br from-primary to-primary/80 shadow-primary/30"
+                        }`}
                         aria-hidden
                       >
                         <Icon size={20} strokeWidth={2.2} />
                       </span>
-                      <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
-                        <div className="flex items-baseline gap-3">
-                          <span className="font-heading text-3xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent leading-none">
+                      <div
+                        className={`group relative rounded-2xl border bg-card p-4 sm:p-5 shadow-sm transition-all duration-300 active:scale-[0.99] hover:-translate-y-1 hover:shadow-lg hover:border-primary/40 ${
+                          m.highlight ? "border-accent/50 ring-1 ring-accent/30" : "border-border"
+                        }`}
+                      >
+                        {m.highlight && (
+                          <span
+                            className="absolute -top-2 right-3 px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-widest shadow-md"
+                            aria-hidden
+                          >
+                            Key year
+                          </span>
+                        )}
+                        <div className="flex items-baseline gap-3 flex-wrap">
+                          <span
+                            className={`font-heading text-2xl sm:text-3xl font-bold leading-none ${
+                              m.highlight
+                                ? "text-accent"
+                                : "bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent"
+                            }`}
+                          >
                             {m.year}
                           </span>
-                          <span className="px-2 py-0.5 rounded-full bg-accent/15 text-accent text-[10px] font-bold uppercase tracking-widest">
+                          <span
+                            className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest ${
+                              m.highlight
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-accent/15 text-accent"
+                            }`}
+                          >
                             Milestone
                           </span>
                         </div>
-                        <h3 className="mt-3 text-lg font-bold text-foreground font-heading">{m.title}</h3>
-                        <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground leading-relaxed">
+                        <h3 className="mt-3 text-base sm:text-lg font-bold text-foreground font-heading leading-snug">
+                          {m.title}
+                        </h3>
+                        <ul className="mt-2 space-y-1.5 text-sm leading-relaxed">
                           {m.bullets.map((b) => (
-                            <li key={b} className="flex gap-2">
-                              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
-                              <span>{b}</span>
+                            <li
+                              key={b.text}
+                              className={`flex gap-2 ${
+                                b.highlight
+                                  ? "text-foreground font-semibold"
+                                  : "text-muted-foreground"
+                              }`}
+                            >
+                              <span
+                                className={`mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
+                                  b.highlight ? "bg-primary ring-2 ring-accent/40" : "bg-accent"
+                                }`}
+                                aria-hidden
+                              />
+                              <span>{b.text}</span>
                             </li>
                           ))}
                         </ul>
