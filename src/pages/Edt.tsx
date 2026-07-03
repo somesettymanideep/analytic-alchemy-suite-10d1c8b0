@@ -933,11 +933,11 @@ function PartnersViewPremium({
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-4 md:auto-rows-[220px] gap-5">
+          <div className="grid md:grid-cols-4 md:auto-rows-fr gap-5">
             {streams.map((s, i) => (
               <Reveal key={s.title} delay={i * 90}>
                 <div
-                  className={`group relative h-full rounded-[28px] bg-white/75 backdrop-blur border border-white/60 p-7 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-25px_rgba(22,54,184,0.35)] ${bentoSpan[i] || ""}`}
+                  className={`group relative h-full min-h-[260px] rounded-[28px] bg-white/75 backdrop-blur border border-white/60 p-7 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-25px_rgba(22,54,184,0.35)] ${bentoSpan[i] || ""}`}
                   style={{ boxShadow: "0 10px 35px -22px rgba(15,23,42,0.18)" }}
                 >
                   {/* light sweep */}
