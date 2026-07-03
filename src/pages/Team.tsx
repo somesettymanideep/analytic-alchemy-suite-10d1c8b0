@@ -67,7 +67,7 @@ const founders = [
       "The best technology never sells itself. The right conversation does.",
     image: emilioAsset.url,
     highlights: [
-      "Enterprise tech sales leadership across TCS, Tata Communications, and KPN Netherlands",
+      "Enterprise tech sales leadership across TCS, EDS, Tata Communications, and KPN Netherlands",
       "Drives new business across SAP, Microsoft, Data Engineering, and AI portfolios",
       "The commercial engine connecting world-class delivery with the organisations that need it",
     ],
