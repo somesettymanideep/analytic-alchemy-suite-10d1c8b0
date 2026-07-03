@@ -324,7 +324,7 @@ function OurJourney() {
           // Deterministic zigzag: alternate sides for a clean centered timeline
           const pts = milestones.map((_, i) => {
             const t = i / (n - 1);
-            const y = 6 + t * 88; // 6% → 94%
+            const y = 8 + t * 78; // 8% → 86% keeps first/last cards inside container
             return { x: 50, y, t, onLeft: i % 2 === 0 };
           });
           let d = "";
@@ -344,7 +344,7 @@ function OurJourney() {
               <div className="md:hidden absolute left-[27px] top-0 bottom-0 w-px border-l-2 border-dashed border-accent/70" aria-hidden />
 
               {/* Desktop: curved road SVG */}
-              <div className="hidden md:block relative w-full" style={{ height: `${n * 300}px` }}>
+              <div className="hidden md:block relative w-full" style={{ height: `${n * 400}px` }}>
                 <svg
                   className="absolute inset-0 w-full h-full"
                   viewBox="0 0 100 100"
