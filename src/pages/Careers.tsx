@@ -233,7 +233,7 @@ function Hero() {
 
           {/* Right image with curved accent */}
           <div className={`relative ${isVisible ? "animate-reveal-right" : "opacity-0"}`}>
-            <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-2xl shadow-primary/15 ring-1 ring-border/60 animate-float-slow">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-2xl shadow-primary/15 ring-1 ring-border/60 animate-float-y-slow">
               <img
                 src={careersHeroAsset.url}
                 alt="Careers at Nextgenlytics"
@@ -243,11 +243,11 @@ function Hero() {
             </div>
             {/* Accent decorations */}
             <span
-              className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-accent/20 blur-2xl animate-pulse-soft"
+              className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-accent/25 blur-2xl animate-pulse"
               aria-hidden
             />
             <span
-              className="absolute -bottom-5 -left-5 h-28 w-28 rounded-full bg-primary/15 blur-2xl animate-pulse-soft"
+              className="absolute -bottom-5 -left-5 h-28 w-28 rounded-full bg-primary/20 blur-2xl animate-pulse"
               style={{ animationDelay: "600ms" }}
               aria-hidden
             />
