@@ -10,6 +10,7 @@ import blogAi from "@/assets/blog-ai-agents.jpg";
 import blogData from "@/assets/blog-data-migration.jpg";
 import {
   ArrowRight,
+  ArrowLeft,
   CalendarDays,
   Clock,
   Linkedin,
@@ -239,7 +240,13 @@ const BUILDING_BLOCKS = [
 
 export default function BlogDetail() {
   const { id } = useParams();
-  const post = useMemo(() => POSTS.find((p) => p.id === id) ?? POSTS[0], [id]);
+  const currentIndex = useMemo(() => {
+    const idx = POSTS.findIndex((p) => p.id === id);
+    return idx === -1 ? 0 : idx;
+  }, [id]);
+  const post = POSTS[currentIndex];
+  const prevPost = currentIndex > 0 ? POSTS[currentIndex - 1] : null;
+  const nextPost = currentIndex < POSTS.length - 1 ? POSTS[currentIndex + 1] : null;
   const [activeCat, setActiveCat] = useState("All Categories");
   const recent = POSTS.filter((p) => p.id !== post.id).slice(0, 3);
 
@@ -382,6 +389,55 @@ export default function BlogDetail() {
                   </button>
                 </div>
               </div>
+
+              {/* Prev / Next navigation */}
+              {(prevPost || nextPost) && (
+                <nav
+                  aria-label="Blog post navigation"
+                  className="mt-8 grid sm:grid-cols-2 gap-4"
+                >
+                  {prevPost ? (
+                    <Link
+                      to={`/blog/${prevPost.id}`}
+                      className="group flex items-center gap-3 rounded-xl border border-border/60 bg-card p-4 hover:border-primary/40 hover:shadow-md transition-all"
+                    >
+                      <div className="h-10 w-10 shrink-0 rounded-full bg-primary/10 text-primary grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <ArrowLeft size={16} />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                          Previous
+                        </p>
+                        <p className="mt-0.5 text-sm font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                          {prevPost.title}
+                        </p>
+                      </div>
+                    </Link>
+                  ) : (
+                    <span />
+                  )}
+                  {nextPost ? (
+                    <Link
+                      to={`/blog/${nextPost.id}`}
+                      className="group flex items-center gap-3 rounded-xl border border-border/60 bg-card p-4 hover:border-primary/40 hover:shadow-md transition-all text-right sm:justify-end"
+                    >
+                      <div className="min-w-0 order-1 sm:order-none">
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                          Next
+                        </p>
+                        <p className="mt-0.5 text-sm font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                          {nextPost.title}
+                        </p>
+                      </div>
+                      <div className="h-10 w-10 shrink-0 rounded-full bg-primary/10 text-primary grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors order-2">
+                        <ArrowRight size={16} />
+                      </div>
+                    </Link>
+                  ) : (
+                    <span />
+                  )}
+                </nav>
+              )}
             </article>
 
             {/* Sidebar */}
