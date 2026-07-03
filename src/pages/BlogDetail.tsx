@@ -3,22 +3,26 @@ import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import bannerBlog from "@/assets/banner-careers.jpg";
 import blogSap from "@/assets/blog-sap-clean-core.jpg";
 import blogAi from "@/assets/blog-ai-agents.jpg";
 import blogData from "@/assets/blog-data-migration.jpg";
 import {
-  ArrowLeft,
   ArrowRight,
   CalendarDays,
   Clock,
   Linkedin,
   Link2,
+  Facebook,
+  Twitter,
+  Search,
+  ChevronRight,
+  Database,
+  Cloud,
+  BarChart3,
+  Users,
+  Lightbulb,
   Mail,
-  Quote,
-  User,
-  TrendingUp,
+  Home,
 } from "lucide-react";
 
 type Section = { id: string; heading: string; body: string[] };
