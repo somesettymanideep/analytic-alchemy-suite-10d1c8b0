@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import PageBanner from "@/components/PageBanner";
+import bannerBlog from "@/assets/banner-careers.jpg";
 import blogSap from "@/assets/blog-sap-clean-core.jpg";
 import blogAi from "@/assets/blog-ai-agents.jpg";
 import blogData from "@/assets/blog-data-migration.jpg";
@@ -21,7 +23,6 @@ import {
   BarChart3,
   Users,
   Lightbulb,
-  Mail,
   Home,
 } from "lucide-react";
 
@@ -253,7 +254,13 @@ export default function BlogDetail() {
       <ScrollToTop />
       <Navbar />
 
-      <main className="pt-16 md:pt-20">
+      <main>
+        <PageBanner
+          image={bannerBlog}
+          eyebrow={post.category}
+          title={post.title}
+          description={post.excerpt}
+        />
         {/* Breadcrumb */}
         <div className="container pt-6 pb-4">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground">
