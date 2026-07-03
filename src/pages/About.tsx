@@ -321,12 +321,11 @@ function OurJourney() {
         {/* ---------- Curved Road Timeline ---------- */}
         {(() => {
           const n = milestones.length;
-          // Build a serpentine path through evenly spaced y positions
+          // Deterministic zigzag: alternate sides for a clean centered timeline
           const pts = milestones.map((_, i) => {
             const t = i / (n - 1);
-            const y = 6 + t * 88; // 6% → 94%
-            const x = 50 + Math.sin(t * Math.PI * (n - 1)) * 32; // weaves left/right
-            return { x, y, t };
+            const y = 8 + t * 78; // 8% → 86% keeps first/last cards inside container
+            return { x: 50, y, t, onLeft: i % 2 === 0 };
           });
           let d = "";
           pts.forEach((p, i) => {
@@ -345,7 +344,7 @@ function OurJourney() {
               <div className="md:hidden absolute left-[27px] top-0 bottom-0 w-px border-l-2 border-dashed border-accent/70" aria-hidden />
 
               {/* Desktop: curved road SVG */}
-              <div className="hidden md:block relative w-full" style={{ height: `${n * 220}px` }}>
+              <div className="hidden md:block relative w-full" style={{ height: `${n * 400}px` }}>
                 <svg
                   className="absolute inset-0 w-full h-full"
                   viewBox="0 0 100 100"
@@ -398,7 +397,7 @@ function OurJourney() {
                 {milestones.map((m, i) => {
                   const Icon = m.icon;
                   const p = pts[i];
-                  const onLeft = p.x < 50;
+                  const onLeft = p.onLeft;
                   return (
                     <div
                       key={m.year}
@@ -435,9 +434,9 @@ function OurJourney() {
                           aria-hidden
                         />
                         <div
-                          className={`group relative rounded-2xl border bg-card p-5 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-primary/15 hover:border-primary/50 ${
+                          className={`group relative rounded-2xl border bg-card p-5 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-primary/15 hover:border-primary/50 text-left ${
                             m.highlight ? "border-accent/50 ring-1 ring-accent/30" : "border-border"
-                          } ${onLeft ? "" : "text-right"}`}
+                          }`}
                         >
                           {m.highlight && (
                             <span
@@ -447,7 +446,7 @@ function OurJourney() {
                               Key year
                             </span>
                           )}
-                          <div className={`flex items-baseline gap-3 ${onLeft ? "" : "justify-end"}`}>
+                          <div className="flex items-baseline gap-3">
                             <span
                               className={`font-heading text-3xl font-bold leading-none transition-transform duration-300 group-hover:scale-110 ${
                                 m.highlight
@@ -468,11 +467,11 @@ function OurJourney() {
                             </span>
                           </div>
                           <h3 className="mt-3 text-lg font-bold text-foreground font-heading">{m.title}</h3>
-                          <ul className={`mt-2 space-y-1.5 text-sm leading-relaxed ${onLeft ? "" : "text-right"}`}>
+                          <ul className="mt-2 space-y-1.5 text-sm leading-relaxed">
                             {m.bullets.map((b) => (
                               <li
                                 key={b.text}
-                                className={`flex gap-2 ${onLeft ? "" : "flex-row-reverse"} ${
+                                className={`flex gap-2 ${
                                   b.highlight
                                     ? "text-foreground font-semibold"
                                     : "text-muted-foreground"
