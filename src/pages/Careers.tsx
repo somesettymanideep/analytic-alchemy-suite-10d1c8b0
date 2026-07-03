@@ -240,7 +240,10 @@ function Hero() {
             className={`relative ${isVisible ? "animate-reveal-right" : "opacity-0"}`}
             style={{ animationDelay: "300ms" }}
           >
-            <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-2xl shadow-primary/15 ring-1 ring-border/60 animate-float-y-slow">
+            <div
+              className="relative aspect-[16/10] overflow-hidden shadow-2xl shadow-primary/15 animate-float-y-slow"
+              style={{ borderRadius: "60% 0 0 60% / 50% 0 0 50%" }}
+            >
               <img
                 src={careersHeroAsset.url}
                 alt="Careers at Nextgenlytics"
@@ -248,17 +251,22 @@ function Hero() {
                 loading="eager"
               />
             </div>
-            {/* Accent decorations */}
-            <span
-              className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-accent/25 blur-2xl animate-pulse"
+            {/* Yellow arc tracing the curve */}
+            <svg
+              className="absolute -inset-2 -z-10 w-[calc(100%+1rem)] h-[calc(100%+1rem)] pointer-events-none"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
               aria-hidden
-            />
-            <span
-              className="absolute -bottom-5 -left-5 h-28 w-28 rounded-full bg-primary/20 blur-2xl animate-pulse"
-              style={{ animationDelay: "600ms" }}
-              aria-hidden
-            />
-            <span className="absolute left-6 bottom-6 h-3 w-3 rounded-full bg-accent shadow-md" />
+            >
+              <path
+                d="M 100 0 Q 0 50 100 100"
+                fill="none"
+                stroke="hsl(var(--accent))"
+                strokeWidth="0.5"
+              />
+            </svg>
+            {/* Blue dot on the arc */}
+            <span className="absolute -left-1 top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-primary shadow-md" />
           </div>
         </div>
       </div>
