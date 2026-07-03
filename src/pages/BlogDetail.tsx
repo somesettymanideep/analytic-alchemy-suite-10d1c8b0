@@ -466,12 +466,12 @@ export default function BlogDetail() {
                           onClick={() => setActiveCat(c)}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
                             active
-                              ? "bg-accent/15 text-primary font-semibold border border-accent/40"
+                              ? "bg-accent text-accent-foreground font-semibold border border-accent"
                               : "text-muted-foreground hover:bg-muted"
                           }`}
                         >
                           <span>{c}</span>
-                          <ChevronRight size={14} className={active ? "text-accent" : "text-muted-foreground/60"} />
+                          <ChevronRight size={14} className={active ? "text-accent-foreground" : "text-muted-foreground/60"} />
                         </button>
                       </li>
                     );
