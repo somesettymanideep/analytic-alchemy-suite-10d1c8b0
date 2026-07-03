@@ -110,11 +110,11 @@ const navLinks = [
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries", hasMenu: "industries" as const },
+  { label: "Extended Delivery Team", href: "/edt" },
   { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Careers", href: "/careers" },
-  { label: "Extended Delivery Team", href: "/edt" },
 ];
 
 type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | "solutions" | null;
