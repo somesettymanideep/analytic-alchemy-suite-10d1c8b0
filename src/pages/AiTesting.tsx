@@ -43,7 +43,7 @@ function Intro() {
             always obvious until it is too late.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">NGSIT AI Testing</strong> provides a comprehensive validation framework
+            <strong className="text-foreground">nextgenlytics AI Testing</strong> provides a comprehensive validation framework
             that ensures every AI agent, model, and LLM-powered workflow you deploy is accurate, safe, fair, and ready for
             enterprise-scale use — before it ever reaches a live environment.
           </p>
@@ -171,7 +171,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose NGSIT for AI Testing?
+              <CheckCircle2 size={14} /> Why Choose nextgenlytics for AI Testing?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               AI you cannot trust is AI you cannot use. We make sure your AI earns that trust — before it goes live.
@@ -184,7 +184,7 @@ function WhyUs() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The NGSIT Difference
+                  <Sparkles size={12} /> The nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   Validation engineered for enterprise-grade AI.
@@ -248,7 +248,7 @@ const faqs = [
   },
   {
     q: "What regulations does AI testing help with?",
-    a: "NGSIT AI Testing generates audit trails and bias assessments that support compliance with key AI regulations including the EU AI Act, GDPR, and industry-specific frameworks in financial services, healthcare, and other regulated sectors.",
+    a: "nextgenlytics AI Testing generates audit trails and bias assessments that support compliance with key AI regulations including the EU AI Act, GDPR, and industry-specific frameworks in financial services, healthcare, and other regulated sectors.",
   },
 ];
 

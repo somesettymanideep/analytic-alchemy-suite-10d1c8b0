@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Megaphone } from "lucide-react";
 const announcements = [
   "🚀 New: BlueGecko Platform v2 — accelerate SAP & D365 migrations by up to 50%",
   "📅 Upcoming Webinar: Agentic AI for Enterprise Data — Register now",
-  "🏆 NGSIT named Top Data & AI Consulting Partner 2026",
+  "🏆 nextgenlytics named Top Data & AI Consulting Partner 2026",
   "🌍 Now operating across Amsterdam · Hyderabad · Lucknow — let's talk",
 ];
 

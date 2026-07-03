@@ -245,7 +245,7 @@ export default function Whitepapers() {
                   />
                   <div className="absolute inset-6 flex flex-col justify-between text-primary-foreground">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">NGSIT · Whitepaper</p>
+                      <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">nextgenlytics · Whitepaper</p>
                       <h3 className="mt-2 text-xl md:text-2xl font-bold font-heading leading-snug">
                         Clean Core Playbook
                       </h3>
@@ -329,7 +329,7 @@ export default function Whitepapers() {
                 },
                 {
                   q: "Can I share them internally?",
-                  a: "Yes — please do. Share links or the PDF freely within your organisation. Republishing externally requires attribution to NGSIT.",
+                  a: "Yes — please do. Share links or the PDF freely within your organisation. Republishing externally requires attribution to nextgenlytics.",
                 },
                 {
                   q: "Do you write custom research?",

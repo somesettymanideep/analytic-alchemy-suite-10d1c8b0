@@ -32,7 +32,7 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> NGSIT AI Foundry
+            <Sparkles size={14} /> nextgenlytics AI Foundry
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Custom AI built on your data — <span className="text-primary">not generic models built on everyone else's.</span>
@@ -42,7 +42,7 @@ function Intro() {
             understands your industry, your compliance requirements, and your specific business logic.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">NGSIT AI Foundry</strong> is a comprehensive environment where we
+            <strong className="text-foreground">nextgenlytics AI Foundry</strong> is a comprehensive environment where we
             design, orchestrate, and manage high-performance AI models built entirely around how your business works —
             using your proprietary data, not public training sets.
           </p>
@@ -107,7 +107,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Brain size={14} /> What NGSIT AI Foundry Delivers
+            <Brain size={14} /> What nextgenlytics AI Foundry Delivers
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Production AI, engineered around your business.
@@ -165,7 +165,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Build with NGSIT AI Foundry?
+              <CheckCircle2 size={14} /> Why Build with nextgenlytics AI Foundry?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Generic AI gives you generic results. Foundry gives you intelligence nobody else can replicate.
@@ -178,7 +178,7 @@ function WhyUs() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Brain size={12} /> The NGSIT Difference
+                  <Brain size={12} /> The nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   Your models. Your data. Your competitive edge.
@@ -238,11 +238,11 @@ const faqs = [
   },
   {
     q: "How is custom AI different from tools like ChatGPT?",
-    a: "Custom AI models built by NGSIT AI Foundry are fine-tuned on your specific business data, trained on your compliance requirements, and connected to your internal knowledge bases — unlike general-purpose tools that rely on public training data.",
+    a: "Custom AI models built by nextgenlytics AI Foundry are fine-tuned on your specific business data, trained on your compliance requirements, and connected to your internal knowledge bases — unlike general-purpose tools that rely on public training data.",
   },
   {
-    q: "What LLMs does NGSIT AI Foundry support?",
-    a: "NGSIT AI Foundry supports a range of leading LLMs including GPT-4o, Claude, and open-source models like Llama — orchestrated to match the right model to the right task for optimal performance and cost efficiency.",
+    q: "What LLMs does nextgenlytics AI Foundry support?",
+    a: "nextgenlytics AI Foundry supports a range of leading LLMs including GPT-4o, Claude, and open-source models like Llama — orchestrated to match the right model to the right task for optimal performance and cost efficiency.",
   },
 ];
 
@@ -314,7 +314,7 @@ export default function AiFoundry() {
         <PageBanner
           image={banner}
           eyebrow="AI Solutions · AI Foundry"
-          title="NGSIT AI Foundry"
+          title="nextgenlytics AI Foundry"
           description="Custom AI built on your data — not generic models built on everyone else's."
         />
         <Intro />

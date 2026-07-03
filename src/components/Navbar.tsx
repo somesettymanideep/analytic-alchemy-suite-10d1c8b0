@@ -71,7 +71,7 @@ const insightsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
 ];
 
 const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
-  { label: "About NGSIT", Icon: Building2, href: "/about" },
+  { label: "About nextgenlytics", Icon: Building2, href: "/about" },
   { label: "Our Team", Icon: UsersRound, href: "/team" },
   { label: "Contact", Icon: Mail, href: "/contact" },
 ];
@@ -163,7 +163,7 @@ export default function Navbar() {
       <AnnouncementBar />
       <div className="container flex items-center justify-between h-16 md:h-20">
         <a href="/" className="flex items-center gap-2">
-          <img src={logo} alt="NGSIT" className="h-14 md:h-16 rounded" />
+          <img src={logo} alt="nextgenlytics" className="h-14 md:h-16 rounded" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-6">

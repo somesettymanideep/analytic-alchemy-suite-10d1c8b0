@@ -106,7 +106,7 @@ const POSTS: Post[] = [
       "The PoC-to-production gap is rarely a model problem. It's an integration, governance, and trust problem.",
     stats: [
       { value: "82%", label: "of AI pilots stall before production" },
-      { value: "12wk", label: "typical NGSIT PoC-to-live timeline" },
+      { value: "12wk", label: "typical nextgenlytics PoC-to-live timeline" },
       { value: "4x", label: "ROI on agent programmes with observability" },
     ],
     sections: [
@@ -400,7 +400,7 @@ export default function BlogDetail() {
                   <h3 className="mt-1 text-lg font-heading font-bold text-foreground">{post.author}</h3>
                   <p className="text-sm text-muted-foreground">{post.authorRole}</p>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                    Practitioner at NGSIT, working directly with European enterprises to ship SAP, Microsoft, and AI programmes that reach production.
+                    Practitioner at nextgenlytics, working directly with European enterprises to ship SAP, Microsoft, and AI programmes that reach production.
                   </p>
                 </div>
               </div>

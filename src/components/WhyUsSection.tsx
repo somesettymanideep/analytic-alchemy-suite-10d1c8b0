@@ -60,7 +60,7 @@ export default function WhyUsSection() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-8 h-0.5 bg-accent" />
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Why NGSIT
+              Why nextgenlytics
             </span>
             <span className="w-8 h-0.5 bg-accent" />
           </div>

@@ -48,7 +48,7 @@ function Intro() {
             you're carrying real risk — outdated infrastructure, no vendor support, and a growing gap between your systems and what modern AI demands.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">NGSIT</strong> specialises in migrating legacy AX environments to
+            <strong className="text-foreground">nextgenlytics</strong> specialises in migrating legacy AX environments to
             Dynamics 365 Finance & Supply Chain Management — turning technical debt into a competitive advantage.
           </p>
         </div>
@@ -229,7 +229,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why NGSIT
+              <CheckCircle2 size={14} /> Why nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Carry your AX intelligence forward — clean, structured, and ready for AI.
@@ -291,7 +291,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Bot size={12} /> The NGSIT Difference
+                <Bot size={12} /> The nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Turn technical debt into a competitive advantage.
@@ -316,7 +316,7 @@ const faqs = [
   },
   {
     q: "How long does an AX to Dynamics 365 migration take?",
-    a: "Migration timelines vary based on system complexity and data volume, but NGSIT uses a phased approach that minimises disruption and maintains parallel system operations throughout the transition.",
+    a: "Migration timelines vary based on system complexity and data volume, but nextgenlytics uses a phased approach that minimises disruption and maintains parallel system operations throughout the transition.",
   },
   {
     q: "Can we keep our AX customisations when migrating to D365?",

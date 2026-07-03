@@ -103,7 +103,7 @@ function Hero() {
           <Reveal>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mb-8">
               <span className="w-2 h-2 rounded-full bg-[#5EDFFF] animate-pulse" />
-              <span className="text-xs font-medium tracking-widest text-white/80 uppercase">NGSIT · Careers</span>
+              <span className="text-xs font-medium tracking-widest text-white/80 uppercase">nextgenlytics · Careers</span>
             </div>
           </Reveal>
           <Reveal delay={100}>
@@ -181,7 +181,7 @@ function WhyBento() {
       <div className="container relative">
         <Reveal>
           <div className="max-w-3xl mb-16">
-            <p className="text-xs tracking-[0.3em] text-[#5EDFFF] uppercase mb-4">Chapter 02 · Why NGSIT</p>
+            <p className="text-xs tracking-[0.3em] text-[#5EDFFF] uppercase mb-4">Chapter 02 · Why nextgenlytics</p>
             <h2 className="font-heading text-4xl md:text-6xl font-bold text-white leading-[1.05] tracking-tight">A place engineered for people who care about the craft.</h2>
           </div>
         </Reveal>
@@ -326,7 +326,7 @@ function EmployeeStory() {
             <div className="h-px w-16 bg-gradient-to-r from-[#5EDFFF] to-transparent" />
             <div>
               <p className="text-white font-semibold">Elena Vasquez</p>
-              <p className="text-white/50 text-sm">Principal Consultant, NGSIT</p>
+              <p className="text-white/50 text-sm">Principal Consultant, nextgenlytics</p>
             </div>
           </div>
         </Reveal>

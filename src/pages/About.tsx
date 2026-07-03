@@ -43,7 +43,7 @@ function CompanyOverview() {
         </div>
         <div className={`lg:col-span-7 space-y-5 ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
-            NGSIT is a next-generation enterprise consulting and services firm
+            nextgenlytics is a next-generation enterprise consulting and services firm
             specialising in <strong className="text-foreground">SAP, Microsoft, Data & AI,
             and Cloud</strong> transformations. We pair Tier-1 system integrator
             experience with our own delivery platform — <strong className="text-foreground">BlueGecko</strong> —
@@ -274,7 +274,7 @@ function OurJourney() {
             From founding insight to a productised delivery platform.
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            A short timeline of the milestones that shaped NGSIT into the firm it is today.
+            A short timeline of the milestones that shaped nextgenlytics into the firm it is today.
           </p>
         </div>
 
@@ -535,7 +535,7 @@ function GlobalPresence() {
 }
 
 /* -------------------------------------------------------------- */
-/*  Why Choose NGSIT                                      */
+/*  Why Choose nextgenlytics                                      */
 /* -------------------------------------------------------------- */
 function WhyChoose() {
   const { ref, isVisible } = useScrollReveal();
@@ -575,7 +575,7 @@ function WhyChoose() {
     <section id="why" className="container py-12 md:py-16" ref={ref}>
       <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-          <Award size={14} /> Why Choose NGSIT
+          <Award size={14} /> Why Choose nextgenlytics
         </span>
         <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
           Six reasons enterprises trust us with their transformations.
@@ -614,7 +614,7 @@ export default function About() {
       <main>
         <PageBanner
           image={aboutBanner}
-          eyebrow="About NGSIT"
+          eyebrow="About nextgenlytics"
           title="Built by the people who ran these programmes."
           description="Amsterdam-founded, globally delivered. We combine Tier-1 SI experience with our own BlueGecko platform to make enterprise migrations faster, leaner, and predictable."
         />

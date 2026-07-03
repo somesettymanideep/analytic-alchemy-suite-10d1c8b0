@@ -50,7 +50,7 @@ function Intro() {
             warehousing, analytics, and AI workloads can all run simultaneously without competing for resources.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">NGSIT</strong> implements and optimises Snowflake so your teams spend less
+            <strong className="text-foreground">nextgenlytics</strong> implements and optimises Snowflake so your teams spend less
             time managing infrastructure and more time extracting value from data.
           </p>
         </div>
@@ -127,7 +127,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What NGSIT Delivers with Snowflake
+            <Sparkles size={14} /> What nextgenlytics Delivers with Snowflake
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One platform for analytics, sharing, and AI — at any scale
@@ -232,13 +232,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why NGSIT for Snowflake
+              <CheckCircle2 size={14} /> Why nextgenlytics for Snowflake
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Architected for cost, integrated by design, governed from day one.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Your data is already there. Snowflake — implemented by NGSIT — turns it into a scalable, AI-ready
+              Your data is already there. Snowflake — implemented by nextgenlytics — turns it into a scalable, AI-ready
               competitive advantage without the infrastructure burden.
             </p>
 
@@ -295,7 +295,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The NGSIT Difference
+                <Brain size={12} /> The nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Cost-aware architecture. Cortex-ready data. Governance you can audit.

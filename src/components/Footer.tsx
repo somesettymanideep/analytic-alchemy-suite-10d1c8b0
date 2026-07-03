@@ -12,7 +12,7 @@ const productLinks = [
 ];
 
 const companyLinks = [
-  { label: "About NGSIT", to: "/about" },
+  { label: "About nextgenlytics", to: "/about" },
   { label: "Our Team", to: "/team" },
   { label: "Case Study", to: "/case-study" },
   { label: "Careers", to: "/careers" },
@@ -25,7 +25,7 @@ const contactItems = [
     href: "https://maps.google.com/?q=B.+Amsterdam+Johan+Huizingalaan+763A",
   },
   { Icon: Phone, label: "+31 (0) 20 123 4567", href: "tel:+31201234567" },
-  { Icon: Mail, label: "Info@NGSIT.com", href: "mailto:Info@NGSIT.com" },
+  { Icon: Mail, label: "Info@nextgenlytics.com", href: "mailto:Info@nextgenlytics.com" },
 ];
 
 export default function Footer() {
@@ -50,7 +50,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <img src={logo} alt="NGSIT" className="h-16 rounded mb-4" />
+            <img src={logo} alt="nextgenlytics" className="h-16 rounded mb-4" />
             <p className="text-sm leading-relaxed">
               AI-native data and transformation partner for mid-market enterprises.
             </p>
@@ -123,7 +123,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/40">
-          © {new Date().getFullYear()} NGSIT. All rights reserved.
+          © {new Date().getFullYear()} nextgenlytics. All rights reserved.
         </div>
       </div>
     </footer>

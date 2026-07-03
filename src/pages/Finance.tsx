@@ -38,7 +38,7 @@ function Intro() {
             institution needs a digital core that outpaces the market. The financial services
             landscape is shifting from traditional transaction processing to real-time,
             data-driven intelligence. At{" "}
-            <strong className="text-foreground">NGSIT</strong>, we provide expert
+            <strong className="text-foreground">nextgenlytics</strong>, we provide expert
             technology consulting for banks, NBFCs, and insurance firms. We help you navigate
             complex regulatory environments while transforming legacy systems into agile,
             AI-powered platforms that drive sustainable growth.
@@ -147,8 +147,8 @@ function OurExpertise() {
             Building the foundation for secure, high-velocity finance
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At NGSIT, we ensure that your financial systems are secure, intelligent, and
-            future-ready. NGSIT provides expert AI, ERP, and data platform implementation
+            At nextgenlytics, we ensure that your financial systems are secure, intelligent, and
+            future-ready. nextgenlytics provides expert AI, ERP, and data platform implementation
             for financial institutions including banks, insurance companies, and fintech
             organizations. Whether you are modernizing core banking systems, enhancing fraud
             detection, or improving customer engagement, we deliver specialized AI Agents and

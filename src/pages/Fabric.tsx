@@ -51,7 +51,7 @@ function Intro() {
             by unifying data engineering, data science, real-time analytics, and business intelligence into a single SaaS platform built on OneLake.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">NGSIT</strong> implements Fabric so your organisation moves from fragmented data
+            <strong className="text-foreground">nextgenlytics</strong> implements Fabric so your organisation moves from fragmented data
             infrastructure to a governed, AI-ready analytics environment — faster and at lower total cost.
           </p>
         </div>
@@ -128,7 +128,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What NGSIT Delivers with Microsoft Fabric
+            <Sparkles size={14} /> What nextgenlytics Delivers with Microsoft Fabric
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One unified platform — engineering, BI, and AI
@@ -232,13 +232,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why NGSIT for Microsoft Fabric
+              <CheckCircle2 size={14} /> Why nextgenlytics for Microsoft Fabric
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Microsoft-aligned, SAP-connected, cost-optimised from day one.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Fragmented data tools slow everyone down. Microsoft Fabric — implemented by NGSIT — gives your entire data team one platform, one lake, and one path to AI.
+              Fragmented data tools slow everyone down. Microsoft Fabric — implemented by nextgenlytics — gives your entire data team one platform, one lake, and one path to AI.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -294,7 +294,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The NGSIT Difference
+                <Brain size={12} /> The nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 One platform. One lake. One path to AI.
