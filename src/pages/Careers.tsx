@@ -6,7 +6,22 @@ import imgLifeInside from "@/assets/careers/life-inside.jpg";
 import imgHiringHandshake from "@/assets/careers/hiring-handshake.jpg";
 import bannerCareers from "@/assets/banner-careers.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 import {
   ArrowRight,
   ArrowLeft,
@@ -18,13 +33,17 @@ import {
   Globe,
   TrendingUp,
   Heart,
-  ChevronDown,
   Send,
   Database,
   Layers,
   Cpu,
   Cloud,
   BarChart3,
+  Search,
+  X,
+  Briefcase,
+  CheckCircle2,
+  Clock,
 } from "lucide-react";
 
 const whyItems = [
@@ -36,13 +55,139 @@ const whyItems = [
   { Icon: Heart, title: "Well-being Matters", body: "We care for your well-being and work-life balance." },
 ];
 
-const openJobs = [
-  { Icon: Database, title: "Data Engineer", dept: "Data & Analytics", location: "Hyderabad, India", exp: "3-6 Years" },
-  { Icon: Layers, title: "Solution Architect (D365)", dept: "Business Applications", location: "Hyderabad, India", exp: "6-10 Years" },
-  { Icon: Cpu, title: "AI/ML Engineer", dept: "AI & Automation", location: "Lucknow, India", exp: "3-6 Years" },
-  { Icon: Cloud, title: "Cloud DevOps Engineer", dept: "Cloud Services", location: "Hyderabad, India", exp: "4-7 Years" },
-  { Icon: BarChart3, title: "Business Analyst", dept: "Consulting", location: "Amsterdam, Netherlands", exp: "2-5 Years" },
+type Job = {
+  Icon: typeof Database;
+  title: string;
+  dept: string;
+  location: string;
+  exp: string;
+  type: string;
+  posted: string;
+  summary: string;
+  responsibilities: string[];
+  requirements: string[];
+};
+
+const openJobs: Job[] = [
+  {
+    Icon: Database,
+    title: "Data Engineer",
+    dept: "Data & Analytics",
+    location: "Hyderabad, India",
+    exp: "3-6 Years",
+    type: "Full-time",
+    posted: "2 days ago",
+    summary:
+      "Design, build and maintain scalable data pipelines that power analytics and AI products across enterprise clients.",
+    responsibilities: [
+      "Build and orchestrate ETL/ELT pipelines on modern lakehouse platforms.",
+      "Model data for analytics and machine learning workloads.",
+      "Optimize query performance and cost across cloud data warehouses.",
+      "Collaborate with analysts and data scientists to deliver reliable datasets.",
+    ],
+    requirements: [
+      "Strong SQL and Python skills.",
+      "Hands-on experience with Databricks, Snowflake or Fabric.",
+      "Familiarity with Airflow, dbt or similar orchestration tools.",
+      "Cloud experience (Azure preferred).",
+    ],
+  },
+  {
+    Icon: Layers,
+    title: "Solution Architect (D365)",
+    dept: "Business Applications",
+    location: "Hyderabad, India",
+    exp: "6-10 Years",
+    type: "Full-time",
+    posted: "1 week ago",
+    summary:
+      "Own the end-to-end solution design for Microsoft Dynamics 365 implementations across F&O and BC engagements.",
+    responsibilities: [
+      "Lead solution blueprints, integrations and data migrations.",
+      "Guide functional and technical teams through delivery.",
+      "Partner with clients on roadmap and governance decisions.",
+    ],
+    requirements: [
+      "6+ years across D365 F&O or Business Central.",
+      "Strong grasp of integration patterns and Power Platform.",
+      "Excellent client-facing communication.",
+    ],
+  },
+  {
+    Icon: Cpu,
+    title: "AI/ML Engineer",
+    dept: "AI & Automation",
+    location: "Lucknow, India",
+    exp: "3-6 Years",
+    type: "Full-time",
+    posted: "4 days ago",
+    summary:
+      "Ship production-grade ML and GenAI solutions — from experimentation to deployment — for enterprise use cases.",
+    responsibilities: [
+      "Prototype and productionize ML and LLM-based systems.",
+      "Build RAG pipelines, evaluation harnesses and guardrails.",
+      "Deploy models with robust MLOps practices.",
+    ],
+    requirements: [
+      "Strong Python and PyTorch/TensorFlow.",
+      "Experience with LangChain, vector stores and LLM APIs.",
+      "MLOps exposure (MLflow, Docker, Kubernetes).",
+    ],
+  },
+  {
+    Icon: Cloud,
+    title: "Cloud DevOps Engineer",
+    dept: "Cloud Services",
+    location: "Hyderabad, India",
+    exp: "4-7 Years",
+    type: "Full-time",
+    posted: "3 days ago",
+    summary:
+      "Automate cloud infrastructure and CI/CD pipelines for mission-critical customer platforms.",
+    responsibilities: [
+      "Design and maintain IaC using Terraform or Bicep.",
+      "Own CI/CD, observability and incident response.",
+      "Harden cloud security and cost posture.",
+    ],
+    requirements: [
+      "Deep Azure or AWS experience.",
+      "Kubernetes, Helm and GitOps.",
+      "Scripting in Python or Bash.",
+    ],
+  },
+  {
+    Icon: BarChart3,
+    title: "Business Analyst",
+    dept: "Consulting",
+    location: "Amsterdam, Netherlands",
+    exp: "2-5 Years",
+    type: "Full-time",
+    posted: "5 days ago",
+    summary:
+      "Translate client business goals into crisp requirements and measurable outcomes for data and AI programs.",
+    responsibilities: [
+      "Run discovery workshops and document requirements.",
+      "Define KPIs and success metrics with stakeholders.",
+      "Bridge business and engineering throughout delivery.",
+    ],
+    requirements: [
+      "Consulting or product analyst background.",
+      "Strong stakeholder management and storytelling.",
+      "Comfort with SQL and BI tools.",
+    ],
+  },
 ];
+
+const ALL = "all";
+
+function useDebounced<T>(value: T, delay = 300) {
+  const [debounced, setDebounced] = useState(value);
+  useEffect(() => {
+    const id = setTimeout(() => setDebounced(value), delay);
+    return () => clearTimeout(id);
+  }, [value, delay]);
+  return debounced;
+}
 
 const lifeGallery = [
   { img: imgTeamCollab, label: "Collaborate" },
