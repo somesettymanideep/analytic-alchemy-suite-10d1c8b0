@@ -233,15 +233,6 @@ function Hero() {
               At Nextgenlytics, we combine data, technology, and human potential to solve
               real-world challenges and create lasting impact for our clients and communities.
             </p>
-            <a
-              href="#openings"
-              className={`mt-8 inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all ${
-                isVisible ? "animate-reveal-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: "420ms" }}
-            >
-              Explore Opportunities <ArrowRight size={16} />
-            </a>
           </div>
 
           {/* Right image with curved accent */}
