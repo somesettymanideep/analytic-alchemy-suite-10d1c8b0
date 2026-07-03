@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import imgTeamCollab from "@/assets/careers/team-collab.jpg";
+import careersHeroAsset from "@/assets/careers/careers-hero.webp.asset.json";
 import imgLifeInside from "@/assets/careers/life-inside.jpg";
 import imgHiringHandshake from "@/assets/careers/hiring-handshake.jpg";
 import bannerCareers from "@/assets/banner-careers.jpg";
@@ -232,28 +233,25 @@ function Hero() {
 
           {/* Right image with curved accent */}
           <div className={`relative ${isVisible ? "animate-reveal-right" : "opacity-0"}`}>
-            <div className="relative aspect-[5/4] rounded-[46%_54%_38%_62%/58%_42%_58%_42%] overflow-hidden shadow-2xl shadow-primary/10 ring-1 ring-border/60">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-2xl shadow-primary/15 ring-1 ring-border/60 animate-float-slow">
               <img
-                src={imgTeamCollab}
-                alt="Nextgenlytics team collaborating"
-                className="w-full h-full object-cover"
+                src={careersHeroAsset.url}
+                alt="Careers at Nextgenlytics"
+                className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-105"
+                loading="eager"
               />
             </div>
-            {/* Yellow arc */}
-            <svg
-              className="absolute -inset-3 -z-10 w-[calc(100%+1.5rem)] h-[calc(100%+1.5rem)]"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
+            {/* Accent decorations */}
+            <span
+              className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-accent/20 blur-2xl animate-pulse-soft"
               aria-hidden
-            >
-              <path
-                d="M 50 2 A 48 48 0 1 1 6 60"
-                fill="none"
-                stroke="hsl(var(--accent))"
-                strokeWidth="0.6"
-              />
-            </svg>
-            <span className="absolute left-6 bottom-6 h-3 w-3 rounded-full bg-primary shadow-md" />
+            />
+            <span
+              className="absolute -bottom-5 -left-5 h-28 w-28 rounded-full bg-primary/15 blur-2xl animate-pulse-soft"
+              style={{ animationDelay: "600ms" }}
+              aria-hidden
+            />
+            <span className="absolute left-6 bottom-6 h-3 w-3 rounded-full bg-accent shadow-md" />
           </div>
         </div>
       </div>
