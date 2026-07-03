@@ -297,6 +297,52 @@ function WhyWork() {
 
 function OpenOpportunities() {
   const { ref, isVisible } = useScrollReveal();
+  const [search, setSearch] = useState("");
+  const [dept, setDept] = useState<string>(ALL);
+  const [loc, setLoc] = useState<string>(ALL);
+  const [expLevel, setExpLevel] = useState<string>(ALL);
+  const [activeJob, setActiveJob] = useState<Job | null>(null);
+  const debouncedSearch = useDebounced(search, 300);
+
+  const departments = useMemo(
+    () => Array.from(new Set(openJobs.map((j) => j.dept))),
+    [],
+  );
+  const locations = useMemo(
+    () => Array.from(new Set(openJobs.map((j) => j.location))),
+    [],
+  );
+  const experiences = useMemo(
+    () => Array.from(new Set(openJobs.map((j) => j.exp))),
+    [],
+  );
+
+  const filtered = useMemo(() => {
+    const q = debouncedSearch.trim().toLowerCase();
+    return openJobs.filter((j) => {
+      if (dept !== ALL && j.dept !== dept) return false;
+      if (loc !== ALL && j.location !== loc) return false;
+      if (expLevel !== ALL && j.exp !== expLevel) return false;
+      if (!q) return true;
+      return (
+        j.title.toLowerCase().includes(q) ||
+        j.dept.toLowerCase().includes(q) ||
+        j.location.toLowerCase().includes(q) ||
+        j.summary.toLowerCase().includes(q)
+      );
+    });
+  }, [debouncedSearch, dept, loc, expLevel]);
+
+  const hasFilters =
+    search !== "" || dept !== ALL || loc !== ALL || expLevel !== ALL;
+
+  const clearAll = () => {
+    setSearch("");
+    setDept(ALL);
+    setLoc(ALL);
+    setExpLevel(ALL);
+  };
+
   return (
     <section id="openings" className="py-14 md:py-20" ref={ref}>
       <div className="container">
@@ -335,26 +381,103 @@ function OpenOpportunities() {
             }`}
           >
             {/* Filters */}
-            <div className="flex flex-wrap items-center gap-3">
-              {["All Departments", "All Locations", "Experience Level"].map((f) => (
-                <button
-                  key={f}
-                  type="button"
-                  className="inline-flex items-center gap-2 text-xs md:text-sm text-foreground/80 border border-border rounded-lg px-3 py-2 hover:border-primary/40 transition-colors"
-                >
-                  {f} <ChevronDown size={14} className="text-muted-foreground" />
-                </button>
-              ))}
-              <a
-                href="#"
-                className="ml-auto text-sm font-semibold text-primary hover:text-accent inline-flex items-center gap-1.5 transition-colors"
-              >
-                View All Jobs <ArrowRight size={14} />
-              </a>
+            <div className="flex flex-col gap-3">
+              <div className="relative">
+                <Search
+                  size={16}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                />
+                <Input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search by title, department, location…"
+                  className="pl-9 pr-9 h-10"
+                  aria-label="Search jobs"
+                />
+                {search && (
+                  <button
+                    type="button"
+                    onClick={() => setSearch("")}
+                    aria-label="Clear search"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
+                <Select value={dept} onValueChange={setDept}>
+                  <SelectTrigger className="h-10 w-auto min-w-[170px] text-xs md:text-sm">
+                    <SelectValue placeholder="All Departments" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value={ALL}>All Departments</SelectItem>
+                    {departments.map((d) => (
+                      <SelectItem key={d} value={d}>{d}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Select value={loc} onValueChange={setLoc}>
+                  <SelectTrigger className="h-10 w-auto min-w-[170px] text-xs md:text-sm">
+                    <SelectValue placeholder="All Locations" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value={ALL}>All Locations</SelectItem>
+                    {locations.map((l) => (
+                      <SelectItem key={l} value={l}>{l}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Select value={expLevel} onValueChange={setExpLevel}>
+                  <SelectTrigger className="h-10 w-auto min-w-[170px] text-xs md:text-sm">
+                    <SelectValue placeholder="Experience Level" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value={ALL}>All Experience</SelectItem>
+                    {experiences.map((e) => (
+                      <SelectItem key={e} value={e}>{e}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {hasFilters && (
+                  <button
+                    type="button"
+                    onClick={clearAll}
+                    className="inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-primary hover:text-accent transition-colors"
+                  >
+                    <X size={14} /> Clear all
+                  </button>
+                )}
+                <span className="ml-auto text-xs text-muted-foreground">
+                  {filtered.length} of {openJobs.length} roles
+                </span>
+              </div>
             </div>
 
+            {filtered.length === 0 ? (
+              <div className="mt-8 rounded-xl border border-dashed border-border/70 bg-muted/30 p-10 text-center">
+                <div className="mx-auto inline-flex items-center justify-center w-12 h-12 rounded-full bg-background text-muted-foreground">
+                  <Briefcase size={22} />
+                </div>
+                <p className="mt-4 text-sm font-heading font-bold text-primary">
+                  No matching roles
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Try different keywords or clear the filters to see all openings.
+                </p>
+                {hasFilters && (
+                  <button
+                    type="button"
+                    onClick={clearAll}
+                    className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary/90 transition-colors"
+                  >
+                    <X size={14} /> Clear all filters
+                  </button>
+                )}
+              </div>
+            ) : (
             <ul className="mt-6 divide-y divide-border/60">
-              {openJobs.map((j) => (
+              {filtered.map((j) => (
                 <li
                   key={j.title}
                   className="group flex flex-col md:flex-row md:items-center gap-4 py-4"
@@ -380,18 +503,108 @@ function OpenOpportunities() {
                     </span>
                   </div>
 
-                  <a
-                    href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(j.title)}`}
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs md:text-sm font-semibold hover:bg-primary/90 hover:-translate-y-0.5 transition-all shrink-0"
-                  >
-                    Apply Now
-                  </a>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => setActiveJob(j)}
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg border border-primary/30 text-primary text-xs md:text-sm font-semibold hover:bg-primary/5 transition-all"
+                    >
+                      View More <ArrowRight size={14} />
+                    </button>
+                    <a
+                      href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(j.title)}`}
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs md:text-sm font-semibold hover:bg-primary/90 hover:-translate-y-0.5 transition-all"
+                    >
+                      Apply Now
+                    </a>
+                  </div>
                 </li>
               ))}
             </ul>
+            )}
           </div>
         </div>
       </div>
+
+      <Dialog open={!!activeJob} onOpenChange={(o) => !o && setActiveJob(null)}>
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+          {activeJob && (
+            <>
+              <DialogHeader>
+                <div className="flex items-start gap-3">
+                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-primary/10 text-primary shrink-0">
+                    <activeJob.Icon size={20} />
+                  </span>
+                  <div className="min-w-0">
+                    <DialogTitle className="text-xl font-heading font-bold text-primary leading-tight">
+                      {activeJob.title}
+                    </DialogTitle>
+                    <DialogDescription className="mt-1 text-xs text-muted-foreground">
+                      {activeJob.dept}
+                    </DialogDescription>
+                  </div>
+                </div>
+              </DialogHeader>
+
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground border-y border-border/60 py-3">
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin size={13} className="text-accent" /> {activeJob.location}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Calendar size={13} className="text-accent" /> {activeJob.exp}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Briefcase size={13} className="text-accent" /> {activeJob.type}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Clock size={13} className="text-accent" /> Posted {activeJob.posted}
+                </span>
+              </div>
+
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                {activeJob.summary}
+              </p>
+
+              <div>
+                <h4 className="text-sm font-heading font-bold text-primary">
+                  Key Responsibilities
+                </h4>
+                <ul className="mt-2 space-y-2">
+                  {activeJob.responsibilities.map((r) => (
+                    <li key={r} className="flex gap-2 text-sm text-foreground/80">
+                      <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-heading font-bold text-primary">
+                  What We're Looking For
+                </h4>
+                <ul className="mt-2 space-y-2">
+                  {activeJob.requirements.map((r) => (
+                    <li key={r} className="flex gap-2 text-sm text-foreground/80">
+                      <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex justify-end pt-2">
+                <a
+                  href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(activeJob.title)}`}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all"
+                >
+                  Apply Now <ArrowRight size={16} />
+                </a>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
