@@ -250,13 +250,49 @@ function VisionMission() {
 /* -------------------------------------------------------------- */
 function OurJourney() {
   const { ref, isVisible } = useScrollReveal(0.1);
-  const milestones = [
-    { year: "2019", title: "Founding vision", body: "Hugo Cooijmans and co-founders shape the model: senior-led delivery, no pyramids.", icon: Rocket },
-    { year: "2021", title: "BlueGecko platform", body: "Internal accelerators consolidated into a productised delivery platform.", icon: Zap },
-    { year: "2023", title: "Hyderabad hub", body: "First India delivery centre opens — onshore-orchestrated, never subcontracted.", icon: Building2 },
-    { year: "2024", title: "Amsterdam HQ", body: "Headquarters established at B. Amsterdam to anchor European clients.", icon: MapPin },
-    { year: "2025", title: "Lucknow expansion", body: "Second India hub opens, scaling specialist capacity across SAP, MS, Data & AI.", icon: Globe2 },
-    { year: "2026", title: "AI Agents practice", body: "Dedicated practice operationalising agentic systems for enterprise outcomes.", icon: Award },
+  const milestones: {
+    year: string;
+    title: string;
+    bullets: string[];
+    icon: typeof Rocket;
+  }[] = [
+    {
+      year: "2022",
+      title: "Nextgenlytics founded",
+      bullets: ["Founded in Amsterdam"],
+      icon: Rocket,
+    },
+    {
+      year: "2023",
+      title: "First customer & offshore hub",
+      bullets: [
+        "Onboarded 1st NL customer",
+        "1st offshore delivery center: Hyderabad",
+        "Advisory, Data Strategy, Data Analytics, Digital Transformation",
+      ],
+      icon: Building2,
+    },
+    {
+      year: "2024",
+      title: "AI & business applications",
+      bullets: [
+        "Expanded focus: implementing AI services",
+        "Business Application expertise & services: SAP, D365 & Salesforce",
+      ],
+      icon: Zap,
+    },
+    {
+      year: "2025",
+      title: "Global scale & BlueGecko",
+      bullets: [
+        "Onboarded 1st UK customer",
+        "Launched Application Managed Services (AMS)",
+        "Cloud Infra Managed Services",
+        "2nd offshore delivery center: Lucknow",
+        "Global launch of flagship platform: BlueGecko",
+      ],
+      icon: Globe2,
+    },
   ];
   return (
     <section id="journey" className="relative overflow-hidden py-12 md:py-16" ref={ref}>
@@ -408,7 +444,14 @@ function OurJourney() {
                             </span>
                           </div>
                           <h3 className="mt-3 text-lg font-bold text-foreground font-heading">{m.title}</h3>
-                          <p className="mt-1.5 text-muted-foreground leading-relaxed text-sm">{m.body}</p>
+                          <ul className={`mt-2 space-y-1.5 text-sm text-muted-foreground leading-relaxed ${onLeft ? "" : "text-right"}`}>
+                            {m.bullets.map((b) => (
+                              <li key={b} className={`flex gap-2 ${onLeft ? "" : "flex-row-reverse"}`}>
+                                <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -442,7 +485,14 @@ function OurJourney() {
                           </span>
                         </div>
                         <h3 className="mt-3 text-lg font-bold text-foreground font-heading">{m.title}</h3>
-                        <p className="mt-1.5 text-muted-foreground leading-relaxed text-sm">{m.body}</p>
+                        <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground leading-relaxed">
+                          {m.bullets.map((b) => (
+                            <li key={b} className="flex gap-2">
+                              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </li>
                   );
