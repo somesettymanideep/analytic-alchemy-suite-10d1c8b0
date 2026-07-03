@@ -240,10 +240,7 @@ function Hero() {
             className={`relative ${isVisible ? "animate-reveal-right" : "opacity-0"}`}
             style={{ animationDelay: "300ms" }}
           >
-            <div
-              className="relative aspect-[16/10] overflow-hidden shadow-2xl shadow-primary/15 animate-float-y-slow"
-              style={{ borderRadius: "60% 0 0 60% / 50% 0 0 50%" }}
-            >
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl shadow-primary/15 ring-1 ring-border/60 animate-float-y-slow">
               <img
                 src={careersHeroAsset.url}
                 alt="Careers at Nextgenlytics"
@@ -251,22 +248,6 @@ function Hero() {
                 loading="eager"
               />
             </div>
-            {/* Yellow arc tracing the curve */}
-            <svg
-              className="absolute -inset-2 -z-10 w-[calc(100%+1rem)] h-[calc(100%+1rem)] pointer-events-none"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden
-            >
-              <path
-                d="M 100 0 Q 0 50 100 100"
-                fill="none"
-                stroke="hsl(var(--accent))"
-                strokeWidth="0.5"
-              />
-            </svg>
-            {/* Blue dot on the arc */}
-            <span className="absolute -left-1 top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-primary shadow-md" />
           </div>
         </div>
       </div>
