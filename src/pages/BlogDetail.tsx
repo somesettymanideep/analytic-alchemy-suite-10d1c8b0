@@ -278,6 +278,11 @@ export default function BlogDetail() {
           <div className="grid lg:grid-cols-[1fr_340px] gap-10">
             {/* Article */}
             <article>
+              {/* Cover */}
+              <div className="rounded-xl overflow-hidden border border-border/60 shadow-lg aspect-[16/8] mb-8">
+                <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
+              </div>
+
               <div className="flex flex-wrap items-center gap-4 text-sm">
                 <span className="inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-[11px] font-bold uppercase tracking-widest">
                   {post.category}
@@ -297,11 +302,6 @@ export default function BlogDetail() {
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-3xl">
                 {post.excerpt}
               </p>
-
-              {/* Cover */}
-              <div className="mt-8 rounded-xl overflow-hidden border border-border/60 shadow-lg aspect-[16/8]">
-                <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
-              </div>
 
               {/* Body */}
               <div className="mt-10 space-y-8">
