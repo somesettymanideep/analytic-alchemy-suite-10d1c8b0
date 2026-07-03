@@ -213,26 +213,42 @@ function Hero() {
       <div className="container py-12 md:py-20">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left copy */}
-          <div className={isVisible ? "animate-reveal-left" : "opacity-0"}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.05] text-foreground">
+          <div>
+            <h1
+              className={`text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.05] text-foreground ${
+                isVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+              style={{ animationDelay: "100ms" }}
+            >
               Build Your Future.
               <br />
               <span className="text-accent">Make an Impact.</span>
             </h1>
-            <p className="mt-6 max-w-lg text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p
+              className={`mt-6 max-w-lg text-base md:text-lg text-muted-foreground leading-relaxed ${
+                isVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+              style={{ animationDelay: "260ms" }}
+            >
               At Nextgenlytics, we combine data, technology, and human potential to solve
               real-world challenges and create lasting impact for our clients and communities.
             </p>
             <a
               href="#openings"
-              className="mt-8 inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all"
+              className={`mt-8 inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all ${
+                isVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+              style={{ animationDelay: "420ms" }}
             >
               Explore Opportunities <ArrowRight size={16} />
             </a>
           </div>
 
           {/* Right image with curved accent */}
-          <div className={`relative ${isVisible ? "animate-reveal-right" : "opacity-0"}`}>
+          <div
+            className={`relative ${isVisible ? "animate-reveal-right" : "opacity-0"}`}
+            style={{ animationDelay: "300ms" }}
+          >
             <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-2xl shadow-primary/15 ring-1 ring-border/60 animate-float-y-slow">
               <img
                 src={careersHeroAsset.url}
@@ -475,10 +491,13 @@ function OpenOpportunities() {
               </div>
             ) : (
             <ul className="mt-6 divide-y divide-border/60">
-              {filtered.map((j) => (
+              {filtered.map((j, i) => (
                 <li
                   key={j.title}
-                  className="group flex flex-col md:flex-row md:items-center gap-4 py-4"
+                  className={`group flex flex-col md:flex-row md:items-center gap-4 py-4 ${
+                    isVisible ? "animate-reveal-up" : "opacity-0"
+                  }`}
+                  style={{ animationDelay: `${150 + i * 90}ms` }}
                 >
                   <div className="flex items-center gap-3 md:min-w-[240px]">
                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors shrink-0">
