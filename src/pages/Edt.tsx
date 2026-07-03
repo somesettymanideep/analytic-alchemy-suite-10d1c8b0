@@ -241,7 +241,7 @@ function CustomersViewPremium() {
   const trustBrands = ["SAP", "Microsoft", "Databricks", "Azure", "Snowflake", "Oracle", "Fabric", "BlueGecko"];
 
   const pillars = [
-    { icon: Users, title: "Not outsourcing", body: "Your team. Your ways of working. Your outcomes. NGSIT operates inside your programme structure, not alongside it.", glow: "#2958FF" },
+    { icon: Users, title: "Not outsourcing", body: "Your team. Your ways of working. Your outcomes. nextgenlytics operates inside your programme structure, not alongside it.", glow: "#2958FF" },
     { icon: ShieldCheck, title: "Not a subcontractor", body: "Embedded, dedicated, and accountable directly to you. No middlemen, no management layers.", glow: "#6C63FF" },
     { icon: Layers, title: "Not a rotating pool", body: "The same people. Building knowledge that stays with your programme instead of leaving at the end of every engagement.", glow: "#F6B91A" },
   ];
@@ -424,7 +424,7 @@ function CustomersViewPremium() {
                 <div className="mt-5 flex items-center gap-4">
                   <div>
                     <div className="text-sm font-semibold text-foreground">Raja Devarapu</div>
-                    <div className="text-xs text-foreground/60">Co-Founder & CEO · NGSIT</div>
+                    <div className="text-xs text-foreground/60">Co-Founder & CEO · nextgenlytics</div>
                   </div>
                   <div className="ml-auto flex items-center gap-1 text-[#F6B91A]">
                     {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
@@ -650,9 +650,9 @@ function TiltCard({ children, delay = 0, glow = "#2958FF" }: { children: React.R
 
 function PartnersView() {
   const valueProps = [
-    { n: "01", tag: "Speed", icon: Rocket, title: "Time to Market", body: "In a competitive SI landscape, the firm that can staff a programme in weeks wins the renewal. NGSIT reduces your talent activation time from months to weeks.", highlight: "Team ready in 2–4 weeks" },
+    { n: "01", tag: "Speed", icon: Rocket, title: "Time to Market", body: "In a competitive SI landscape, the firm that can staff a programme in weeks wins the renewal. nextgenlytics reduces your talent activation time from months to weeks.", highlight: "Team ready in 2–4 weeks" },
     { n: "02", tag: "Agility", icon: Gauge, title: "Flexibility", body: "Fixed headcount carries fixed cost. Your EDT scales up and down with your pipeline — team of 3 for discovery, team of 12 for migration, back to 4 for AMS.", highlight: "Scale up or down with your pipeline" },
-    { n: "03", tag: "Delivery", icon: ShieldCheck, title: "Quality", body: "Every EDT member is senior, certified, and pre-vetted by NGSIT. You are extending your own delivery capability with professionals who operate to your standards.", highlight: "Senior, certified, pre-vetted professionals" },
+    { n: "03", tag: "Delivery", icon: ShieldCheck, title: "Quality", body: "Every EDT member is senior, certified, and pre-vetted by nextgenlytics. You are extending your own delivery capability with professionals who operate to your standards.", highlight: "Senior, certified, pre-vetted professionals" },
   ];
 
   const streams = [
@@ -797,7 +797,7 @@ function PartnersViewPremium({
               .
             </h1>
             <p className="mt-7 text-lg md:text-xl text-foreground/75 leading-relaxed max-w-xl">
-              Your pipeline grows faster than your team. NGSIT's EDT model gives you a pre-assembled{" "}
+              Your pipeline grows faster than your team. nextgenlytics's EDT model gives you a pre-assembled{" "}
               <span className="relative inline-block font-semibold text-foreground">
                 India Team
                 <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-primary to-accent" />
@@ -821,7 +821,7 @@ function PartnersViewPremium({
               </a>
             </div>
             <p className="mt-8 text-sm font-display italic text-foreground/60">
-              "Your brand. Your client relationship. NGSIT's delivery depth."
+              "Your brand. Your client relationship. nextgenlytics's delivery depth."
             </p>
           </Reveal>
 
@@ -872,7 +872,7 @@ function PartnersViewPremium({
       <section className="container">
         <Reveal>
           <div className="max-w-2xl mb-12">
-            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why Partners Choose NGSIT</div>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why Partners Choose nextgenlytics</div>
             <h2 className="text-4xl md:text-[3.4rem] font-display font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
               Three forces behind every partner win.
             </h2>
@@ -1038,7 +1038,7 @@ function PartnersViewPremium({
       <section className="container">
         <Reveal>
           <div className="max-w-2xl mb-12">
-            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why NGSIT</div>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why nextgenlytics</div>
             <h2 className="text-4xl md:text-[3.4rem] font-display font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
               What you need. <span className="text-primary">What we deliver.</span>
             </h2>
@@ -1048,7 +1048,7 @@ function PartnersViewPremium({
           <div className="relative rounded-[28px] glass-card gradient-border overflow-hidden shadow-[0_30px_80px_-30px_rgba(15,23,42,0.2)]">
             <div className="sticky top-0 z-10 grid grid-cols-1 md:grid-cols-[1fr_1.5fr] bg-gradient-to-r from-primary to-[#1c2f8a] text-primary-foreground text-xs font-bold uppercase tracking-[0.18em]">
               <div className="px-7 py-5 border-b md:border-b-0 md:border-r border-primary-foreground/15">What you need</div>
-              <div className="px-7 py-5">NGSIT delivers</div>
+              <div className="px-7 py-5">nextgenlytics delivers</div>
             </div>
             <div>
               {matrix.map(([k, v], i) => (
@@ -1177,7 +1177,7 @@ function PartnerDashboardScene() {
             <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
             <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/70" />
-            <span className="ml-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/60">NGSIT · Partner Console</span>
+            <span className="ml-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/60">nextgenlytics · Partner Console</span>
           </div>
           <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Live

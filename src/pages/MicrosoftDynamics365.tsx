@@ -50,7 +50,7 @@ function Intro() {
             finance and supply chain.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">NGSIT</strong> specialises in deploying and customising Dynamics 365
+            <strong className="text-foreground">nextgenlytics</strong> specialises in deploying and customising Dynamics 365
             so that your teams work from a single source of truth — with AI doing the heavy lifting on decisions and automation.
           </p>
         </div>
@@ -127,7 +127,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What NGSIT Delivers with Dynamics 365
+            <Sparkles size={14} /> What nextgenlytics Delivers with Dynamics 365
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             From customer engagement to back-office automation — in one suite
@@ -231,7 +231,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why NGSIT
+              <CheckCircle2 size={14} /> Why nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Your end-to-end Microsoft Dynamics 365 partner.
@@ -293,7 +293,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Bot size={12} /> The NGSIT Difference
+                <Bot size={12} /> The nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Where Dynamics 365 stops being software — and becomes your operating system for growth.
@@ -318,7 +318,7 @@ const faqs = [
   },
   {
     q: "How long does a Dynamics 365 implementation take?",
-    a: "A standard Dynamics 365 implementation with NGSIT typically ranges from 12 to 24 weeks depending on the scope, existing systems, and level of customisation required.",
+    a: "A standard Dynamics 365 implementation with nextgenlytics typically ranges from 12 to 24 weeks depending on the scope, existing systems, and level of customisation required.",
   },
   {
     q: "Does Dynamics 365 work with Microsoft Copilot?",

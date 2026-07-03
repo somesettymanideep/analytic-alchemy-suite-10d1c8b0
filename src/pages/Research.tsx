@@ -115,7 +115,7 @@ const REPORTS: Report[] = [
   },
   {
     id: "digital-transformation-index",
-    title: "The NGSIT Digital Transformation Index",
+    title: "The nextgenlytics Digital Transformation Index",
     summary:
       "An annual index tracking transformation velocity across seven industries and four European regions.",
     category: "Digital Transformation",

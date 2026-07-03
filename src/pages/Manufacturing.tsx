@@ -37,7 +37,7 @@ function Intro() {
           </h2>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed text-pretty">
             Driving efficiency, cutting costs, and maintaining high-quality standards are the
-            pillars of modern manufacturing. At <strong className="text-foreground">NGSIT</strong>,
+            pillars of modern manufacturing. At <strong className="text-foreground">nextgenlytics</strong>,
             we provide world-class technology. By combining strategic advisory, rapid project
             delivery, and end-to-end application management, we solve critical production
             challenges and empower companies to achieve sustainable, AI-driven growth.
@@ -152,7 +152,7 @@ function OurExpertise() {
             Building the foundation for the autonomous factory
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At NGSIT, we ensure that your manufacturing intelligence is as scalable as your output.
+            At nextgenlytics, we ensure that your manufacturing intelligence is as scalable as your output.
             We provide expert AI and ERP implementation for organizations utilizing complex production
             ecosystems. Whether you are managing discrete manufacturing or continuous process
             industries, we provide the specialized AI Agents and workflows to turn your operational

@@ -94,7 +94,7 @@ export default function ProofInNumbersSection() {
             style={{ animationDelay: "180ms" }}
           >
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-md">
-              Four metrics. Zero spin. How NGSIT delivers complex data, AI, and ERP transformations — at scale, on time, and at enterprise grade.
+              Four metrics. Zero spin. How nextgenlytics delivers complex data, AI, and ERP transformations — at scale, on time, and at enterprise grade.
             </p>
             <a
               href="/case-study"

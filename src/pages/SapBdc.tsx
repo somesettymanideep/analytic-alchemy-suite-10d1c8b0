@@ -53,7 +53,7 @@ function Intro() {
             data sources into a single governed environment where AI can understand not just the numbers, but the business logic behind them.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">NGSIT</strong> implements this architecture so your AI models work
+            <strong className="text-foreground">nextgenlytics</strong> implements this architecture so your AI models work
             from data that is live, clean, and contextually meaningful.
           </p>
         </div>
@@ -234,13 +234,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why NGSIT
+              <CheckCircle2 size={14} /> Why nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               AI without business context is just pattern matching.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              SAP Business Data Cloud gives your AI the meaning behind the numbers — and NGSIT makes it real.
+              SAP Business Data Cloud gives your AI the meaning behind the numbers — and nextgenlytics makes it real.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -296,7 +296,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The NGSIT Difference
+                <Brain size={12} /> The nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Meaning preserved. Insight accelerated.

@@ -40,7 +40,7 @@ function Intro() {
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
             Most ERP systems are powerful but passive — they store data and wait for people to act on it.
-            <strong className="text-foreground"> NGSIT</strong> changes that by deploying AI Agents that live directly
+            <strong className="text-foreground"> nextgenlytics</strong> changes that by deploying AI Agents that live directly
             inside your Microsoft Dynamics 365 environment and execute real business processes end to end.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
@@ -166,7 +166,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose NGSIT for ERP AI Agents?
+              <CheckCircle2 size={14} /> Why Choose nextgenlytics for ERP AI Agents?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Your ERP already holds the intelligence. Our agents put it to work.
@@ -179,7 +179,7 @@ function WhyUs() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Brain size={12} /> The NGSIT Difference
+                  <Brain size={12} /> The nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   Autonomous by default. Accountable by design.
@@ -239,11 +239,11 @@ const faqs = [
   },
   {
     q: "How do AI Agents integrate with Microsoft Dynamics 365?",
-    a: "NGSIT deploys AI Agents directly within the Dynamics 365 Finance, Supply Chain Management, and Business Central modules using native APIs and connectors — requiring no significant changes to your existing infrastructure.",
+    a: "nextgenlytics deploys AI Agents directly within the Dynamics 365 Finance, Supply Chain Management, and Business Central modules using native APIs and connectors — requiring no significant changes to your existing infrastructure.",
   },
   {
     q: "Are ERP AI Agents safe to use in regulated industries?",
-    a: "Yes. NGSIT builds every AI Agent with human-in-the-loop safeguards, role-based access controls, and compliance guardrails, making them suitable for regulated industries including financial services, healthcare, and manufacturing.",
+    a: "Yes. nextgenlytics builds every AI Agent with human-in-the-loop safeguards, role-based access controls, and compliance guardrails, making them suitable for regulated industries including financial services, healthcare, and manufacturing.",
   },
 ];
 

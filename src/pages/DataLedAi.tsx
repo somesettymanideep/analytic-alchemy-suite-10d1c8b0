@@ -41,7 +41,7 @@ function Intro() {
             of the AI itself — they are failing because their data is fragmented, ungoverned, or simply not ready.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">NGSIT</strong> does not just connect AI tools to your existing
+            <strong className="text-foreground">nextgenlytics</strong> does not just connect AI tools to your existing
             systems. We fix the data foundation first, then build AI on top of it — ensuring every insight is accurate,
             every decision is grounded in reality, and every AI agent operates with full contextual awareness of your business.
           </p>
@@ -164,7 +164,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose NGSIT for AI Transformation?
+              <CheckCircle2 size={14} /> Why Choose nextgenlytics for AI Transformation?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               The businesses that win with AI are the ones with the best data foundations.
@@ -177,7 +177,7 @@ function WhyUs() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The NGSIT Difference
+                  <Sparkles size={12} /> The nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   We build both the data foundation and the AI on top.
@@ -237,11 +237,11 @@ const faqs = [
   },
   {
     q: "Why is data governance important for AI?",
-    a: "Without proper data governance, AI models can produce inaccurate, biased, or non-compliant outputs. NGSIT implements governance frameworks that ensure AI agents always operate on clean, authorised, and lineage-tracked data.",
+    a: "Without proper data governance, AI models can produce inaccurate, biased, or non-compliant outputs. nextgenlytics implements governance frameworks that ensure AI agents always operate on clean, authorised, and lineage-tracked data.",
   },
   {
-    q: "How does NGSIT approach AI transformation differently?",
-    a: "Unlike consultancies that deliver strategy frameworks only, NGSIT builds the actual data pipelines, semantic layers, and AI models — providing both strategic direction and hands-on technical execution.",
+    q: "How does nextgenlytics approach AI transformation differently?",
+    a: "Unlike consultancies that deliver strategy frameworks only, nextgenlytics builds the actual data pipelines, semantic layers, and AI models — providing both strategic direction and hands-on technical execution.",
   },
 ];
 

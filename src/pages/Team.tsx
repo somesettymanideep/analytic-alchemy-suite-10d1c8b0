@@ -38,12 +38,12 @@ const founders = [
     role: "Co-Founder & CEO · Data, AI & ERP Transformation",
     location: "01 · Amsterdam, NL",
     quote:
-      "Every enterprise deserves Tier-1 thinking. We built NGSIT to make that possible.",
+      "Every enterprise deserves Tier-1 thinking. We built nextgenlytics to make that possible.",
     image: rajaAsset.url,
     highlights: [
       "17 years architecting enterprise data and AI programmes for global organisations — ManpowerGroup, Nationwide Building Society, ANZ Bank, and beyond",
       "Visionary architect of BlueGecko — the Data and AI platform that delivers SAP, Microsoft, and any ERP transformation at a fraction of Tier-1 cost and twice the speed",
-      "Founded NGSIT to give Dutch and European SMBs what was previously reserved for the Fortune 500 — world-class data, analytics, AI, and ERP capability, without the enterprise price tag",
+      "Founded nextgenlytics to give Dutch and European SMBs what was previously reserved for the Fortune 500 — world-class data, analytics, AI, and ERP capability, without the enterprise price tag",
     ],
   },
   {
@@ -56,7 +56,7 @@ const founders = [
     highlights: [
       "30+ yrs building and leading SAP programmes across the Dutch enterprise market",
       "Pioneer of the Dutch SAP SI ecosystem — Tier-1 relationships built over three decades",
-      "Advises NGSIT because focused, AI-native teams deliver what large consultancies no longer can",
+      "Advises nextgenlytics because focused, AI-native teams deliver what large consultancies no longer can",
     ],
   },
   {
@@ -77,12 +77,12 @@ const founders = [
     role: "Business Development · CIO, CTO & PE Advisory",
     location: "Amsterdam, NL",
     quote:
-      "Technology leaders trust people who have stood where they stand. That is why I joined NGSIT.",
+      "Technology leaders trust people who have stood where they stand. That is why I joined nextgenlytics.",
     image: remyAsset.url,
     highlights: [
       "Former CIO, CTO, and PE Operating Partner — 30+ yrs of board-level transformation",
       "Opens doors in the Dutch and European C-suite — peer to peer, executive to executive",
-      "Joined NGSIT having seen first-hand what great data & AI transformation looks like",
+      "Joined nextgenlytics having seen first-hand what great data & AI transformation looks like",
     ],
   },
 ];
@@ -103,7 +103,7 @@ const team: TeamMember[] = [
     role: "SAP Data Migration Expert | SQL/ETL Developer | Certified Scrum Master | Power BI",
     location: "7+ yrs · FTE",
     bio: "SAP Data Migration Expert with strong SQL Server/ETL development background, Certified Scrum Master, and Power BI practitioner.",
-    email: "sravya.syamala@NGSIT.com",
+    email: "sravya.syamala@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sravya-syamala-587649108/",
     image: sravyaAsset.url,
   },
@@ -112,7 +112,7 @@ const team: TeamMember[] = [
     role: "AI Engineer | Power BI | Certified Azure AI Engineer Associate",
     location: "2+ yrs · FTE",
     bio: "AI Engineer building intelligent solutions with Power BI and Azure AI services. Certified Azure AI Engineer Associate.",
-    email: "sravani.vanukuri@NGSIT.com",
+    email: "sravani.vanukuri@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sravani-vanukuri-42b59a267/",
     image: sravaniAsset.url,
   },
@@ -121,7 +121,7 @@ const team: TeamMember[] = [
     role: "SAP Data Migration Expert | SQL/ETL Developer | SAP DataSphere",
     location: "5+ yrs · FTE",
     bio: "SAP Data Migration specialist with deep SQL Server/ETL experience and SAP DataSphere delivery expertise.",
-    email: "ankita.sondhiya@NGSIT.com",
+    email: "ankita.sondhiya@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/ankita-sondhiya-244700233/",
     image: ankitaAsset.url,
   },
@@ -130,7 +130,7 @@ const team: TeamMember[] = [
     role: "SAP Data Migration Expert | SQL/ETL Developer | SAP DataSphere",
     location: "3+ yrs · FTE",
     bio: "SAP Data Migration engineer working across SQL Server/ETL pipelines and SAP DataSphere implementations.",
-    email: "nitin.mandge@NGSIT.com",
+    email: "nitin.mandge@nextgenlytics.com",
     image: nitinAsset.url,
   },
   {
@@ -138,7 +138,7 @@ const team: TeamMember[] = [
     role: "UI Developer",
     location: "2+ yrs · FTE",
     bio: "UI Developer crafting responsive, performant front-end experiences for enterprise data products.",
-    email: "parag.agrawal@NGSIT.com",
+    email: "parag.agrawal@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/parag-agrawal-b7b72a233/",
     image: paragAsset.url,
   },
@@ -154,7 +154,7 @@ const team: TeamMember[] = [
     role: "Jr AI / Data Engineer",
     location: "1.5 yrs · FTE",
     bio: "Junior AI and Data Engineer contributing to data pipelines and machine learning workflows.",
-    email: "bhuvanesh.m@NGSIT.com",
+    email: "bhuvanesh.m@nextgenlytics.com",
     image: bhuvaneshAsset.url,
   },
   {
@@ -162,7 +162,7 @@ const team: TeamMember[] = [
     role: "Jr Full Stack Developer",
     location: "Fresher · FTE",
     bio: "Full Stack Developer building modern web applications across the front-end and back-end stack.",
-    email: "santhosh.vemula@NGSIT.com",
+    email: "santhosh.vemula@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/vemula17",
     image: santhoshAsset.url,
   },
@@ -171,7 +171,7 @@ const team: TeamMember[] = [
     role: "Infra Engineer | Certified Azure Administrator Associate",
     location: "3+ yrs · FTE",
     bio: "Infrastructure Engineer managing cloud and on-prem environments. Certified Azure Administrator Associate.",
-    email: "lokesh.pulakandam@NGSIT.com",
+    email: "lokesh.pulakandam@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/lokesh-reddy-pulakandam-961b33263/",
     image: lokeshAsset.url,
   },
@@ -180,7 +180,7 @@ const team: TeamMember[] = [
     role: "Jr DevOps Engineer | AWS Certified Cloud Practitioner",
     location: "Fresher · FTE",
     bio: "DevOps Engineer supporting CI/CD, cloud automation, and platform reliability. AWS Certified Cloud Practitioner.",
-    email: "saraswathi.mathala@NGSIT.com",
+    email: "saraswathi.mathala@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/saraswathi-mathala-443701285/",
     image: saraswathiAsset.url,
   },
@@ -189,7 +189,7 @@ const team: TeamMember[] = [
     role: "AI / Security Engineer",
     location: "2+ yrs · FTE",
     bio: "AI and Security Engineer hardening data and AI systems across the enterprise stack.",
-    email: "nagamohan.dhanireddy@NGSIT.com",
+    email: "nagamohan.dhanireddy@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/dhani-reddy/",
     image: mohanReddyAsset.url,
   },
@@ -205,7 +205,7 @@ const team: TeamMember[] = [
     role: "Functional Analyst",
     location: "6+ yrs · FTE",
     bio: "Functional Analyst translating business requirements into clear, deliverable solutions for enterprise teams.",
-    email: "kavish.srivastava@NGSIT.com",
+    email: "kavish.srivastava@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/kavish-srivastava-967639372/",
     image: kavishAsset.url,
   },
@@ -214,7 +214,7 @@ const team: TeamMember[] = [
     role: "Functional Analyst",
     location: "1+ yrs · FTE",
     bio: "Functional Analyst supporting requirements gathering, process mapping, and stakeholder alignment.",
-    email: "anuradha.pasupuleti@NGSIT.com",
+    email: "anuradha.pasupuleti@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/anuradha-pasupuleti-2399333b/",
     image: anuradhaAsset.url,
   },
@@ -223,7 +223,7 @@ const team: TeamMember[] = [
     role: "Technical Analyst",
     location: "5+ yrs · FTE",
     bio: "Technical Analyst bridging engineering and business teams to deliver data-driven solutions.",
-    email: "sowbarnika.saravanan@NGSIT.com",
+    email: "sowbarnika.saravanan@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sowbarnikas/",
     image: sowbarnikaAsset.url,
   },
@@ -232,7 +232,7 @@ const team: TeamMember[] = [
     role: "Functional Analyst",
     location: "10+ yrs · FTE",
     bio: "Senior Functional Analyst with a decade of experience leading requirements and solution design.",
-    email: "ravi.j@NGSIT.com",
+    email: "ravi.j@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/ravi-j-0164792a6/",
     image: raviAsset.url,
   },
@@ -241,7 +241,7 @@ const team: TeamMember[] = [
     role: "Functional Analyst",
     location: "1+ yrs · FTE",
     bio: "Functional Analyst contributing to enterprise solution delivery and stakeholder engagement.",
-    email: "saritha.s@NGSIT.com",
+    email: "saritha.s@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/somanagurthy-saritha-0a3a032b9/",
     image: saritaAsset.url,
   },
@@ -250,7 +250,7 @@ const team: TeamMember[] = [
     role: "IT Operations Analyst",
     location: "FTE",
     bio: "IT Operations Analyst ensuring smooth day-to-day operations across enterprise IT systems.",
-    email: "richa.k@NGSIT.com",
+    email: "richa.k@nextgenlytics.com",
     image: richaAsset.url,
   },
   {
@@ -258,7 +258,7 @@ const team: TeamMember[] = [
     role: "IT Database Analyst",
     location: "3+ yrs · FTE",
     bio: "Database Analyst maintaining performance, integrity, and reliability across enterprise data stores.",
-    email: "pujesh.y@NGSIT.com",
+    email: "pujesh.y@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/pujeshkumaryadav",
     image: pujeshAsset.url,
   },
@@ -267,7 +267,7 @@ const team: TeamMember[] = [
     role: "Transition Manager Lead",
     location: "20+ yrs · FTE",
     bio: "Transition Manager Lead with two decades of experience steering complex enterprise programme handovers and delivery transitions.",
-    email: "pari.ghata@NGSIT.com",
+    email: "pari.ghata@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/parikshit-ghatage-05043519/",
     image: parikshitAsset.url,
   },
@@ -331,7 +331,7 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
 
         <div className="mt-4 flex items-center justify-between">
           <a
-            href={`mailto:${m.email ?? "Info@NGSIT.com"}`}
+            href={`mailto:${m.email ?? "Info@nextgenlytics.com"}`}
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-accent transition-colors group/cta"
           >
             Connect
@@ -350,7 +350,7 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
               </a>
             )}
             <a
-              href={`mailto:${m.email ?? "Info@NGSIT.com"}`}
+              href={`mailto:${m.email ?? "Info@nextgenlytics.com"}`}
               aria-label={`Email ${m.name}`}
               className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all hover:scale-110"
             >
@@ -404,7 +404,7 @@ export default function Team() {
         <PageBanner
           image={teamBanner}
           eyebrow="Our Team"
-          title="The specialists behind NGSIT"
+          title="The specialists behind nextgenlytics"
           description="35+ practitioners across Amsterdam, Hyderabad, and Lucknow — combining Tier-1 SI experience with deep product engineering on BlueGecko."
         />
 
@@ -423,7 +423,7 @@ export default function Team() {
               Four operators.<br />One conviction.
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed text-pretty">
-              NGSIT is led by four partners who spent careers running the kind of programmes our clients now hand to us — combining SAP heritage, AI engineering, enterprise sales, and C-suite advisory into a single accountable team.
+              nextgenlytics is led by four partners who spent careers running the kind of programmes our clients now hand to us — combining SAP heritage, AI engineering, enterprise sales, and C-suite advisory into a single accountable team.
             </p>
           </div>
 
@@ -538,7 +538,7 @@ export default function Team() {
                           <Linkedin size={18} />
                         </a>
                         <a
-                          href="mailto:Info@NGSIT.com"
+                          href="mailto:Info@nextgenlytics.com"
                           aria-label={`Email ${f.name}`}
                           className="w-12 h-12 border border-border text-primary flex items-center justify-center rounded-full hover:border-primary hover:bg-primary/5 transition-colors"
                         >

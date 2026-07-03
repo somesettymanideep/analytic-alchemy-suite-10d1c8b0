@@ -169,7 +169,7 @@ export default function ProvenInFieldSection() {
             </h2>
             <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed">
               Two flagship enterprise transformations — SAP and Microsoft — delivered
-              end-to-end by NGSIT teams.
+              end-to-end by nextgenlytics teams.
             </p>
           </div>
 
@@ -255,7 +255,7 @@ export default function ProvenInFieldSection() {
                 Want the full deck?
               </div>
               <p className="text-[15px] sm:text-base text-[#081A45] mt-1.5 font-medium">
-                Browse every NGSIT engagement — SAP, Microsoft, Databricks and beyond.
+                Browse every nextgenlytics engagement — SAP, Microsoft, Databricks and beyond.
               </p>
             </div>
           </div>
@@ -399,7 +399,7 @@ function CasePanel({
 
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:justify-between">
             <span className="text-[11px] uppercase tracking-[0.25em] text-slate-400">
-              End-to-end · NGSIT
+              End-to-end · nextgenlytics
             </span>
             <a
               href="/case-study"

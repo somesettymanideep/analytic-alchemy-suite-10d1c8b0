@@ -13,19 +13,19 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
       Icon: Calendar,
       title: "Book a 30-min consultation",
       desc: "Strategic assessment with a senior partner.",
-      href: "mailto:info@NGSIT.com?subject=Consultation%20Request",
+      href: "mailto:info@nextgenlytics.com?subject=Consultation%20Request",
     },
     {
       Icon: PlayCircle,
       title: "Request a BlueGecko demo",
       desc: "See AI-driven mapping & migration in action.",
-      href: "mailto:info@NGSIT.com?subject=BlueGecko%20Demo",
+      href: "mailto:info@nextgenlytics.com?subject=BlueGecko%20Demo",
     },
     {
       Icon: Phone,
       title: "Talk to sales",
       desc: "+31 (0) 20 — Amsterdam HQ",
-      href: "mailto:info@NGSIT.com?subject=Sales%20Inquiry",
+      href: "mailto:info@nextgenlytics.com?subject=Sales%20Inquiry",
     },
   ];
 
@@ -63,17 +63,17 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
                 Ready to transform your {sector} operations?
               </h2>
               <p className="mt-5 text-primary-foreground/75 text-base md:text-lg leading-relaxed text-pretty max-w-md">
-                Talk to a NGSIT specialist who understands your sector.
+                Talk to a nextgenlytics specialist who understands your sector.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href="mailto:info@NGSIT.com?subject=Consultation%20Request"
+                  href="mailto:info@nextgenlytics.com?subject=Consultation%20Request"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-primary-foreground text-primary hover:shadow-xl active:scale-[0.97] transition-all"
                 >
                   <Calendar size={16} /> Book Consultation
                 </a>
                 <a
-                  href="mailto:info@NGSIT.com?subject=Demo%20Request"
+                  href="mailto:info@nextgenlytics.com?subject=Demo%20Request"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold border-2 border-primary-foreground/25 text-primary-foreground hover:bg-primary-foreground/10 active:scale-[0.97] transition-all"
                 >
                   <PlayCircle size={16} /> Request Demo

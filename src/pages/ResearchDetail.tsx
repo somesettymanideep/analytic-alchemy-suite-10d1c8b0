@@ -66,7 +66,7 @@ const REPORTS: Report[] = [
     methodology: [
       "Online survey of 240 European enterprises, October–December 2025.",
       "Follow-up interviews with 32 SAP architecture leads.",
-      "Programme telemetry from 18 NGSIT live engagements, anonymised.",
+      "Programme telemetry from 18 nextgenlytics live engagements, anonymised.",
     ],
     caseStudies: [
       {
@@ -87,7 +87,7 @@ const REPORTS: Report[] = [
     ],
     references: [
       "SAP 2027 maintenance timeline, SAP SE (2024)",
-      "NGSIT programme telemetry, 2024–2025",
+      "nextgenlytics programme telemetry, 2024–2025",
       "European Digital Transformation Barometer, 2025",
     ],
     sections: [

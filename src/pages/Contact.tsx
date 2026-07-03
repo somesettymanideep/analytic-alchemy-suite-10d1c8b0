@@ -19,7 +19,7 @@ import { toast } from "@/hooks/use-toast";
 
 type Mode = "consultation" | "demo";
 
-const COMPANY_EMAIL = "Info@NGSIT.com";
+const COMPANY_EMAIL = "Info@nextgenlytics.com";
 const COMPANY_LOCATION = "B. Amsterdam, Johan Huizingalaan 763A, 1066 VH, Amsterdam";
 const COMPANY_PHONE = "+31 (0) 20 123 4567";
 const WORKING_HOURS = [
@@ -120,7 +120,7 @@ export default function Contact() {
                     Get in touch
                   </span>
                   <h2 className="mt-4 text-2xl md:text-3xl font-bold font-heading leading-tight">
-                    Reach the NGSIT team
+                    Reach the nextgenlytics team
                   </h2>
                   <p className="mt-3 text-sm md:text-base text-primary-foreground/80 leading-relaxed">
                     Prefer email or a call? Use the details below — we typically respond within one business day.
@@ -318,7 +318,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-xs text-muted-foreground">
-                  By submitting, you agree to be contacted by NGSIT about your enquiry.
+                  By submitting, you agree to be contacted by nextgenlytics about your enquiry.
                 </p>
               </form>
             </section>

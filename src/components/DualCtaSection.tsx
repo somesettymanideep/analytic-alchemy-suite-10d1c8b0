@@ -26,7 +26,7 @@ export default function DualCtaSection() {
           </div>
           <div className="mt-8">
             <a
-              href="mailto:info@NGSIT.com"
+              href="mailto:info@nextgenlytics.com"
               className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold bg-primary-foreground text-primary hover:shadow-lg active:scale-[0.97] transition-all duration-200"
             >
               Book Free Assessment →
@@ -53,7 +53,7 @@ export default function DualCtaSection() {
           </div>
           <div className="mt-8">
             <a
-              href="mailto:info@NGSIT.com"
+              href="mailto:info@nextgenlytics.com"
               className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/30 active:scale-[0.97] transition-all duration-200"
             >
               Talk to Partnership Team →

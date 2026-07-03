@@ -18,7 +18,7 @@ export default function TeamSection() {
       <div className="container" ref={ref}>
         <div className={`text-center max-w-2xl mx-auto ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="text-xs font-semibold uppercase tracking-widest text-accent">
-            NGSIT Leadership
+            nextgenlytics Leadership
           </span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground text-balance">
             Founding Team

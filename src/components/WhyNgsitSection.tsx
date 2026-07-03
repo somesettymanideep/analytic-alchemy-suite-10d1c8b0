@@ -155,10 +155,10 @@ const WhyNgsitSection = () => {
             <div className={isVisible ? "animate-reveal-up" : "opacity-0"}>
               <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-white/50">
                 <span className="w-8 h-px bg-[#F59E0B]" />
-                Chapter · Why NGSIT
+                Chapter · Why nextgenlytics
               </div>
               <h2 className="mt-4 font-[Space_Grotesk] text-4xl md:text-6xl font-bold leading-[1.05] [@media(max-height:700px)]:mt-2 [@media(max-height:700px)]:text-4xl">
-                Why <span className="text-[#F59E0B]">NGSIT</span>
+                Why <span className="text-[#F59E0B]">nextgenlytics</span>
               </h2>
               <p className="mt-2 text-white/60 text-base md:text-lg max-w-xl [@media(max-height:700px)]:text-sm">
                 Tier-1 capability. SMB accountability.
@@ -280,7 +280,7 @@ const WhyNgsitSection = () => {
         {/* Bottom CTA strip */}
         <div className="absolute bottom-6 left-0 right-0 z-20 px-6 md:px-12 [@media(max-height:700px)]:hidden">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 text-xs font-mono text-white/40">
-            <span>NGSIT · Amsterdam ⇄ India · Est. 2022</span>
+            <span>nextgenlytics · Amsterdam ⇄ India · Est. 2022</span>
             <a href="/about" className="group inline-flex items-center gap-2 text-white/70 hover:text-[#F59E0B] transition-colors">
               Discover the operating model
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />

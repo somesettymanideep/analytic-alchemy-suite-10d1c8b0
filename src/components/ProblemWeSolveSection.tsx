@@ -122,7 +122,7 @@ export default function ProblemWeSolveSection() {
 
               <div className="relative pt-4">
                 <blockquote className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed mb-8">
-                  “Every enterprise deserves Tier-1 thinking. We built NGSIT to make
+                  “Every enterprise deserves Tier-1 thinking. We built nextgenlytics to make
                   that possible — for the Dutch and European SMB market that needed it
                   most and was served least.”
                 </blockquote>
@@ -138,7 +138,7 @@ export default function ProblemWeSolveSection() {
                       Raja Devarapu
                     </div>
                     <div className="text-sm text-white/70">
-                      Co-Founder & CEO, NGSIT
+                      Co-Founder & CEO, nextgenlytics
                     </div>
                   </div>
                 </div>
