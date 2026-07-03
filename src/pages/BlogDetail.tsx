@@ -3,22 +3,26 @@ import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import bannerBlog from "@/assets/banner-careers.jpg";
 import blogSap from "@/assets/blog-sap-clean-core.jpg";
 import blogAi from "@/assets/blog-ai-agents.jpg";
 import blogData from "@/assets/blog-data-migration.jpg";
 import {
-  ArrowLeft,
   ArrowRight,
   CalendarDays,
   Clock,
   Linkedin,
   Link2,
+  Facebook,
+  Twitter,
+  Search,
+  ChevronRight,
+  Database,
+  Cloud,
+  BarChart3,
+  Users,
+  Lightbulb,
   Mail,
-  Quote,
-  User,
-  TrendingUp,
+  Home,
 } from "lucide-react";
 
 type Section = { id: string; heading: string; body: string[] };
@@ -188,307 +192,327 @@ const POSTS: Post[] = [
   },
 ];
 
-function ReadingProgress() {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    const onScroll = () => {
-      const h = document.documentElement;
-      const total = h.scrollHeight - h.clientHeight;
-      setProgress(total > 0 ? (h.scrollTop / total) * 100 : 0);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  return (
-    <div className="fixed top-16 md:top-20 left-0 right-0 h-1 z-40 bg-transparent">
-      <div
-        className="h-full bg-gradient-to-r from-primary via-accent to-primary transition-[width] duration-150"
-        style={{ width: `${progress}%` }}
-      />
-    </div>
-  );
-}
+const CATEGORIES = [
+  "All Categories",
+  "Data & Analytics",
+  "AI & Automation",
+  "Cloud",
+  "Digital Transformation",
+  "Industry",
+  "Company",
+];
 
-function ShareBar({ title }: { title: string }) {
-  const url = typeof window !== "undefined" ? window.location.href : "";
-  return (
-    <div className="flex md:flex-col gap-2">
-      <a
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Share on LinkedIn"
-        className="h-10 w-10 grid place-items-center rounded-full bg-card border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-      >
-        <Linkedin size={16} />
-      </a>
-      <a
-        href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`}
-        aria-label="Share by email"
-        className="h-10 w-10 grid place-items-center rounded-full bg-card border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-      >
-        <Mail size={16} />
-      </a>
-      <button
-        onClick={() => navigator.clipboard?.writeText(url)}
-        aria-label="Copy link"
-        className="h-10 w-10 grid place-items-center rounded-full bg-card border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-      >
-        <Link2 size={16} />
-      </button>
-    </div>
-  );
-}
+const TAGS = [
+  "Data Strategy",
+  "Analytics",
+  "AI",
+  "Cloud",
+  "Digital Transformation",
+  "Data Governance",
+  "Machine Learning",
+  "Business Intelligence",
+];
 
-function Toc({ sections }: { sections: Section[] }) {
-  const [active, setActive] = useState(sections[0]?.id ?? "");
-  useEffect(() => {
-    const onScroll = () => {
-      for (const s of sections) {
-        const el = document.getElementById(s.id);
-        if (!el) continue;
-        const rect = el.getBoundingClientRect();
-        if (rect.top < 200) setActive(s.id);
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [sections]);
-  return (
-    <nav aria-label="Table of contents" className="text-sm">
-      <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
-        On this page
-      </p>
-      <ul className="space-y-2 border-l border-border/60">
-        {sections.map((s) => (
-          <li key={s.id}>
-            <a
-              href={`#${s.id}`}
-              className={`block pl-3 -ml-px border-l-2 transition-colors ${
-                active === s.id
-                  ? "border-primary text-primary font-semibold"
-                  : "border-transparent text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {s.heading}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-}
+const BUILDING_BLOCKS = [
+  {
+    icon: Database,
+    title: "Modern Data Strategy",
+    body: "Align data initiatives with business goals. Define your data vision, governance, and roadmap to create long-term value.",
+  },
+  {
+    icon: Cloud,
+    title: "Unified Data Platform",
+    body: "Break down data silos with a unified platform that integrates, stores, and manages data securely at scale.",
+  },
+  {
+    icon: BarChart3,
+    title: "Advanced Analytics & AI",
+    body: "Use advanced analytics and AI/ML to uncover patterns, predict outcomes, and automate decisions.",
+  },
+  {
+    icon: Users,
+    title: "Data Culture & Governance",
+    body: "Build a data-literate culture with clear ownership, policies, and quality standards to drive adoption and trust.",
+  },
+];
 
 export default function BlogDetail() {
   const { id } = useParams();
   const post = useMemo(() => POSTS.find((p) => p.id === id) ?? POSTS[0], [id]);
-  const currentIdx = POSTS.findIndex((p) => p.id === post.id);
-  const prev = currentIdx > 0 ? POSTS[currentIdx - 1] : null;
-  const next = currentIdx < POSTS.length - 1 ? POSTS[currentIdx + 1] : null;
-  const related = POSTS.filter((p) => p.id !== post.id).slice(0, 2);
-  const hero = useScrollReveal();
+  const [activeCat, setActiveCat] = useState("All Categories");
+  const recent = POSTS.filter((p) => p.id !== post.id).slice(0, 3);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, [post.id]);
+
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
       <Navbar />
-      <ReadingProgress />
 
-      <main>
-        {/* Hero */}
-        <section className="relative overflow-hidden mt-16 md:mt-20">
-          <div className="absolute inset-0">
-            <img src={bannerBlog} alt="" aria-hidden className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-primary/95" />
-          </div>
-          <div className="relative container py-14 md:py-20" ref={hero.ref}>
-            <Link
-              to="/blog"
-              className="inline-flex items-center gap-1.5 text-primary-foreground/80 hover:text-primary-foreground text-sm font-semibold"
-            >
-              <ArrowLeft size={14} /> All articles
+      <main className="pt-16 md:pt-20">
+        {/* Breadcrumb */}
+        <div className="container pt-6 pb-4">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Link to="/" className="inline-flex items-center gap-1 hover:text-primary transition-colors">
+              <Home size={14} /> Home
             </Link>
-            <div className={`mt-6 max-w-3xl ${hero.isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-              <span className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-widest">
-                {post.category}
-              </span>
-              <h1 className="mt-4 text-3xl md:text-5xl font-bold text-primary-foreground font-heading leading-tight text-balance">
-                {post.title}
-              </h1>
-              <p className="mt-4 text-lg text-primary-foreground/85 leading-relaxed">{post.excerpt}</p>
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-primary-foreground/80">
-                <span className="inline-flex items-center gap-1.5">
-                  <User size={14} className="text-accent" /> {post.author}
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <CalendarDays size={14} className="text-accent" /> {post.date}
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Clock size={14} className="text-accent" /> {post.readingTime}
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Cover */}
-        <div className="container -mt-6 md:-mt-10 relative z-10">
-          <div className="rounded-2xl overflow-hidden border border-border/60 shadow-2xl aspect-[21/9]">
-            <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
-          </div>
+            <ChevronRight size={14} className="text-muted-foreground/60" />
+            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+            <ChevronRight size={14} className="text-muted-foreground/60" />
+            <span className="text-foreground truncate max-w-[60vw]">{post.title}</span>
+          </nav>
         </div>
 
-        {/* Body */}
-        <section className="container py-12 md:py-16">
-          <div className="grid lg:grid-cols-[220px_1fr_80px] gap-10">
-            <aside className="hidden lg:block">
-              <div className="sticky top-28">
-                <Toc sections={post.sections} />
+        <section className="container pb-16">
+          <div className="grid lg:grid-cols-[1fr_340px] gap-10">
+            {/* Article */}
+            <article>
+              <div className="flex flex-wrap items-center gap-4 text-sm">
+                <span className="inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-[11px] font-bold uppercase tracking-widest">
+                  {post.category}
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+                  <CalendarDays size={14} /> {post.date}
+                </span>
+                <span className="text-muted-foreground/60">•</span>
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+                  <Clock size={14} /> {post.readingTime}
+                </span>
               </div>
-            </aside>
 
-            <article className="max-w-none">
-              {/* Stats */}
-              <div className="grid sm:grid-cols-3 gap-4 mb-10">
-                {post.stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-xl border border-border/60 bg-card p-5 shadow-sm"
-                  >
-                    <div className="text-3xl font-bold text-primary font-heading">{s.value}</div>
-                    <div className="mt-1 text-xs text-muted-foreground leading-snug">{s.label}</div>
+              <h1 className="mt-5 text-3xl md:text-5xl font-bold font-heading text-foreground leading-tight text-balance">
+                {post.title}
+              </h1>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                {post.excerpt}
+              </p>
+
+              {/* Cover */}
+              <div className="mt-8 rounded-xl overflow-hidden border border-border/60 shadow-lg aspect-[16/8]">
+                <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
+              </div>
+
+              {/* Body */}
+              <div className="mt-10 space-y-8">
+                {post.sections.map((s, i) => (
+                  <div key={s.id} id={s.id} className="scroll-mt-28">
+                    <h2 className="text-xl md:text-2xl font-bold font-heading text-primary mb-3">
+                      {s.heading}
+                    </h2>
+                    {s.body.map((p, j) => (
+                      <p key={j} className="text-[15px] md:text-base text-muted-foreground leading-relaxed mb-3">
+                        {p}
+                      </p>
+                    ))}
+
+                    {i === 0 && (
+                      <ul className="mt-4 space-y-2.5">
+                        {[
+                          "Make faster, confident decisions",
+                          "Identify new opportunities and mitigate risks",
+                          "Improve operational efficiency",
+                          "Drive innovation and competitive advantage",
+                        ].map((li) => (
+                          <li key={li} className="flex items-start gap-2.5 text-[15px] text-muted-foreground">
+                            <span className="mt-1 inline-flex h-4 w-4 shrink-0 rounded-full bg-accent/20 items-center justify-center">
+                              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                            </span>
+                            {li}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {i === 1 && (
+                      <div className="mt-6 grid sm:grid-cols-2 gap-5">
+                        {BUILDING_BLOCKS.map((b) => (
+                          <div key={b.title} className="flex gap-3">
+                            <div className="h-10 w-10 shrink-0 rounded-lg bg-primary/10 text-primary grid place-items-center">
+                              <b.icon size={18} />
+                            </div>
+                            <div>
+                              <h4 className="font-heading font-semibold text-primary text-[15px]">{b.title}</h4>
+                              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{b.body}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
-              </div>
 
-              {post.sections.map((s, i) => (
-                <div key={s.id} id={s.id} className="scroll-mt-28 mb-10">
-                  <h2 className="text-2xl md:text-3xl font-bold font-heading text-foreground mb-4">
-                    {s.heading}
-                  </h2>
-                  {s.body.map((p, j) => (
-                    <p key={j} className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
-                      {p}
-                    </p>
-                  ))}
-                  {i === 1 && (
-                    <blockquote className="my-8 relative rounded-xl border-l-4 border-accent bg-accent/5 p-6">
-                      <Quote className="absolute -top-3 -left-3 text-accent bg-background rounded-full p-1" size={28} />
-                      <p className="text-lg md:text-xl font-heading font-semibold text-foreground leading-snug">
-                        {post.pullQuote}
-                      </p>
-                      <footer className="mt-3 text-sm text-muted-foreground">
-                        — {post.author}, {post.authorRole}
-                      </footer>
-                    </blockquote>
-                  )}
-                </div>
-              ))}
-
-              {/* Author card */}
-              <div className="mt-12 rounded-2xl border border-border/60 bg-card p-6 md:p-8 flex flex-col sm:flex-row gap-5 items-start">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary to-accent grid place-items-center text-primary-foreground font-heading font-bold text-xl shrink-0">
-                  {post.author
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-accent">Written by</p>
-                  <h3 className="mt-1 text-lg font-heading font-bold text-foreground">{post.author}</h3>
-                  <p className="text-sm text-muted-foreground">{post.authorRole}</p>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                    Practitioner at nextgenlytics, working directly with European enterprises to ship SAP, Microsoft, and AI programmes that reach production.
+                {/* Callout */}
+                <div className="rounded-xl border border-primary/15 bg-primary/5 p-5 flex gap-4 items-start">
+                  <div className="h-10 w-10 shrink-0 rounded-full bg-primary text-primary-foreground grid place-items-center">
+                    <Lightbulb size={18} />
+                  </div>
+                  <p className="text-[15px] text-foreground leading-relaxed">
+                    <span className="font-semibold text-primary">At Nextgenlytics, we help organizations unlock the full potential of their data. </span>
+                    <span className="text-muted-foreground">{post.pullQuote}</span>
                   </p>
                 </div>
               </div>
 
-              {/* Prev / Next */}
-              <nav className="mt-12 grid sm:grid-cols-2 gap-4">
-                {prev ? (
-                  <Link
-                    to={`/blog/${prev.id}`}
-                    className="group rounded-xl border border-border/60 bg-card p-5 hover:border-primary transition-colors"
-                  >
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                      <ArrowLeft size={12} /> Previous
-                    </span>
-                    <p className="mt-2 font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {prev.title}
-                    </p>
-                  </Link>
-                ) : (
-                  <div />
-                )}
-                {next ? (
-                  <Link
-                    to={`/blog/${next.id}`}
-                    className="group rounded-xl border border-border/60 bg-card p-5 text-right hover:border-primary transition-colors"
-                  >
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground justify-end w-full">
-                      Next <ArrowRight size={12} />
-                    </span>
-                    <p className="mt-2 font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {next.title}
-                    </p>
-                  </Link>
-                ) : (
-                  <div />
-                )}
-              </nav>
+              {/* Share */}
+              <div className="mt-10 pt-6 border-t border-border/60 flex items-center gap-4">
+                <span className="text-sm font-semibold text-foreground">Share this article:</span>
+                <div className="flex items-center gap-2">
+                  <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noreferrer" aria-label="Share on LinkedIn" className="h-9 w-9 grid place-items-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <Linkedin size={15} />
+                  </a>
+                  <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(post.title)}`} target="_blank" rel="noreferrer" aria-label="Share on X" className="h-9 w-9 grid place-items-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <Twitter size={15} />
+                  </a>
+                  <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noreferrer" aria-label="Share on Facebook" className="h-9 w-9 grid place-items-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <Facebook size={15} />
+                  </a>
+                  <button onClick={() => navigator.clipboard?.writeText(shareUrl)} aria-label="Copy link" className="h-9 w-9 grid place-items-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <Link2 size={15} />
+                  </button>
+                </div>
+              </div>
             </article>
 
-            <aside className="hidden lg:block">
-              <div className="sticky top-28">
-                <ShareBar title={post.title} />
+            {/* Sidebar */}
+            <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
+              {/* Search */}
+              <div className="relative">
+                <input
+                  type="search"
+                  placeholder="Search articles..."
+                  className="w-full h-11 pl-4 pr-11 rounded-full border border-border/70 bg-card text-sm focus:outline-none focus:border-primary transition-colors"
+                />
+                <button aria-label="Search" className="absolute right-1 top-1 h-9 w-9 grid place-items-center rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+                  <Search size={14} />
+                </button>
+              </div>
+
+              {/* Categories */}
+              <div className="rounded-xl border border-border/60 bg-card p-5">
+                <h3 className="font-heading font-bold text-primary mb-3">Categories</h3>
+                <ul className="space-y-1">
+                  {CATEGORIES.map((c) => {
+                    const active = c === activeCat;
+                    return (
+                      <li key={c}>
+                        <button
+                          onClick={() => setActiveCat(c)}
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+                            active
+                              ? "bg-accent/15 text-primary font-semibold border border-accent/40"
+                              : "text-muted-foreground hover:bg-muted"
+                          }`}
+                        >
+                          <span>{c}</span>
+                          <ChevronRight size={14} className={active ? "text-accent" : "text-muted-foreground/60"} />
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* Recent Posts */}
+              <div className="rounded-xl border border-border/60 bg-card p-5">
+                <h3 className="font-heading font-bold text-primary mb-4">Recent Posts</h3>
+                <ul className="space-y-4">
+                  {recent.map((r) => (
+                    <li key={r.id}>
+                      <Link to={`/blog/${r.id}`} className="group flex gap-3">
+                        <div className="h-16 w-16 shrink-0 rounded-lg overflow-hidden">
+                          <img src={r.cover} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                            {r.title}
+                          </p>
+                          <p className="mt-1 text-xs text-muted-foreground">
+                            {r.date} • {r.readingTime}
+                          </p>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Popular Tags */}
+              <div className="rounded-xl border border-border/60 bg-card p-5">
+                <h3 className="font-heading font-bold text-primary mb-3">Popular Tags</h3>
+                <div className="flex flex-wrap gap-2">
+                  {TAGS.map((t) => (
+                    <button
+                      key={t}
+                      className="px-3 py-1.5 rounded-full border border-primary/25 bg-primary/5 text-primary text-xs font-medium hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA Card */}
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary to-primary/80 text-primary-foreground p-6">
+                <div className="absolute -top-2 -right-2 grid grid-cols-6 gap-1.5 opacity-30">
+                  {Array.from({ length: 24 }).map((_, i) => (
+                    <span key={i} className="h-1 w-1 rounded-full bg-primary-foreground" />
+                  ))}
+                </div>
+                <div className="absolute -bottom-6 -right-6 h-24 w-24 rotate-12 border-2 border-accent/60 rounded-lg" />
+                <h4 className="relative font-heading text-xl font-bold leading-tight">
+                  Ready to turn your<br />data into impact?
+                </h4>
+                <p className="relative mt-3 text-sm text-primary-foreground/85 leading-relaxed">
+                  Let's build data solutions that drive real business outcomes.
+                </p>
+                <Link
+                  to="/contact"
+                  className="relative mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-colors"
+                >
+                  Contact Us <ArrowRight size={14} />
+                </Link>
               </div>
             </aside>
           </div>
-        </section>
 
-        {/* Related */}
-        <section className="section-alt py-14">
-          <div className="container">
-            <div className="flex items-end justify-between mb-6">
-              <div>
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-                  <TrendingUp size={14} /> Keep reading
-                </span>
-                <h2 className="mt-2 text-2xl md:text-3xl font-bold font-heading text-foreground">
-                  Related articles
-                </h2>
-              </div>
-              <Link to="/blog" className="text-sm font-semibold text-primary hover:text-accent">
-                All articles →
-              </Link>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {related.map((r) => (
-                <Link
-                  key={r.id}
-                  to={`/blog/${r.id}`}
-                  className="group rounded-2xl overflow-hidden border border-border/60 bg-card shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all"
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={r.cover}
-                      alt={r.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <span className="text-[11px] font-semibold uppercase tracking-widest text-accent">
-                      {r.category}
-                    </span>
-                    <h3 className="mt-2 font-heading font-bold text-foreground group-hover:text-primary transition-colors">
-                      {r.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{r.excerpt}</p>
-                  </div>
-                </Link>
+          {/* Newsletter */}
+          <div className="mt-14 rounded-2xl border border-border/60 bg-muted/40 p-6 md:p-8 relative overflow-hidden">
+            <div className="absolute top-2 right-4 grid grid-cols-10 gap-1.5 opacity-40">
+              {Array.from({ length: 40 }).map((_, i) => (
+                <span key={i} className="h-1 w-1 rounded-full bg-primary/40" />
               ))}
+            </div>
+            <div className="relative flex flex-col md:flex-row md:items-center gap-6">
+              <div className="h-14 w-14 shrink-0 rounded-full bg-primary text-primary-foreground grid place-items-center">
+                <Mail size={22} />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-heading text-xl font-bold text-primary">Never Miss an Insight</h3>
+                <p className="mt-1 text-sm text-muted-foreground max-w-lg">
+                  Subscribe to our newsletter and get the latest insights on data, AI, cloud, and digital transformation—delivered to your inbox.
+                </p>
+              </div>
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                className="flex w-full md:w-auto items-center gap-2"
+              >
+                <input
+                  type="email"
+                  required
+                  placeholder="Enter your email"
+                  className="flex-1 md:w-64 h-11 px-4 rounded-lg border border-border bg-background text-sm focus:outline-none focus:border-primary transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="h-11 px-5 rounded-lg bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-colors"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </div>
         </section>
