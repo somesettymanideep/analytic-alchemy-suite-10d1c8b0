@@ -491,10 +491,13 @@ function OpenOpportunities() {
               </div>
             ) : (
             <ul className="mt-6 divide-y divide-border/60">
-              {filtered.map((j) => (
+              {filtered.map((j, i) => (
                 <li
                   key={j.title}
-                  className="group flex flex-col md:flex-row md:items-center gap-4 py-4"
+                  className={`group flex flex-col md:flex-row md:items-center gap-4 py-4 ${
+                    isVisible ? "animate-reveal-up" : "opacity-0"
+                  }`}
+                  style={{ animationDelay: `${150 + i * 90}ms` }}
                 >
                   <div className="flex items-center gap-3 md:min-w-[240px]">
                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors shrink-0">
