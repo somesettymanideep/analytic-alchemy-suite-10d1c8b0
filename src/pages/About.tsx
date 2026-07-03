@@ -344,7 +344,7 @@ function OurJourney() {
               <div className="md:hidden absolute left-[27px] top-0 bottom-0 w-px border-l-2 border-dashed border-accent/70" aria-hidden />
 
               {/* Desktop: curved road SVG */}
-              <div className="hidden md:block relative w-full" style={{ height: `${n * 400}px` }}>
+              <div className="hidden md:block relative w-full" style={{ height: `${n * 320}px` }}>
                 <svg
                   className="absolute inset-0 w-full h-full"
                   viewBox="0 0 100 100"
