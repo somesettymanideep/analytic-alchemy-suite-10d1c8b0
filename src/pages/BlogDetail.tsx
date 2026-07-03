@@ -485,43 +485,6 @@ export default function BlogDetail() {
               </div>
             </aside>
           </div>
-
-          {/* Newsletter */}
-          <div className="mt-14 rounded-2xl border border-border/60 bg-muted/40 p-6 md:p-8 relative overflow-hidden">
-            <div className="absolute top-2 right-4 grid grid-cols-10 gap-1.5 opacity-40">
-              {Array.from({ length: 40 }).map((_, i) => (
-                <span key={i} className="h-1 w-1 rounded-full bg-primary/40" />
-              ))}
-            </div>
-            <div className="relative flex flex-col md:flex-row md:items-center gap-6">
-              <div className="h-14 w-14 shrink-0 rounded-full bg-primary text-primary-foreground grid place-items-center">
-                <Mail size={22} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-heading text-xl font-bold text-primary">Never Miss an Insight</h3>
-                <p className="mt-1 text-sm text-muted-foreground max-w-lg">
-                  Subscribe to our newsletter and get the latest insights on data, AI, cloud, and digital transformation—delivered to your inbox.
-                </p>
-              </div>
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="flex w-full md:w-auto items-center gap-2"
-              >
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email"
-                  className="flex-1 md:w-64 h-11 px-4 rounded-lg border border-border bg-background text-sm focus:outline-none focus:border-primary transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="h-11 px-5 rounded-lg bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
         </section>
       </main>
       <Footer />
