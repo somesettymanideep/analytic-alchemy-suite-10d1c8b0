@@ -250,34 +250,37 @@ function VisionMission() {
 /* -------------------------------------------------------------- */
 function OurJourney() {
   const { ref, isVisible } = useScrollReveal(0.1);
+  type Bullet = { text: string; highlight?: boolean };
   const milestones: {
     year: string;
     title: string;
-    bullets: string[];
+    bullets: Bullet[];
     icon: typeof Rocket;
+    highlight?: boolean;
   }[] = [
     {
       year: "2022",
       title: "Nextgenlytics founded",
-      bullets: ["Founded in Amsterdam"],
+      bullets: [{ text: "Founded in Amsterdam" }],
       icon: Rocket,
     },
     {
       year: "2023",
       title: "First customer & offshore hub",
       bullets: [
-        "Onboarded 1st NL customer",
-        "1st offshore delivery center: Hyderabad",
-        "Advisory, Data Strategy, Data Analytics, Digital Transformation",
+        { text: "Onboarded 1st NL customer" },
+        { text: "1st offshore delivery center: Hyderabad", highlight: true },
+        { text: "Advisory, Data Strategy, Data Analytics, Digital Transformation" },
       ],
       icon: Building2,
+      highlight: true,
     },
     {
       year: "2024",
       title: "AI & business applications",
       bullets: [
-        "Expanded focus: implementing AI services",
-        "Business Application expertise & services: SAP, D365 & Salesforce",
+        { text: "Expanded focus: implementing AI services" },
+        { text: "Business Application expertise & services: SAP, D365 & Salesforce" },
       ],
       icon: Zap,
     },
@@ -285,13 +288,14 @@ function OurJourney() {
       year: "2025",
       title: "Global scale & BlueGecko",
       bullets: [
-        "Onboarded 1st UK customer",
-        "Launched Application Managed Services (AMS)",
-        "Cloud Infra Managed Services",
-        "2nd offshore delivery center: Lucknow",
-        "Global launch of flagship platform: BlueGecko",
+        { text: "Onboarded 1st UK customer" },
+        { text: "Launched Application Managed Services (AMS)", highlight: true },
+        { text: "Cloud Infra Managed Services" },
+        { text: "2nd offshore delivery center: Lucknow", highlight: true },
+        { text: "Global launch of flagship platform: BlueGecko", highlight: true },
       ],
       icon: Globe2,
+      highlight: true,
     },
   ];
   return (
