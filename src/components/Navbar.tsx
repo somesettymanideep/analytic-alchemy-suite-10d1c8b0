@@ -19,7 +19,7 @@ const solutionsMenu: SolutionCategory[] = [
     items: [
       { label: "SAP S/4HANA Data Migration & Implementation", href: "/solutions/sap-s4hana" },
       { label: "SAP ECC Support, Optimisation & Migration", href: "/solutions/sap-ecc" },
-      { label: "RISE with SAP Implementation", href: "/solutions/rise-with-sap" },
+      { label: "RISE with SAP — Data Readiness & Migration", href: "/solutions/rise-with-sap" },
       { label: "SAP Datasphere & Business Data Cloud", href: "/solutions/sap-business-data-cloud" },
       { label: "SAP Analytics Cloud (SAC) Implementation", href: "/solutions/sap-analytics-cloud" },
       { label: "SAP BTP Integration & Extension Services", href: "/solutions/sap-btp" },
