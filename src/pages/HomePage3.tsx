@@ -724,6 +724,7 @@ function ProcessSection() {
     { n: "04", title: "Optimize", icon: Gauge, desc: "Tune cost, performance, and AI workloads on the new stack.", tags: ["FinOps tuning", "Query acceleration", "Model evaluation"] },
     { n: "05", title: "Govern", icon: Lock, desc: "Operationalize policies, observability, and ongoing stewardship.", tags: ["Policy as code", "Observability", "Stewardship model"] },
   ];
+  const [openStage, setOpenStage] = useState<string | null>(null);
   return (
     <section className="bg-[#081436] text-white py-24 border-t border-white/5">
       <div className="container grid lg:grid-cols-[380px_1fr] gap-12">
@@ -755,23 +756,51 @@ function ProcessSection() {
                 <div className="absolute left-0 top-3 w-12 h-12 rounded-full bg-[#0A1A4A] border-2 border-amber-400 flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.5)]">
                   <s.icon className="w-5 h-5 text-amber-300" />
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] transition p-6">
+                <button
+                  type="button"
+                  onClick={() => setOpenStage((cur) => (cur === s.n ? null : s.n))}
+                  aria-expanded={openStage === s.n}
+                  className={`group w-full text-left rounded-2xl border p-6 transition-all duration-300 cursor-pointer hover:border-amber-300/40 hover:bg-white/[0.06] hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-25px_rgba(251,191,36,0.4)] ${
+                    openStage === s.n
+                      ? "border-amber-300/50 bg-white/[0.07] shadow-[0_20px_50px_-25px_rgba(251,191,36,0.5)]"
+                      : "border-white/10 bg-white/[0.03]"
+                  }`}
+                >
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Stage / {s.n}</div>
-                      <h3 className="mt-1 font-heading font-bold text-2xl">{s.title}</h3>
+                      <h3 className="mt-1 font-heading font-bold text-2xl group-hover:text-amber-200 transition-colors">{s.title}</h3>
                     </div>
-                    <div className="font-heading font-bold text-4xl text-white/10">{s.n}</div>
+                    <div className={`font-heading font-bold text-4xl transition-colors ${openStage === s.n ? "text-amber-300/70" : "text-white/10 group-hover:text-amber-300/40"}`}>{s.n}</div>
                   </div>
-                  <p className="mt-3 text-white/65 text-sm max-w-xl">{s.desc}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {s.tags.map((t) => (
-                      <span key={t} className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-white/70">
-                        {t}
-                      </span>
-                    ))}
+
+                  {/* Hover/click reveal: description + key deliverables */}
+                  <div
+                    className={`grid transition-all duration-500 ease-out ${
+                      openStage === s.n
+                        ? "grid-rows-[1fr] opacity-100 mt-4"
+                        : "grid-rows-[0fr] opacity-0 mt-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-4"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="text-white/70 text-sm max-w-xl">{s.desc}</p>
+                      <div className="mt-4">
+                        <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-amber-300/90 mb-2">Key deliverables</div>
+                        <div className="flex flex-wrap gap-2">
+                          {s.tags.map((t) => (
+                            <span key={t} className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/25 text-amber-100">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+
+                  <div className={`mt-3 text-[11px] uppercase tracking-widest transition-colors ${openStage === s.n ? "text-amber-300" : "text-white/40 group-hover:text-amber-200"}`}>
+                    {openStage === s.n ? "Tap to collapse" : "Hover or tap for details"}
+                  </div>
+                </button>
               </RevealOnScroll>
             ))}
           </div>
