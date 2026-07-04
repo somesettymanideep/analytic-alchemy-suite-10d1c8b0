@@ -216,7 +216,7 @@ export default function Navbar() {
 
                 {openMenuKey === "solutions" && l.hasMenu === "solutions" && (
                   <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(880px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-0 animate-fade-in overflow-hidden"
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(1040px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-0 animate-fade-in overflow-hidden"
                     onMouseEnter={() => openMenu("solutions")}
                     onMouseLeave={scheduleClose}
                   >
@@ -273,7 +273,7 @@ export default function Navbar() {
                                     className="flex items-center gap-2 rounded-lg border border-border/60 p-2.5 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                                   >
                                     <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
-                                    <span className="text-sm font-medium text-foreground group-hover:text-primary flex-1 truncate">
+                                     <span className="text-sm font-medium text-foreground group-hover:text-primary flex-1 leading-snug">
                                       {it.label}
                                     </span>
                                     <ArrowRight size={12} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
