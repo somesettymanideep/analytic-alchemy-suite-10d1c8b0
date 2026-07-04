@@ -29,10 +29,10 @@ const solutionsMenu: SolutionCategory[] = [
     label: "Microsoft Solutions",
     Icon: Cloud,
     items: [
-      { label: "Microsoft Dynamics 365 Implementation", href: "/solutions/microsoft-dynamics-365" },
-      { label: "Dynamics 365 Business Central", href: "/solutions/business-central" },
-      { label: "Dynamics AX Migration & Modernisation", href: "/solutions/dynamics-ax-migration" },
-      { label: "Microsoft Fabric", href: "/solutions/microsoft-fabric" },
+      { label: "D365 Finance & Operations — Implementation & AMS", href: "/solutions/microsoft-dynamics-365" },
+      { label: "Dynamics 365 Business Central — Migration & Implementation", href: "/solutions/business-central" },
+      { label: "Dynamics AX Migration & Modernisation to D365", href: "/solutions/dynamics-ax-migration" },
+      { label: "Microsoft Fabric Data Engineering & Analytics", href: "/solutions/microsoft-fabric" },
     ],
   },
   {
