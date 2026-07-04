@@ -562,7 +562,8 @@ function CaseStudiesSection() {
         </div>
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {cases.map((c, i) => (
-            <div key={i} className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F2C77] to-[#0A1A4A] border border-white/10 p-8 min-h-[260px] hover:border-amber-300/40 transition group">
+            <RevealOnScroll key={i} delay={i * 160}>
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F2C77] to-[#0A1A4A] border border-white/10 p-8 min-h-[260px] hover:border-amber-300/40 transition group h-full">
               <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-amber-400/10 blur-3xl group-hover:bg-amber-400/20 transition" />
               <div className="text-xs uppercase tracking-widest text-amber-300">Case Study</div>
               <div className="mt-6 font-heading font-bold text-6xl bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
@@ -578,7 +579,8 @@ function CaseStudiesSection() {
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
-            </div>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>
