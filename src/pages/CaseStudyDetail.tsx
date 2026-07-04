@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
+import Reveal from "@/components/Reveal";
 import {
   ArrowRight,
   ArrowLeft,
@@ -86,7 +87,7 @@ export default function CaseStudyDetail() {
 
       {/* Header */}
       <section className="container grid md:grid-cols-2 items-center gap-10 py-10 md:py-14">
-        <div>
+        <Reveal variant="left">
           <div className="text-xs font-bold uppercase tracking-[0.25em] text-accent">
             {cs.categoryLabel}
           </div>
@@ -107,19 +108,19 @@ export default function CaseStudyDetail() {
               Download PDF <Download size={14} />
             </button>
           </div>
-        </div>
-        <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-primary shadow-xl">
+        </Reveal>
+        <Reveal variant="right" delay={150} className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-primary shadow-xl">
           <img src={cs.image} alt={cs.title} className="h-full w-full object-cover" />
-        </div>
+        </Reveal>
       </section>
 
       {/* Stats bar */}
       <section className="container">
-        <div className="rounded-2xl border border-border bg-card p-6 grid grid-cols-2 md:grid-cols-5 gap-6">
+        <Reveal className="rounded-2xl border border-border bg-card p-6 grid grid-cols-2 md:grid-cols-5 gap-6">
           {cs.stats.map((s) => {
             const Icon = iconMap[s.icon] ?? Users;
             return (
-              <div key={s.label} className="flex items-center gap-3">
+              <div key={s.label} className="flex items-center gap-3 transition-transform hover:-translate-y-0.5">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
                   <Icon size={20} />
                 </span>
@@ -132,12 +133,12 @@ export default function CaseStudyDetail() {
               </div>
             );
           })}
-        </div>
+        </Reveal>
       </section>
 
       {/* Context & Impact */}
       <section className="container py-12 grid md:grid-cols-2 gap-10">
-        <div>
+        <Reveal variant="left">
           <h2 className="text-xl md:text-2xl font-bold text-primary font-heading mb-4">
             Business Context
           </h2>
@@ -146,8 +147,8 @@ export default function CaseStudyDetail() {
               <p key={i}>{p}</p>
             ))}
           </div>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal variant="right" delay={120}>
           <h2 className="text-xl md:text-2xl font-bold text-primary font-heading mb-4">
             Key Impact
           </h2>
@@ -159,12 +160,12 @@ export default function CaseStudyDetail() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </section>
 
       {/* Challenges */}
       <section className="container pb-12">
-        <div className="rounded-2xl bg-secondary border border-border p-6 md:p-8">
+        <Reveal className="rounded-2xl bg-secondary border border-border p-6 md:p-8">
           <h2 className="text-xl md:text-2xl font-bold text-primary font-heading mb-6">
             Challenges
           </h2>
@@ -172,21 +173,21 @@ export default function CaseStudyDetail() {
             {cs.challenges.map((ch, i) => {
               const Icon = iconMap[ch.icon] ?? FileText;
               return (
-                <div key={i} className="rounded-xl bg-card border border-border p-5">
+                <Reveal key={i} delay={i * 100} className="rounded-xl bg-card border border-border p-5 hover:-translate-y-0.5 hover:shadow-md transition">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-3">
                     <Icon size={18} />
                   </span>
                   <p className="text-sm text-foreground/80 leading-relaxed">{ch.text}</p>
-                </div>
+                </Reveal>
               );
             })}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Solution */}
       <section className="container pb-12 grid md:grid-cols-[1.3fr_1fr] gap-8 items-start">
-        <div>
+        <Reveal variant="left">
           <h2 className="text-xl md:text-2xl font-bold text-primary font-heading mb-4">
             Our Solution
           </h2>
@@ -198,15 +199,15 @@ export default function CaseStudyDetail() {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-primary shadow-lg">
+        </Reveal>
+        <Reveal variant="right" delay={120} className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-primary shadow-lg">
           <img src={cs.image} alt="Solution" className="h-full w-full object-cover" />
-        </div>
+        </Reveal>
       </section>
 
       {/* Approach + Technologies */}
       <section className="container pb-12 grid md:grid-cols-[1.5fr_1fr] gap-6">
-        <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+        <Reveal variant="left" className="rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-lg md:text-xl font-bold text-primary font-heading mb-6">
             Our Approach
           </h2>
@@ -214,7 +215,7 @@ export default function CaseStudyDetail() {
             {cs.approach.map((step, i) => {
               const Icon = iconMap[step.icon] ?? Search;
               return (
-                <div key={step.title} className="text-center relative">
+                <Reveal key={step.title} delay={i * 120} className="text-center relative">
                   <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary mb-2">
                     <Icon size={20} />
                   </span>
@@ -228,12 +229,12 @@ export default function CaseStudyDetail() {
                       className="hidden md:block text-accent absolute top-3 -right-2"
                     />
                   )}
-                </div>
+                </Reveal>
               );
             })}
           </div>
-        </div>
-        <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+        </Reveal>
+        <Reveal variant="right" delay={120} className="rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-lg md:text-xl font-bold text-primary font-heading mb-4">
             Technologies
           </h2>
@@ -248,28 +249,32 @@ export default function CaseStudyDetail() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Results */}
       <section className="container pb-12">
-        <h2 className="text-xl md:text-2xl font-bold text-primary font-heading mb-6">
-          Key Results / Outcomes
-        </h2>
+        <Reveal as="div">
+          <h2 className="text-xl md:text-2xl font-bold text-primary font-heading mb-6">
+            Key Results / Outcomes
+          </h2>
+        </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cs.results.map((r) => {
+          {cs.results.map((r, i) => {
             const Icon = iconMap[r.icon] ?? TrendingUp;
             return (
-              <div
+              <Reveal
                 key={r.label}
-                className="rounded-2xl border border-border bg-card p-5 hover:shadow-md transition"
+                variant="scale"
+                delay={i * 100}
+                className="rounded-2xl border border-border bg-card p-5 hover:shadow-md hover:-translate-y-0.5 transition"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-3">
                   <Icon size={20} />
                 </span>
                 <div className="text-2xl font-bold text-primary font-heading">{r.value}</div>
                 <div className="text-xs text-muted-foreground mt-1 leading-snug">{r.label}</div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -277,7 +282,7 @@ export default function CaseStudyDetail() {
 
       {/* Testimonial */}
       <section className="container pb-12">
-        <div className="rounded-2xl bg-secondary border border-border p-6 md:p-8 flex flex-col md:flex-row items-start gap-6">
+        <Reveal variant="scale" className="rounded-2xl bg-secondary border border-border p-6 md:p-8 flex flex-col md:flex-row items-start gap-6">
           <Quote size={40} className="text-primary/30 shrink-0" />
           <div className="flex-1">
             <p className="text-foreground/85 italic leading-relaxed">"{cs.testimonial.quote}"</p>
@@ -288,12 +293,12 @@ export default function CaseStudyDetail() {
           <div className="text-lg md:text-xl font-bold text-foreground font-heading whitespace-nowrap">
             {cs.testimonial.company}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* CTA */}
       <section className="container pb-12">
-        <div className="rounded-2xl bg-primary text-primary-foreground p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <Reveal variant="scale" className="rounded-2xl bg-primary text-primary-foreground p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h3 className="text-xl md:text-2xl font-bold font-heading">
               Let's Solve Your Challenges Together
@@ -308,20 +313,26 @@ export default function CaseStudyDetail() {
           >
             Talk to Our Experts <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       {/* Related */}
       <section className="container pb-20">
-        <h3 className="text-xl md:text-2xl font-bold text-primary font-heading mb-5">
-          Related Case Studies
-        </h3>
+        <Reveal>
+          <h3 className="text-xl md:text-2xl font-bold text-primary font-heading mb-5">
+            Related Case Studies
+          </h3>
+        </Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {related.map((r) => (
-            <Link
+          {related.map((r, i) => (
+            <Reveal
               key={r.slug}
+              delay={i * 100}
+              className=""
+            >
+            <Link
               to={`/case-study/${r.slug}`}
-              className="group rounded-xl overflow-hidden border border-border bg-card hover:shadow-md hover:-translate-y-0.5 transition"
+              className="group block rounded-xl overflow-hidden border border-border bg-card hover:shadow-md hover:-translate-y-0.5 transition"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-primary">
                 <img
@@ -342,6 +353,7 @@ export default function CaseStudyDetail() {
                 </div>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </section>
