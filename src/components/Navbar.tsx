@@ -151,11 +151,9 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isSubPage
-          ? "bg-card shadow-[0_1px_3px_hsl(var(--border))]"
-          : scrolled
-          ? "bg-card/95 backdrop-blur-md shadow-[0_1px_3px_hsl(var(--border))]"
-          : "bg-transparent"
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-[0_1px_3px_hsl(var(--border))]"
+          : "bg-white shadow-[0_1px_3px_hsl(var(--border))]"
       }`}
     >
       <AnnouncementBar />
