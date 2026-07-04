@@ -969,16 +969,17 @@ const HomePage3 = () => {
     <div className="min-h-screen overflow-x-clip bg-white">
       <Navbar />
       <Hero />
-      <RevealOnScroll><LogoStrip /></RevealOnScroll>
-      <RevealOnScroll><ProblemSection /></RevealOnScroll>
-      <RevealOnScroll><EngineeringPartner /></RevealOnScroll>
-      <RevealOnScroll><FourPractices /></RevealOnScroll>
-      <RevealOnScroll><NumbersSection /></RevealOnScroll>
-      <RevealOnScroll><ProcessSection /></RevealOnScroll>
-      <RevealOnScroll><CaseStudiesSection /></RevealOnScroll>
-      <RevealOnScroll><BlueGeckoPlatform /></RevealOnScroll>
-      <RevealOnScroll><Testimonial /></RevealOnScroll>
-      <RevealOnScroll><FinalCta /></RevealOnScroll>
+      <RevealOnScroll delay={0}><LogoStrip /></RevealOnScroll>
+      <RevealOnScroll delay={80}><ProblemSection /></RevealOnScroll>
+      <RevealOnScroll delay={120}><EngineeringPartner /></RevealOnScroll>
+      <RevealOnScroll delay={80}><FourPractices /></RevealOnScroll>
+      <RevealOnScroll delay={120}><NumbersSection /></RevealOnScroll>
+      <RevealOnScroll delay={80}><InteractiveChartsSection /></RevealOnScroll>
+      <RevealOnScroll delay={120}><ProcessSection /></RevealOnScroll>
+      <RevealOnScroll delay={80}><CaseStudiesSection /></RevealOnScroll>
+      <RevealOnScroll delay={120}><BlueGeckoPlatform /></RevealOnScroll>
+      <RevealOnScroll delay={80}><Testimonial /></RevealOnScroll>
+      <RevealOnScroll delay={120}><FinalCta /></RevealOnScroll>
       <Footer />
       <ScrollToTop />
     </div>
