@@ -750,8 +750,8 @@ function ProcessSection() {
         <div className="relative">
           <div className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-amber-400/60 via-white/10 to-amber-400/60" />
           <div className="space-y-5">
-            {stages.map((s) => (
-              <div key={s.n} className="relative pl-16">
+            {stages.map((s, i) => (
+              <RevealOnScroll key={s.n} delay={i * 180} threshold={0.25} className="relative pl-16 block">
                 <div className="absolute left-0 top-3 w-12 h-12 rounded-full bg-[#0A1A4A] border-2 border-amber-400 flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.5)]">
                   <s.icon className="w-5 h-5 text-amber-300" />
                 </div>
@@ -772,7 +772,7 @@ function ProcessSection() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
