@@ -18,7 +18,7 @@ const solutionsMenu: SolutionCategory[] = [
     Icon: Boxes,
     items: [
       { label: "SAP S/4HANA Data Migration & Implementation", href: "/solutions/sap-s4hana" },
-      { label: "SAP ECC Support, Optimisation & Migration Planning", href: "/solutions/sap-ecc" },
+      { label: "SAP ECC Support, Optimisation & Migration", href: "/solutions/sap-ecc" },
       { label: "RISE with SAP Implementation", href: "/solutions/rise-with-sap" },
       { label: "SAP Business Data Cloud Implementation", href: "/solutions/sap-business-data-cloud" },
       { label: "SAP Analytics Cloud (SAC) Implementation", href: "/solutions/sap-analytics-cloud" },
