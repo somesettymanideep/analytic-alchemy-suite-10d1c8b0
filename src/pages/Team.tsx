@@ -15,7 +15,6 @@ import mohanReddyAsset from "@/assets/team/mohan_reddy.jpeg.asset.json";
 import nitinAsset from "@/assets/team/nitin.png.asset.json";
 import paragAsset from "@/assets/team/parag.png.asset.json";
 import pujeshAsset from "@/assets/team/Pujesh-2.jpeg.asset.json";
-import parikshitAsset from "@/assets/team/parikshit.png.asset.json";
 import sridharAsset from "@/assets/team/sridhar.png.asset.json";
 import raviAsset from "@/assets/team/Ravi.png.asset.json";
 import richaAsset from "@/assets/team/Richa.jpeg.asset.json";
