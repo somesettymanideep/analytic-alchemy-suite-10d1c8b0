@@ -218,10 +218,8 @@ function ProblemSection() {
         </div>
         <div className="space-y-4">
           {items.map((it, i) => (
-            <div
-              key={i}
-              className="group rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-amber-300/30 transition p-5 flex gap-4"
-            >
+            <RevealOnScroll key={i} delay={i * 140}>
+              <div className="group rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-amber-300/30 transition p-5 flex gap-4">
               <div className="shrink-0 w-11 h-11 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center">
                 <it.icon className="w-5 h-5 text-amber-300" />
               </div>
@@ -229,7 +227,8 @@ function ProblemSection() {
                 <div className="font-semibold">{it.title}</div>
                 <div className="text-sm text-white/60 mt-1">{it.desc}</div>
               </div>
-            </div>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>
