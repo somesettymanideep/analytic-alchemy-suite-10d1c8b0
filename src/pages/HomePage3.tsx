@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   Play,
@@ -26,6 +26,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 // ============ HERO ============
 function Hero() {
@@ -217,10 +218,8 @@ function ProblemSection() {
         </div>
         <div className="space-y-4">
           {items.map((it, i) => (
-            <div
-              key={i}
-              className="group rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-amber-300/30 transition p-5 flex gap-4"
-            >
+            <RevealOnScroll key={i} delay={i * 140}>
+              <div className="group rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-amber-300/30 transition p-5 flex gap-4">
               <div className="shrink-0 w-11 h-11 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center">
                 <it.icon className="w-5 h-5 text-amber-300" />
               </div>
@@ -228,7 +227,8 @@ function ProblemSection() {
                 <div className="font-semibold">{it.title}</div>
                 <div className="text-sm text-white/60 mt-1">{it.desc}</div>
               </div>
-            </div>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>
@@ -361,10 +361,8 @@ function FourPractices() {
 
         <div className="mt-12 grid sm:grid-cols-2 gap-5">
           {items.map((it, i) => (
-            <div
-              key={i}
-              className={`group relative rounded-3xl bg-gradient-to-br ${it.tint} border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-0.5 transition`}
-            >
+            <RevealOnScroll key={i} delay={i * 120}>
+              <div className={`group relative h-full rounded-3xl bg-gradient-to-br ${it.tint} border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-0.5 transition`}>
               <div className="flex items-start justify-between">
                 <div className={`w-12 h-12 rounded-2xl ${it.dot} text-white flex items-center justify-center shadow-lg`}>
                   <it.icon className="w-6 h-6" />
@@ -381,7 +379,8 @@ function FourPractices() {
                   Explore <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
-            </div>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
 
@@ -402,27 +401,42 @@ function FourPractices() {
 }
 
 // ============ NUMBERS ============
-function useCountUp(end: number, duration = 1500) {
+function useCountUp(end: number, start: boolean, duration = 1600) {
   const [v, setV] = useState(0);
   useEffect(() => {
-    const start = performance.now();
+    if (!start) return;
+    const t0 = performance.now();
     let raf = 0;
     const tick = (t: number) => {
-      const p = Math.min((t - start) / duration, 1);
+      const p = Math.min((t - t0) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       setV(Math.round(eased * end));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [end, duration]);
+  }, [end, duration, start]);
   return v;
 }
 
-function StatNumber({ end, suffix }: { end: number; suffix: string }) {
-  const v = useCountUp(end);
+function StatNumber({ end, suffix, delay = 0 }: { end: number; suffix: string; delay?: number }) {
+  const { ref, isVisible } = useScrollReveal(0.4);
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    if (isVisible) {
+      const id = setTimeout(() => setArmed(true), delay);
+      return () => clearTimeout(id);
+    }
+  }, [isVisible, delay]);
+  const v = useCountUp(end, armed);
   return (
-    <div className="font-heading font-bold text-5xl sm:text-6xl tabular-nums">
+    <div
+      ref={ref}
+      className={`font-heading font-bold text-5xl sm:text-6xl tabular-nums transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {v}
       <span className="text-amber-300">{suffix}</span>
     </div>
@@ -456,11 +470,245 @@ function NumbersSection() {
         <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s, i) => (
             <div key={i}>
-              <StatNumber end={s.v} suffix={s.s} />
+              <StatNumber end={s.v} suffix={s.s} delay={i * 140} />
               <div className="mt-2 text-sm text-white/60">{s.label}</div>
               <div className="mt-4 h-px bg-white/10" />
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ INTERACTIVE CHARTS ============
+function InteractiveChartsSection() {
+  const { ref, isVisible } = useScrollReveal(0.2);
+
+  // Bar chart data — delivery speed by quarter (weeks saved)
+  const bars = [
+    { label: "Q1", value: 32 },
+    { label: "Q2", value: 48 },
+    { label: "Q3", value: 61 },
+    { label: "Q4", value: 74 },
+    { label: "Q1+", value: 86 },
+  ];
+  const maxBar = 100;
+
+  // Line chart data — data quality score climb
+  const line = [62, 68, 71, 78, 84, 89, 93, 96, 98];
+  const w = 400;
+  const h = 140;
+  const step = w / (line.length - 1);
+  const points = line.map((v, i) => ({
+    x: i * step,
+    y: h - ((v - 55) / 45) * (h - 20) - 10,
+    v,
+    label: `M${i + 1}`,
+  }));
+  const pathD = points.map((p, i) => `${i === 0 ? "M" : "L"}${p.x},${p.y}`).join(" ");
+  const areaD = `${pathD} L${w},${h} L0,${h} Z`;
+
+  const [barHover, setBarHover] = useState<number | null>(null);
+  const [lineHover, setLineHover] = useState<number | null>(null);
+
+  // Line stroke draw-in
+  const pathRef = useRef<SVGPathElement>(null);
+  const [pathLen, setPathLen] = useState(0);
+  useEffect(() => {
+    if (pathRef.current) setPathLen(pathRef.current.getTotalLength());
+  }, []);
+
+  return (
+    <section ref={ref} className="bg-white py-24 border-t border-slate-100">
+      <div className="container">
+        <div className="max-w-2xl">
+          <div className="text-xs font-semibold tracking-[0.28em] uppercase text-amber-500">Live outcomes</div>
+          <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900 leading-[1.05]">
+            Delivery velocity you can{" "}
+            <span className="text-blue-700">measure.</span>
+          </h2>
+          <p className="mt-5 text-slate-600">
+            Hover the chart to inspect quarter-over-quarter gains from BlueGecko-accelerated engagements.
+          </p>
+        </div>
+
+        <div className="mt-12 grid lg:grid-cols-2 gap-6">
+          {/* Bar chart card */}
+          <div
+            className={`rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-7 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "0ms" }}
+          >
+            <div className="flex items-start justify-between">
+              <div>
+                <div className="text-xs uppercase tracking-widest text-slate-500">Weeks saved</div>
+                <div className="mt-1 font-heading font-bold text-2xl text-slate-900">Migration acceleration</div>
+              </div>
+              <span className="text-xs px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 font-semibold">+168% YoY</span>
+            </div>
+
+            <div className="mt-8 relative h-56">
+              {/* gridlines */}
+              <div className="absolute inset-x-0 top-0 bottom-6 flex flex-col justify-between">
+                {[0, 1, 2, 3].map((i) => (
+                  <div key={i} className="border-t border-dashed border-slate-200" />
+                ))}
+              </div>
+              <div className="absolute inset-0 flex items-end gap-3 pb-6">
+                {bars.map((b, i) => {
+                  const heightPct = isVisible ? (b.value / maxBar) * 100 : 0;
+                  const active = barHover === i;
+                  return (
+                    <div
+                      key={b.label}
+                      className="relative flex-1 h-full flex items-end"
+                      onMouseEnter={() => setBarHover(i)}
+                      onMouseLeave={() => setBarHover(null)}
+                    >
+                      {active && (
+                        <div className="absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-lg bg-slate-900 text-white text-xs font-semibold px-2.5 py-1.5 shadow-lg animate-fade-in">
+                          {b.value} weeks
+                          <div className="absolute left-1/2 -translate-x-1/2 top-full w-2 h-2 rotate-45 bg-slate-900" />
+                        </div>
+                      )}
+                      <div
+                        className={`w-full rounded-t-lg transition-all duration-[900ms] ease-out ${
+                          active
+                            ? "bg-gradient-to-t from-amber-500 to-amber-300"
+                            : "bg-gradient-to-t from-blue-700 to-blue-400"
+                        }`}
+                        style={{
+                          height: `${heightPct}%`,
+                          transitionDelay: `${i * 120}ms`,
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+              {/* labels */}
+              <div className="absolute inset-x-0 bottom-0 flex gap-3">
+                {bars.map((b) => (
+                  <div key={b.label} className="flex-1 text-center text-xs text-slate-500 font-medium">
+                    {b.label}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Line chart card */}
+          <div
+            className={`rounded-3xl border border-slate-200 bg-gradient-to-br from-[#0A1A4A] to-[#081436] text-white p-7 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "160ms" }}
+          >
+            <div className="flex items-start justify-between">
+              <div>
+                <div className="text-xs uppercase tracking-widest text-white/50">Data quality score</div>
+                <div className="mt-1 font-heading font-bold text-2xl">9-month uplift</div>
+              </div>
+              <span className="text-xs px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-300 font-semibold">98% peak</span>
+            </div>
+
+            <div className="mt-8 relative">
+              <svg
+                viewBox={`0 0 ${w} ${h}`}
+                className="w-full h-56"
+                onMouseLeave={() => setLineHover(null)}
+              >
+                <defs>
+                  <linearGradient id="ic-area" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.45" />
+                    <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+
+                {/* gridlines */}
+                {[0.25, 0.5, 0.75].map((f) => (
+                  <line key={f} x1={0} x2={w} y1={h * f} y2={h * f} stroke="#ffffff10" strokeDasharray="3 4" />
+                ))}
+
+                <path
+                  d={areaD}
+                  fill="url(#ic-area)"
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transition: "opacity 900ms ease-out 500ms",
+                  }}
+                />
+                <path
+                  ref={pathRef}
+                  d={pathD}
+                  fill="none"
+                  stroke="#fbbf24"
+                  strokeWidth={2.5}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{
+                    strokeDasharray: pathLen,
+                    strokeDashoffset: isVisible ? 0 : pathLen,
+                    transition: "stroke-dashoffset 1600ms ease-out",
+                  }}
+                />
+
+                {points.map((p, i) => (
+                  <g key={i}>
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r={lineHover === i ? 5 : 3}
+                      fill={lineHover === i ? "#fbbf24" : "#0A1A4A"}
+                      stroke="#fbbf24"
+                      strokeWidth={2}
+                      style={{
+                        opacity: isVisible ? 1 : 0,
+                        transition: `opacity 400ms ease-out ${800 + i * 90}ms, r 150ms ease-out`,
+                      }}
+                    />
+                    {/* hover hit-area */}
+                    <rect
+                      x={p.x - step / 2}
+                      y={0}
+                      width={step}
+                      height={h}
+                      fill="transparent"
+                      onMouseEnter={() => setLineHover(i)}
+                    />
+                  </g>
+                ))}
+
+                {lineHover !== null && (
+                  <g>
+                    <line
+                      x1={points[lineHover].x}
+                      x2={points[lineHover].x}
+                      y1={0}
+                      y2={h}
+                      stroke="#fbbf24"
+                      strokeDasharray="3 4"
+                      strokeOpacity={0.5}
+                    />
+                  </g>
+                )}
+              </svg>
+
+              {lineHover !== null && (
+                <div
+                  className="pointer-events-none absolute -translate-x-1/2 -translate-y-full rounded-lg bg-amber-400 text-[#0A1A4A] text-xs font-bold px-2.5 py-1.5 shadow-lg animate-fade-in"
+                  style={{
+                    left: `${(points[lineHover].x / w) * 100}%`,
+                    top: `${(points[lineHover].y / h) * 100}%`,
+                  }}
+                >
+                  {points[lineHover].label} · {points[lineHover].v}%
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -548,7 +796,8 @@ function CaseStudiesSection() {
         </div>
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {cases.map((c, i) => (
-            <div key={i} className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F2C77] to-[#0A1A4A] border border-white/10 p-8 min-h-[260px] hover:border-amber-300/40 transition group">
+            <RevealOnScroll key={i} delay={i * 160}>
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F2C77] to-[#0A1A4A] border border-white/10 p-8 min-h-[260px] hover:border-amber-300/40 transition group h-full">
               <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-amber-400/10 blur-3xl group-hover:bg-amber-400/20 transition" />
               <div className="text-xs uppercase tracking-widest text-amber-300">Case Study</div>
               <div className="mt-6 font-heading font-bold text-6xl bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
@@ -564,7 +813,8 @@ function CaseStudiesSection() {
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
-            </div>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>
@@ -719,16 +969,17 @@ const HomePage3 = () => {
     <div className="min-h-screen overflow-x-clip bg-white">
       <Navbar />
       <Hero />
-      <RevealOnScroll><LogoStrip /></RevealOnScroll>
-      <RevealOnScroll><ProblemSection /></RevealOnScroll>
-      <RevealOnScroll><EngineeringPartner /></RevealOnScroll>
-      <RevealOnScroll><FourPractices /></RevealOnScroll>
-      <RevealOnScroll><NumbersSection /></RevealOnScroll>
-      <RevealOnScroll><ProcessSection /></RevealOnScroll>
-      <RevealOnScroll><CaseStudiesSection /></RevealOnScroll>
-      <RevealOnScroll><BlueGeckoPlatform /></RevealOnScroll>
-      <RevealOnScroll><Testimonial /></RevealOnScroll>
-      <RevealOnScroll><FinalCta /></RevealOnScroll>
+      <RevealOnScroll delay={0}><LogoStrip /></RevealOnScroll>
+      <RevealOnScroll delay={80}><ProblemSection /></RevealOnScroll>
+      <RevealOnScroll delay={120}><EngineeringPartner /></RevealOnScroll>
+      <RevealOnScroll delay={80}><FourPractices /></RevealOnScroll>
+      <RevealOnScroll delay={120}><NumbersSection /></RevealOnScroll>
+      <RevealOnScroll delay={80}><InteractiveChartsSection /></RevealOnScroll>
+      <RevealOnScroll delay={120}><ProcessSection /></RevealOnScroll>
+      <RevealOnScroll delay={80}><CaseStudiesSection /></RevealOnScroll>
+      <RevealOnScroll delay={120}><BlueGeckoPlatform /></RevealOnScroll>
+      <RevealOnScroll delay={80}><Testimonial /></RevealOnScroll>
+      <RevealOnScroll delay={120}><FinalCta /></RevealOnScroll>
       <Footer />
       <ScrollToTop />
     </div>
