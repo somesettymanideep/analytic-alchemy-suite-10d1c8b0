@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import Reveal from "@/components/Reveal";
 import { caseStudies, caseCategories } from "@/data/caseStudies";
 import {
   BarChart3,
@@ -137,7 +138,7 @@ export default function CaseStudy() {
       {/* Hero */}
       <section className="relative overflow-hidden mt-16 md:mt-20 bg-gradient-to-br from-secondary via-background to-secondary">
         <div className="container grid md:grid-cols-2 items-center gap-8 py-14 md:py-20">
-          <div>
+          <Reveal variant="left">
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-accent">
               Case Studies
             </span>
@@ -152,8 +153,8 @@ export default function CaseStudy() {
               Explore how we help businesses overcome complex challenges and achieve impactful
               outcomes.
             </p>
-          </div>
-          <div className="hidden md:block">
+          </Reveal>
+          <Reveal variant="right" delay={150} className="hidden md:block">
             <div className="relative rounded-2xl overflow-hidden aspect-[16/10] shadow-xl">
               <img
                 src={caseStudies[1].image}
@@ -162,13 +163,13 @@ export default function CaseStudy() {
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent" />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Filters */}
       <section className="container py-8 md:py-10">
-        <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+        <Reveal className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
           {caseCategories.map((cat) => {
             const Icon = categoryIconMap[cat.key] ?? LayoutGrid;
             const active = filter === cat.key;
@@ -186,7 +187,7 @@ export default function CaseStudy() {
               </button>
             );
           })}
-        </div>
+        </Reveal>
       </section>
 
       {/* Case list */}
@@ -203,7 +204,7 @@ export default function CaseStudy() {
 
       {/* CTA */}
       <section className="container pb-16">
-        <div className="rounded-2xl bg-secondary border border-border p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <Reveal variant="scale" className="rounded-2xl bg-secondary border border-border p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-start gap-4">
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shrink-0">
               <FileText size={20} />
@@ -223,7 +224,7 @@ export default function CaseStudy() {
           >
             Talk to Our Experts <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       <Footer />
