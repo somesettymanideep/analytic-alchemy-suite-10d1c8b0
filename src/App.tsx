@@ -50,6 +50,7 @@ import AmsServices from "./pages/AmsServices.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
 import Edt from "./pages/Edt.tsx";
 import HomePage2 from "./pages/HomePage2.tsx";
+import HomePage3 from "./pages/HomePage3.tsx";
 import CareersPage2 from "./pages/CareersPage2.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -109,6 +110,7 @@ const App = () => (
           <Route path="/case-study" element={<CaseStudy />} />
           <Route path="/edt" element={<Edt />} />
           <Route path="/home-2" element={<HomePage2 />} />
+          <Route path="/home-3" element={<HomePage3 />} />
           <Route path="/careers-2" element={<CareersPage2 />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
