@@ -361,10 +361,8 @@ function FourPractices() {
 
         <div className="mt-12 grid sm:grid-cols-2 gap-5">
           {items.map((it, i) => (
-            <div
-              key={i}
-              className={`group relative rounded-3xl bg-gradient-to-br ${it.tint} border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-0.5 transition`}
-            >
+            <RevealOnScroll key={i} delay={i * 120}>
+              <div className={`group relative h-full rounded-3xl bg-gradient-to-br ${it.tint} border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-0.5 transition`}>
               <div className="flex items-start justify-between">
                 <div className={`w-12 h-12 rounded-2xl ${it.dot} text-white flex items-center justify-center shadow-lg`}>
                   <it.icon className="w-6 h-6" />
@@ -381,7 +379,8 @@ function FourPractices() {
                   Explore <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
-            </div>
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
 
