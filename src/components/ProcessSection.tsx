@@ -1,46 +1,54 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Search, BarChart3, Wrench, Send, RefreshCcw } from "lucide-react";
+import { useState } from "react";
 
 const steps = [
-  { icon: Search, title: "Discover", desc: "Assess your data landscape and define objectives" },
-  { icon: BarChart3, title: "Analyze", desc: "Profile data quality and identify transformation needs" },
-  { icon: Wrench, title: "Build", desc: "Develop automated pipelines and AI-driven solutions" },
-  { icon: Send, title: "Deliver", desc: "Deploy, validate, and go live with confidence" },
-  { icon: RefreshCcw, title: "Optimize", desc: "Continuous improvement and managed services" },
+  { n: "01", title: "Discover", desc: "Map your data landscape. Interview stakeholders. Define outcomes." },
+  { n: "02", title: "Assess", desc: "Profile every source. Score data quality. Quantify migration risk." },
+  { n: "03", title: "Migrate", desc: "BlueGecko-driven ETL, mapping and validation — 50%+ faster." },
+  { n: "04", title: "Optimize", desc: "Tune performance, cost, and adoption post go-live." },
+  { n: "05", title: "Govern", desc: "Continuous audit, PII detection, human-approved AI." },
 ];
 
 export default function ProcessSection() {
   const { ref, isVisible } = useScrollReveal();
+  const [hover, setHover] = useState<number | null>(null);
 
   return (
-    <section id="process" className="py-12 md:py-16 section-alt">
-      <div className="container" ref={ref}>
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">Our Process</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground text-balance">
-            A Proven Framework for Success
+    <section id="process" ref={ref} className="relative py-24 md:py-36 bg-white overflow-hidden">
+      <div className="container">
+        <div className="max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B1E66]/5 text-[#0B1E66] text-xs font-semibold tracking-widest uppercase mb-6">
+            The process
+          </div>
+          <h2 className={`font-display font-extrabold text-[#081A45] leading-[1.02] text-4xl md:text-5xl lg:text-[3.5rem] text-balance ${isVisible ? "animate-pop-in" : "opacity-0"}`}>
+            Five stages. <span className="bg-gradient-to-r from-[#0B1E66] to-[#3B82F6] bg-clip-text text-transparent">One outcome.</span>
           </h2>
         </div>
 
         <div className="relative">
-          {/* Connector line */}
-          <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-border" />
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4">
+          {/* connector line */}
+          <div className="hidden lg:block absolute top-16 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#0B1E66]/20 to-transparent" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
             {steps.map((s, i) => (
               <div
-                key={s.title}
-                className={`relative text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
-                style={{ animationDelay: `${i * 100}ms` }}
+                key={s.n}
+                onMouseEnter={() => setHover(i)}
+                onMouseLeave={() => setHover(null)}
+                className={`group relative rounded-card p-7 bg-white border border-[#0B1E66]/8 hover:border-[#3B82F6]/40 hover:premium-shadow hover:-translate-y-2 transition-all duration-500 ${isVisible ? "animate-pop-in" : "opacity-0"}`}
+                style={{ animationDelay: `${i * 120}ms` }}
               >
-                <div className="relative z-10 w-20 h-20 rounded-2xl bg-card border-2 border-primary/20 flex items-center justify-center mx-auto mb-4 shadow-md">
-                  <s.icon className="w-8 h-8 text-primary" />
-                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
-                    {i + 1}
-                  </span>
+                <div className="relative w-16 h-16 mb-6 rounded-2xl bg-[#F0F6FF] border border-[#3B82F6]/20 flex items-center justify-center group-hover:bg-dark-navy group-hover:border-[#3B82F6] transition-all duration-500">
+                  <span className="font-display font-extrabold text-2xl bg-gradient-to-br from-[#0B1E66] to-[#3B82F6] bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:to-white transition-all">{s.n}</span>
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">{s.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+                <h3 className="font-display font-bold text-xl text-[#081A45] mb-2">{s.title}</h3>
+                <p className={`text-sm text-muted-foreground font-premium leading-relaxed transition-all duration-500 ${hover === i ? "opacity-100 max-h-40" : "opacity-70 max-h-16 overflow-hidden"}`}>
+                  {s.desc}
+                </p>
+                {/* arrow between */}
+                {i < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-16 -right-3 w-6 h-6 rounded-full bg-white border border-[#0B1E66]/10 items-center justify-center z-10 flex text-[#0B1E66]/40 text-xs">→</div>
+                )}
               </div>
             ))}
           </div>
