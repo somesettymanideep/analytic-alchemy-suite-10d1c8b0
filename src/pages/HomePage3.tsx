@@ -403,27 +403,42 @@ function FourPractices() {
 }
 
 // ============ NUMBERS ============
-function useCountUp(end: number, duration = 1500) {
+function useCountUp(end: number, start: boolean, duration = 1600) {
   const [v, setV] = useState(0);
   useEffect(() => {
-    const start = performance.now();
+    if (!start) return;
+    const t0 = performance.now();
     let raf = 0;
     const tick = (t: number) => {
-      const p = Math.min((t - start) / duration, 1);
+      const p = Math.min((t - t0) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       setV(Math.round(eased * end));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [end, duration]);
+  }, [end, duration, start]);
   return v;
 }
 
-function StatNumber({ end, suffix }: { end: number; suffix: string }) {
-  const v = useCountUp(end);
+function StatNumber({ end, suffix, delay = 0 }: { end: number; suffix: string; delay?: number }) {
+  const { ref, isVisible } = useScrollReveal(0.4);
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    if (isVisible) {
+      const id = setTimeout(() => setArmed(true), delay);
+      return () => clearTimeout(id);
+    }
+  }, [isVisible, delay]);
+  const v = useCountUp(end, armed);
   return (
-    <div className="font-heading font-bold text-5xl sm:text-6xl tabular-nums">
+    <div
+      ref={ref}
+      className={`font-heading font-bold text-5xl sm:text-6xl tabular-nums transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {v}
       <span className="text-amber-300">{suffix}</span>
     </div>
@@ -457,7 +472,7 @@ function NumbersSection() {
         <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s, i) => (
             <div key={i}>
-              <StatNumber end={s.v} suffix={s.s} />
+              <StatNumber end={s.v} suffix={s.s} delay={i * 140} />
               <div className="mt-2 text-sm text-white/60">{s.label}</div>
               <div className="mt-4 h-px bg-white/10" />
             </div>
