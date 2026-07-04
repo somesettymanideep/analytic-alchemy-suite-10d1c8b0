@@ -1,5 +1,4 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { ArrowRight } from "lucide-react";
 import caseManufacturing from "@/assets/case-manufacturing.jpg";
 import caseProfessional from "@/assets/case-professional-services.jpg";
 import caseGovernance from "@/assets/case-data-governance.jpg";
@@ -7,27 +6,39 @@ import caseGovernance from "@/assets/case-data-governance.jpg";
 const cases = [
   {
     image: caseManufacturing,
-    industry: "Manufacturing · AX 2012 → SAP S/4HANA",
-    title: "Enterprise ERP Migration",
-    desc: "Multi-country programme across 250+ locations. BlueGecko-driven migration reduced timeline by half.",
-    stat: "50%",
-    statLabel: "Timeline Reduction",
+    industry: "Manufacturing",
+    tag: "AX 2012 → SAP S/4HANA",
+    title: "Multi-plateau ERP transformation for a leading European bed manufacturer",
+    stats: [
+      { value: "4", label: "Countries" },
+      { value: "250+", label: "Locations" },
+      { value: "40+", label: "KPIs live" },
+      { value: "20+", label: "Month prog." },
+    ],
   },
   {
     image: caseProfessional,
-    industry: "Professional Services · D365 F&O AMS",
-    title: "Global AMS Transition",
-    desc: "70+ legal entities across 9 countries. Zero-incident go-live under a named offshore delivery team.",
-    stat: "0",
-    statLabel: "Go-Live Incidents",
+    industry: "Professional Services",
+    tag: "D365 F&O AMS",
+    title: "AMS transition for a global technology talent and digital services leader",
+    stats: [
+      { value: "70+", label: "Legal entities" },
+      { value: "9", label: "Countries" },
+      { value: "6", label: "ISVs" },
+      { value: "0", label: "Incidents" },
+    ],
   },
   {
     image: caseGovernance,
-    industry: "Data Governance · BlueGecko",
-    title: "Enterprise AI Governance",
-    desc: "Multi-system governance architecture with full audit trail, PII detection, and human-in-the-loop AI.",
-    stat: "100%",
-    statLabel: "Human-Approved AI",
+    industry: "Data Governance",
+    tag: "BlueGecko · AI Governance",
+    title: "Enterprise AI/Data governance architecture for a multi-system transformation",
+    stats: [
+      { value: "6", label: "Domains" },
+      { value: "100%", label: "Human AI" },
+      { value: "Auto", label: "PII detect" },
+      { value: "Full", label: "Audit trail" },
+    ],
   },
 ];
 
@@ -35,58 +46,82 @@ export default function CaseStudiesSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="cases" ref={ref} className="relative py-24 md:py-36 bg-[#F8FAFC] overflow-hidden">
-      <div className="container">
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0B1E66]/5 text-[#0B1E66] text-xs font-semibold tracking-widest uppercase mb-6">
-            Case studies
+    <section id="cases" className="py-12 md:py-16 bg-background">
+      <div className="container" ref={ref}>
+        {/* Header */}
+        <div className="max-w-3xl mb-14">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-8 h-0.5 bg-accent" />
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Case Studies
+            </span>
           </div>
-          <h2 className={`font-display font-extrabold text-[#081A45] leading-[1.02] text-4xl md:text-5xl lg:text-[3.5rem] text-balance ${isVisible ? "animate-pop-in" : "opacity-0"}`}>
-            Enterprise programmes,<br />
-            <span className="bg-gradient-to-r from-[#0B1E66] to-[#3B82F6] bg-clip-text text-transparent">shipped.</span>
+          <h2
+            className={`text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-foreground leading-[1.1] text-balance mb-4 ${
+              isVisible ? "animate-reveal-up" : "opacity-0"
+            }`}
+          >
+            Enterprise transformation programmes delivered.
           </h2>
+          <p
+            className={`text-muted-foreground text-lg leading-relaxed text-pretty ${
+              isVisible ? "animate-reveal-up delay-100" : "opacity-0"
+            }`}
+          >
+            From manufacturing to global professional services — three distinct engagements, one consistent delivery model.
+          </p>
         </div>
 
-        <div className="space-y-8">
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {cases.map((c, i) => (
-            <a
-              href="#"
+            <div
               key={c.title}
-              className={`group relative block rounded-card overflow-hidden bg-dark-navy text-white premium-shadow hover:-translate-y-1 hover:premium-glow transition-all duration-500 ${isVisible ? "animate-pop-in" : "opacity-0"}`}
-              style={{ animationDelay: `${i * 150}ms` }}
+              className={`group relative bg-card rounded-2xl border border-border/60 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 active:scale-[0.99] ${
+                isVisible ? "animate-reveal-up" : "opacity-0"
+              }`}
+              style={{ animationDelay: `${(i + 2) * 100}ms` }}
             >
-              <div className={`grid md:grid-cols-2 ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
-                <div className="relative h-64 md:h-auto overflow-hidden" style={{ direction: "ltr" }}>
-                  <img
-                    src={c.image}
-                    alt={c.title}
-                    className="w-full h-full object-cover transition-transform duration-[900ms] group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#081A45] via-[#081A45]/40 to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#081A45]" />
-                </div>
-                <div className="relative p-8 md:p-14 flex flex-col justify-center" style={{ direction: "ltr" }}>
-                  <div className="text-xs font-semibold tracking-widest uppercase text-cyan-300 mb-4">
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={c.image}
+                  alt={c.industry}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/40 to-transparent" />
+              </div>
+
+              {/* Content */}
+              <div className="p-6 md:p-7">
+                <div className="flex items-center gap-2 flex-wrap mb-3">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                     {c.industry}
-                  </div>
-                  <h3 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl leading-tight mb-5">{c.title}</h3>
-                  <p className="text-white/70 font-premium leading-relaxed mb-8 max-w-md">{c.desc}</p>
+                  </span>
+                  <span className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-accent/15 text-accent border border-accent/20">
+                    {c.tag}
+                  </span>
+                </div>
 
-                  <div className="flex items-end gap-6 mb-8">
-                    <div className="font-display font-extrabold text-6xl md:text-7xl leading-none bg-gradient-to-b from-white to-cyan-200 bg-clip-text text-transparent">
-                      {c.stat}
-                    </div>
-                    <div className="text-xs font-semibold uppercase tracking-widest text-white/60 pb-3">
-                      {c.statLabel}
-                    </div>
-                  </div>
+                <h3 className="text-base font-bold text-foreground leading-snug mb-6 text-pretty min-h-[3rem]">
+                  {c.title}
+                </h3>
 
-                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 group-hover:gap-4 transition-all">
-                    Read Story <ArrowRight className="w-4 h-4" />
-                  </div>
+                <div className="grid grid-cols-4 gap-3 pt-5 border-t border-border/50">
+                  {c.stats.map((stat) => (
+                    <div key={stat.label} className="text-center">
+                      <div className="text-lg md:text-xl font-bold text-primary leading-none mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-[10px] font-medium text-muted-foreground uppercase tracking-wide leading-tight">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
