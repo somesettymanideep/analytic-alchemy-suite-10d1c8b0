@@ -25,6 +25,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import RevealOnScroll from "@/components/RevealOnScroll";
 
 // ============ HERO ============
 function Hero() {
@@ -718,16 +719,16 @@ const HomePage3 = () => {
     <div className="min-h-screen overflow-x-clip bg-white">
       <Navbar />
       <Hero />
-      <LogoStrip />
-      <ProblemSection />
-      <EngineeringPartner />
-      <FourPractices />
-      <NumbersSection />
-      <ProcessSection />
-      <CaseStudiesSection />
-      <BlueGeckoPlatform />
-      <Testimonial />
-      <FinalCta />
+      <RevealOnScroll><LogoStrip /></RevealOnScroll>
+      <RevealOnScroll><ProblemSection /></RevealOnScroll>
+      <RevealOnScroll><EngineeringPartner /></RevealOnScroll>
+      <RevealOnScroll><FourPractices /></RevealOnScroll>
+      <RevealOnScroll><NumbersSection /></RevealOnScroll>
+      <RevealOnScroll><ProcessSection /></RevealOnScroll>
+      <RevealOnScroll><CaseStudiesSection /></RevealOnScroll>
+      <RevealOnScroll><BlueGeckoPlatform /></RevealOnScroll>
+      <RevealOnScroll><Testimonial /></RevealOnScroll>
+      <RevealOnScroll><FinalCta /></RevealOnScroll>
       <Footer />
       <ScrollToTop />
     </div>
