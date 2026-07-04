@@ -46,6 +46,7 @@ import OwlSight from "./pages/OwlSight.tsx";
 import OrcaMigrate from "./pages/OrcaMigrate.tsx";
 import AmsServices from "./pages/AmsServices.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
+import CaseStudyDetail from "./pages/CaseStudyDetail.tsx";
 import Edt from "./pages/Edt.tsx";
 import HomePage2 from "./pages/HomePage2.tsx";
 import CareersPage2 from "./pages/CareersPage2.tsx";
@@ -103,6 +104,7 @@ const App = () => (
           <Route path="/products/orca-migrate" element={<OrcaMigrate />} />
           <Route path="/ams-services" element={<AmsServices />} />
           <Route path="/case-study" element={<CaseStudy />} />
+          <Route path="/case-study/:slug" element={<CaseStudyDetail />} />
           <Route path="/edt" element={<Edt />} />
           <Route path="/home-2" element={<HomePage2 />} />
           <Route path="/careers-2" element={<CareersPage2 />} />
