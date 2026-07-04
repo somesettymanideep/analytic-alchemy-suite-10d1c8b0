@@ -553,7 +553,7 @@ export default function Navbar() {
                               className="flex items-center gap-2 py-1.5 text-sm text-foreground/80"
                             >
                               <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
-                              <span className="truncate">{it.label}</span>
+                              <span className="leading-snug">{it.label}</span>
                             </a>
                           </li>
                         ))}
