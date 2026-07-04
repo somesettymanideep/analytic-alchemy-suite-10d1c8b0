@@ -25,9 +25,7 @@ import SapS4Hana from "./pages/SapS4Hana.tsx";
 import SapEcc from "./pages/SapEcc.tsx";
 import SapRise from "./pages/SapRise.tsx";
 import SapBdc from "./pages/SapBdc.tsx";
-import SapSac from "./pages/SapSac.tsx";
 import SapBtp from "./pages/SapBtp.tsx";
-import SapDataSphere from "./pages/SapDataSphere.tsx";
 import MicrosoftDynamics365 from "./pages/MicrosoftDynamics365.tsx";
 import BusinessCentral from "./pages/BusinessCentral.tsx";
 import DynamicsAx from "./pages/DynamicsAx.tsx";
@@ -85,9 +83,7 @@ const App = () => (
           <Route path="/solutions/sap-ecc" element={<SapEcc />} />
           <Route path="/solutions/rise-with-sap" element={<SapRise />} />
           <Route path="/solutions/sap-business-data-cloud" element={<SapBdc />} />
-          <Route path="/solutions/sap-analytics-cloud" element={<SapSac />} />
           <Route path="/solutions/sap-btp" element={<SapBtp />} />
-          <Route path="/solutions/sap-datasphere" element={<SapDataSphere />} />
           <Route path="/solutions/microsoft-dynamics-365" element={<MicrosoftDynamics365 />} />
           <Route path="/solutions/business-central" element={<BusinessCentral />} />
           <Route path="/solutions/dynamics-ax-migration" element={<DynamicsAx />} />
