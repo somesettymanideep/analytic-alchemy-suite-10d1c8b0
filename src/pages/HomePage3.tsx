@@ -418,6 +418,16 @@ function useCountUp(end: number, duration = 1500) {
   return v;
 }
 
+function StatNumber({ end, suffix }: { end: number; suffix: string }) {
+  const v = useCountUp(end);
+  return (
+    <div className="font-heading font-bold text-5xl sm:text-6xl tabular-nums">
+      {v}
+      <span className="text-amber-300">{suffix}</span>
+    </div>
+  );
+}
+
 function NumbersSection() {
   const stats = [
     { v: 12, s: "", label: "Countries" },
@@ -443,19 +453,13 @@ function NumbersSection() {
           </a>
         </div>
         <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s, i) => {
-            const val = useCountUp(s.v);
-            return (
-              <div key={i}>
-                <div className="font-heading font-bold text-5xl sm:text-6xl tabular-nums">
-                  {val}
-                  <span className="text-amber-300">{s.s}</span>
-                </div>
-                <div className="mt-2 text-sm text-white/60">{s.label}</div>
-                <div className="mt-4 h-px bg-white/10" />
-              </div>
-            );
-          })}
+          {stats.map((s, i) => (
+            <div key={i}>
+              <StatNumber end={s.v} suffix={s.s} />
+              <div className="mt-2 text-sm text-white/60">{s.label}</div>
+              <div className="mt-4 h-px bg-white/10" />
+            </div>
+          ))}
         </div>
       </div>
     </section>
