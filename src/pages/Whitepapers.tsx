@@ -29,6 +29,7 @@ type Paper = {
   tech: string[];
   pages: number;
   featured?: boolean;
+  image: string;
 };
 
 const PAPERS: Paper[] = [
@@ -41,6 +42,7 @@ const PAPERS: Paper[] = [
     tech: ["SAP S/4HANA", "BTP"],
     pages: 40,
     featured: true,
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
   },
   {
     id: "agentic-erp",
@@ -50,6 +52,7 @@ const PAPERS: Paper[] = [
     industry: "Cross-industry",
     tech: ["Azure AI Foundry", "SAP Joule"],
     pages: 32,
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
   },
   {
     id: "data-migration-benchmarks",
@@ -59,6 +62,7 @@ const PAPERS: Paper[] = [
     industry: "Manufacturing",
     tech: ["BlueGecko", "SAP"],
     pages: 28,
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
   },
   {
     id: "d365-finance-modernisation",
@@ -68,6 +72,7 @@ const PAPERS: Paper[] = [
     industry: "Financial Services",
     tech: ["Dynamics 365", "Microsoft Fabric"],
     pages: 24,
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
   },
   {
     id: "healthcare-staffing-ai",
@@ -77,6 +82,7 @@ const PAPERS: Paper[] = [
     industry: "Healthcare",
     tech: ["SAP BTP", "Dynamics 365"],
     pages: 22,
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
   },
   {
     id: "snowflake-cortex-enterprise",
@@ -86,6 +92,7 @@ const PAPERS: Paper[] = [
     industry: "Energy",
     tech: ["Snowflake", "Cortex"],
     pages: 26,
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
   },
 ];
 
@@ -118,22 +125,19 @@ function Chip({
 function PaperCard({ paper }: { paper: Paper }) {
   return (
     <article className="group rounded-2xl border border-border/60 bg-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all flex flex-col">
-      <div className="relative aspect-[4/3] bg-gradient-to-br from-primary via-primary/80 to-accent/60 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}
+      <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+        <img
+          src={paper.image}
+          alt={paper.title}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 grid place-items-center">
-          <div className="bg-background/95 backdrop-blur rounded-lg px-4 py-6 shadow-2xl rotate-[-4deg] group-hover:rotate-0 transition-transform">
-            <FileText size={40} className="text-primary mx-auto" />
-            <p className="mt-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-              {paper.pages} pages
-            </p>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/10 to-transparent" />
+        <div className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 bg-background/95 backdrop-blur rounded-md px-2.5 py-1 shadow-md">
+          <FileText size={12} className="text-primary" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+            {paper.pages} pages
+          </span>
         </div>
         <span className="absolute top-3 left-3 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest bg-background/90 backdrop-blur text-primary px-2 py-1 rounded-full">
           {paper.industry}
