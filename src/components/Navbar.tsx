@@ -22,7 +22,7 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "RISE with SAP Implementation", href: "/solutions/rise-with-sap" },
       { label: "SAP Datasphere & Business Data Cloud", href: "/solutions/sap-business-data-cloud" },
       { label: "SAP Analytics Cloud (SAC) Implementation", href: "/solutions/sap-analytics-cloud" },
-      { label: "SAP Business Technology Platform (BTP) Implementation", href: "/solutions/sap-btp" },
+      { label: "SAP BTP Integration & Extension Services", href: "/solutions/sap-btp" },
       { label: "SAP DataSphere Implementation", href: "/solutions/sap-datasphere" },
     ],
   },
