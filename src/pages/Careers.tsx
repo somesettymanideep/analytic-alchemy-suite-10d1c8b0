@@ -618,6 +618,127 @@ function OpenOpportunities() {
 }
 
 function LifeGallery() {
+  return _LifeGallery();
+}
+
+function ApplyDialog({ job, onClose }: { job: Job | null; onClose: () => void }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [experience, setExperience] = useState("");
+  const [message, setMessage] = useState("");
+  const [resume, setResume] = useState<File | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (!job) {
+      setName(""); setEmail(""); setPhone(""); setLinkedin("");
+      setExperience(""); setMessage(""); setResume(null);
+    }
+  }, [job]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    await new Promise((r) => setTimeout(r, 700));
+    setSubmitting(false);
+    toast({
+      title: "Application submitted",
+      description: `Thanks ${name.split(" ")[0] || ""}, we've received your application for ${job?.title}. Our team will be in touch shortly.`,
+    });
+    onClose();
+  };
+
+  return (
+    <Dialog open={!!job} onOpenChange={(o) => !o && onClose()}>
+      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+        {job && (
+          <>
+            <DialogHeader>
+              <DialogTitle className="text-xl font-heading font-bold text-primary leading-tight">
+                Apply for {job.title}
+              </DialogTitle>
+              <DialogDescription className="text-xs text-muted-foreground">
+                {job.dept} · {job.location} · {job.exp}
+              </DialogDescription>
+            </DialogHeader>
+
+            <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <Label htmlFor="apply-name" className="text-xs">Full name *</Label>
+                  <Input id="apply-name" value={name} onChange={(e) => setName(e.target.value)} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="apply-email" className="text-xs">Email *</Label>
+                  <Input id="apply-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="apply-phone" className="text-xs">Phone</Label>
+                  <Input id="apply-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="apply-exp" className="text-xs">Years of experience</Label>
+                  <Input id="apply-exp" value={experience} onChange={(e) => setExperience(e.target.value)} placeholder="e.g. 5+" />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="apply-linkedin" className="text-xs">LinkedIn / Portfolio</Label>
+                <Input id="apply-linkedin" type="url" value={linkedin} onChange={(e) => setLinkedin(e.target.value)} placeholder="https://linkedin.com/in/…" />
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="apply-resume" className="text-xs">Resume / CV (PDF, DOC)</Label>
+                <Input
+                  id="apply-resume"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={(e) => setResume(e.target.files?.[0] ?? null)}
+                  className="cursor-pointer file:mr-3 file:rounded-md file:border-0 file:bg-primary/10 file:px-3 file:py-1 file:text-xs file:font-semibold file:text-primary"
+                />
+                {resume && (
+                  <p className="text-[11px] text-muted-foreground truncate">Selected: {resume.name}</p>
+                )}
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="apply-message" className="text-xs">Why you're a fit</Label>
+                <Textarea
+                  id="apply-message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  rows={4}
+                  placeholder="Tell us a little about your relevant experience…"
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-foreground text-sm font-semibold hover:bg-muted transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all disabled:opacity-60"
+                >
+                  {submitting ? "Submitting…" : (<>Submit Application <Send size={14} /></>)}
+                </button>
+              </div>
+            </form>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function _LifeGallery() {
   const { ref, isVisible } = useScrollReveal();
   const [start, setStart] = useState(0);
   const visibleCount = 4;
