@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { ArrowRight } from "lucide-react";
 import migSap from "@/assets/migration-sap.jpg";
@@ -140,9 +141,9 @@ export default function MigrationPathSection() {
                   <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6 max-w-lg text-pretty">
                     {p.content}
                   </p>
-                  <button className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-semibold text-sm px-5 py-2.5 rounded-lg w-fit hover:brightness-110 transition-all duration-200 active:scale-[0.97]">
+                  <Link to="/contact" className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-semibold text-sm px-5 py-2.5 rounded-lg w-fit hover:brightness-110 transition-all duration-200 active:scale-[0.97]">
                     Find out more <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             );
