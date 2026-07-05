@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import sapLogo from "@/assets/logos/sap.png.asset.json";
+import microsoftLogo from "@/assets/logos/microsoft.png.asset.json";
+import oracleLogo from "@/assets/logos/oracle.webp.asset.json";
+import awsLogo from "@/assets/logos/aws.webp.asset.json";
+import azureLogo from "@/assets/logos/azure.png.asset.json";
+import googleCloudLogo from "@/assets/logos/google-cloud.jpg.asset.json";
 import {
   ArrowRight,
   Play,
