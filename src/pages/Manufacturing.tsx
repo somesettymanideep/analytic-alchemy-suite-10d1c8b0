@@ -4,7 +4,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerManufacturing from "@/assets/banner-manufacturing.jpg";
-import intelligenceImg from "@/assets/manufacturing-intelligence.jpg";
+import intelligenceAsset from "@/assets/manufacturing-intelligence.png.asset.json";
+const intelligenceImg = intelligenceAsset.url;
 import expertiseImg from "@/assets/manufacturing-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
