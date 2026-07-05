@@ -160,9 +160,9 @@ function ThreeColumnDetails() {
   return (
     <section className="container pb-12">
       <div className="grid md:grid-cols-3 gap-6">
-        <Reveal delay={0} className="p-6 rounded-xl bg-card border border-border shadow-sm">
+        <Reveal delay={0} className="group p-6 rounded-xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 will-change-transform">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-md bg-primary flex items-center justify-center">
+            <div className="w-9 h-9 rounded-md bg-primary flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
               <Boxes size={18} className="text-accent" />
             </div>
             <div>
@@ -184,9 +184,9 @@ function ThreeColumnDetails() {
           </ul>
         </Reveal>
 
-        <Reveal delay={100} className="p-6 rounded-xl bg-card border border-border shadow-sm">
+        <Reveal delay={100} className="group p-6 rounded-xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 will-change-transform">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/15">
               <Layers size={20} className="text-primary" />
             </div>
             <h3 className="text-lg font-bold text-primary">Functional Modules</h3>
@@ -202,9 +202,9 @@ function ThreeColumnDetails() {
           </ul>
         </Reveal>
 
-        <Reveal delay={200} className="p-6 rounded-xl bg-card border border-border shadow-sm">
+        <Reveal delay={200} className="group p-6 rounded-xl bg-card border border-border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 will-change-transform">
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary/15">
               <LineChart size={20} className="text-primary" />
             </div>
             <div>
@@ -304,9 +304,9 @@ function Benefits() {
       </Reveal>
       <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {benefits.map((b, i) => (
-          <Reveal key={i} delay={i * 80} className="p-6 rounded-xl border border-border bg-card text-center hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 mx-auto rounded-full border border-primary/30 flex items-center justify-center">
-              <b.icon size={22} className="text-primary" />
+          <Reveal key={i} delay={i * 80} className="group p-6 rounded-xl border border-border bg-card text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 will-change-transform">
+            <div className="w-12 h-12 mx-auto rounded-full border border-primary/30 flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:scale-110">
+              <b.icon size={22} className="text-primary transition-colors duration-300 group-hover:text-primary-foreground" />
             </div>
             <p className="mt-4 text-sm font-semibold text-primary leading-snug">{b.title}</p>
           </Reveal>
