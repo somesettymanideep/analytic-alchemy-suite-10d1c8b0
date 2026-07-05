@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 type Variant = "up" | "left" | "right" | "scale";
@@ -19,22 +19,28 @@ const variantClass: Record<Variant, string> = {
   scale: "animate-reveal-scale",
 };
 
-export default function Reveal({
+function RevealBase({
   children,
   variant = "up",
   delay = 0,
   className = "",
   as: Tag = "div",
-  threshold = 0.15,
+  threshold = 0.12,
 }: RevealProps) {
   const { ref, isVisible } = useScrollReveal(threshold);
   return (
     <Tag
       ref={ref as never}
-      style={{ animationDelay: `${delay}ms` }}
+      style={{
+        animationDelay: `${delay}ms`,
+        willChange: isVisible ? "auto" : "transform, opacity",
+      }}
       className={`${isVisible ? variantClass[variant] : "opacity-0"} ${className}`}
     >
       {children}
     </Tag>
   );
 }
+
+const Reveal = memo(RevealBase);
+export default Reveal;
