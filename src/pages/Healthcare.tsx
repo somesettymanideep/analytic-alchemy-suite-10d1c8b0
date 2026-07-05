@@ -5,7 +5,7 @@ import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerHealthcare from "@/assets/banner-healthcare.jpg";
 import expertiseImg from "@/assets/healthcare-expertise.jpg";
-import staffingVideo from "@/assets/healthcare-staffing.mp4.asset.json";
+import introAsset from "@/assets/healthcare-intro.png.asset.json";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   HeartPulse,
@@ -44,13 +44,13 @@ function Intro() {
         </div>
         <div className={`relative ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
-          <video
-            src={staffingVideo.url}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="relative w-full aspect-video rounded-2xl shadow-xl border border-border/60 object-cover bg-background"
+          <img
+            src={introAsset.url}
+            alt="AI and ERP solutions for professional staffing services"
+            loading="lazy"
+            width={1280}
+            height={896}
+            className="relative w-full h-auto rounded-2xl shadow-xl border border-border/60 object-cover"
           />
         </div>
       </div>
