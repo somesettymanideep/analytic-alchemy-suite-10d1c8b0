@@ -127,7 +127,7 @@ function Hero() {
           {/* Floating cards */}
           <div className="absolute top-4 right-2 md:right-6 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[230px] animate-fade-in hover-scale" style={{ animation: "fade-in 0.6s ease-out, float 6s ease-in-out infinite" }}>
             <div className="flex items-center gap-2 text-xs text-white/70">
-              <Shield className="w-4 h-4 text-amber-300" /> Data Governance
+              <ShieldCheck className="w-4 h-4 text-amber-300" /> Data Governance
             </div>
             <div className="mt-2 flex items-end gap-2">
               <span className="text-3xl font-bold">50%</span>
