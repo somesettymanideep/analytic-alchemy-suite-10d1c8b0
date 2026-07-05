@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import bannerBtp from "@/assets/banner-btp.jpg";
 import imgAppDev from "@/assets/btp-app-dev.jpg";
 import imgIntegration from "@/assets/btp-integration.jpg";
@@ -401,6 +402,11 @@ export default function SapBtp() {
           description="The innovation layer that extends your SAP core — without ever touching it."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Integration & Extension"
+          headline="Connect SAP S/4HANA to third-party systems, cloud platforms, and custom applications via SAP Business Technology Platform — API management, event mesh, and integration flows."
+          evidence="Real capability: Integration Engineering is core to your delivery. BTP is the integration layer in every modern SAP landscape."
+        />
         <Enables />
         <WhyUs />
         <Faq />

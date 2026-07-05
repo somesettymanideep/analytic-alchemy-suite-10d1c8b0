@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import bannerSap from "@/assets/banner-sap-s4hana.jpg";
 import imgFinance from "@/assets/sap-finance-realtime.jpg";
 import imgSupply from "@/assets/sap-supply-chain.jpg";
@@ -470,6 +471,11 @@ export default function SapS4Hana() {
           description="The intelligent ERP that runs your business in real time — and powers your AI strategy from the core."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Lead with Data Migration"
+          headline="Lead with data migration — your strongest proof. Full S/4HANA implementation delivered via certified partner network and India ECC team."
+          evidence="Evidenced: Bed manufacturer — 4 countries, 250+ dealers/studios/hotels, 20+ month programme."
+        />
         <Capabilities />
         <WhyUs />
         <Faq />
