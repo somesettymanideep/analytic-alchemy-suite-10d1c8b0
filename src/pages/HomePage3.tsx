@@ -59,7 +59,7 @@ function Hero() {
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             Enterprise Data Platform · 2026
           </span>
-          <h1 className="mt-8 font-heading font-bold leading-[1.02] tracking-tight text-5xl sm:text-6xl lg:text-7xl">
+          <h1 className="mt-8 font-heading font-bold leading-[1.05] tracking-tight text-3xl sm:text-4xl lg:text-5xl">
             MOST TRANSFORMATIONS
             <br />
             FAIL AT THE{" "}
