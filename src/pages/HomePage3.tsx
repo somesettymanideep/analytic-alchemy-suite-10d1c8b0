@@ -74,9 +74,9 @@ function Hero() {
             <span className="text-amber-300 font-semibold">BlueGecko</span>.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <button className="group inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0A1A4A] font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(251,191,36,0.6)] transition">
+            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0A1A4A] font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(251,191,36,0.6)] transition">
               Book Assessment <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
-            </button>
+            </Link>
             <button className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10 transition">
               <Play className="w-4 h-4" /> Watch Demo
             </button>
@@ -985,12 +985,12 @@ function FinalCta() {
           Book a 45-minute assessment with our principal architects. Walk away with a costed roadmap.
         </p>
         <div className="mt-9 flex justify-center gap-3">
-          <button className="inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0A1A4A] font-semibold px-6 py-3.5">
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0A1A4A] font-semibold px-6 py-3.5">
             Book Assessment <ArrowRight className="w-4 h-4" />
-          </button>
-          <button className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10">
+          </Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10">
             Contact Sales
-          </button>
+          </Link>
         </div>
       </div>
     </section>
