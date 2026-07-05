@@ -125,7 +125,7 @@ function Hero() {
           </svg>
 
           {/* Floating cards */}
-          <div className="absolute top-4 right-2 md:right-6 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[230px] animate-fade-in hover-scale" style={{ animation: "fade-in 0.6s ease-out, float 6s ease-in-out infinite" }}>
+          <div className="absolute top-4 right-2 md:right-6 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[230px] animate-float-y hover-scale">
             <div className="flex items-center gap-2 text-xs text-white/70">
               <ShieldCheck className="w-4 h-4 text-amber-300" /> Data Governance
             </div>
@@ -134,23 +134,23 @@ function Hero() {
               <span className="text-xs text-white/60 pb-1">faster adoption</span>
             </div>
             <div className="mt-3 h-1.5 rounded-full bg-white/10 overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-amber-300 to-amber-500 animate-[grow_2s_ease-out_forwards]" style={{ width: "50%" }} />
+              <div className="h-full bg-gradient-to-r from-amber-300 to-amber-500 transition-all duration-[1500ms]" style={{ width: "50%" }} />
             </div>
           </div>
 
-          <div className="absolute top-1/2 -translate-y-1/2 right-0 md:right-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[210px] animate-fade-in hover-scale" style={{ animation: "fade-in 0.6s ease-out 0.2s both, float 7s ease-in-out infinite 0.5s" }}>
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 md:right-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[210px] animate-float-y-slow hover-scale">
             <div className="flex items-center gap-2 text-xs text-white/70">
               <Cpu className="w-4 h-4 text-amber-300" /> ERP
             </div>
             <div className="mt-2 text-2xl font-bold">S/4HANA · D365</div>
             <div className="mt-3 flex items-end gap-1 h-8">
               {[4, 6, 5, 8, 7, 10, 9, 12].map((h, i) => (
-                <div key={i} className="w-2 rounded-sm bg-gradient-to-t from-blue-400 to-blue-200 animate-[grow-y_1.2s_ease-out_forwards]" style={{ height: `${h * 7}%`, animationDelay: `${i * 80}ms` }} />
+                <div key={i} className="w-2 rounded-sm bg-gradient-to-t from-blue-400 to-blue-200 animate-pulse" style={{ height: `${h * 7}%`, animationDelay: `${i * 120}ms` }} />
               ))}
             </div>
           </div>
 
-          <div className="absolute bottom-6 left-2 md:left-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[220px] animate-fade-in hover-scale" style={{ animation: "fade-in 0.6s ease-out 0.4s both, float 8s ease-in-out infinite 1s" }}>
+          <div className="absolute bottom-6 left-2 md:left-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[220px] animate-float-y hover-scale" style={{ animationDelay: "1s" }}>
             <div className="flex items-center gap-2 text-xs text-white/70">
               <Database className="w-4 h-4 text-amber-300" /> DWH
             </div>
