@@ -4,7 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerLogistics from "@/assets/banner-logistics.jpg";
-const intelligenceVideo = "/__l5e/assets-v1/b0419ba7-2f83-407d-ac0d-ba1876bc68e0/logistics-intelligence.mp4";
+import introAsset from "@/assets/logistics-intro.webp.asset.json";
 import expertiseImg from "@/assets/logistics-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
@@ -44,15 +44,13 @@ function Intro() {
         </div>
         <div className={`relative ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
-          <video
-            src={intelligenceVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="Global logistics network with AI-driven real-time tracking"
-            className="relative w-full h-auto aspect-[4/3] rounded-2xl shadow-xl border border-border/60 object-cover"
+          <img
+            src={introAsset.url}
+            alt="Global logistics network with AI-driven real-time tracking"
+            loading="lazy"
+            width={1280}
+            height={960}
+            className="relative w-full h-auto rounded-2xl shadow-xl border border-border/60 object-cover"
           />
         </div>
       </div>
