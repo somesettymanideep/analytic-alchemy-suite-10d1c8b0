@@ -20,6 +20,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 type Paper = {
   id: string;
@@ -30,6 +36,7 @@ type Paper = {
   pages: number;
   featured?: boolean;
   image: string;
+  pdfUrl?: string;
 };
 
 const PAPERS: Paper[] = [
@@ -43,6 +50,7 @@ const PAPERS: Paper[] = [
     pages: 40,
     featured: true,
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
   },
   {
     id: "agentic-erp",
@@ -53,6 +61,7 @@ const PAPERS: Paper[] = [
     tech: ["Azure AI Foundry", "SAP Joule"],
     pages: 32,
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    pdfUrl: "https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf",
   },
   {
     id: "data-migration-benchmarks",
@@ -122,9 +131,28 @@ function Chip({
   );
 }
 
-function PaperCard({ paper }: { paper: Paper }) {
+function PaperCard({ paper, onPreview }: { paper: Paper; onPreview: (p: Paper) => void }) {
+  const handleDownload = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!paper.pdfUrl) return;
+    const a = document.createElement("a");
+    a.href = paper.pdfUrl;
+    a.download = `${paper.id}.pdf`;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+  const handlePreview = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (paper.pdfUrl) onPreview(paper);
+  };
   return (
-    <article className="group rounded-2xl border border-border/60 bg-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all flex flex-col">
+    <article
+      onClick={() => paper.pdfUrl && onPreview(paper)}
+      className={`group rounded-2xl border border-border/60 bg-card overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all flex flex-col ${paper.pdfUrl ? "cursor-pointer" : ""}`}
+    >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
           src={paper.image}
@@ -159,10 +187,18 @@ function PaperCard({ paper }: { paper: Paper }) {
           ))}
         </div>
         <div className="mt-4 grid grid-cols-2 gap-2">
-          <button className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold rounded-md bg-primary text-primary-foreground px-3 py-2 hover:bg-primary/90 transition">
+          <button
+            onClick={handleDownload}
+            disabled={!paper.pdfUrl}
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold rounded-md bg-primary text-primary-foreground px-3 py-2 hover:bg-primary/90 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
             <Download size={13} /> Download
           </button>
-          <button className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold rounded-md border border-border/60 text-foreground px-3 py-2 hover:border-primary hover:text-primary transition">
+          <button
+            onClick={handlePreview}
+            disabled={!paper.pdfUrl}
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold rounded-md border border-border/60 text-foreground px-3 py-2 hover:border-primary hover:text-primary transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
             <Eye size={13} /> Preview
           </button>
         </div>
@@ -174,6 +210,7 @@ function PaperCard({ paper }: { paper: Paper }) {
 export default function Whitepapers() {
   const [industry, setIndustry] = useState("All");
   const [tech, setTech] = useState("All");
+  const [previewPaper, setPreviewPaper] = useState<Paper | null>(null);
   const filtered = useMemo(
     () =>
       PAPERS.filter(
@@ -185,6 +222,18 @@ export default function Whitepapers() {
   );
   const featured = PAPERS.find((p) => p.featured)!;
   const reveal = useScrollReveal();
+
+  const downloadPaper = (paper: Paper) => {
+    if (!paper.pdfUrl) return;
+    const a = document.createElement("a");
+    a.href = paper.pdfUrl;
+    a.download = `${paper.id}.pdf`;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -227,10 +276,16 @@ export default function Whitepapers() {
                 ))}
               </ul>
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-primary/90 transition">
+                <button
+                  onClick={() => downloadPaper(featured)}
+                  className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-primary/90 transition"
+                >
                   <Download size={14} /> Download PDF
                 </button>
-                <button className="inline-flex items-center gap-2 rounded-md border border-border/60 px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition">
+                <button
+                  onClick={() => featured.pdfUrl && setPreviewPaper(featured)}
+                  className="inline-flex items-center gap-2 rounded-md border border-border/60 px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition"
+                >
                   <Eye size={14} /> Preview
                 </button>
               </div>
@@ -293,7 +348,7 @@ export default function Whitepapers() {
 
             <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((p) => (
-                <PaperCard key={p.id} paper={p} />
+                <PaperCard key={p.id} paper={p} onPreview={setPreviewPaper} />
               ))}
             </div>
             {filtered.length === 0 && (
@@ -378,6 +433,32 @@ export default function Whitepapers() {
         </section>
       </main>
       <Footer />
+      <Dialog open={!!previewPaper} onOpenChange={(o) => !o && setPreviewPaper(null)}>
+        <DialogContent className="max-w-5xl w-[95vw] h-[85vh] flex flex-col p-0 gap-0">
+          <DialogHeader className="p-4 border-b">
+            <DialogTitle className="pr-8 text-left">{previewPaper?.title}</DialogTitle>
+          </DialogHeader>
+          <div className="flex-1 min-h-0 bg-muted">
+            {previewPaper?.pdfUrl && (
+              <iframe
+                src={previewPaper.pdfUrl}
+                title={previewPaper.title}
+                className="w-full h-full"
+              />
+            )}
+          </div>
+          {previewPaper?.pdfUrl && (
+            <div className="p-3 border-t flex justify-end">
+              <button
+                onClick={() => previewPaper && downloadPaper(previewPaper)}
+                className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:bg-primary/90 transition"
+              >
+                <Download size={14} /> Download PDF
+              </button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
