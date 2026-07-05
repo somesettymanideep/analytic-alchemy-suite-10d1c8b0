@@ -116,7 +116,7 @@ export default function CodeCheetah() {
     <div className="min-h-screen bg-background scroll-smooth">
       <ScrollToTop />
       <Navbar />
-      <main>
+      <main className="pt-16 md:pt-20">
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-b from-amber-50 via-orange-50/40 to-background">
           <div className="absolute -right-24 -bottom-24 w-[520px] h-[520px] rounded-full bg-accent/10 blur-3xl" aria-hidden />
