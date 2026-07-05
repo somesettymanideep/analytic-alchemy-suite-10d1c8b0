@@ -115,7 +115,7 @@ export default function OwlSight() {
     <div className="min-h-screen bg-background scroll-smooth">
       <ScrollToTop />
       <Navbar />
-      <main>
+      <main className="pt-16 md:pt-20">
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-b from-secondary/40 via-background to-background">
           <div aria-hidden className="absolute inset-0 opacity-[0.05] [background-image:radial-gradient(hsl(var(--primary))_1px,transparent_1px)] [background-size:22px_22px]" />
