@@ -125,6 +125,17 @@ function Hero() {
           </svg>
 
           {/* Floating cards */}
+          <div className="absolute top-4 left-2 md:left-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[220px] animate-float-y-slow hover-scale">
+            <div className="flex items-center gap-2 text-xs text-white/70">
+              <Cpu className="w-4 h-4 text-amber-300" /> BlueGecko AI
+            </div>
+            <div className="mt-2 text-3xl font-bold">98.7%</div>
+            <div className="text-xs text-white/60">Data quality score</div>
+            <div className="mt-3 h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div className="h-full w-[98%] bg-gradient-to-r from-amber-300 to-amber-500" />
+            </div>
+          </div>
+
           <div className="absolute top-4 right-2 md:right-6 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[230px] animate-float-y hover-scale">
             <div className="flex items-center gap-2 text-xs text-white/70">
               <ShieldCheck className="w-4 h-4 text-amber-300" /> Data Governance
