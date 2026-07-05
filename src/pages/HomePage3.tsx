@@ -315,6 +315,7 @@ function FourPractices() {
       tint: "from-blue-50 to-white",
       ring: "ring-blue-200",
       dot: "bg-blue-600",
+      href: "/solutions/sap-s4hana",
     },
     {
       icon: Layers,
@@ -324,6 +325,7 @@ function FourPractices() {
       tint: "from-sky-50 to-white",
       ring: "ring-sky-200",
       dot: "bg-sky-600",
+      href: "/solutions/microsoft-dynamics-365",
     },
     {
       icon: Bot,
@@ -333,6 +335,7 @@ function FourPractices() {
       tint: "from-amber-50 to-white",
       ring: "ring-amber-200",
       dot: "bg-amber-500",
+      href: "/solutions/ai-foundry",
     },
     {
       icon: Database,
@@ -342,6 +345,7 @@ function FourPractices() {
       tint: "from-teal-50 to-white",
       ring: "ring-teal-200",
       dot: "bg-teal-600",
+      href: "/solutions/data-governance",
     },
   ];
   return (
@@ -363,7 +367,7 @@ function FourPractices() {
         <div className="mt-12 grid sm:grid-cols-2 gap-5">
           {items.map((it, i) => (
             <RevealOnScroll key={i} delay={i * 120}>
-              <div className={`group relative h-full rounded-3xl bg-gradient-to-br ${it.tint} border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-0.5 transition`}>
+              <Link to={it.href} className={`group relative block h-full rounded-3xl bg-gradient-to-br ${it.tint} border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-0.5 transition`}>
               <div className="flex items-start justify-between">
                 <div className={`w-12 h-12 rounded-2xl ${it.dot} text-white flex items-center justify-center shadow-lg`}>
                   <it.icon className="w-6 h-6" />
@@ -380,7 +384,7 @@ function FourPractices() {
                   Explore <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
-              </div>
+              </Link>
             </RevealOnScroll>
           ))}
         </div>
