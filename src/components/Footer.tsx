@@ -55,10 +55,17 @@ export default function Footer() {
               AI-native data and transformation partner for mid-market enterprises.
             </p>
             <div className="flex gap-3 mt-5">
-              {[Linkedin, Twitter, Mail].map((Icon, i) => (
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com", label: "LinkedIn" },
+                { Icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+                { Icon: Mail, href: "mailto:hello@nextgenlytics.com", label: "Email" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={label}
                   className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground hover:scale-110 transition-all duration-300 active:scale-95"
                 >
                   <Icon className="w-4 h-4" />

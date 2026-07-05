@@ -104,9 +104,15 @@ export default function CaseStudyDetail() {
             >
               Talk to Our Experts <ArrowRight size={14} />
             </Link>
-            <button className="inline-flex items-center gap-2 rounded-full border border-border bg-card text-foreground px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition">
+            <a
+              href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download={`${cs.title}.pdf`}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card text-foreground px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition"
+            >
               Download PDF <Download size={14} />
-            </button>
+            </a>
           </div>
         </Reveal>
         <Reveal variant="right" delay={150} className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-primary shadow-xl">

@@ -79,7 +79,10 @@ function Hero() {
               Talk to Our Experts <ArrowRight size={16} />
             </Link>
             <a
-              href="#"
+              href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="ams-brochure.pdf"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-border bg-card text-primary font-semibold hover:border-primary transition-colors"
             >
               Download Brochure <FileDown size={16} />

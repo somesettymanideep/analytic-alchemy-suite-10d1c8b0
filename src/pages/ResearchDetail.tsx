@@ -208,10 +208,25 @@ export default function ResearchDetail() {
                 </span>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="inline-flex items-center gap-2 rounded-md bg-background text-primary px-5 py-2.5 text-sm font-semibold hover:bg-background/90 transition">
+                <a
+                  href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download={`${report.id}.pdf`}
+                  className="inline-flex items-center gap-2 rounded-md bg-background text-primary px-5 py-2.5 text-sm font-semibold hover:bg-background/90 transition"
+                >
                   <Download size={14} /> Download PDF
-                </button>
-                <button className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-primary-foreground/10 transition">
+                </a>
+                <button
+                  onClick={() => {
+                    if (navigator.share) {
+                      navigator.share({ title: report.title, text: report.summary, url: window.location.href }).catch(() => {});
+                    } else {
+                      navigator.clipboard?.writeText(window.location.href);
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-primary-foreground/10 transition"
+                >
                   <Share2 size={14} /> Share
                 </button>
               </div>
@@ -337,12 +352,18 @@ export default function ResearchDetail() {
                   <ul className="space-y-2">
                     {report.assets.map((a) => (
                       <li key={a.name}>
-                        <button className="w-full flex items-center justify-between text-left text-sm text-foreground hover:text-primary transition-colors">
+                        <a
+                          href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          download={a.name}
+                          className="w-full flex items-center justify-between text-left text-sm text-foreground hover:text-primary transition-colors"
+                        >
                           <span className="inline-flex items-center gap-2">
                             <Download size={13} className="text-primary" /> {a.name}
                           </span>
                           <span className="text-xs text-muted-foreground">{a.size}</span>
-                        </button>
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -352,22 +373,26 @@ export default function ResearchDetail() {
                   <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">Share</p>
                   <div className="flex gap-2">
                     <a
-                      href="#"
+                      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="Share on LinkedIn"
                       className="h-9 w-9 grid place-items-center rounded-full border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition"
                     >
                       <Linkedin size={14} />
                     </a>
                     <a
-                      href="#"
+                      href={`mailto:?subject=${encodeURIComponent(report.title)}&body=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
                       aria-label="Share by email"
                       className="h-9 w-9 grid place-items-center rounded-full border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition"
                     >
                       <Mail size={14} />
                     </a>
                     <a
-                      href="#"
-                      aria-label="Share"
+                      href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}&text=${encodeURIComponent(report.title)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Share on Twitter"
                       className="h-9 w-9 grid place-items-center rounded-full border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition"
                     >
                       <Share2 size={14} />

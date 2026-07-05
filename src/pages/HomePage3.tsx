@@ -77,9 +77,9 @@ function Hero() {
             <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0A1A4A] font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(251,191,36,0.6)] transition">
               Book Assessment <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </Link>
-            <button className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10 transition">
+            <Link to="/bluegecko" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10 transition">
               <Play className="w-4 h-4" /> Watch Demo
-            </button>
+            </Link>
           </div>
           <div className="mt-8 flex items-center gap-3 text-sm text-white/70">
             <div className="flex gap-0.5">

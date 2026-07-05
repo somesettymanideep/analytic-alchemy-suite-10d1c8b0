@@ -54,7 +54,10 @@ export default function StartWithOneDaySection() {
             </a>
 
             <a
-              href="#"
+              href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="capability-overview.pdf"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white border border-white/20 rounded-full font-semibold hover:bg-white/20 active:scale-95 transition-all"
             >
               <Download className="w-4 h-4" />
