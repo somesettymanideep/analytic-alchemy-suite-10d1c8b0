@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-snowflake-cortex.jpg";
 import introImg from "@/assets/snowflake-cortex-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -324,6 +325,11 @@ export default function SnowflakeCortex() {
           description="AI that runs where your data already lives — no movement, no risk, no complexity."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="AI-Powered Data Insights"
+          headline="Intelligent analytics built on your governed Snowflake or Databricks data platform — AI-driven anomaly detection, pattern recognition, and automated insight delivery for business teams."
+          evidence="Powered by Owl Sight for data quality and governance. Connects to Snowflake Cortex and Databricks ML capabilities as the underlying engine — positioned as your service layer on top."
+        />
         <Enables />
         <WhyUs />
         <Faq />

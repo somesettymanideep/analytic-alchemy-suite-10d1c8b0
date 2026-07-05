@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-data-led-ai.jpg";
 import introImg from "@/assets/data-led-ai-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -317,6 +318,11 @@ export default function DataLedAi() {
           description="Great AI starts with great data. We build both — together."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Data-Led AI Transformation"
+          headline="AI is only as good as the data underneath it. We assess your data estate, design your AI architecture, and execute — from governed data foundation to production AI in one integrated programme."
+          evidence="NGSIT has been a data-first AI practitioner since 2021. Every AI programme we run starts with data governance, not model selection. This is our core positioning."
+        />
         <Framework />
         <WhyUs />
         <Faq />

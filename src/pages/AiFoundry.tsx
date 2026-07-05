@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-ai-foundry.jpg";
 import introImg from "@/assets/ai-foundry-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -318,6 +319,11 @@ export default function AiFoundry() {
           description="Custom AI built on your data — not generic models built on everyone else's."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="AI Strategy & Readiness Assessment"
+          headline="Before building, we assess. We map your data estate, identify your highest-value AI use cases, and deliver a prioritised roadmap — so your AI investment lands where it creates real impact."
+          evidence="2-hour structured assessment. Output: ranked use case backlog, data readiness score, and a 90-day execution plan. Designed for business leaders, not data scientists."
+        />
         <Delivers />
         <WhyUs />
         <Faq />
