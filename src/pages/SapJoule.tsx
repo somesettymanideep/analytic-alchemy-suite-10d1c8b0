@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-sap-joule.jpg";
 import introImg from "@/assets/sap-joule-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -318,6 +319,11 @@ export default function SapJoule() {
           description="One AI assistant across your entire SAP landscape — that actually gets things done."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Conversational AI for SAP & D365"
+          headline="Natural language interfaces on SAP S/4HANA and D365 — business users query ERP data, trigger workflows, and get intelligent recommendations without writing a single query."
+          evidence="Built on BlueGecko AI Agents and your governed ERP data layer. Applicable across finance, operations, procurement, and supply chain teams."
+        />
         <WhatJoule />
         <WhyUs />
         <Faq />

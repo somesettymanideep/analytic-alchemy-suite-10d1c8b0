@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-databricks-genie.jpg";
 import introImg from "@/assets/databricks-genie-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -322,6 +323,11 @@ export default function DatabricksGenie() {
           description="Ask your data a question. Get a real answer — no SQL, no analyst required."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Predictive & Prescriptive Analytics"
+          headline="AI models that go beyond descriptive BI — anticipating risk, surfacing opportunity, and recommending action in real time. Built on your governed ERP data using Azure, Databricks, and Snowflake."
+          evidence="Evidenced: Nash Squared analytics across D365 F&O — data validation, report standardisation, management reporting. Bed manufacturer: 40+ KPIs unified across enterprise."
+        />
         <Enables />
         <WhyUs />
         <Faq />

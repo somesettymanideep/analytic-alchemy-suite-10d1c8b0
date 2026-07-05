@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-ai-testing.jpg";
 import introImg from "@/assets/ai-testing-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -324,6 +325,11 @@ export default function AiTesting() {
           description="Trust your AI before it touches your customers or your critical business processes."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="AI Testing & Validation"
+          headline="Structured testing frameworks for AI model outputs — accuracy benchmarking, bias detection, compliance checks, and production readiness validation before go-live."
+          evidence="Powered by Owl Sight's anomaly detection and reconciliation engine. Applicable to any AI implementation including BlueGecko agents, Conversational AI, and third-party models."
+        />
         <Framework />
         <WhyUs />
         <Faq />

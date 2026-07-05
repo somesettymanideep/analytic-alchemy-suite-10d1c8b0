@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-erp-ai-agents.jpg";
 import introImg from "@/assets/erp-ai-agents-autonomous.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
@@ -319,6 +320,11 @@ export default function ErpAiAgents() {
           description="Your ERP, working autonomously — 24/7, without manual input."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="ERP AI Agents — Powered by BlueGecko"
+          headline="RAG-based multi-agent platform automating ERP data migration, field mapping, quality validation, and governance — across SAP S/4HANA, D365, Salesforce, and cloud platforms."
+          evidence="BlueGecko core IP: 10X faster migration cycles, 4X faster ERP adoption. Self-learning agents built over 2+ years. Not a prototype — a production platform."
+        />
         <WhatAgentsDo />
         <WhyUs />
         <Faq />
