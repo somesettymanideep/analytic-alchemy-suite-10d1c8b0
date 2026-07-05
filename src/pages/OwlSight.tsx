@@ -85,21 +85,21 @@ function DataQualityMock() {
       </div>
 
       {/* Floating chips */}
-      <div className="absolute -left-6 top-16 z-20 rounded-2xl bg-card border border-border/60 shadow-xl px-4 py-3 flex items-center gap-2 animate-float-slow">
+      <div className="absolute -left-6 top-16 z-20 rounded-2xl bg-card border border-border/60 shadow-xl px-4 py-3 flex items-center gap-2 animate-float-y-y-slow">
         <span className="inline-flex w-8 h-8 items-center justify-center rounded-lg bg-accent/15 text-accent"><AlertOctagon size={16} /></span>
         <div>
           <div className="text-[11px] text-muted-foreground leading-none">Anomaly</div>
           <div className="text-xs font-bold text-accent leading-tight">Detected</div>
         </div>
       </div>
-      <div className="absolute -right-6 top-20 z-20 rounded-2xl bg-card border border-border/60 shadow-xl px-4 py-3 flex items-center gap-2 animate-float">
+      <div className="absolute -right-6 top-20 z-20 rounded-2xl bg-card border border-border/60 shadow-xl px-4 py-3 flex items-center gap-2 animate-float-y">
         <span className="inline-flex w-8 h-8 items-center justify-center rounded-lg bg-destructive/10 text-destructive"><Lock size={16} /></span>
         <div>
           <div className="text-[11px] text-muted-foreground leading-none">PII</div>
           <div className="text-xs font-bold text-destructive leading-tight">Identified</div>
         </div>
       </div>
-      <div className="absolute left-1/2 -translate-x-1/2 -bottom-4 z-20 rounded-2xl bg-card border border-border/60 shadow-xl px-4 py-3 flex items-center gap-2 animate-float-slow">
+      <div className="absolute left-1/2 -translate-x-1/2 -bottom-4 z-20 rounded-2xl bg-card border border-border/60 shadow-xl px-4 py-3 flex items-center gap-2 animate-float-y-y-slow">
         <span className="inline-flex w-8 h-8 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-600"><CheckCircle size={16} /></span>
         <div>
           <div className="text-[11px] text-muted-foreground leading-none">Rules</div>
@@ -294,7 +294,7 @@ export default function OwlSight() {
                     </Link>
                   </div>
                   <div className="hidden md:flex justify-end">
-                    <img src={owlFlyingAsset.url} alt="Owl Sight flying" width={320} height={320} loading="lazy" className="w-72 h-auto drop-shadow-2xl animate-float-slow" />
+                    <img src={owlFlyingAsset.url} alt="Owl Sight flying" width={320} height={320} loading="lazy" className="w-72 h-auto drop-shadow-2xl animate-float-y-y-slow" />
                   </div>
                 </div>
               </div>
