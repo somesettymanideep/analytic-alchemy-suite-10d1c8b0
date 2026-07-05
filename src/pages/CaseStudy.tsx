@@ -59,15 +59,15 @@ function CaseCard({ cs, index }: { cs: (typeof caseStudies)[number]; index: numb
   return (
     <article
       ref={ref}
-      className={`flex flex-col rounded-2xl bg-card border border-border overflow-hidden shadow-sm hover:shadow-md transition-all ${
+      className={`grid md:grid-cols-12 gap-0 rounded-2xl bg-card border border-border overflow-hidden shadow-sm hover:shadow-md transition-all ${
         isVisible ? "animate-reveal-up" : "opacity-0"
       }`}
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      <div className="relative bg-primary aspect-[16/9] overflow-hidden">
+      <div className="relative bg-primary aspect-[16/9] md:aspect-auto md:col-span-5 overflow-hidden">
         <img src={cs.image} alt={cs.title} loading="lazy" className="h-full w-full object-cover" />
       </div>
-      <div className="p-6 md:p-8 flex flex-col">
+      <div className="md:col-span-7 p-6 md:p-8 flex flex-col">
         <div className="flex items-start gap-3 mb-2">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0 mt-0.5">
             <BarChart3 size={18} />
