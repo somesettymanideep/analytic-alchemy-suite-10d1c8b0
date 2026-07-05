@@ -389,17 +389,17 @@ function FourPractices() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-2xl bg-slate-900 text-white p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <Link to="/products/bluegecko" className="mt-8 rounded-2xl bg-slate-900 hover:bg-slate-800 transition text-white p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div className="text-xs uppercase tracking-widest text-amber-300">BlueGecko · AI-native delivery platform</div>
             <div className="mt-1 font-heading font-semibold">
               One data-first foundation, four practices that compound.
             </div>
           </div>
-          <button className="inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-5 py-2.5">
+          <span className="inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-5 py-2.5">
             See the platform <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+          </span>
+        </Link>
       </div>
     </section>
   );
