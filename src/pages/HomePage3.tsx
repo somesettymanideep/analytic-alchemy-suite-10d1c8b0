@@ -208,7 +208,7 @@ function LogoStrip() {
               src={l.src}
               alt={l.name}
               loading="lazy"
-              className="h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 brightness-0 invert transition duration-300 shrink-0"
+              className="h-10 md:h-12 w-auto object-contain opacity-80 hover:opacity-100 transition duration-300 shrink-0"
             />
           ))}
         </div>
