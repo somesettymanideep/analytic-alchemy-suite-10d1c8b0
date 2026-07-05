@@ -32,6 +32,9 @@ import DynamicsAx from "./pages/DynamicsAx.tsx";
 import Snowflake from "./pages/Snowflake.tsx";
 import Databricks from "./pages/Databricks.tsx";
 import Fabric from "./pages/Fabric.tsx";
+import DataGovernance from "./pages/DataGovernance.tsx";
+import AiTraining from "./pages/AiTraining.tsx";
+import DataMaturity from "./pages/DataMaturity.tsx";
 import ErpAiAgents from "./pages/ErpAiAgents.tsx";
 import AiFoundry from "./pages/AiFoundry.tsx";
 import DatabricksGenie from "./pages/DatabricksGenie.tsx";
@@ -90,6 +93,9 @@ const App = () => (
           <Route path="/solutions/snowflake" element={<Snowflake />} />
           <Route path="/solutions/databricks" element={<Databricks />} />
           <Route path="/solutions/microsoft-fabric" element={<Fabric />} />
+          <Route path="/solutions/data-governance" element={<DataGovernance />} />
+          <Route path="/solutions/ai-organisation-training" element={<AiTraining />} />
+          <Route path="/solutions/data-maturity-assessment" element={<DataMaturity />} />
           <Route path="/solutions/erp-ai-agents" element={<ErpAiAgents />} />
           <Route path="/solutions/ai-foundry" element={<AiFoundry />} />
           <Route path="/solutions/databricks-genie" element={<DatabricksGenie />} />
