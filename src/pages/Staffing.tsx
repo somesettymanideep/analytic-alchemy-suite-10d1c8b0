@@ -4,7 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
 import bannerStaffing from "@/assets/banner-staffing.jpg";
-import intelligenceAsset from "@/assets/staffing-intelligence.jpg.asset.json";
+import intelligenceVideo from "@/assets/staffing-intelligence.mp4.asset.json";
 import expertiseImg from "@/assets/staffing-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
@@ -44,12 +44,12 @@ function Intro() {
         </div>
         <div className={`relative ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
-          <img
-            src={intelligenceAsset.url}
-            alt="AI talent matching dashboard"
-            loading="lazy"
-            width={1280}
-            height={896}
+          <video
+            src={intelligenceVideo.url}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="relative w-full h-auto rounded-2xl shadow-xl border border-border/60 object-cover"
           />
         </div>
