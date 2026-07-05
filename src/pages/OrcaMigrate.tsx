@@ -1,111 +1,269 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import PageBanner from "@/components/PageBanner";
-import banner from "@/assets/banner-orca-migrate.jpg";
+import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { ArrowLeftRight, Rocket, Gauge, ShieldCheck, Wallet, ArrowRight, X, CheckCircle2 } from "lucide-react";
+import orcaJump from "@/assets/orca-jump.png.asset.json";
+import orcaRest from "@/assets/orca-rest.png.asset.json";
+import {
+  ArrowRight,
+  Workflow,
+  ShieldCheck,
+  Rocket,
+  Server,
+  Layers3,
+  ClipboardList,
+  Database,
+  CheckCircle2,
+  Settings2,
+  LineChart,
+  ScanSearch,
+  Map,
+  PlayCircle,
+  Activity,
+  Eye,
+} from "lucide-react";
+
+const highlights = [
+  { Icon: Workflow, title: "End-to-End\nMigration", body: "Complete migration lifecycle in one platform" },
+  { Icon: ShieldCheck, title: "Low Risk\n& Reliable", body: "Built-in validations, rollback & audit" },
+  { Icon: Rocket, title: "Faster\nTime to Value", body: "Accelerate migrations by up to 90%" },
+  { Icon: Server, title: "Broad Platform\nSupport", body: "Migrate to D365, Azure, and beyond" },
+  { Icon: Layers3, title: "Enterprise\nScale", body: "Handle large, complex migrations seamlessly" },
+];
 
 const capabilities = [
-  { Icon: Rocket, title: "Faster Provisioning", body: "PaaS-based setup accelerates environment readiness dramatically — environments stand up in hours, not weeks." },
-  { Icon: Gauge, title: "Enterprise-Scale Performance", body: "Handles large, complex migrations with seamless scalability across systems and geographies." },
-  { Icon: ShieldCheck, title: "Minimal Downtime & Risk", body: "Smart cutover processes reduce business disruption and protect continuity through go-live." },
-  { Icon: Wallet, title: "Cost Optimization", body: "Automated workflows and efficient resource use lower overall migration costs." },
+  { Icon: ClipboardList, title: "Assessment &\nPlanning", body: "Auto-discover, analyze dependencies and create migration plans." },
+  { Icon: Database, title: "Data & Config\nMigration", body: "Migrate master data, transactions, configs, and customizations." },
+  { Icon: CheckCircle2, title: "Validation &\nReconciliation", body: "Advanced validation and reconciliation for data integrity." },
+  { Icon: Settings2, title: "Automation &\nOrchestration", body: "Automate workflows with intelligent orchestration engine." },
+  { Icon: LineChart, title: "Monitoring &\nReporting", body: "Real-time monitoring, dashboards, and audit-ready reports." },
 ];
 
-const compare = [
-  { area: "Provisioning", traditional: "Weeks of manual setup", orca: "PaaS-based, 90% faster" },
-  { area: "Scale", traditional: "Limited by infrastructure", orca: "Elastic to enterprise scale" },
-  { area: "Cutover", traditional: "High-risk, extended downtime", orca: "Smart cutover, minimal disruption" },
-  { area: "Cost", traditional: "Hidden overheads, manual effort", orca: "Automated workflows, optimised spend" },
+const steps = [
+  { Icon: ScanSearch, title: "Assess", body: "Analyze systems, data & dependencies" },
+  { Icon: Map, title: "Plan", body: "Define strategy, scope & timelines" },
+  { Icon: PlayCircle, title: "Migrate", body: "Execute migration with automation & control" },
+  { Icon: CheckCircle2, title: "Validate", body: "Validate & reconcile for accuracy" },
+  { Icon: Activity, title: "Go Live", body: "Cutover with confidence & post-migration support" },
 ];
+
+const benefits = [
+  { value: "90%", label: "Faster Migration\nTime" },
+  { value: "80%", label: "Lower Migration\nEffort" },
+  { value: "99.9%", label: "Data Accuracy\nAchieved" },
+  { value: "Zero", label: "Data Loss with Built-in\nSafeguards" },
+  { value: "Scalable", label: "For Any Size &\nComplexity" },
+];
+
+const CY = "text-cyan-300";
+
+function OrbitDiagram() {
+  const nodes = [
+    { Icon: ScanSearch, label: "Assess", pos: "top-0 left-1/2 -translate-x-1/2" },
+    { Icon: PlayCircle, label: "Migrate", pos: "top-[22%] right-0" },
+    { Icon: CheckCircle2, label: "Validate", pos: "bottom-[10%] right-[8%]" },
+    { Icon: Settings2, label: "Optimise", pos: "bottom-[10%] left-[8%]" },
+    { Icon: Eye, label: "Monitor", pos: "top-[22%] left-0" },
+  ];
+  return (
+    <div className="relative w-[320px] h-[320px] md:w-[380px] md:h-[380px] mx-auto">
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 380 380" fill="none" aria-hidden>
+        <circle cx="190" cy="190" r="140" stroke="rgba(34,211,238,0.35)" strokeWidth="1.5" strokeDasharray="4 6" />
+        <circle cx="190" cy="190" r="90" stroke="rgba(34,211,238,0.2)" strokeWidth="1" />
+      </svg>
+      {/* center */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-cyan-400/20 border border-cyan-300/50 shadow-[0_0_40px_rgba(34,211,238,0.4)] flex items-center justify-center">
+        <img src={orcaJump.url} alt="" className="w-16 h-16 object-contain" />
+      </div>
+      {nodes.map((n, i) => (
+        <Reveal key={n.label} variant="scale" delay={i * 100} className={`absolute ${n.pos}`}>
+          <div className="flex flex-col items-center">
+            <div className="w-14 h-14 rounded-full bg-primary/40 border-2 border-cyan-300/60 text-cyan-200 flex items-center justify-center backdrop-blur-sm shadow-lg shadow-cyan-500/20">
+              <n.Icon size={22} />
+            </div>
+            <span className="mt-1 text-xs font-semibold text-cyan-100">{n.label}</span>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="text-center">
+      <h2 className="inline-block text-2xl md:text-3xl font-bold text-primary font-heading relative">
+        {children}
+        <span className="block mx-auto mt-2 h-1 w-16 rounded-full bg-cyan-500" />
+      </h2>
+    </div>
+  );
+}
 
 export default function OrcaMigrate() {
-  const a = useScrollReveal();
-  const b = useScrollReveal();
-  const c = useScrollReveal();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background scroll-smooth">
       <ScrollToTop />
       <Navbar />
       <main>
-        <PageBanner
-          image={banner}
-          eyebrow="Products · Orca Migrate"
-          title="Orca Migrate — Intelligent and Large-Scale Migrations"
-          description="Faster, safer and cost-optimised enterprise migrations — at any scale, with minimal risk."
-        />
+        {/* HERO */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-[hsl(230_60%_12%)] via-primary to-[hsl(220_70%_15%)] text-white">
+          <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.25),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.2),transparent_50%)]" aria-hidden />
+          <div className="container relative py-14 md:py-20">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div>
+                <div className="flex items-start gap-4 md:gap-6">
+                  <Reveal variant="left">
+                    <img
+                      src={orcaJump.url}
+                      alt="Orca Migrate mascot"
+                      width={200}
+                      height={200}
+                      className="w-32 md:w-44 h-auto drop-shadow-[0_10px_30px_rgba(34,211,238,0.4)]"
+                    />
+                  </Reveal>
+                  <Reveal variant="up" delay={120}>
+                    <h1 className="text-5xl md:text-7xl font-extrabold font-heading leading-[0.95]">Orca Migrate</h1>
+                  </Reveal>
+                </div>
+                <Reveal variant="up" delay={240}>
+                  <p className={`mt-6 text-lg md:text-2xl font-bold leading-snug ${CY}`}>
+                    Migrate Smarter. Faster. Safer.
+                  </p>
+                </Reveal>
+                <Reveal variant="up" delay={340}>
+                  <p className="mt-5 text-white/75 max-w-md leading-relaxed">
+                    Orca Migrate is the enterprise-grade migration platform that accelerates data, configuration, and workload
+                    migrations to Microsoft ecosystems with minimal risk and maximum efficiency.
+                  </p>
+                </Reveal>
+                <Reveal variant="up" delay={440}>
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cyan-400 text-primary font-semibold shadow-lg shadow-cyan-500/30 hover:-translate-y-0.5 transition-all"
+                    >
+                      Request a Demo <ArrowRight size={16} />
+                    </Link>
+                    <a
+                      href="#capabilities"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-transparent border border-white/40 text-white font-semibold hover:bg-white/10 transition-all"
+                    >
+                      Explore Product
+                    </a>
+                  </div>
+                </Reveal>
+              </div>
+              <Reveal variant="right" delay={200}>
+                <OrbitDiagram />
+              </Reveal>
+            </div>
 
-        <section className="container py-12 md:py-16" ref={a.ref}>
-          <div className={`max-w-4xl ${a.isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <ArrowLeftRight size={14} /> Migration Platform
-            </span>
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading leading-[1.1]">
-              Move enterprise data <span className="text-primary">at scale — without the chaos.</span>
-            </h2>
-            <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
-              Orca Migrate combines PaaS-based provisioning, intelligent orchestration and smart cutover patterns so you can deliver
-              large, complex migrations faster — with significantly lower cost and risk.
-            </p>
+            {/* Highlight strip inside dark hero */}
+            <Reveal variant="up" delay={200}>
+              <div className="mt-12 rounded-2xl bg-[hsl(230_60%_10%/0.65)] border border-cyan-400/20 backdrop-blur grid grid-cols-2 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                {highlights.map((h) => (
+                  <div key={h.title} className="p-5 flex gap-3 items-start">
+                    <div className="w-10 h-10 shrink-0 rounded-lg bg-cyan-400/15 text-cyan-300 flex items-center justify-center">
+                      <h.Icon size={20} />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-cyan-100 font-heading whitespace-pre-line leading-tight">{h.title}</h3>
+                      <p className="mt-1 text-xs text-white/60 leading-relaxed">{h.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 
-        <section className="section-alt py-12 md:py-20" ref={b.ref}>
-          <div className="container">
-            <div className={`max-w-2xl ${b.isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-              <span className="text-xs font-semibold uppercase tracking-widest text-accent">Key Capabilities</span>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground font-heading">Migration the way it should be.</h2>
-            </div>
-            <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {capabilities.map((c, i) => (
-                <div key={c.title} className={`group bg-card rounded-2xl border border-border/60 p-6 hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 transition-all ${b.isVisible ? "animate-reveal-up" : "opacity-0"}`} style={{ animationDelay: `${i * 90}ms` }}>
-                  <div className="inline-flex w-12 h-12 rounded-xl bg-primary text-primary-foreground items-center justify-center shadow-lg shadow-primary/30"><c.Icon size={22} /></div>
-                  <h3 className="mt-4 text-lg font-bold text-foreground font-heading">{c.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+        {/* KEY CAPABILITIES */}
+        <section id="capabilities" className="container py-16 md:py-24">
+          <Reveal variant="up"><SectionHeading>Key Capabilities</SectionHeading></Reveal>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {capabilities.map((c, i) => (
+              <Reveal key={c.title} variant="up" delay={i * 100}>
+                <div className="group h-full bg-white rounded-2xl border border-border/70 p-5 text-center hover:-translate-y-1 hover:shadow-xl hover:border-cyan-400/60 transition-all">
+                  <div className="mx-auto w-14 h-14 rounded-xl bg-cyan-50 border border-cyan-200/60 text-cyan-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <c.Icon size={24} />
+                  </div>
+                  <h3 className="mt-4 text-sm font-bold text-primary font-heading whitespace-pre-line leading-tight">{c.title}</h3>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{c.body}</p>
                 </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {/* HOW IT WORKS */}
+        <section className="section-alt py-16 md:py-24">
+          <div className="container">
+            <Reveal variant="up"><SectionHeading>How Orca Migrate Works</SectionHeading></Reveal>
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-2 relative">
+              {steps.map((s, i) => (
+                <Reveal key={s.title} variant="scale" delay={i * 120} className="relative flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-full bg-white border-2 border-cyan-400/60 text-cyan-600 flex items-center justify-center shadow-md">
+                    <s.Icon size={26} />
+                  </div>
+                  <h3 className="mt-4 text-sm font-bold text-primary font-heading">{i + 1}. {s.title}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground max-w-[160px] leading-relaxed">{s.body}</p>
+                  {i < steps.length - 1 && (
+                    <ArrowRight size={20} className="hidden md:block absolute top-6 -right-3 text-cyan-500/70" aria-hidden />
+                  )}
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="container py-12 md:py-20" ref={c.ref}>
-          <div className={`max-w-2xl ${c.isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-            <span className="text-xs font-semibold uppercase tracking-widest text-accent">Traditional vs Orca Migrate</span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground font-heading">Why teams switch to Orca.</h2>
-          </div>
-
-          <div className="mt-10 overflow-hidden rounded-2xl border border-border/60 bg-card">
-            <div className="grid grid-cols-3 bg-muted/40 text-xs font-bold uppercase tracking-widest text-foreground/70">
-              <div className="p-4">Area</div>
-              <div className="p-4 border-l border-border/60">Traditional approach</div>
-              <div className="p-4 border-l border-border/60 text-primary">Orca Migrate</div>
-            </div>
-            {compare.map((row, i) => (
-              <div key={row.area} className={`grid grid-cols-3 text-sm md:text-base ${i % 2 ? "bg-background" : "bg-card"}`}>
-                <div className="p-4 font-semibold text-foreground">{row.area}</div>
-                <div className="p-4 border-l border-border/60 text-muted-foreground flex items-start gap-2">
-                  <X size={16} className="text-destructive mt-1 shrink-0" />
-                  <span>{row.traditional}</span>
+        {/* BUSINESS BENEFITS */}
+        <section className="container py-16 md:py-24">
+          <Reveal variant="up"><SectionHeading>Business Benefits</SectionHeading></Reveal>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-5 gap-4">
+            {benefits.map((b, i) => (
+              <Reveal key={b.label} variant="up" delay={i * 100}>
+                <div className="h-full bg-white rounded-2xl border border-cyan-200/60 p-6 text-center hover:-translate-y-1 hover:shadow-lg transition-all">
+                  <div className="text-3xl md:text-4xl font-extrabold text-cyan-600 font-heading">{b.value}</div>
+                  <div className="mt-2 text-sm font-semibold text-primary whitespace-pre-line leading-tight">{b.label}</div>
                 </div>
-                <div className="p-4 border-l border-border/60 text-foreground flex items-start gap-2">
-                  <CheckCircle2 size={16} className="text-primary mt-1 shrink-0" />
-                  <span>{row.orca}</span>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
+        </section>
 
-          <div className="mt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-3xl bg-primary text-primary-foreground p-8">
-            <div className="max-w-xl">
-              <div className="text-xs font-semibold uppercase tracking-widest text-accent">90% Faster Provisioning</div>
-              <h3 className="mt-2 text-2xl md:text-3xl font-bold font-heading">Plan your next migration with confidence.</h3>
+        {/* CTA BANNER */}
+        <section className="container pb-20">
+          <Reveal variant="scale">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-[hsl(220_70%_18%)] p-6 md:p-8 shadow-2xl shadow-primary/30">
+              <div className="absolute inset-y-0 right-0 w-1/3 bg-cyan-400/10 blur-3xl" aria-hidden />
+              <div className="relative flex flex-col md:flex-row items-center gap-6">
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-xl md:text-2xl font-bold text-white font-heading">
+                    Migrate with Confidence. Deliver Value Faster.
+                  </h3>
+                  <p className="mt-1 text-sm md:text-base text-white/80">
+                    Orca Migrate ensures a smooth migration journey every time.
+                  </p>
+                </div>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cyan-400 text-primary font-semibold hover:-translate-y-0.5 transition-all shadow-lg"
+                >
+                  Request a Demo <ArrowRight size={16} />
+                </Link>
+                <img
+                  src={orcaRest.url}
+                  alt="Orca mascot resting"
+                  width={180}
+                  height={120}
+                  loading="lazy"
+                  className="w-32 md:w-40 h-auto drop-shadow-xl"
+                />
+              </div>
             </div>
-            <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-semibold hover:-translate-y-0.5 transition-all whitespace-nowrap">
-              Talk to a Migration Expert <ArrowRight size={16} />
-            </Link>
-          </div>
+          </Reveal>
         </section>
       </main>
       <Footer />
