@@ -309,7 +309,7 @@ function FourPractices() {
   const items = [
     {
       icon: Boxes,
-      count: "7 OFFERINGS",
+      count: "5 OFFERINGS",
       title: "SAP Solutions",
       desc: "Data migration, ECC support, Datasphere, BTP integration — partner-enabled implementation.",
       tint: "from-blue-50 to-white",
@@ -339,7 +339,7 @@ function FourPractices() {
     },
     {
       icon: Database,
-      count: "7 OFFERINGS",
+      count: "6 OFFERINGS",
       title: "Data & AI Foundation",
       desc: "Data governance, maturity assessment, organisation training, platform engineering.",
       tint: "from-teal-50 to-white",
