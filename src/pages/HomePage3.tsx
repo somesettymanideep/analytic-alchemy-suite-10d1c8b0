@@ -6,6 +6,8 @@ import oracleLogo from "@/assets/logos/oracle.webp.asset.json";
 import awsLogo from "@/assets/logos/aws.webp.asset.json";
 import azureLogo from "@/assets/logos/azure.png.asset.json";
 import googleCloudLogo from "@/assets/logos/google-cloud.jpg.asset.json";
+import snowflakeLogo from "@/assets/logos/snowflake.jpeg.asset.json";
+import databricksLogo from "@/assets/logos/databricks.jpeg.asset.json";
 import {
   ArrowRight,
   Play,
@@ -189,6 +191,8 @@ function LogoStrip() {
   const logos = [
     { name: "SAP", src: sapLogo.url },
     { name: "Microsoft", src: microsoftLogo.url },
+    { name: "Databricks", src: databricksLogo.url },
+    { name: "Snowflake", src: snowflakeLogo.url },
     { name: "Oracle", src: oracleLogo.url },
     { name: "AWS", src: awsLogo.url },
     { name: "Azure", src: azureLogo.url },
