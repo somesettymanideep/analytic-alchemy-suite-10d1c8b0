@@ -106,7 +106,7 @@ export default function OrcaMigrate() {
     <div className="min-h-screen bg-background scroll-smooth">
       <ScrollToTop />
       <Navbar />
-      <main>
+      <main className="pt-16 md:pt-20">
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-b from-[hsl(230_60%_12%)] via-primary to-[hsl(220_70%_15%)] text-white">
           <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.25),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.2),transparent_50%)]" aria-hidden />
