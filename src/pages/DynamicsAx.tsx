@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import bannerAx from "@/assets/banner-ax.jpg";
 import imgCode from "@/assets/ax-code-assessment.jpg";
 import imgData from "@/assets/ax-data-migration.jpg";
@@ -396,6 +397,11 @@ export default function DynamicsAx() {
           description="Transform your legacy AX system into a future-ready, AI-powered Dynamics 365 platform."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="AX → D365 Modernisation"
+          headline="Move from AX 2012 to D365 Finance & Operations — data migrated, workflows standardised, ISV integrations preserved, and go-live de-risked with BlueGecko's OrcaMigrate."
+          evidence="Evidenced: Nash Squared AX/D365 F&O migration work. AX 2012 end of support is a live commercial trigger for every AX customer in the Netherlands."
+        />
         <Covers />
         <WhyUs />
         <Faq />

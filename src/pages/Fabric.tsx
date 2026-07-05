@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-fabric.jpg";
 import imgOneLake from "@/assets/fabric-onelake.jpg";
 import imgRealtime from "@/assets/fabric-realtime.jpg";
@@ -398,6 +399,11 @@ export default function Fabric() {
           description="One platform, one data lake, one team — from raw data to AI-driven insight without the complexity."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Data Engineering & Analytics"
+          headline="Design, implement, and operate data platforms on Microsoft Fabric — lakehouses, pipelines, Power BI semantic models, and real-time analytics for enterprise reporting."
+          evidence="Evidenced: Nash Squared infrastructure and BI support — Azure, SQL DBA, Microsoft Fabric housekeeping, ADF monitoring, Power BI report management."
+        />
         <Delivers />
         <WhyUs />
         <Faq />

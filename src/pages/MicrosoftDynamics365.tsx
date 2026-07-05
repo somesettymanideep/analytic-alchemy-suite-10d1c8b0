@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import bannerD365 from "@/assets/banner-d365.jpg";
 import imgInsights from "@/assets/d365-customer-insights.jpg";
 import imgFinance from "@/assets/d365-finance-ops.jpg";
@@ -398,6 +399,11 @@ export default function MicrosoftDynamics365() {
           description="One connected platform for finance, sales, supply chain, and operations — powered by AI."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Implementation & AMS"
+          headline="Full D365 F&O delivery — data migration, implementation, ISV integration, and ongoing Application Managed Services across multi-country, multi-entity landscapes."
+          evidence="Evidenced: Nash Squared — 70+ legal entities, 9 countries, 6 ISVs (Kofax, TAS/SKG, Lasernet, CMS, Nétive). AMS running across UK, IE, NL, BE, PL, DE, Americas, Canada, India."
+        />
         <Delivers />
         <WhyUs />
         <Faq />

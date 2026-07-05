@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import bannerBc from "@/assets/banner-bc.jpg";
 import imgFinance from "@/assets/bc-finance.jpg";
 import imgInventory from "@/assets/bc-inventory.jpg";
@@ -396,6 +397,11 @@ export default function BusinessCentral() {
           description="Enterprise-grade ERP built for growing businesses — without the enterprise complexity."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Migration & Implementation"
+          headline="Data migration and implementation for SME and mid-market businesses moving to Business Central — clean data, configured workflows, and a governed analytics foundation."
+          evidence="India ECC team can deliver BC implementations rapidly. Partner-enabled for larger programmes. Legitimate ambition with clear delivery path."
+        />
         <Delivers />
         <WhyUs />
         <Faq />
