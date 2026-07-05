@@ -512,12 +512,13 @@ function OpenOpportunities() {
                     >
                       View More <ArrowRight size={14} />
                     </button>
-                    <a
-                      href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(j.title)}`}
+                    <button
+                      type="button"
+                      onClick={() => setApplyJob(j)}
                       className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs md:text-sm font-semibold hover:bg-primary/90 hover:-translate-y-0.5 transition-all"
                     >
                       Apply Now
-                    </a>
+                    </button>
                   </div>
                 </li>
               ))}
@@ -595,17 +596,23 @@ function OpenOpportunities() {
               </div>
 
               <div className="flex justify-end pt-2">
-                <a
-                  href={`mailto:careers@nextgenlytics.com?subject=Application: ${encodeURIComponent(activeJob.title)}`}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setApplyJob(activeJob);
+                    setActiveJob(null);
+                  }}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all"
                 >
                   Apply Now <ArrowRight size={16} />
-                </a>
+                </button>
               </div>
             </>
           )}
         </DialogContent>
       </Dialog>
+
+      <ApplyDialog job={applyJob} onClose={() => setApplyJob(null)} />
     </section>
   );
 }
