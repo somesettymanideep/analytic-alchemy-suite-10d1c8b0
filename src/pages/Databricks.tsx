@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-databricks.jpg";
 import imgLakehouse from "@/assets/databricks-lakehouse.jpg";
 import imgCollab from "@/assets/databricks-collab.jpg";
@@ -402,6 +403,11 @@ export default function Databricks() {
           description="One unified platform for data engineering, data science, and AI — built on an open, scalable Lakehouse."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Databricks Lakehouse Engineering"
+          headline="Build and manage enterprise lakehouse architectures on Databricks — Delta Lake, ML pipelines, structured streaming, and analytics engineering for real-time and batch workloads."
+          evidence="Databricks Genie (AI/BI natural language query) is now embedded here as a capability within the lakehouse — not a standalone offering. Powered by Code Cheetah for optimised PySpark and SQL generation."
+        />
         <Delivers />
         <WhyUs />
         <Faq />
