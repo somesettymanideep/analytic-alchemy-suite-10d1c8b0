@@ -57,6 +57,9 @@ const solutionsMenu: SolutionCategory[] = [
       { label: "Snowflake Data Platform Services", href: "/solutions/snowflake" },
       { label: "Databricks Lakehouse Engineering", href: "/solutions/databricks" },
       { label: "Microsoft Fabric Data Engineering", href: "/solutions/microsoft-fabric" },
+      { label: "Data Governance", href: "/solutions/data-governance" },
+      { label: "AI-Driven Organisation Training", href: "/solutions/ai-organisation-training" },
+      { label: "Data Maturity Assessment & Advisory", href: "/solutions/data-maturity-assessment" },
     ],
   },
 ];
