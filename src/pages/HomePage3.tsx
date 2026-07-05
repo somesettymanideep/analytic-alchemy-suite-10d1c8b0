@@ -826,7 +826,7 @@ function CaseStudiesSection() {
       <div className="container">
         <div className="flex items-end justify-between">
           <h2 className="font-heading font-bold text-4xl sm:text-5xl">Case studies.</h2>
-          <a className="text-sm text-white/70 hover:text-white inline-flex items-center gap-1">All stories <ArrowRight className="w-4 h-4" /></a>
+          <Link to="/case-study" className="text-sm text-white/70 hover:text-white inline-flex items-center gap-1">All stories <ArrowRight className="w-4 h-4" /></Link>
         </div>
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {cases.map((c, i) => (
