@@ -255,9 +255,9 @@ function EngineeringPartner() {
             <p className="mt-3 text-white/70 max-w-md">
               Senior architects and engineers embedded with your team — onsite in Europe, follow-the-sun delivery from Asia.
             </p>
-            <a className="mt-6 inline-flex items-center gap-2 text-amber-300 font-medium">
+            <Link to="/edt" className="mt-6 inline-flex items-center gap-2 text-amber-300 font-medium hover:text-amber-200">
               Learn more <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
             <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-amber-400/10 blur-3xl" />
           </div>
 
