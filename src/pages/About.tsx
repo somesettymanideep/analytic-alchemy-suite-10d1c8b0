@@ -17,6 +17,7 @@ import {
   Zap,
   CheckCircle2,
   MapPin,
+  Bot,
 } from "lucide-react";
 
 /* -------------------------------------------------------------- */
@@ -295,6 +296,17 @@ function OurJourney() {
         { text: "Global launch of flagship platform: BlueGecko", highlight: true },
       ],
       icon: Globe2,
+      highlight: true,
+    },
+    {
+      year: "2026",
+      title: "AI Agents practice",
+      bullets: [
+        { text: "Launched dedicated AI Agents practice", highlight: true },
+        { text: "Autonomous agents for ERP, data, and operations workflows" },
+        { text: "Agentic capabilities embedded across BlueGecko" },
+      ],
+      icon: Bot,
       highlight: true,
     },
   ];
