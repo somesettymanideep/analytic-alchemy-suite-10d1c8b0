@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import bannerEcc from "@/assets/banner-sap-ecc.jpg";
 import imgPerformance from "@/assets/ecc-performance.jpg";
 import imgRoadmap from "@/assets/ecc-migration-roadmap.jpg";
@@ -456,6 +457,11 @@ export default function SapEcc() {
           description="Protect your ECC investment today — and build a clear, confident path to S/4HANA."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Stabilise & Optimise"
+          headline="Stabilise and optimise your ECC landscape — reduce technical debt, improve performance, and prepare your data for the S/4HANA transition."
+          evidence="ECC mainstream maintenance ends 2027. Every ECC customer needs this service now. Real capability."
+        />
         <Capabilities />
         <WhyUs />
         <Faq />
