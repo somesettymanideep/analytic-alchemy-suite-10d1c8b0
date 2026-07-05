@@ -23,6 +23,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "@/hooks/use-toast";
 import {
   ArrowRight,
   ArrowLeft,
@@ -296,6 +299,7 @@ function OpenOpportunities() {
   const [loc, setLoc] = useState<string>(ALL);
   const [expLevel, setExpLevel] = useState<string>(ALL);
   const [activeJob, setActiveJob] = useState<Job | null>(null);
+  const [applyJob, setApplyJob] = useState<Job | null>(null);
   const debouncedSearch = useDebounced(search, 300);
 
   const departments = useMemo(
