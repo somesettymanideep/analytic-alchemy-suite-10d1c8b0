@@ -1,7 +1,7 @@
-import cs1Asset from "@/assets/case-studies/cs1.jpg.asset.json";
-import cs2Asset from "@/assets/case-studies/cs2.jpg.asset.json";
-import cs3Asset from "@/assets/case-studies/cs3.jpg.asset.json";
-import cs4Asset from "@/assets/case-studies/cs4.jpg.asset.json";
+import cs1Asset from "@/assets/case-studies/cs1.webp.asset.json";
+import cs2Asset from "@/assets/case-studies/cs2.webp.asset.json";
+import cs3Asset from "@/assets/case-studies/cs3.webp.asset.json";
+import cs4Asset from "@/assets/case-studies/cs4.webp.asset.json";
 
 export type Stat = { icon: string; value: string; label: string };
 export type CaseStudy = {
