@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import sapLogo from "@/assets/logos/sap.png.asset.json";
+import microsoftLogo from "@/assets/logos/microsoft.png.asset.json";
+import oracleLogo from "@/assets/logos/oracle.webp.asset.json";
+import awsLogo from "@/assets/logos/aws.webp.asset.json";
+import azureLogo from "@/assets/logos/azure.png.asset.json";
+import googleCloudLogo from "@/assets/logos/google-cloud.jpg.asset.json";
 import {
   ArrowRight,
   Play,
@@ -180,7 +186,14 @@ function Hero() {
 
 // ============ LOGO MARQUEE ============
 function LogoStrip() {
-  const logos = ["SAP", "Microsoft", "Databricks", "Snowflake", "Oracle", "AWS", "Azure", "Google Cloud"];
+  const logos = [
+    { name: "SAP", src: sapLogo.url },
+    { name: "Microsoft", src: microsoftLogo.url },
+    { name: "Oracle", src: oracleLogo.url },
+    { name: "AWS", src: awsLogo.url },
+    { name: "Azure", src: azureLogo.url },
+    { name: "Google Cloud", src: googleCloudLogo.url },
+  ];
   const list = [...logos, ...logos, ...logos];
   return (
     <section className="bg-[#081436] text-white py-14 border-y border-white/5">
@@ -188,11 +201,15 @@ function LogoStrip() {
         Trusted across the modern data stack
       </div>
       <div className="mt-8 overflow-hidden">
-        <div className="flex gap-14 animate-marquee whitespace-nowrap">
+        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
           {list.map((l, i) => (
-            <span key={i} className="text-2xl font-semibold text-white/40 hover:text-white transition">
-              {l}
-            </span>
+            <img
+              key={i}
+              src={l.src}
+              alt={l.name}
+              loading="lazy"
+              className="h-10 md:h-12 w-auto object-contain opacity-80 hover:opacity-100 transition duration-300 shrink-0"
+            />
           ))}
         </div>
       </div>
