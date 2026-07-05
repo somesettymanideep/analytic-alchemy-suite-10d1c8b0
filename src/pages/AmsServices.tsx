@@ -4,6 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import PageBanner from "@/components/PageBanner";
 import banner from "@/assets/banner-d365.jpg";
+import amsHero from "@/assets/ams-hero.webp.asset.json";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -54,62 +55,6 @@ function Breadcrumbs() {
 }
 
 /* -------------------- Hero Wheel Diagram -------------------- */
-const wheelIcons = [
-  { icon: MessageSquare, label: "Customer Service" },
-  { icon: UserCircle2, label: "Sales" },
-  { icon: DollarSign, label: "Finance" },
-  { icon: Package, label: "Inventory" },
-  { icon: Cpu, label: "Projects" },
-  { icon: Landmark, label: "HR" },
-  { icon: Wrench, label: "Operations" },
-  { icon: Truck, label: "Supply Chain" },
-  { icon: ShoppingCart, label: "Procurement" },
-  { icon: BarChart3, label: "Marketing" },
-];
-
-function WheelDiagram() {
-  const size = 340;
-  const radius = 130;
-  const center = size / 2;
-  return (
-    <div className="relative mx-auto" style={{ width: size, height: size }}>
-      {/* Outer ring */}
-      <div className="absolute inset-0 rounded-full bg-primary" />
-      <div className="absolute inset-6 rounded-full bg-primary/90 border-4 border-white/10" />
-      {/* Center hub */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-32 h-32 rounded-full bg-white shadow-xl flex flex-col items-center justify-center text-center px-2">
-          <span className="text-[10px] font-semibold text-primary tracking-widest">CRM</span>
-          <div className="w-8 h-8 my-1 rounded-md bg-primary flex items-center justify-center">
-            <Boxes size={18} className="text-accent" />
-          </div>
-          <span className="text-[11px] font-bold text-primary leading-tight">
-            Microsoft
-            <br />Dynamics 365
-          </span>
-          <span className="text-[10px] font-semibold text-primary tracking-widest mt-1">ERP</span>
-        </div>
-      </div>
-      {/* Icons around ring */}
-      {wheelIcons.map((w, i) => {
-        const angle = (i / wheelIcons.length) * Math.PI * 2 - Math.PI / 2;
-        const x = center + Math.cos(angle) * radius - 22;
-        const y = center + Math.sin(angle) * radius - 22;
-        return (
-          <div
-            key={i}
-            className="absolute w-11 h-11 rounded-lg bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white"
-            style={{ left: x, top: y }}
-            title={w.label}
-          >
-            <w.icon size={20} />
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 /* -------------------- Hero -------------------- */
 function Hero() {
   return (
@@ -143,25 +88,11 @@ function Hero() {
         </Reveal>
 
         <Reveal variant="right" className="relative">
-          <div className="flex items-center justify-center gap-6">
-            <WheelDiagram />
-            <div className="hidden md:flex flex-col gap-4">
-              <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-card border border-border shadow-sm">
-                <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center">
-                  <LineChart size={20} className="text-primary" />
-                </div>
-                <span className="text-sm font-semibold text-primary leading-tight">
-                  Azure Synapse<br />Analytics
-                </span>
-              </div>
-              <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-accent text-accent-foreground shadow-sm">
-                <div className="w-10 h-10 rounded-md bg-white/30 flex items-center justify-center">
-                  <BarChart3 size={20} />
-                </div>
-                <span className="text-sm font-semibold leading-tight">Power BI</span>
-              </div>
-            </div>
-          </div>
+          <img
+            src={amsHero.url}
+            alt="Application Managed Services for Microsoft Dynamics 365 F&O"
+            className="w-full h-auto rounded-xl"
+          />
         </Reveal>
       </div>
     </section>
