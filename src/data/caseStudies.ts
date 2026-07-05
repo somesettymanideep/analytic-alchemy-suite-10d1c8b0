@@ -32,7 +32,7 @@ export const caseStudies: CaseStudy[] = [
     title: "D365 F&O Maintenance and Support",
     description:
       "Providing end-to-end maintenance and support for D365 F&O across multiple modules, ensuring smooth operations, issue resolution, and continuous improvement.",
-    image: cs1Asset.url,
+    image: cs2Asset.url,
     stats: [
       { icon: "users", value: "6", label: "ISVs Supported" },
       { icon: "building", value: "70+", label: "Legal Entities" },
@@ -98,7 +98,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Analytics for D365 F&O Process",
     description:
       "Leveraging analytics and Power BI to deliver actionable insights, automate reporting, and enable data-driven decision-making across finance and operations.",
-    image: cs2Asset.url,
+    image: cs3Asset.url,
     stats: [
       { icon: "grid", value: "40+", label: "Dashboards" },
       { icon: "file", value: "100+", label: "Reports Automated" },
@@ -163,7 +163,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Streamlining Financial Operations with D365 F&O",
     description:
       "Optimizing core finance functions like consolidation, reporting, budgeting, and close processes to improve accuracy, compliance, and operational efficiency.",
-    image: cs3Asset.url,
+    image: cs4Asset.url,
     stats: [
       { icon: "clock", value: "50%", label: "Faster Close" },
       { icon: "shield", value: "30%", label: "Reduction in Errors" },
@@ -229,7 +229,7 @@ export const caseStudies: CaseStudy[] = [
     title: "E-Invoice Processing Automation | D365 F&O",
     description:
       "Automating end-to-end e-invoice processing using Azure Logic Apps and Power Automate, reducing manual effort, eliminating duplicates, and accelerating invoice management.",
-    image: cs4Asset.url,
+    image: cs1Asset.url,
     stats: [
       { icon: "trend", value: "100%", label: "Automation" },
       { icon: "clock", value: "Every 15 mins", label: "Invoice Processing" },
