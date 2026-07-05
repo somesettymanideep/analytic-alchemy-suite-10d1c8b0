@@ -1,113 +1,182 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import PageBanner from "@/components/PageBanner";
-import banner from "@/assets/banner-bluegecko.jpg";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Map, Code2, Eye, ArrowLeftRight, Sparkles, Cpu, Layers, Workflow, ShieldCheck, Users, RefreshCw, ArrowRight } from "lucide-react";
+import mascotAsset from "@/assets/bluegecko-mascot.png.asset.json";
+import {
+  ArrowRight,
+  Users,
+  Sparkles,
+  Zap,
+  ShieldCheck,
+  Handshake,
+  Wrench,
+  UploadCloud,
+  BrainCircuit,
+  Settings2,
+  BarChart3,
+  CheckCircle2,
+  Layers,
+  Database,
+  TrendingUp,
+  FileCheck2,
+} from "lucide-react";
 
-const modules = [
-  { Icon: Map, name: "Falcon Mapping", tag: "AI-driven mapping", desc: "AI-guided mapping, governed repository, real-time collaboration across business and IT.", href: "/products/falcon-mapping" },
-  { Icon: Code2, name: "Code Cheetah", tag: "Automated pipelines", desc: "Turn business rules and mappings into production-grade SQL, Python and ETL pipelines.", href: "/products/code-cheetah" },
-  { Icon: Eye, name: "Owl Sight", tag: "Proactive DQ", desc: "100+ AI-driven checks, PII detection and reconciliation dashboards before go-live.", href: "/products/owl-sight" },
-  { Icon: ArrowLeftRight, name: "Orca Migrate", tag: "Large-scale migration", desc: "PaaS-based provisioning and smart cutover for faster, safer enterprise migrations.", href: "/products/orca-migrate" },
-];
+const mascot = mascotAsset.url;
 
-const differentiators = [
-  { Icon: Cpu, title: "AI Intelligence at Core", body: "Automated mapping and ETL logic suggestions learn from your existing rules." },
-  { Icon: Layers, title: "Unified Modular Platform", body: "Four products seamlessly integrated into one governed ecosystem." },
-  { Icon: Workflow, title: "Speed & Efficiency", body: "Reduce delivery timelines by up to 70% across migrations and mappings." },
-  { Icon: ShieldCheck, title: "Enterprise-Grade Trust", body: "Detect and resolve data issues long before they reach production." },
-  { Icon: Users, title: "Collaboration-First", body: "Business and technical teams aligned with full transparency." },
-  { Icon: RefreshCw, title: "Reusability & Standards", body: "Prebuilt templates and components eliminate redundancy." },
-];
-
-function Intro() {
-  const { ref, isVisible } = useScrollReveal();
+/* ---------------- Hero ---------------- */
+function Hero() {
   return (
-    <section className="container py-12 md:py-16" ref={ref}>
-      <div className={`max-w-4xl ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-          <Sparkles size={14} /> The Intelligent Data Management Platform
-        </span>
-        <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading leading-[1.1]">
-          One AI-powered platform. <span className="text-primary">Four products that simplify your entire data journey.</span>
-        </h2>
-        <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
-          BlueGecko unifies Migration, Mapping, ETL and Quality into a single governed ecosystem — delivering trusted,
-          business-ready data faster, with AI doing the heavy lifting.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function Modules() {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <section className="section-alt py-12 md:py-20">
-      <div className="container" ref={ref}>
-        <div className={`text-center max-w-2xl mx-auto ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Layers size={14} /> The BlueGecko Suite
+    <section className="relative overflow-hidden pt-24 md:pt-28 pb-16 md:pb-24 bg-gradient-to-br from-secondary via-background to-accent/20">
+      <div
+        aria-hidden
+        className="absolute -top-24 -right-24 w-[520px] h-[520px] rounded-full bg-primary/20 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-0 right-0 w-[420px] h-[420px] rounded-full bg-accent/30 blur-3xl"
+      />
+      <div className="container relative grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left copy */}
+        <div className="animate-reveal-up">
+          <span className="text-xs font-bold uppercase tracking-[0.24em] text-primary">
+            BlueGecko
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading">
-            Explore the four modules
-          </h2>
-        </div>
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
-          {modules.map((m, i) => (
+          <h1 className="mt-4 text-4xl md:text-6xl font-bold font-heading text-foreground leading-[1.05] tracking-tight">
+            Simplifying Data <br />
+            Migrations & <br />
+            Data Management
+          </h1>
+          <p className="mt-5 text-lg md:text-xl font-semibold text-primary">
+            AI-Powered. Automated. Reliable.
+          </p>
+          <span className="mt-3 block h-1 w-16 rounded-full bg-accent" />
+          <p className="mt-6 max-w-lg text-base md:text-lg text-muted-foreground leading-relaxed">
+            BlueGecko unifies migration, mapping, ETL and data quality into one
+            intelligent platform — helping you deliver trusted, business-ready
+            data faster.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              key={m.name}
-              to={m.href}
-              className={`group relative bg-card rounded-3xl border border-border/60 p-8 shadow-md shadow-primary/5 overflow-hidden transition-all hover:-translate-y-1 hover:shadow-2xl hover:border-primary/30 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
-              style={{ animationDelay: `${i * 100}ms` }}
+              to="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
             >
-              <div className="flex items-start justify-between">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
-                  <m.Icon size={26} />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-accent">{m.tag}</span>
-              </div>
-              <h3 className="mt-6 text-2xl font-bold text-foreground font-heading">{m.name}</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">{m.desc}</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
-                Explore module <ArrowRight size={16} />
-              </span>
-              <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary via-accent to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              Request a Demo <ArrowRight size={16} />
             </Link>
-          ))}
+            <Link
+              to="/products/falcon-mapping"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all"
+            >
+              Explore Product
+            </Link>
+          </div>
+
+          <div className="mt-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Trusted by forward-thinking enterprises worldwide
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-3 text-muted-foreground/70 font-heading font-bold tracking-wider">
+              <span>KOFAX</span>
+              <span>NASH SQUARED</span>
+              <span>TUNGSTEN</span>
+              <span>LASERNET</span>
+              <span>SKG</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right visual */}
+        <div className="relative">
+          <div className="relative flex items-end justify-center">
+            <img
+              src={mascot}
+              alt="BlueGecko mascot"
+              width={520}
+              height={520}
+              className="relative z-10 w-[260px] md:w-[360px] lg:w-[420px] drop-shadow-2xl"
+            />
+            <div className="absolute right-0 bottom-6 z-0 select-none pointer-events-none">
+              <div className="font-heading font-extrabold text-primary/90 leading-[0.85] text-[64px] md:text-[96px] lg:text-[120px] tracking-tight text-right">
+                BLUE<br />GECKO
+              </div>
+              <div className="mt-2 text-right text-xs md:text-sm font-bold tracking-[0.2em] text-primary">
+                AI · DATA MANAGEMENT PLATFORM
+              </div>
+            </div>
+          </div>
+
+          {/* Dashboard card */}
+          <div className="relative lg:absolute lg:-bottom-10 lg:-left-10 mt-8 lg:mt-0 z-20 bg-card rounded-2xl border border-border shadow-2xl shadow-primary/20 p-5 w-full max-w-md">
+            <div className="grid grid-cols-4 gap-3">
+              {[
+                { icon: Database, label: "Projects", value: "24", delta: "+18%" },
+                { icon: Layers, label: "Mappings", value: "1,250", delta: "+24%" },
+                { icon: TrendingUp, label: "Pipelines", value: "68", delta: "+30%" },
+                { icon: FileCheck2, label: "Data Quality", value: "98.6%", delta: "+12%" },
+              ].map((k) => (
+                <div key={k.label} className="rounded-lg bg-secondary/60 p-2.5">
+                  <div className="flex items-center gap-1 text-primary">
+                    <k.icon size={12} />
+                    <span className="text-[9px] font-semibold text-muted-foreground">
+                      {k.label}
+                    </span>
+                  </div>
+                  <div className="mt-1 text-base font-bold text-foreground font-heading">
+                    {k.value}
+                  </div>
+                  <div className="text-[9px] font-semibold text-accent">↑ {k.delta}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4">
+              <p className="text-[11px] font-semibold text-foreground mb-2">
+                Recent Activity
+              </p>
+              <div className="space-y-1.5 text-[11px]">
+                {[
+                  { n: "Customer_Orders Migration", s: "Completed", t: "2 min ago", c: "bg-accent/20 text-accent-foreground" },
+                  { n: "Vendor_Master ETL Pipeline", s: "Running", t: "10 min ago", c: "bg-primary/10 text-primary" },
+                  { n: "Product_Catalog Mapping", s: "Completed", t: "25 min ago", c: "bg-accent/20 text-accent-foreground" },
+                ].map((r) => (
+                  <div key={r.n} className="flex items-center justify-between">
+                    <span className="text-foreground/80 truncate">{r.n}</span>
+                    <div className="flex items-center gap-2">
+                      <span className={`px-2 py-0.5 rounded-full font-semibold ${r.c}`}>{r.s}</span>
+                      <span className="text-muted-foreground">{r.t}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function Differentiators() {
+/* ---------------- Feature strip ---------------- */
+function FeatureStrip() {
+  const feats = [
+    { Icon: Users, title: "Unified Platform", body: "Four products seamlessly integrated in one powerful ecosystem." },
+    { Icon: Sparkles, title: "AI Intelligence", body: "Automated mapping and ETL suggestions with Gen-AI." },
+    { Icon: Zap, title: "Faster Delivery", body: "Reduce delivery timelines by up to 70%." },
+    { Icon: ShieldCheck, title: "Data Quality", body: "Proactive detection and resolution of data issues for trusted data." },
+    { Icon: Handshake, title: "Collaboration-First", body: "Built for teams with transparency and shared ownership." },
+  ];
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="container py-12 md:py-20" ref={ref}>
-      <div className={`max-w-2xl ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-          <Sparkles size={14} /> Our Unique Value Proposition
-        </span>
-        <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading">
-          Built for the way enterprise data really works.
-        </h2>
-      </div>
-      <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {differentiators.map((d, i) => (
-          <div
-            key={d.title}
-            className={`group bg-card rounded-2xl border border-border/60 p-6 hover:border-primary/30 hover:shadow-lg transition-all ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
-            style={{ animationDelay: `${i * 80}ms` }}
-          >
-            <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-              <d.Icon size={20} />
+    <section className="container -mt-8 md:-mt-14 relative z-30" ref={ref}>
+      <div className={`bg-card rounded-3xl border border-border shadow-xl shadow-primary/10 p-6 md:p-8 grid grid-cols-2 md:grid-cols-5 gap-6 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
+        {feats.map((f) => (
+          <div key={f.title} className="text-center px-2">
+            <div className="mx-auto inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary">
+              <f.Icon size={22} />
             </div>
-            <h3 className="mt-4 text-lg font-bold text-foreground font-heading">{d.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d.body}</p>
+            <h3 className="mt-3 font-heading font-bold text-sm text-foreground">{f.title}</h3>
+            <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{f.body}</p>
           </div>
         ))}
       </div>
@@ -115,32 +184,157 @@ function Differentiators() {
   );
 }
 
-function Impact() {
-  const stats = [
-    { value: "30-50%", label: "Faster Delivery", body: "Accelerated migrations, mappings and ETL builds." },
-    { value: "20-40%", label: "Lower Operational Costs", body: "AI automation removes redundant manual effort." },
-    { value: "50-70%", label: "Less Reconciliation", body: "Proactive quality checks ensure trusted data." },
+/* ---------------- How it works ---------------- */
+function HowItWorks() {
+  const steps = [
+    { Icon: Wrench, title: "Set Up", body: "Configure your environment and data sources." },
+    { Icon: UploadCloud, title: "Upload", body: "Upload mapping files, schemas or documents." },
+    { Icon: BrainCircuit, title: "AI-Powered Mapping", body: "BlueGecko Gen-AI suggests mappings and transformations." },
+    { Icon: Settings2, title: "Automate & Execute", body: "Run ETL pipelines and automate workflows." },
+    { Icon: BarChart3, title: "Monitor & Improve", body: "Track progress, data quality and optimize continuously." },
   ];
+  const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="bg-primary text-primary-foreground py-16">
+    <section className="container py-16 md:py-24" ref={ref}>
+      <div className={`text-center max-w-2xl mx-auto ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
+        <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground">
+          How <span className="text-primary">BlueGecko</span> Works
+        </h2>
+        <span className="mt-3 inline-block h-1 w-16 rounded-full bg-accent" />
+      </div>
+      <div className="mt-14 grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-y-0 relative">
+        {steps.map((s, i) => (
+          <div key={s.title} className="relative flex flex-col items-center text-center px-2">
+            <div className="relative">
+              <div className="w-20 h-20 rounded-full bg-card border-2 border-primary/20 shadow-md flex items-center justify-center text-primary">
+                <s.Icon size={30} />
+              </div>
+              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow">
+                {i + 1}
+              </span>
+            </div>
+            <h3 className="mt-6 font-heading font-bold text-foreground">{s.title}</h3>
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed max-w-[180px]">
+              {s.body}
+            </p>
+            {i < steps.length - 1 && (
+              <div className="hidden md:flex absolute top-10 left-full -translate-x-1/2 items-center text-accent">
+                <div className="w-16 border-t-2 border-dashed border-accent/60" />
+                <ArrowRight size={16} />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Why enterprises choose ---------------- */
+function WhyChoose() {
+  const items = [
+    "Pre-built templates & reusable components",
+    "Enterprise-grade security & governance",
+    "Scalable for any size, any complexity",
+    "Cloud-ready & hybrid compatible",
+    "Built for performance and reliability",
+  ];
+  const { ref, isVisible } = useScrollReveal();
+  return (
+    <section className="section-alt py-16 md:py-20" ref={ref}>
       <div className="container">
-        <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">Business Impact</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold font-heading">Measurable outcomes, not promises.</h2>
+        <div className={`text-center max-w-2xl mx-auto ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground">
+            Why Enterprises Choose <span className="text-primary">BlueGecko</span>
+          </h2>
+          <span className="mt-3 inline-block h-1 w-16 rounded-full bg-accent" />
         </div>
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
-          {stats.map((s) => (
-            <div key={s.label} className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur">
-              <div className="text-4xl md:text-5xl font-bold font-heading text-accent">{s.value}</div>
-              <div className="mt-2 text-lg font-semibold">{s.label}</div>
-              <p className="mt-2 text-sm text-primary-foreground/80">{s.body}</p>
+        <div className="mt-12 flex flex-wrap justify-center gap-4">
+          {items.map((it, i) => (
+            <div
+              key={it}
+              className={`flex items-center gap-3 bg-card border border-border rounded-xl px-5 py-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all ${isVisible ? "animate-reveal-up" : "opacity-0"}`}
+              style={{ animationDelay: `${i * 80}ms` }}
+            >
+              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground shrink-0">
+                <CheckCircle2 size={18} />
+              </span>
+              <span className="text-sm font-semibold text-foreground text-balance max-w-[180px]">
+                {it}
+              </span>
             </div>
           ))}
         </div>
-        <div className="mt-10">
-          <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-semibold hover:-translate-y-0.5 transition-all">
-            Book a BlueGecko Demo <ArrowRight size={16} />
-          </Link>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Final CTA ---------------- */
+function FinalCta() {
+  const chips = [
+    { Icon: Sparkles, label: "AI-Powered Automation" },
+    { Icon: Zap, label: "Faster Deliveries" },
+    { Icon: Database, label: "End-to-End Data Management" },
+    { Icon: ShieldCheck, label: "Trusted Data Quality" },
+  ];
+  return (
+    <section className="container py-16">
+      <div className="relative overflow-hidden rounded-3xl bg-primary text-primary-foreground p-8 md:p-14 shadow-2xl shadow-primary/40">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div className="relative grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight">
+              Transform Your Data Journey <br />
+              with <span className="text-accent">BlueGecko</span>
+            </h2>
+            <p className="mt-4 text-primary-foreground/80 max-w-md">
+              Unify migrations, mappings and data quality in one AI-powered platform.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-accent-foreground font-semibold hover:-translate-y-0.5 transition-all shadow-lg"
+              >
+                Request a Demo <ArrowRight size={16} />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-primary-foreground/40 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all"
+              >
+                Talk to an Expert
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="relative mx-auto w-56 h-56 md:w-64 md:h-64 rounded-full bg-primary-foreground/5 border border-primary-foreground/20 flex items-center justify-center">
+              <img src={mascot} alt="" width={220} height={220} className="w-40 md:w-48 drop-shadow-2xl" />
+            </div>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              {chips.map((c) => (
+                <div
+                  key={c.label}
+                  className="flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-xl px-3 py-2.5 backdrop-blur"
+                >
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-primary-foreground text-primary shrink-0">
+                    <c.Icon size={16} />
+                  </span>
+                  <span className="text-xs md:text-sm font-semibold text-primary-foreground">
+                    {c.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -153,16 +347,11 @@ export default function BlueGecko() {
       <ScrollToTop />
       <Navbar />
       <main>
-        <PageBanner
-          image={banner}
-          eyebrow="Products · BlueGecko Platform"
-          title="BlueGecko — The AI Data Management Platform"
-          description="AI-driven mapping, automated pipelines, proactive data quality and large-scale migration — unified in one platform."
-        />
-        <Intro />
-        <Modules />
-        <Differentiators />
-        <Impact />
+        <Hero />
+        <FeatureStrip />
+        <HowItWorks />
+        <WhyChoose />
+        <FinalCta />
       </main>
       <Footer />
     </div>
