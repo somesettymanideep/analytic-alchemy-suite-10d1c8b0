@@ -463,15 +463,6 @@ export default function Navbar() {
           )}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <a
-            href="/contact"
-            className="px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/25 active:scale-[0.97] transition-all duration-200"
-          >
-            Book a Demo
-          </a>
-        </div>
-
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden p-2 text-foreground active:scale-95 transition-transform"
@@ -700,13 +691,6 @@ export default function Navbar() {
                 </a>
               ),
             )}
-            <a
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-primary-foreground text-center"
-            >
-              Book a Demo
-            </a>
           </nav>
         </div>
       )}
