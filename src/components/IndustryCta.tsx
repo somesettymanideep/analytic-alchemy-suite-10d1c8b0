@@ -1,4 +1,5 @@
 import { Calendar, PlayCircle, Phone, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 interface IndustryCtaProps {
@@ -13,7 +14,8 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
       Icon: Calendar,
       title: "Book a 30-min consultation",
       desc: "Strategic assessment with a senior partner.",
-      href: "mailto:info@nextgenlytics.com?subject=Consultation%20Request",
+      href: "/contact",
+      internal: true,
     },
     {
       Icon: PlayCircle,
@@ -66,12 +68,12 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
                 Talk to a nextgenlytics specialist who understands your sector.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="mailto:info@nextgenlytics.com?subject=Consultation%20Request"
+                <Link
+                  to="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-primary-foreground text-primary hover:shadow-xl active:scale-[0.97] transition-all"
                 >
                   <Calendar size={16} /> Book Consultation
-                </a>
+                </Link>
                 <a
                   href="mailto:info@nextgenlytics.com?subject=Demo%20Request"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold border-2 border-primary-foreground/25 text-primary-foreground hover:bg-primary-foreground/10 active:scale-[0.97] transition-all"
@@ -84,14 +86,13 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
             {/* Right: action cards */}
             <div className="space-y-4">
               {actions.map((a, i) => (
-                <a
-                  key={a.title}
-                  href={a.href}
-                  className={`group flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-primary-foreground/[0.07] backdrop-blur border border-primary-foreground/10 hover:bg-primary-foreground/[0.12] hover:border-accent/40 transition-all ${
+                (() => {
+                  const cls = `group flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-primary-foreground/[0.07] backdrop-blur border border-primary-foreground/10 hover:bg-primary-foreground/[0.12] hover:border-accent/40 transition-all ${
                     isVisible ? "animate-reveal-up" : "opacity-0"
-                  }`}
-                  style={{ animationDelay: `${150 + i * 100}ms` }}
-                >
+                  }`;
+                  const style = { animationDelay: `${150 + i * 100}ms` };
+                  const inner = (
+                    <>
                   <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent/15 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                     <a.Icon size={20} />
                   </div>
@@ -107,7 +108,14 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
                     size={18}
                     className="shrink-0 text-primary-foreground/50 group-hover:text-accent group-hover:translate-x-1 transition-all"
                   />
-                </a>
+                    </>
+                  );
+                  return a.internal ? (
+                    <Link key={a.title} to={a.href} className={cls} style={style}>{inner}</Link>
+                  ) : (
+                    <a key={a.title} href={a.href} className={cls} style={style}>{inner}</a>
+                  );
+                })()
               ))}
             </div>
           </div>
