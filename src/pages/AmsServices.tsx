@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
+import PageBanner from "@/components/PageBanner";
+import banner from "@/assets/banner-d365.jpg";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -420,7 +422,13 @@ export default function AmsServices() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <ScrollToTop />
-      <div className="pt-20">
+      <PageBanner
+        image={banner}
+        eyebrow="Services · AMS"
+        title="Application Managed Services (AMS)"
+        description="End-to-end management and support for your Dynamics 365 F&O environment — ensuring performance, reliability, and continuous improvement."
+      />
+      <div>
         <Breadcrumbs />
         <Hero />
         <StatsBar />
