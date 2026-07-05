@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import banner from "@/assets/banner-snowflake.jpg";
 import imgElastic from "@/assets/snowflake-elastic.jpg";
 import imgSharing from "@/assets/snowflake-sharing.jpg";
@@ -400,6 +401,11 @@ export default function Snowflake() {
           description="A cloud-native data platform that scales with your business — and powers your AI without the infrastructure headaches."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Snowflake Data Platform Services"
+          headline="Design, build, and operate enterprise data platforms on Snowflake — ingestion, transformation pipelines, semantic layers, and performance optimisation."
+          evidence="Snowflake Cortex (AI/ML layer) is now embedded here as a capability within the platform — not a standalone offering. Powered by Falcon Mapping and Code Cheetah for 50–60% less engineering effort."
+        />
         <Delivers />
         <WhyUs />
         <Faq />
