@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import bannerRise from "@/assets/banner-rise-sap.jpg";
 import imgInfra from "@/assets/rise-cloud-infrastructure.jpg";
 import imgProcess from "@/assets/rise-process-intelligence.jpg";
@@ -402,6 +403,11 @@ export default function SapRise() {
           description="Your entire move to the cloud — software, infrastructure, and transformation — under one strategy."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Data Readiness for RISE"
+          headline="RISE with SAP is the cloud commercial model. We ensure your data is migration-ready, governed, and clean before your RISE journey begins."
+          evidence="Partner-enabled full implementation. Nextgenlytics owns the data and integration workstream — the layer that determines RISE success or failure."
+        />
         <Includes />
         <WhyUs />
         <Faq />
