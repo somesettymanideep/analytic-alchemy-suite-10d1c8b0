@@ -39,6 +39,8 @@ const founders = [
     quote:
       "Every enterprise deserves Tier-1 thinking. We built nextgenlytics to make that possible.",
     image: rajaAsset.url,
+    linkedin: "https://linkedin.com/in/raja-devarapu/",
+    email: "raja.devarapu@nextgenlytics.com",
     highlights: [
       "17 years architecting enterprise data and AI programmes for global organisations — ManpowerGroup, Nationwide Building Society, ANZ Bank, and beyond",
       "Visionary architect of BlueGecko — the Data and AI platform that delivers SAP, Microsoft, and any ERP transformation at a fraction of Tier-1 cost and twice the speed",
@@ -52,6 +54,8 @@ const founders = [
     quote:
       "Bridging the gap between legacy enterprise systems and the speed of modern product engineering.",
     image: hugoAsset.url,
+    linkedin: "https://www.linkedin.com/in/hugocooymans/",
+    email: "Hugo.Cooijmans@nextgenlytics.com",
     highlights: [
       "30+ yrs building and leading SAP programmes across the Dutch enterprise market",
       "Pioneer of the Dutch SAP SI ecosystem — Tier-1 relationships built over three decades",
@@ -65,6 +69,8 @@ const founders = [
     quote:
       "The best technology never sells itself. The right conversation does.",
     image: emilioAsset.url,
+    linkedin: "https://www.linkedin.com/in/emiliopiers/",
+    email: "Emilio.Piers@nextgenlytics.com",
     highlights: [
       "Enterprise tech sales leadership across TCS, Tata Communications, EDS, and KPN Netherlands",
       "Drives new business across SAP, Microsoft, Data Engineering, and AI portfolios",
@@ -78,6 +84,8 @@ const founders = [
     quote:
       "Technology leaders trust people who have stood where they stand. That is why I joined nextgenlytics.",
     image: remyAsset.url,
+    linkedin: "https://www.linkedin.com/in/remygillet/",
+    email: "remy.gillet@nextgenlytics.com",
     highlights: [
       "Former CIO, CTO, and PE Operating Partner — 30+ yrs of board-level transformation",
       "Opens doors in the Dutch and European C-suite — peer to peer, executive to executive",
@@ -521,14 +529,16 @@ export default function Team() {
                         }`}
                       >
                         <a
-                          href="#"
+                          href={f.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           aria-label={`${f.name} on LinkedIn`}
                           className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"
                         >
                           <Linkedin size={18} />
                         </a>
                         <a
-                          href="mailto:Info@nextgenlytics.com"
+                          href={`mailto:${f.email}`}
                           aria-label={`Email ${f.name}`}
                           className="w-12 h-12 border border-border text-primary flex items-center justify-center rounded-full hover:border-primary hover:bg-primary/5 transition-colors"
                         >
