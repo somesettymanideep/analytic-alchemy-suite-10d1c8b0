@@ -1,4 +1,5 @@
-import logo from "@/assets/logo.jpeg";
+import logoAsset from "@/assets/logo.png.asset.json";
+const logo = logoAsset.url;
 import footerBg from "@/assets/footer-bg.jpg";
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
