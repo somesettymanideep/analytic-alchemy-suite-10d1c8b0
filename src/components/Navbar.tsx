@@ -54,8 +54,8 @@ const solutionsMenu: SolutionCategory[] = [
     label: "Data Engineering",
     Icon: Server,
     items: [
-      { label: "Snowflake Data Platform", href: "/solutions/snowflake" },
-      { label: "Databricks Lakehouse", href: "/solutions/databricks" },
+      { label: "Snowflake Data Platform Services", href: "/solutions/snowflake" },
+      { label: "Databricks Lakehouse Engineering", href: "/solutions/databricks" },
       { label: "Microsoft Fabric Data Engineering", href: "/solutions/microsoft-fabric" },
     ],
   },
