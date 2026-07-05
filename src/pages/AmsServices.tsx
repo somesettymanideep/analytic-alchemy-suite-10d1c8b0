@@ -111,10 +111,10 @@ const stats = [
 function StatsBar() {
   return (
     <section className="container pb-10">
-      <Reveal>
+      <Reveal variant="scale">
         <div className="rounded-xl bg-card border border-border shadow-sm p-6 grid grid-cols-2 md:grid-cols-5 gap-6">
           {stats.map((s, i) => (
-            <div key={i} className="flex items-center gap-3">
+            <Reveal key={i} delay={100 + i * 80} className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full bg-secondary flex items-center justify-center">
                 <s.icon size={20} className="text-primary" />
               </div>
@@ -122,7 +122,7 @@ function StatsBar() {
                 <div className="text-lg font-bold text-primary leading-tight">{s.value}</div>
                 <div className="text-xs text-muted-foreground">{s.label}</div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Reveal>
@@ -263,19 +263,19 @@ function WhyChoose() {
     <section className="container pb-12">
       <Reveal>
         <div className="rounded-xl bg-primary text-primary-foreground p-8 md:p-10">
-          <div className="text-center">
+          <Reveal className="text-center">
             <h2 className="text-2xl md:text-3xl font-bold font-heading">
               Why Choose Nextgenlytics for AMS?
             </h2>
             <div className="mx-auto mt-2 h-1 w-16 bg-accent rounded-full" />
-          </div>
+          </Reveal>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {whyItems.map((w, i) => (
-              <div key={i} className="text-primary-foreground">
+              <Reveal key={i} delay={150 + i * 100} className="text-primary-foreground">
                 <w.icon size={26} className="text-primary-foreground/90" />
                 <h3 className="mt-3 text-sm font-bold leading-snug">{w.title}</h3>
                 <p className="mt-2 text-xs text-primary-foreground/75 leading-relaxed">{w.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -320,7 +320,7 @@ function Benefits() {
 function BottomCta() {
   return (
     <section className="container pb-16">
-      <Reveal>
+      <Reveal variant="scale">
         <div className="rounded-xl border border-accent/40 bg-accent/10 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-lg bg-card border border-border flex items-center justify-center shrink-0">
