@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
+import SolutionHighlight from "@/components/SolutionHighlight";
 import bannerBdc from "@/assets/banner-bdc.jpg";
 import imgFabric from "@/assets/bdc-data-fabric.jpg";
 import imgFederation from "@/assets/bdc-federation.jpg";
@@ -401,6 +402,11 @@ export default function SapBdc() {
           description="One governed data layer across your entire SAP and non-SAP landscape — with business context intact."
         />
         <Intro />
+        <SolutionHighlight
+          eyebrow="Unified Data & Analytics"
+          headline="Unified data and analytics platform on SAP Datasphere — consolidating fragmented warehouses, enabling 40+ KPIs, and integrating with enterprise systems."
+          evidence="Evidenced: Bed manufacturer engagement 3 — 4 fragmented warehouses unified, S/4HANA + marketing integration. SAP BDC is the natural extension."
+        />
         <Delivers />
         <WhyUs />
         <Faq />
