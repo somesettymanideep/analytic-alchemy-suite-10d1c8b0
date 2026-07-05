@@ -60,18 +60,17 @@ function Hero() {
             Enterprise Data Platform · 2026
           </span>
           <h1 className="mt-8 font-heading font-bold leading-[1.02] tracking-tight text-5xl sm:text-6xl lg:text-7xl">
-            Enterprise Data,
+            MOST TRANSFORMATIONS
             <br />
-            <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">AI</span>
-            <span className="text-white/60"> &amp; </span>
-            <span className="bg-gradient-to-r from-slate-300 to-slate-500 bg-clip-text text-transparent">ERP</span>
-            <br />
-            Transformation.
+            FAIL AT THE{" "}
+            <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+              DATA LAYER.
+            </span>
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-lg">
-            We migrate, modernize and govern your enterprise data
-            <span className="text-white font-semibold"> 50% faster</span> with{" "}
-            <span className="text-amber-300 font-semibold">BlueGecko</span>.
+            We make sure yours does not. A Dutch–Indian Data, AI &amp; ERP transformation company. We migrate, govern, and build on top of your data —{" "}
+            <span className="text-white font-semibold">50%+ faster</span> with{" "}
+            <span className="text-amber-300 font-semibold">BlueGecko</span>, our AI-native platform.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0A1A4A] font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(251,191,36,0.6)] transition">
