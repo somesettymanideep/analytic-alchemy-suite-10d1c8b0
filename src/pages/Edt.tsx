@@ -305,8 +305,8 @@ function CustomersViewPremium() {
         <div className="container grid lg:grid-cols-[45fr_55fr] gap-12 lg:gap-16 items-center">
           {/* Left */}
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full glass-card gradient-border px-3 py-1.5 text-xs font-semibold text-primary mb-7 animate-reveal-up">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3.5 py-1.5 text-xs font-semibold text-primary mb-7 animate-reveal-up">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               For Customers · Extended Delivery Team
             </div>
 
