@@ -886,7 +886,7 @@ function CaseStudiesSection() {
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {cases.map((c, i) => (
             <RevealOnScroll key={i} delay={i * 160}>
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1A70] to-[#000A5C] border border-white/10 p-8 min-h-[260px] hover:border-[#3B7EFF]/40 transition group h-full">
+              <Link to="/case-study" className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1A70] to-[#000A5C] border border-white/10 p-8 min-h-[260px] hover:border-[#3B7EFF]/40 transition group h-full block">
               <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#0060F0]/10 blur-3xl group-hover:bg-[#0060F0]/20 transition" />
               <div className="text-xs uppercase tracking-widest text-[#3B7EFF]">Case Study</div>
               <div className="mt-6 font-heading font-bold text-6xl bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
@@ -898,11 +898,11 @@ function CaseStudiesSection() {
                   <div className="mt-1 font-semibold">{c.sub}</div>
                   <div className="mt-2 text-sm text-white/60 max-w-md">{c.desc}</div>
                 </div>
-                <div className="shrink-0 w-9 h-9 rounded-full border border-white/20 flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4" />
+                <div className="shrink-0 w-9 h-9 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-[#0060F0] group-hover:border-[#0060F0] transition">
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
-              </div>
+              </Link>
             </RevealOnScroll>
           ))}
         </div>
