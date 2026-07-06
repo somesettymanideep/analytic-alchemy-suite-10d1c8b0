@@ -51,7 +51,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <img src={logo} alt="nextgenlytics" className="h-16 rounded mb-4 bg-white p-2" />
+            <img src={logo} alt="nextgenlytics" className="h-20 rounded-lg mb-4 bg-white p-3 shadow-md" />
             <p className="text-sm leading-relaxed">
               AI-native data and transformation partner for mid-market enterprises.
             </p>
