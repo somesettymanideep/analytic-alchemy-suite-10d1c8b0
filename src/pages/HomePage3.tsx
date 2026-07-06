@@ -1,19 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import sapLogo from "@/assets/logos/sap.png.asset.json";
-import microsoftLogo from "@/assets/logos/microsoft.png.asset.json";
-import oracleLogo from "@/assets/logos/oracle.webp.asset.json";
-import awsLogo from "@/assets/logos/aws.webp.asset.json";
-import azureLogo from "@/assets/logos/azure.png.asset.json";
-import googleCloudLogo from "@/assets/logos/google-cloud.jpg.asset.json";
-import snowflakeLogo from "@/assets/logos/snowflake.jpeg.asset.json";
-import databricksLogo from "@/assets/logos/databricks.jpeg.asset.json";
-import cratedbLogo from "@/assets/logos/cratedb.jpeg.asset.json";
-import adamiLogo from "@/assets/logos/adami.jpeg.asset.json";
-import ctacLogo from "@/assets/logos/ctac.jpeg.asset.json";
-import harveyNashLogo from "@/assets/logos/harvey-nash.jpeg.asset.json";
-import gbtecLogo from "@/assets/logos/gbtec.jpeg.asset.json";
-import aupingLogo from "@/assets/logos/auping.jpeg.asset.json";
+import sapLogo from "@/assets/logos/sap-v2.png.asset.json";
+import microsoftLogo from "@/assets/logos/microsoft-v2.png.asset.json";
+import oracleLogo from "@/assets/logos/oracle-v2.png.asset.json";
+import awsLogo from "@/assets/logos/aws-v2.png.asset.json";
+import azureLogo from "@/assets/logos/azure-v2.png.asset.json";
+import googleCloudLogo from "@/assets/logos/google-cloud-v2.png.asset.json";
+import snowflakeLogo from "@/assets/logos/snowflake-v2.png.asset.json";
+import harveyNashLogo from "@/assets/logos/harvey-nash-v2.png.asset.json";
+import gbtecLogo from "@/assets/logos/gbtec-v2.png.asset.json";
+import aupingLogo from "@/assets/logos/auping-v2.png.asset.json";
 import {
   ArrowRight,
   Play,
@@ -197,15 +193,11 @@ function LogoStrip() {
   const logos = [
     { name: "SAP", src: sapLogo.url },
     { name: "Microsoft", src: microsoftLogo.url },
-    { name: "Databricks", src: databricksLogo.url },
     { name: "Snowflake", src: snowflakeLogo.url },
     { name: "Oracle", src: oracleLogo.url },
     { name: "AWS", src: awsLogo.url },
     { name: "Azure", src: azureLogo.url },
     { name: "Google Cloud", src: googleCloudLogo.url },
-    { name: "CrateDB", src: cratedbLogo.url },
-    { name: "AdamI", src: adamiLogo.url },
-    { name: "CTAC", src: ctacLogo.url },
     { name: "Harvey Nash", src: harveyNashLogo.url },
     { name: "GBTEC", src: gbtecLogo.url },
     { name: "Auping", src: aupingLogo.url },
