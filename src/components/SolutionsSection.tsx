@@ -55,11 +55,11 @@ export default function SolutionsSection() {
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full blur-3xl opacity-40"
-          style={{ background: "radial-gradient(circle, #0B1F8C22, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #000A5C22, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 right-0 w-[480px] h-[480px] rounded-full blur-3xl opacity-40"
-          style={{ background: "radial-gradient(circle, #F59E0B22, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #0060F022, transparent 70%)" }}
         />
       </div>
 
@@ -67,14 +67,14 @@ export default function SolutionsSection() {
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-14">
           <div className={`flex items-center justify-center gap-3 mb-5 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
-            <span className="w-8 h-0.5 bg-[#F59E0B]" />
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#0B1F8C]">
+            <span className="w-8 h-0.5 bg-[#0060F0]" />
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#000A5C]">
               Solutions
             </span>
-            <span className="w-8 h-0.5 bg-[#F59E0B]" />
+            <span className="w-8 h-0.5 bg-[#0060F0]" />
           </div>
           <h2
-            className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-[#0B1F8C] ${
+            className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-[#000A5C] ${
               isVisible ? "animate-reveal-up delay-100" : "opacity-0"
             }`}
           >
@@ -86,7 +86,7 @@ export default function SolutionsSection() {
             }`}
           >
             Each solution stands on its own — and each is strengthened by{" "}
-            <span className="text-[#0B1F8C] font-semibold">BlueGecko</span>, our AI-native
+            <span className="text-[#000A5C] font-semibold">BlueGecko</span>, our AI-native
             platform built from real delivery.
           </p>
         </div>
@@ -111,19 +111,19 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
   return (
     <article
       ref={ref}
-      className={`group relative rounded-2xl bg-gradient-to-b from-slate-50 to-blue-50/60 border-2 border-[#0B1F8C]/20 px-6 pt-14 pb-8 text-center transition-all duration-500 hover:-translate-y-2 hover:bg-none hover:bg-[#0B1F8C] hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.35)] hover:border-[#0B1F8C] ${
+      className={`group relative rounded-2xl bg-gradient-to-b from-slate-50 to-blue-50/60 border-2 border-[#000A5C]/20 px-6 pt-14 pb-8 text-center transition-all duration-500 hover:-translate-y-2 hover:bg-none hover:bg-[#000A5C] hover:shadow-[0_24px_60px_-20px_rgba(11,31,140,0.35)] hover:border-[#000A5C] ${
         isVisible ? "animate-reveal-card" : "opacity-0"
       }`}
       style={{ animationDelay: `${index * 200}ms` }}
     >
       {/* Floating icon circle */}
       <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-        <div className="w-20 h-20 rounded-full bg-white shadow-[0_12px_30px_-12px_rgba(11,31,140,0.35)] flex items-center justify-center border-2 border-[#0B1F8C]/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-[#0B1F8C]/40">
-          <solution.icon className="w-9 h-9 text-[#0B1F8C]" strokeWidth={1.6} />
+        <div className="w-20 h-20 rounded-full bg-white shadow-[0_12px_30px_-12px_rgba(11,31,140,0.35)] flex items-center justify-center border-2 border-[#000A5C]/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-[#000A5C]/40">
+          <solution.icon className="w-9 h-9 text-[#000A5C]" strokeWidth={1.6} />
         </div>
       </div>
 
-      <h3 className="text-xl md:text-[1.35rem] font-bold text-[#0B1F8C] leading-tight mb-3 min-h-[3.25rem] flex items-center justify-center group-hover:text-white transition-colors duration-500">
+      <h3 className="text-xl md:text-[1.35rem] font-bold text-[#000A5C] leading-tight mb-3 min-h-[3.25rem] flex items-center justify-center group-hover:text-white transition-colors duration-500">
         {solution.title}
       </h3>
 
@@ -143,7 +143,7 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
       </div>
 
       {/* bottom accent bar */}
-      <span className="absolute left-6 right-6 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-[#F59E0B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <span className="absolute left-6 right-6 bottom-0 h-0.5 bg-gradient-to-r from-transparent via-[#0060F0] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </article>
   );
 }
@@ -151,21 +151,21 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
 function FoundationStrip({ isVisible }: { isVisible: boolean }) {
   return (
     <div
-      className={`mt-16 relative rounded-2xl bg-[#0B1F8C] text-white p-6 md:p-8 overflow-hidden ${
+      className={`mt-16 relative rounded-2xl bg-[#000A5C] text-white p-6 md:p-8 overflow-hidden ${
         isVisible ? "animate-reveal-card delay-500" : "opacity-0"
       }`}
     >
       <div
         className="absolute inset-0 opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(circle at 80% 50%, #F59E0B55, transparent 60%)" }}
+        style={{ background: "radial-gradient(circle at 80% 50%, #0060F055, transparent 60%)" }}
       />
       <div className="relative flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-[#F59E0B] flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.6)]">
-            <Layers className="w-6 h-6 text-[#0B1F8C]" />
+          <div className="w-12 h-12 rounded-xl bg-[#0060F0] flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.6)]">
+            <Layers className="w-6 h-6 text-[#000A5C]" />
           </div>
           <div>
-            <div className="text-[10px] uppercase tracking-[0.25em] text-[#F59E0B] font-semibold">
+            <div className="text-[10px] uppercase tracking-[0.25em] text-[#0060F0] font-semibold">
               Foundation Layer
             </div>
             <div className="text-xl font-bold">BlueGecko Platform</div>
@@ -177,7 +177,7 @@ function FoundationStrip({ isVisible }: { isVisible: boolean }) {
         </div>
         <a
           href="/bluegecko"
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#F59E0B] text-[#0B1F8C] font-semibold text-sm hover:bg-[#F59E0B]/90 transition-colors whitespace-nowrap"
+          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0060F0] text-[#000A5C] font-semibold text-sm hover:bg-[#0060F0]/90 transition-colors whitespace-nowrap"
         >
           Explore BlueGecko <ArrowUpRight className="w-4 h-4" />
         </a>

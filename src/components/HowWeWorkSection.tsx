@@ -143,7 +143,7 @@ export default function HowWeWorkSection() {
       className="relative overflow-hidden py-28 md:py-36"
       style={{
         background:
-          "radial-gradient(ellipse at 20% 0%, #142bb0 0%, #0b1f8c 50%, #050d3f 100%)",
+          "radial-gradient(ellipse at 20% 0%, #142bb0 0%, #000A5C 50%, #050d3f 100%)",
       }}
     >
       {/* grain */}
@@ -387,7 +387,7 @@ export default function HowWeWorkSection() {
                           <span
                             className="font-heading text-4xl md:text-5xl font-bold tracking-tight tabular-nums"
                             style={{
-                              color: isActive ? s.accent : "#0B1F8C",
+                              color: isActive ? s.accent : "#000A5C",
                               textShadow: isActive ? `0 0 24px ${s.accent}33` : "none",
                             }}
                           >
@@ -399,14 +399,14 @@ export default function HowWeWorkSection() {
                         </div>
                         <span
                           className={`text-[10px] font-mono tracking-widest uppercase transition-colors ${
-                            isDone ? "text-[#faae14]" : isActive ? "text-[#0B1F8C]" : "text-gray-400"
+                            isDone ? "text-[#faae14]" : isActive ? "text-[#000A5C]" : "text-gray-400"
                           }`}
                         >
                           {isDone ? "Completed" : isActive ? "In Progress" : "Upcoming"}
                         </span>
                       </div>
 
-                      <h3 className="relative mt-6 font-heading text-2xl md:text-3xl font-bold text-[#0B1F8C] leading-tight">
+                      <h3 className="relative mt-6 font-heading text-2xl md:text-3xl font-bold text-[#000A5C] leading-tight">
                         {s.title}
                       </h3>
                       <p className="relative mt-3 text-sm md:text-base leading-relaxed text-gray-600 max-w-2xl">

@@ -85,8 +85,8 @@ export default function HeroSection() {
           <svg viewBox="-100 -100 200 200" className="absolute inset-0 w-full h-full">
             <defs>
               <radialGradient id="nodeGlow">
-                <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+                <stop offset="0%" stopColor="#0060F0" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#0060F0" stopOpacity="0" />
               </radialGradient>
               <linearGradient id="edgeGrad" x1="0" x2="1" y1="0" y2="0">
                 <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.15" />
@@ -110,7 +110,7 @@ export default function HeroSection() {
             {NODES.map((n, i) => (
               <g key={i}>
                 <circle cx={n.x} cy={n.y} r="6" fill="url(#nodeGlow)" />
-                <circle cx={n.x} cy={n.y} r="2.6" fill="#F59E0B" />
+                <circle cx={n.x} cy={n.y} r="2.6" fill="#0060F0" />
                 <circle cx={n.x} cy={n.y} r="1.4" fill="#FEF3C7">
                   <animate
                     attributeName="opacity"
