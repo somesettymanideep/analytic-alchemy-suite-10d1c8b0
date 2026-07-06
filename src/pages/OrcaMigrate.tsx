@@ -108,8 +108,8 @@ export default function OrcaMigrate() {
       <Navbar />
       <main className="pt-16 md:pt-20">
         {/* HERO */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-[hsl(230_60%_12%)] via-primary to-[hsl(220_70%_15%)] text-white">
-          <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.25),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.2),transparent_50%)]" aria-hidden />
+        <section className="relative overflow-hidden bg-gradient-to-b from-secondary via-background to-accent/10 text-foreground">
+          <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_20%_30%,rgba(0,96,240,0.10),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(16,217,196,0.10),transparent_50%)]" aria-hidden />
           <div className="container relative py-14 md:py-20">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div>
@@ -124,16 +124,16 @@ export default function OrcaMigrate() {
                     />
                   </Reveal>
                   <Reveal variant="up" delay={120}>
-                    <h1 className="text-5xl md:text-7xl font-extrabold font-heading leading-[0.95]">Orca Migrate</h1>
+                    <h1 className="text-5xl md:text-7xl font-extrabold font-heading leading-[0.95] text-primary">Orca Migrate</h1>
                   </Reveal>
                 </div>
                 <Reveal variant="up" delay={240}>
-                  <p className={`mt-6 text-lg md:text-2xl font-bold leading-snug ${CY}`}>
+                  <p className="mt-6 text-lg md:text-2xl font-bold leading-snug text-accent">
                     Migrate Smarter. Faster. Safer.
                   </p>
                 </Reveal>
                 <Reveal variant="up" delay={340}>
-                  <p className="mt-5 text-white/75 max-w-md leading-relaxed">
+                  <p className="mt-5 text-muted-foreground max-w-md leading-relaxed">
                     Orca Migrate is the enterprise-grade migration platform that accelerates data, configuration, and workload
                     migrations to Microsoft ecosystems with minimal risk and maximum efficiency.
                   </p>
@@ -142,13 +142,13 @@ export default function OrcaMigrate() {
                   <div className="mt-8 flex flex-wrap gap-3">
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cyan-400 text-primary font-semibold shadow-lg shadow-cyan-500/30 hover:-translate-y-0.5 transition-all"
+                      className="btn-cta inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold shadow-lg hover:-translate-y-0.5 transition-all"
                     >
                       Request a Demo <ArrowRight size={16} />
                     </Link>
                     <a
                       href="#capabilities"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-transparent border border-white/40 text-white font-semibold hover:bg-white/10 transition-all"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-transparent border border-primary/30 text-primary font-semibold hover:bg-primary/5 transition-all"
                     >
                       Explore Product
                     </a>
@@ -162,15 +162,15 @@ export default function OrcaMigrate() {
 
             {/* Highlight strip inside dark hero */}
             <Reveal variant="up" delay={200}>
-              <div className="mt-12 rounded-2xl bg-[hsl(230_60%_10%/0.65)] border border-cyan-400/20 backdrop-blur grid grid-cols-2 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-white/10">
+              <div className="mt-12 rounded-2xl bg-card border border-border shadow-sm grid grid-cols-2 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-border">
                 {highlights.map((h) => (
                   <div key={h.title} className="p-5 flex gap-3 items-start">
-                    <div className="w-10 h-10 shrink-0 rounded-lg bg-cyan-400/15 text-cyan-300 flex items-center justify-center">
+                    <div className="w-10 h-10 shrink-0 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
                       <h.Icon size={20} />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-cyan-100 font-heading whitespace-pre-line leading-tight">{h.title}</h3>
-                      <p className="mt-1 text-xs text-white/60 leading-relaxed">{h.body}</p>
+                      <h3 className="text-sm font-bold text-primary font-heading whitespace-pre-line leading-tight">{h.title}</h3>
+                      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{h.body}</p>
                     </div>
                   </div>
                 ))}
