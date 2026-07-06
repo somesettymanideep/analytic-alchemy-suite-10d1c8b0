@@ -869,7 +869,7 @@ function PartnersViewPremium({
       {/* ============== FLOATING METRICS STRIP ============== */}
       <section className="container -mt-6 md:-mt-10 relative z-10">
         <Reveal>
-          <div className="relative rounded-[28px] glass-card gradient-border shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] p-6 md:p-8">
+          <div className="relative rounded-[28px] glass-card gradient-border shadow-elevated p-6 md:p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-2">
               {[
                 { v: "2–4", suf: " Weeks", label: "Activation Time", Icon: Rocket },
@@ -1079,7 +1079,7 @@ function PartnersViewPremium({
           </div>
         </Reveal>
         <Reveal delay={150}>
-          <div className="relative rounded-[28px] glass-card gradient-border overflow-hidden shadow-[0_30px_80px_-30px_rgba(15,23,42,0.2)]">
+          <div className="relative rounded-[28px] glass-card gradient-border overflow-hidden shadow-elevated">
             <div className="sticky top-0 z-10 grid grid-cols-1 md:grid-cols-[1fr_1.5fr] bg-gradient-to-r from-primary to-[#1c2f8a] text-primary-foreground text-xs font-bold uppercase tracking-[0.18em]">
               <div className="px-7 py-5 border-b md:border-b-0 md:border-r border-primary-foreground/15">What you need</div>
               <div className="px-7 py-5">nextgenlytics delivers</div>
