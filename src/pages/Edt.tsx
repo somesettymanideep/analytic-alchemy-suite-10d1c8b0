@@ -1331,7 +1331,7 @@ export default function Edt() {
               <div
                 role="tablist"
                 aria-label="Audience"
-                className="inline-flex items-center gap-1 p-1.5 bg-card border border-border rounded-full shadow-md"
+                className="inline-flex items-center gap-1 p-1.5 bg-card border border-border rounded-full shadow-soft"
               >
                 <button
                   role="tab"
