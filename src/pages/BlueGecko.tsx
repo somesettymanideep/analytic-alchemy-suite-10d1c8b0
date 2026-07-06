@@ -28,7 +28,7 @@ const mascot = mascotAsset.url;
 /* ---------------- Hero ---------------- */
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-36 md:pt-44 pb-16 md:pb-24 bg-gradient-to-br from-secondary via-background to-accent/20">
+    <section className="relative overflow-hidden pt-44 md:pt-56 pb-16 md:pb-24 bg-gradient-to-br from-secondary via-background to-accent/20">
       <div
         aria-hidden
         className="absolute -top-24 -right-24 w-[520px] h-[520px] rounded-full bg-primary/20 blur-3xl"
