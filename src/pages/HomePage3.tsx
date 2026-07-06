@@ -311,7 +311,7 @@ function EngineeringPartner() {
             <p className="mt-3 text-white/70 max-w-md">
               Senior architects and engineers embedded with your team — onsite in Europe, follow-the-sun delivery from Asia.
             </p>
-            <Link to="/edt" className="mt-6 inline-flex items-center gap-2 text-[#3B7EFF] font-medium hover:text-amber-200">
+            <Link to="/edt" className="mt-6 inline-flex items-center gap-2 text-[#3B7EFF] font-medium hover:text-[#5A9AFF]">
               Learn more <ArrowRight className="w-4 h-4" />
             </Link>
             <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-[#0060F0]/10 blur-3xl" />
@@ -387,8 +387,8 @@ function FourPractices() {
       count: "7 OFFERINGS",
       title: "AI Solutions",
       desc: "BlueGecko AI agents, governance AI, predictive analytics, custom applications, AI testing.",
-      tint: "from-amber-50 to-white",
-      ring: "ring-amber-200",
+      tint: "from-[#E6F0FF] to-white",
+      ring: "ring-[#5A9AFF]",
       dot: "bg-[#0050D0]",
       href: "/solutions/ai-foundry",
     },
@@ -829,7 +829,7 @@ function ProcessSection() {
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Stage / {s.n}</div>
-                      <h3 className="mt-1 font-heading font-bold text-2xl group-hover:text-amber-200 transition-colors">{s.title}</h3>
+                      <h3 className="mt-1 font-heading font-bold text-2xl group-hover:text-[#5A9AFF] transition-colors">{s.title}</h3>
                     </div>
                     <div className={`font-heading font-bold text-4xl transition-colors ${openStage === s.n ? "text-[#3B7EFF]/70" : "text-white/10 group-hover:text-[#3B7EFF]/40"}`}>{s.n}</div>
                   </div>
@@ -848,7 +848,7 @@ function ProcessSection() {
                         <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-[#3B7EFF]/90 mb-2">Key deliverables</div>
                         <div className="flex flex-wrap gap-2">
                           {s.tags.map((t) => (
-                            <span key={t} className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0060F0]/10 border border-[#3B7EFF]/25 text-amber-100">
+                            <span key={t} className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0060F0]/10 border border-[#3B7EFF]/25 text-[#B8D2FF]">
                               {t}
                             </span>
                           ))}
@@ -857,7 +857,7 @@ function ProcessSection() {
                     </div>
                   </div>
 
-                  <div className={`mt-3 text-[11px] uppercase tracking-widest transition-colors ${openStage === s.n ? "text-[#3B7EFF]" : "text-white/40 group-hover:text-amber-200"}`}>
+                  <div className={`mt-3 text-[11px] uppercase tracking-widest transition-colors ${openStage === s.n ? "text-[#3B7EFF]" : "text-white/40 group-hover:text-[#5A9AFF]"}`}>
                     {openStage === s.n ? "Tap to collapse" : "Hover or tap for details"}
                   </div>
                 </button>
@@ -940,7 +940,7 @@ function BlueGeckoPlatform() {
             <div className="grid grid-cols-[220px_1fr]">
               <div className="border-r border-white/10 p-5 space-y-2 text-sm">
                 {["Overview", "Lineage", "Quality", "Migrations", "Models", "Pipelines"].map((it, i) => (
-                  <div key={it} className={`px-3 py-2 rounded-lg ${i === 0 ? "bg-[#0060F0]/20 text-amber-200" : "text-white/60 hover:bg-white/5"}`}>
+                  <div key={it} className={`px-3 py-2 rounded-lg ${i === 0 ? "bg-[#0060F0]/20 text-[#5A9AFF]" : "text-white/60 hover:bg-white/5"}`}>
                     {it}
                   </div>
                 ))}
