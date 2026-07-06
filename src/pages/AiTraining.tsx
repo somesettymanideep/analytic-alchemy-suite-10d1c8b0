@@ -126,7 +126,7 @@ export default function AiTraining() {
       <main>
         <PageBanner
           image={banner}
-          eyebrow="AI Solutions · AI-Driven Organisation Training"
+          eyebrow="Data Engineering · AI-Driven Organisation Training"
           title="AI-Driven Organisation Training"
           description="A structured programme — not a one-day workshop — that changes how your teams use data and AI to decide, faster."
         />
