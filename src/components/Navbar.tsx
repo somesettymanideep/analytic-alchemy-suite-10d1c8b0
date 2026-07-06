@@ -52,7 +52,7 @@ const solutionsMenu: SolutionCategory[] = [
   },
   {
     key: "data",
-    label: "Data Engineering",
+    label: "Data Flow Engineering",
     Icon: Server,
     items: [
       { label: "Snowflake Data Platform Services", href: "/solutions/snowflake" },
