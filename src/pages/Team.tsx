@@ -426,7 +426,7 @@ export default function Team() {
               Four operators.<br />One conviction.
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed text-pretty">
-              nextgenlytics is led by four partners who spent careers running the kind of programmes our clients now hand to us — combining SAP heritage, AI engineering, enterprise sales, and C-suite advisory into a single accountable team.
+              Nextgenlytics was founded on a single conviction: that most transformations fail at the data layer, and that the market needed a partner built specifically to solve it. That conviction brought together a leadership team who work as one. Deep SAP heritage, enterprise sales, AI adoption, engineering and C-suite relationships, combined into a single accountable team that our clients trust to deliver.
             </p>
           </div>
 
