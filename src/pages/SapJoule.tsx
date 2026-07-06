@@ -315,7 +315,7 @@ export default function SapJoule() {
         <PageBanner
           image={banner}
           eyebrow="AI Solutions · Conversational AI for SAP & D365"
-          title="SAP Joule"
+          title="Conversational AI for SAP & D365"
           description="One AI assistant across your entire SAP landscape — that actually gets things done."
         />
         <Intro />
