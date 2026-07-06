@@ -88,26 +88,23 @@ function Hero() {
         </div>
 
         {/* Right visual */}
-        <div className="relative min-h-[520px]">
-          {/* Background BLUE GECKO text at top */}
-          <div className="absolute top-0 right-0 left-0 z-0 select-none pointer-events-none">
-            <div className="font-heading font-extrabold text-accent leading-[0.85] text-[72px] md:text-[112px] lg:text-[140px] tracking-tight text-right">
-              BLUE<br />GECKO
-            </div>
-            <div className="mt-2 text-right text-xs md:text-sm font-bold tracking-[0.2em] text-primary/60">
-              AI · DATA MANAGEMENT PLATFORM
-            </div>
-          </div>
-
-          {/* Mascot positioned below the text */}
-          <div className="relative z-10 flex justify-center pt-24 md:pt-32 lg:pt-40">
+        <div className="relative">
+          <div className="relative flex items-end justify-center">
             <img
               src={mascot}
               alt="BlueGecko mascot"
               width={520}
               height={520}
-              className="w-[240px] md:w-[320px] lg:w-[380px] drop-shadow-2xl"
+              className="relative z-10 w-[260px] md:w-[360px] lg:w-[420px] drop-shadow-2xl"
             />
+            <div className="absolute right-0 bottom-6 z-0 select-none pointer-events-none">
+              <div className="font-heading font-extrabold text-primary/90 leading-[0.85] text-[64px] md:text-[96px] lg:text-[120px] tracking-tight text-right">
+                BLUE<br />GECKO
+              </div>
+              <div className="mt-2 text-right text-xs md:text-sm font-bold tracking-[0.2em] text-primary">
+                AI · DATA MANAGEMENT PLATFORM
+              </div>
+            </div>
           </div>
 
           {/* Dashboard card */}
