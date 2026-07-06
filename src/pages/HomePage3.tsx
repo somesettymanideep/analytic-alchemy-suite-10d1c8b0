@@ -935,7 +935,7 @@ function BlueGeckoPlatform() {
               <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#0060F0]" />
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-              <div className="ml-4 text-xs px-3 py-1 rounded-md bg-white/10 text-white/70">bluegecko.ngsit.io</div>
+              <div className="ml-4 text-xs px-3 py-1 rounded-md bg-white/10 text-white/70">bluegecko.ai</div>
             </div>
             <div className="grid grid-cols-[220px_1fr]">
               <div className="border-r border-white/10 p-5 space-y-2 text-sm">
