@@ -1323,7 +1323,7 @@ export default function Edt() {
       <Navbar />
 
       {/* Sticky audience toggle */}
-      <div className="pt-28 md:pt-32">
+      <div className="pt-28 md:pt-32 pb-8 md:pb-10 bg-[#f5f7fa]">
         <div className="container">
           <div className="flex justify-center">
             <div
