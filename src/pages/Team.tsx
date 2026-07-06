@@ -138,6 +138,7 @@ const team: TeamMember[] = [
     location: "3+ yrs · FTE",
     bio: "SAP Data Migration engineer working across SQL Server/ETL pipelines and SAP DataSphere implementations.",
     email: "nitin.mandge@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/nitinmandge1/",
     image: nitinAsset.url,
   },
   {
@@ -154,6 +155,7 @@ const team: TeamMember[] = [
     role: "SAP Data Migration Expert | SQL/ETL Developer | AI Engineer",
     location: "8+ yrs · FTE",
     bio: "Senior practitioner blending SAP Data Migration, SQL Server/ETL development, and AI engineering across complex enterprise programmes.",
+    linkedin: "https://www.linkedin.com/in/manogya-k-b8890a250/",
     image: manognyaAsset.url,
   },
   {
@@ -162,6 +164,7 @@ const team: TeamMember[] = [
     location: "1.5 yrs · FTE",
     bio: "Junior AI and Data Engineer contributing to data pipelines and machine learning workflows.",
     email: "bhuvanesh.m@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/bhuvi-webdev/",
     image: bhuvaneshAsset.url,
   },
   {
@@ -205,6 +208,7 @@ const team: TeamMember[] = [
     role: "Senior Consultant",
     location: "20+ yrs · FTE",
     bio: "Veteran consultant bringing two decades of enterprise delivery experience across data and SAP programmes.",
+    linkedin: "https://www.linkedin.com/in/sridhar-aakula",
     image: sridharAsset.url,
   },
   {
@@ -258,6 +262,7 @@ const team: TeamMember[] = [
     location: "FTE",
     bio: "IT Operations Analyst ensuring smooth day-to-day operations across enterprise IT systems.",
     email: "richa.k@nextgenlytics.com",
+    linkedin: "https://www.linkedin.com/in/richa-kathpalia-883a86a5/",
     image: richaAsset.url,
   },
   {
