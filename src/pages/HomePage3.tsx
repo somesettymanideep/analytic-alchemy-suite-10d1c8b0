@@ -225,7 +225,7 @@ function LogoStrip() {
               alt={l.name}
               loading="lazy"
               draggable={false}
-              className="h-10 md:h-12 w-auto max-w-none object-contain opacity-80 hover:opacity-100 transition duration-300 shrink-0 select-none"
+              className="h-10 md:h-12 w-auto max-w-none object-contain opacity-80 hover:opacity-100 transition duration-300 shrink-0 select-none rounded-[5px]"
             />
           ))}
         </div>
