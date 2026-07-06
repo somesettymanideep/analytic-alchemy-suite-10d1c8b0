@@ -91,7 +91,7 @@ function Hero() {
         <div className="relative min-h-[520px]">
           {/* Background BLUE GECKO text at top */}
           <div className="absolute top-0 right-0 left-0 z-0 select-none pointer-events-none">
-            <div className="font-heading font-extrabold text-primary/10 leading-[0.85] text-[72px] md:text-[112px] lg:text-[140px] tracking-tight text-right">
+            <div className="font-heading font-extrabold text-accent leading-[0.85] text-[72px] md:text-[112px] lg:text-[140px] tracking-tight text-right">
               BLUE<br />GECKO
             </div>
             <div className="mt-2 text-right text-xs md:text-sm font-bold tracking-[0.2em] text-primary/60">
