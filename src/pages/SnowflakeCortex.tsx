@@ -320,7 +320,7 @@ export default function SnowflakeCortex() {
       <main>
         <PageBanner
           image={banner}
-          eyebrow="AI Solutions · Snowflake Cortex"
+          eyebrow="AI Solutions · AI-Powered Data Insights"
           title="Snowflake Cortex"
           description="AI that runs where your data already lives — no movement, no risk, no complexity."
         />
