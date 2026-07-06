@@ -1322,51 +1322,54 @@ export default function Edt() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Sticky audience toggle */}
-      <div className="pt-28 md:pt-32 pb-8 md:pb-10 bg-[#f5f7fa]">
-        <div className="container">
-          <div className="flex justify-center">
-            <div
-              role="tablist"
-              aria-label="Audience"
-              className="inline-flex items-center gap-1 p-1.5 bg-card border border-border rounded-full shadow-md"
-            >
-              <button
-                role="tab"
-                aria-selected={audience === "customers"}
-                onClick={() => setAudience("customers")}
-                className={`inline-flex items-center gap-2 px-5 md:px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                  audience === "customers"
-                    ? "bg-primary text-primary-foreground shadow-lg"
-                    : "text-foreground/70 hover:text-primary"
-                }`}
+      {/* Customers and Partners section — full-width background */}
+      <div className="bg-[#f5f7fa]">
+        {/* Sticky audience toggle */}
+        <div className="pt-28 md:pt-32 pb-8 md:pb-10">
+          <div className="container">
+            <div className="flex justify-center">
+              <div
+                role="tablist"
+                aria-label="Audience"
+                className="inline-flex items-center gap-1 p-1.5 bg-card border border-border rounded-full shadow-md"
               >
-                <Users size={16} />
-                For Customers
-              </button>
-              <button
-                role="tab"
-                aria-selected={audience === "partners"}
-                onClick={() => setAudience("partners")}
-                className={`inline-flex items-center gap-2 px-5 md:px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                  audience === "partners"
-                    ? "bg-accent text-accent-foreground shadow-lg"
-                    : "text-foreground/70 hover:text-primary"
-                }`}
-              >
-                <Handshake size={16} />
-                For SI Partners
-              </button>
+                <button
+                  role="tab"
+                  aria-selected={audience === "customers"}
+                  onClick={() => setAudience("customers")}
+                  className={`inline-flex items-center gap-2 px-5 md:px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                    audience === "customers"
+                      ? "bg-primary text-primary-foreground shadow-lg"
+                      : "text-foreground/70 hover:text-primary"
+                  }`}
+                >
+                  <Users size={16} />
+                  For Customers
+                </button>
+                <button
+                  role="tab"
+                  aria-selected={audience === "partners"}
+                  onClick={() => setAudience("partners")}
+                  className={`inline-flex items-center gap-2 px-5 md:px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                    audience === "partners"
+                      ? "bg-accent text-accent-foreground shadow-lg"
+                      : "text-foreground/70 hover:text-primary"
+                  }`}
+                >
+                  <Handshake size={16} />
+                  For SI Partners
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <main className="pt-12 md:pt-16">
-        <div key={audience} className="animate-fade-in">
-          {audience === "customers" ? <CustomersView /> : <PartnersView />}
-        </div>
-      </main>
+        <main className="pb-12 md:pb-16">
+          <div key={audience} className="animate-fade-in">
+            {audience === "customers" ? <CustomersView /> : <PartnersView />}
+          </div>
+        </main>
+      </div>
 
       <Footer />
     </div>
