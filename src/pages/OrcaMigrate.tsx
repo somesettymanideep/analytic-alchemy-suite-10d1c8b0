@@ -165,12 +165,12 @@ export default function OrcaMigrate() {
               <div className="mt-12 rounded-2xl bg-card border border-border shadow-sm grid grid-cols-2 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-border">
                 {highlights.map((h) => (
                   <div key={h.title} className="p-5 flex gap-3 items-start">
-                    <div className="w-10 h-10 shrink-0 rounded-lg bg-cyan-400/15 text-cyan-300 flex items-center justify-center">
+                    <div className="w-10 h-10 shrink-0 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
                       <h.Icon size={20} />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-cyan-100 font-heading whitespace-pre-line leading-tight">{h.title}</h3>
-                      <p className="mt-1 text-xs text-white/60 leading-relaxed">{h.body}</p>
+                      <h3 className="text-sm font-bold text-primary font-heading whitespace-pre-line leading-tight">{h.title}</h3>
+                      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{h.body}</p>
                     </div>
                   </div>
                 ))}
