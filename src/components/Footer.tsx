@@ -57,7 +57,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-5">
               {[
-                { Icon: Linkedin, href: "https://www.linkedin.com", label: "LinkedIn" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/nextgenlytics1/", label: "LinkedIn" },
                 { Icon: Twitter, href: "https://twitter.com", label: "Twitter" },
                 { Icon: Mail, href: "mailto:hello@nextgenlytics.com", label: "Email" },
               ].map(({ Icon, href, label }) => (
