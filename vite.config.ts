@@ -44,6 +44,16 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    proxy: {
+      // CDN-hosted assets (from `.asset.json` pointers) are served by Lovable
+      // infrastructure in preview/production. In local dev, proxy them to the
+      // published origin so images render when running via `bun dev`.
+      "/__l5e": {
+        target: "https://analytic-alchemy-suite.lovable.app",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
   },
   plugins: [
     assetPointerFallback(),
