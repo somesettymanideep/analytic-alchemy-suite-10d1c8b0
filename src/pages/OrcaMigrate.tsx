@@ -69,20 +69,20 @@ function OrbitDiagram() {
   return (
     <div className="relative w-[320px] h-[320px] md:w-[380px] md:h-[380px] mx-auto">
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 380 380" fill="none" aria-hidden>
-        <circle cx="190" cy="190" r="140" stroke="rgba(34,211,238,0.35)" strokeWidth="1.5" strokeDasharray="4 6" />
-        <circle cx="190" cy="190" r="90" stroke="rgba(34,211,238,0.2)" strokeWidth="1" />
+        <circle cx="190" cy="190" r="140" stroke="rgba(0,96,240,0.45)" strokeWidth="1.5" strokeDasharray="4 6" />
+        <circle cx="190" cy="190" r="90" stroke="rgba(0,10,92,0.25)" strokeWidth="1" />
       </svg>
       {/* center */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-cyan-400/20 border border-cyan-300/50 shadow-[0_0_40px_rgba(34,211,238,0.4)] flex items-center justify-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-accent/15 border border-accent/40 shadow-[0_0_40px_rgba(0,96,240,0.35)] flex items-center justify-center">
         <img src={orcaJump.url} alt="" className="w-16 h-16 object-contain" />
       </div>
       {nodes.map((n, i) => (
         <Reveal key={n.label} variant="scale" delay={i * 100} className={`absolute ${n.pos}`}>
           <div className="flex flex-col items-center">
-            <div className="w-14 h-14 rounded-full bg-primary/40 border-2 border-cyan-300/60 text-cyan-200 flex items-center justify-center backdrop-blur-sm shadow-lg shadow-cyan-500/20">
+            <div className="w-14 h-14 rounded-full bg-white border-2 border-accent text-primary flex items-center justify-center shadow-lg shadow-primary/15">
               <n.Icon size={22} />
             </div>
-            <span className="mt-1 text-xs font-semibold text-cyan-100">{n.label}</span>
+            <span className="mt-1 text-xs font-semibold text-primary">{n.label}</span>
           </div>
         </Reveal>
       ))}
