@@ -315,7 +315,7 @@ export default function AiFoundry() {
         <PageBanner
           image={banner}
           eyebrow="AI Solutions · AI Strategy & Readiness Assessment"
-          title="nextgenlytics AI Foundry"
+          title="AI Strategy & Readiness Assessment"
           description="Custom AI built on your data — not generic models built on everyone else's."
         />
         <Intro />
