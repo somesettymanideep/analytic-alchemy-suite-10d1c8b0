@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoAsset from "@/assets/logo.gif.asset.json";
 const logo = logoAsset.url;
 import footerBg from "@/assets/footer-bg.jpg";
 import { Link } from "react-router-dom";
@@ -51,7 +51,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <img src={logo} alt="nextgenlytics" className="h-16 rounded mb-4" />
+            <img src={logo} alt="nextgenlytics" className="h-16 rounded mb-4 bg-white p-2" />
             <p className="text-sm leading-relaxed">
               AI-native data and transformation partner for mid-market enterprises.
             </p>
