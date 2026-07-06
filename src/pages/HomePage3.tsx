@@ -216,15 +216,16 @@ function LogoStrip() {
       <div className="text-center text-xs uppercase tracking-[0.28em] text-white/50">
         Trusted across the modern data stack
       </div>
-      <div className="mt-8 overflow-hidden">
-        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
+      <div className="group mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap will-change-transform transform-gpu group-hover:[animation-play-state:paused] motion-reduce:animate-none">
           {list.map((l, i) => (
             <img
               key={i}
               src={l.src}
               alt={l.name}
               loading="lazy"
-              className="h-10 md:h-12 w-auto object-contain opacity-80 hover:opacity-100 transition duration-300 shrink-0"
+              draggable={false}
+              className="h-10 md:h-12 w-auto max-w-none object-contain opacity-80 hover:opacity-100 transition duration-300 shrink-0 select-none"
             />
           ))}
         </div>
