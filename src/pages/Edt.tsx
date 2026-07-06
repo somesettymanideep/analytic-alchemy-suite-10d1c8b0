@@ -131,7 +131,7 @@ function HeroDashboard() {
                 <div className="text-[10px] text-emerald-600 font-semibold">12 online</div>
               </div>
               <div className="mt-2 flex -space-x-2">
-                {["#2958FF","#6C63FF","#00C6FF","#F6B91A","#10B981","#EF4444"].map((c, i) => (
+                {["#2958FF","#6C63FF","#00C6FF","#0060F0","#10B981","#EF4444"].map((c, i) => (
                   <div key={i} className="w-7 h-7 rounded-full ring-2 ring-white text-[10px] font-bold flex items-center justify-center text-white"
                     style={{ background: c }}>
                     {String.fromCharCode(65 + i)}
@@ -198,7 +198,7 @@ function HeroDashboard() {
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span className="w-2 h-2 rounded-full bg-[#F6B91A]" />
+            <span className="w-2 h-2 rounded-full bg-[#0060F0]" />
             <span className="w-2 h-2 rounded-full bg-foreground/20" />
           </div>
           <div className="text-[11px] font-semibold text-foreground/70">Sprint 14 · On track</div>
@@ -294,15 +294,15 @@ function CustomersViewPremium() {
   const pillars = [
     { icon: Users, title: "Not outsourcing", body: "Your team. Your ways of working. Your outcomes. nextgenlytics operates inside your programme structure, not alongside it.", glow: "#2958FF" },
     { icon: ShieldCheck, title: "Not a subcontractor", body: "Embedded, dedicated, and accountable directly to you. No middlemen, no management layers.", glow: "#6C63FF" },
-    { icon: Layers, title: "Not a rotating pool", body: "The same people. Building knowledge that stays with your programme instead of leaving at the end of every engagement.", glow: "#F6B91A" },
+    { icon: Layers, title: "Not a rotating pool", body: "The same people. Building knowledge that stays with your programme instead of leaving at the end of every engagement.", glow: "#0060F0" },
   ];
 
   const bento = [
     { span: "md:col-span-2", icon: Database, title: "SAP", desc: "S/4HANA migration, ECC support, Datasphere, BTP — specialists ready in weeks.", tag: "Falcon · Orca", gradient: "from-[#2958FF]/10 to-[#6C63FF]/10" },
     { span: "", icon: Cloud, title: "Microsoft Dynamics", desc: "D365 F&O AMS, Business Central, Power BI, Azure Data Factory.", tag: "Orca · Owl Sight", gradient: "from-[#00C6FF]/10 to-[#2958FF]/10" },
-    { span: "md:col-span-2 md:row-span-2", icon: Sparkles, title: "AI & Automation", desc: "BlueGecko AI agents, process automation, workflow engineering — production-ready, not proof-of-concept.", tag: "BlueGecko Platform", gradient: "from-[#F6B91A]/15 to-[#2958FF]/10", large: true },
+    { span: "md:col-span-2 md:row-span-2", icon: Sparkles, title: "AI & Automation", desc: "BlueGecko AI agents, process automation, workflow engineering — production-ready, not proof-of-concept.", tag: "BlueGecko Platform", gradient: "from-[#0060F0]/15 to-[#2958FF]/10", large: true },
     { span: "", icon: Workflow, title: "Data Engineering", desc: "Metadata-driven pipelines on Snowflake, Databricks, Fabric.", tag: "Falcon · Cheetah", gradient: "from-[#6C63FF]/10 to-[#00C6FF]/10" },
-    { span: "md:col-span-2", icon: LifeBuoy, title: "Application Managed Services", desc: "BAU support, ISV management, incident resolution, change management — shift-based coverage aligned to your time zone.", tag: "Nash Squared · 70+ entities · 9 countries", gradient: "from-[#2958FF]/10 to-[#F6B91A]/10" },
+    { span: "md:col-span-2", icon: LifeBuoy, title: "Application Managed Services", desc: "BAU support, ISV management, incident resolution, change management — shift-based coverage aligned to your time zone.", tag: "Nash Squared · 70+ entities · 9 countries", gradient: "from-[#2958FF]/10 to-[#0060F0]/10" },
   ];
 
   const timeline = [
@@ -338,7 +338,7 @@ function CustomersViewPremium() {
               <span className="block animate-reveal-up delay-200 text-foreground">That Actually</span>
               <span className="block animate-reveal-up delay-300 relative w-fit">
                 <span className="text-gradient-flow">Feels Like Yours.</span>
-                <span className="absolute -bottom-2 left-0 h-1.5 w-full origin-left rounded-full bg-gradient-to-r from-[#2958FF] via-[#6C63FF] to-[#F6B91A]" style={{ animation: "line-grow 1.2s 0.6s cubic-bezier(0.16,1,0.3,1) both" }} />
+                <span className="absolute -bottom-2 left-0 h-1.5 w-full origin-left rounded-full bg-gradient-to-r from-[#2958FF] via-[#6C63FF] to-[#0060F0]" style={{ animation: "line-grow 1.2s 0.6s cubic-bezier(0.16,1,0.3,1) both" }} />
               </span>
             </h1>
 
@@ -426,7 +426,7 @@ function CustomersViewPremium() {
 
         <div className="relative container py-24 md:py-32">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="text-[11px] uppercase tracking-[0.3em] text-[#F6B91A] font-bold mb-4">The Challenge</div>
+            <div className="text-[11px] uppercase tracking-[0.3em] text-[#0060F0] font-bold mb-4">The Challenge</div>
             <Reveal>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05]">
                 Most companies <span className="text-white/40">hire resources.</span>
@@ -449,7 +449,7 @@ function CustomersViewPremium() {
             ].map((c, i) => (
               <Reveal key={c.t} delay={i * 150}>
                 <div className={`relative rounded-3xl p-6 backdrop-blur-xl border ${c.primary ? "bg-gradient-to-br from-[#2958FF] to-[#6C63FF] border-white/20" : "bg-white/5 border-white/10"}`}>
-                  <div className={`text-xs uppercase tracking-[0.2em] font-bold ${c.primary ? "text-[#F6B91A]" : "text-white/50"}`}>0{i+1}</div>
+                  <div className={`text-xs uppercase tracking-[0.2em] font-bold ${c.primary ? "text-[#0060F0]" : "text-white/50"}`}>0{i+1}</div>
                   <div className="mt-2 text-2xl font-display font-bold">{c.t}</div>
                   <div className="mt-2 text-sm text-white/70 leading-relaxed">{c.b}</div>
                 </div>
@@ -473,7 +473,7 @@ function CustomersViewPremium() {
                 <span className="absolute -inset-1 rounded-full border border-white/40 animate-pulse-ring" />
               </div>
               <div>
-                <div className="text-[#F6B91A] text-5xl font-display leading-none">"</div>
+                <div className="text-[#0060F0] text-5xl font-display leading-none">"</div>
                 <p className="mt-2 text-xl md:text-2xl font-display text-foreground leading-snug">
                   Think of it the way EY, Deloitte, or Accenture clients think of their dedicated client service teams — except built for the Dutch and European SMB market, <span className="text-gradient-flow">without the Big Four price tag.</span>
                 </p>
@@ -482,7 +482,7 @@ function CustomersViewPremium() {
                     <div className="text-sm font-semibold text-foreground">Raja Devarapu</div>
                     <div className="text-xs text-foreground/60">Co-Founder & CEO · nextgenlytics</div>
                   </div>
-                  <div className="ml-auto flex items-center gap-1 text-[#F6B91A]">
+                  <div className="ml-auto flex items-center gap-1 text-[#0060F0]">
                     {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                   </div>
                 </div>
@@ -556,7 +556,7 @@ function CustomersViewPremium() {
           </Reveal>
         </div>
         <div className="relative">
-          <div className="hidden md:block absolute top-7 left-[5%] right-[5%] h-[2px] bg-gradient-to-r from-[#2958FF] via-[#6C63FF] to-[#F6B91A] rounded-full origin-left"
+          <div className="hidden md:block absolute top-7 left-[5%] right-[5%] h-[2px] bg-gradient-to-r from-[#2958FF] via-[#6C63FF] to-[#0060F0] rounded-full origin-left"
                style={{ animation: "line-grow 1.6s cubic-bezier(0.16,1,0.3,1) forwards" }} />
           <div className="grid md:grid-cols-4 gap-8">
             {timeline.map((t, i) => (
@@ -567,7 +567,7 @@ function CustomersViewPremium() {
                     <t.icon size={22} />
                     <span className="absolute -inset-1 rounded-2xl border-2 border-[#2958FF]/30 animate-pulse-ring" />
                   </div>
-                  <div className="mt-5 text-[10px] uppercase tracking-[0.25em] text-[#F6B91A] font-bold">{t.week}</div>
+                  <div className="mt-5 text-[10px] uppercase tracking-[0.25em] text-[#0060F0] font-bold">{t.week}</div>
                   <h3 className="mt-1.5 text-xl font-display font-bold text-foreground">{t.title}</h3>
                   <p className="mt-2 text-sm text-foreground/70 leading-relaxed">{t.body}</p>
                 </div>
@@ -616,7 +616,7 @@ function CustomersViewPremium() {
             {/* Right — review */}
             <Reveal delay={150}>
               <div className="relative glass-card gradient-border rounded-3xl p-7 text-foreground">
-                <div className="flex items-center gap-1 text-[#F6B91A] mb-3">
+                <div className="flex items-center gap-1 text-[#0060F0] mb-3">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                 </div>
                 <p className="text-lg md:text-xl font-display leading-snug">
@@ -637,7 +637,7 @@ function CustomersViewPremium() {
              style={{ background: "linear-gradient(135deg, #0B1220 0%, #1a2545 60%, #2958FF 130%)" }}>
           <div className="absolute -top-40 -left-20 w-[600px] h-[600px] rounded-full bg-[#2958FF]/40 blur-3xl animate-aurora" />
           <div className="absolute -bottom-40 -right-20 w-[600px] h-[600px] rounded-full bg-[#6C63FF]/40 blur-3xl animate-aurora-2" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-[#F6B91A]/15 blur-3xl animate-aurora" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-[#0060F0]/15 blur-3xl animate-aurora" />
           <div className="absolute inset-0 bg-grid-soft opacity-30" />
 
           <div className="relative">
@@ -653,7 +653,7 @@ function CustomersViewPremium() {
               <a
                 href="/contact"
                 className="group relative mt-10 inline-flex items-center gap-2 px-9 py-4 rounded-full font-bold text-[#0B1220] shadow-2xl hover:-translate-y-1 transition-all overflow-hidden"
-                style={{ background: "linear-gradient(135deg, #F6B91A, #FFD466)" }}
+                style={{ background: "linear-gradient(135deg, #0060F0, #FFD466)" }}
               >
                 <span className="absolute inset-0 animate-shimmer-sweep bg-gradient-to-r from-transparent via-white/50 to-transparent" />
                 <span className="relative">Start the Conversation</span>
@@ -848,7 +848,7 @@ function PartnersViewPremium({
               Not Your{" "}
               <span className="relative inline-block">
                 <span className="text-gradient-flow">Overhead</span>
-                <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-gradient-to-r from-accent via-[#F5B51A] to-primary" />
+                <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-gradient-to-r from-accent via-[#0090F0] to-primary" />
               </span>
               .
             </h1>
@@ -1061,7 +1061,7 @@ function PartnersViewPremium({
                     }`}
                   >
                     {selected && (
-                      <span className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-[#F5B51A] to-accent" />
+                      <span className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-[#0090F0] to-accent" />
                     )}
                     <div className="flex items-start gap-5">
                       <span className={`inline-flex items-center justify-center w-14 h-14 shrink-0 rounded-2xl transition-all ${selected ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"}`}>
@@ -1259,7 +1259,7 @@ function PartnerDashboardScene() {
                 <span>Discovery</span><span>Build</span><span>Migrate</span><span>AMS</span>
               </div>
               <div className="h-2 rounded-full bg-white/15 overflow-hidden">
-                <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-accent to-[#F5B51A] shadow-[0_0_18px_rgba(245,181,26,0.6)]" />
+                <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-accent to-[#0090F0] shadow-[0_0_18px_rgba(245,181,26,0.6)]" />
               </div>
             </div>
           </div>
@@ -1330,7 +1330,7 @@ function PartnerDashboardScene() {
       <FloatPill className="absolute -top-4 -left-3 animate-float-y" label="SAP" color="#1636B8" />
       <FloatPill className="absolute -top-3 right-6 animate-float-y-slow" label="Microsoft" color="#2958FF" />
       <FloatPill className="absolute -bottom-3 left-8 animate-float-y-slow" label="Azure" color="#6C63FF" />
-      <FloatPill className="absolute -bottom-5 -right-3 animate-float-y" label="Databricks" color="#F5B51A" />
+      <FloatPill className="absolute -bottom-5 -right-3 animate-float-y" label="Databricks" color="#0090F0" />
     </div>
   );
 }

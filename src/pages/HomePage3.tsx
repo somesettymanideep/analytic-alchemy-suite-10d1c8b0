@@ -110,8 +110,8 @@ function Hero() {
             <defs>
               <radialGradient id="hg-node">
                 <stop offset="0%" stopColor="#fbbf24" />
-                <stop offset="60%" stopColor="#f59e0b" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+                <stop offset="60%" stopColor="#0060F0" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#0060F0" stopOpacity="0" />
               </radialGradient>
               <linearGradient id="hg-edge" x1="0" x2="1">
                 <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.1" />

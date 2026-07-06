@@ -64,9 +64,9 @@ function StatCounter({ value, suffix, active }: { value: number; suffix: string;
     return () => cancelAnimationFrame(raf);
   }, [active, value]);
   return (
-    <div className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-[#0B1F8C] tabular-nums">
+    <div className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold text-[#000A5C] tabular-nums">
       {count.toLocaleString()}
-      <span className="text-[#F59E0B]">{suffix}</span>
+      <span className="text-[#0060F0]">{suffix}</span>
     </div>
   );
 }
@@ -154,11 +154,11 @@ const WhyNgsitSection = () => {
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div className={isVisible ? "animate-reveal-up" : "opacity-0"}>
               <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-white/50">
-                <span className="w-8 h-px bg-[#F59E0B]" />
+                <span className="w-8 h-px bg-[#0060F0]" />
                 Chapter · Why nextgenlytics
               </div>
               <h2 className="mt-4 font-[Space_Grotesk] text-4xl md:text-6xl font-bold leading-[1.05] [@media(max-height:700px)]:mt-2 [@media(max-height:700px)]:text-4xl">
-                Why <span className="text-[#F59E0B]">nextgenlytics</span>
+                Why <span className="text-[#0060F0]">nextgenlytics</span>
               </h2>
               <p className="mt-2 text-white/60 text-base md:text-lg max-w-xl [@media(max-height:700px)]:text-sm">
                 Tier-1 capability. SMB accountability.
@@ -174,7 +174,7 @@ const WhyNgsitSection = () => {
                   </span>
                   <span
                     className={`block h-px transition-all duration-500 ${
-                      i === active ? "w-16 bg-[#F59E0B]" : "w-8 bg-white/20"
+                      i === active ? "w-16 bg-[#0060F0]" : "w-8 bg-white/20"
                     }`}
                   />
                 </div>
@@ -203,31 +203,31 @@ const WhyNgsitSection = () => {
                     }`}
                   >
                     <div
-                      className="rounded-2xl p-8 md:p-10 backdrop-blur-xl border border-[#0B1F8C]/15 bg-white shadow-[0_20px_80px_-20px_rgba(11,31,140,0.25)] [@media(max-height:700px)]:p-5"
+                      className="rounded-2xl p-8 md:p-10 backdrop-blur-xl border border-[#000A5C]/15 bg-white shadow-[0_20px_80px_-20px_rgba(11,31,140,0.25)] [@media(max-height:700px)]:p-5"
                       style={{
                         transform: `perspective(1200px) rotateY(${mouse.x * 4}deg) rotateX(${mouse.y * -4}deg)`,
                       }}
                     >
                       <div className="flex items-center gap-4 mb-6 [@media(max-height:700px)]:mb-3">
-                        <div className="w-12 h-12 rounded-xl bg-[#0B1F8C]/10 border border-[#0B1F8C]/20 flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-[#0B1F8C]" />
+                        <div className="w-12 h-12 rounded-xl bg-[#000A5C]/10 border border-[#000A5C]/20 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-[#000A5C]" />
                         </div>
-                        <div className="font-mono text-xs uppercase tracking-[0.3em] text-[#0B1F8C]/60">
+                        <div className="font-mono text-xs uppercase tracking-[0.3em] text-[#000A5C]/60">
                           Step {s.num}
                         </div>
                       </div>
-                      <h3 className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold leading-tight text-[#0B1F8C] [@media(max-height:700px)]:text-2xl">
+                      <h3 className="font-[Space_Grotesk] text-3xl md:text-4xl font-bold leading-tight text-[#000A5C] [@media(max-height:700px)]:text-2xl">
                         {s.title}
                       </h3>
-                      <p className="mt-5 text-[#0B1F8C]/70 text-base md:text-lg leading-relaxed [@media(max-height:700px)]:mt-3 [@media(max-height:700px)]:text-sm">
+                      <p className="mt-5 text-[#000A5C]/70 text-base md:text-lg leading-relaxed [@media(max-height:700px)]:mt-3 [@media(max-height:700px)]:text-sm">
                         {s.body}
                       </p>
 
-                      <div className="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-[#0B1F8C]/10 [@media(max-height:700px)]:mt-4 [@media(max-height:700px)]:pt-4">
+                      <div className="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-[#000A5C]/10 [@media(max-height:700px)]:mt-4 [@media(max-height:700px)]:pt-4">
                         {s.stats.map((st) => (
                           <div key={st.label}>
                             <StatCounter value={st.value} suffix={st.suffix} active={isActive} />
-                            <div className="mt-1 text-[11px] uppercase tracking-wider text-[#0B1F8C]/50">
+                            <div className="mt-1 text-[11px] uppercase tracking-wider text-[#000A5C]/50">
                               {st.label}
                             </div>
                           </div>
@@ -268,9 +268,9 @@ const WhyNgsitSection = () => {
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 style={{ transform: `translate(${mouse.x * 10}px, ${mouse.y * 10}px)` }}
               >
-                <div className="relative w-24 h-24 rounded-2xl bg-[#0B1F8C] border border-white/15 flex items-center justify-center shadow-[0_0_60px_rgba(11,31,140,0.8)]">
-                  <StepIcon className="w-10 h-10 text-[#F59E0B]" />
-                  <div className="absolute inset-0 rounded-2xl border border-[#F59E0B]/30 animate-ping" />
+                <div className="relative w-24 h-24 rounded-2xl bg-[#000A5C] border border-white/15 flex items-center justify-center shadow-[0_0_60px_rgba(11,31,140,0.8)]">
+                  <StepIcon className="w-10 h-10 text-[#0060F0]" />
+                  <div className="absolute inset-0 rounded-2xl border border-[#0060F0]/30 animate-ping" />
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@ const WhyNgsitSection = () => {
         <div className="absolute bottom-6 left-0 right-0 z-20 px-6 md:px-12 [@media(max-height:700px)]:hidden">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 text-xs font-mono text-white/40">
             <span>nextgenlytics · Amsterdam ⇄ India · Est. 2022</span>
-            <a href="/about" className="group inline-flex items-center gap-2 text-white/70 hover:text-[#F59E0B] transition-colors">
+            <a href="/about" className="group inline-flex items-center gap-2 text-white/70 hover:text-[#0060F0] transition-colors">
               Discover the operating model
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </a>
@@ -299,8 +299,8 @@ function MapVisual({ mouse }: { mouse: { x: number; y: number } }) {
     <svg viewBox="0 0 500 500" className="w-full h-full" style={{ transform: `translate(${mouse.x * 6}px, ${mouse.y * 6}px)` }}>
       <defs>
         <linearGradient id="route" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#0B1F8C" />
-          <stop offset="100%" stopColor="#F59E0B" />
+          <stop offset="0%" stopColor="#000A5C" />
+          <stop offset="100%" stopColor="#0060F0" />
         </linearGradient>
       </defs>
       <path d="M120 180 Q 250 60 380 320" stroke="url(#route)" strokeWidth="1.5" fill="none" strokeDasharray="4 6">
@@ -308,25 +308,25 @@ function MapVisual({ mouse }: { mouse: { x: number; y: number } }) {
       </path>
       {/* Amsterdam */}
       <g transform="translate(120 180)">
-        <circle r="20" fill="#0B1F8C" opacity="0.3">
+        <circle r="20" fill="#000A5C" opacity="0.3">
           <animate attributeName="r" values="18;28;18" dur="3s" repeatCount="indefinite" />
         </circle>
-        <circle r="6" fill="#F59E0B" />
+        <circle r="6" fill="#0060F0" />
         <text y="-28" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="monospace">AMSTERDAM</text>
       </g>
       {/* India */}
       <g transform="translate(380 320)">
-        <circle r="20" fill="#F59E0B" opacity="0.25">
+        <circle r="20" fill="#0060F0" opacity="0.25">
           <animate attributeName="r" values="18;28;18" dur="3s" begin="1.5s" repeatCount="indefinite" />
         </circle>
-        <circle r="6" fill="#F59E0B" />
+        <circle r="6" fill="#0060F0" />
         <text y="34" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="monospace">INDIA</text>
       </g>
       {/* Data packet */}
       <circle r="4" fill="#fff">
         <animateMotion dur="4s" repeatCount="indefinite" path="M120 180 Q 250 60 380 320" />
       </circle>
-      <circle r="3" fill="#F59E0B">
+      <circle r="3" fill="#0060F0">
         <animateMotion dur="4s" begin="1.3s" repeatCount="indefinite" path="M120 180 Q 250 60 380 320" />
       </circle>
     </svg>
@@ -338,13 +338,13 @@ function TimelineVisual({ mouse }: { mouse: { x: number; y: number } }) {
   return (
     <div className="w-full h-full flex items-center justify-center" style={{ transform: `translate(${mouse.x * 6}px, ${mouse.y * 6}px)` }}>
       <div className="relative w-full max-w-sm">
-        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#F59E0B]/50 to-transparent" />
+        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#0060F0]/50 to-transparent" />
         {years.map((y, i) => (
           <div key={y} className="relative flex items-center gap-4 py-3" style={{ animation: `reveal-up 0.6s ${i * 0.15}s both` }}>
             <div className="flex-1 text-right font-mono text-xs text-white/40">{y}</div>
             <div className="relative">
-              <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
-              <div className="absolute inset-0 rounded-full bg-[#F59E0B] animate-ping opacity-30" />
+              <div className="w-3 h-3 rounded-full bg-[#0060F0]" />
+              <div className="absolute inset-0 rounded-full bg-[#0060F0] animate-ping opacity-30" />
             </div>
             <div className="flex-1 text-xs text-white/70">
               {i === 0 && "Data consultancy"}
@@ -374,7 +374,7 @@ function HubVisual({ mouse }: { mouse: { x: number; y: number } }) {
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
           >
-            <div className="px-3 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/15 text-xs font-mono text-white/80 hover:border-[#F59E0B]/60 hover:text-[#F59E0B] transition-colors">
+            <div className="px-3 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/15 text-xs font-mono text-white/80 hover:border-[#0060F0]/60 hover:text-[#0060F0] transition-colors">
               {n}
             </div>
           </div>

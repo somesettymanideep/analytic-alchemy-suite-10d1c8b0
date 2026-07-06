@@ -34,7 +34,7 @@ export default function ProblemWeSolveSection() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, #0B1F8C 1px, transparent 1px)",
+              "radial-gradient(circle at 1px 1px, #000A5C 1px, transparent 1px)",
             backgroundSize: "40px 40px",
           }}
         />
