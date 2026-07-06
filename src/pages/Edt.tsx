@@ -1323,7 +1323,7 @@ export default function Edt() {
       <Navbar />
 
       {/* Customers and Partners section — full-width background */}
-      <div className="bg-[#f5f7fa]">
+      <div className="bg-gradient-to-b from-[#f5f7fa] via-[#f5f7fa] to-background">
         {/* Sticky audience toggle */}
         <div className="pt-28 md:pt-32 pb-8 md:pb-10">
           <div className="container">
