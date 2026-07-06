@@ -21,7 +21,8 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
       Icon: PlayCircle,
       title: "Request a BlueGecko demo",
       desc: "See AI-driven mapping & migration in action.",
-      href: "mailto:info@nextgenlytics.com?subject=BlueGecko%20Demo",
+      href: "/contact",
+      internal: true,
     },
     {
       Icon: Phone,
@@ -74,12 +75,12 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
                 >
                   <Calendar size={16} /> Book Consultation
                 </Link>
-                <a
-                  href="mailto:info@nextgenlytics.com?subject=Demo%20Request"
+                <Link
+                  to="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold border-2 border-primary-foreground/25 text-primary-foreground hover:bg-primary-foreground/10 active:scale-[0.97] transition-all"
                 >
                   <PlayCircle size={16} /> Request Demo
-                </a>
+                </Link>
               </div>
             </div>
 
