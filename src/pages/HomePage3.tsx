@@ -10,6 +10,10 @@ import snowflakeLogo from "@/assets/logos/snowflake-v3.png.asset.json";
 import harveyNashLogo from "@/assets/logos/harvey-nash-v3.png.asset.json";
 import gbtecLogo from "@/assets/logos/gbtec-v3.png.asset.json";
 import aupingLogo from "@/assets/logos/auping-v3.png.asset.json";
+import databricksLogo from "@/assets/logos/databricks-v3.png.asset.json";
+import cratedbLogo from "@/assets/logos/cratedb-v3.png.asset.json";
+import adamiLogo from "@/assets/logos/adami-v3.png.asset.json";
+import ctacLogo from "@/assets/logos/ctac-v3.png.asset.json";
 import {
   ArrowRight,
   Play,
@@ -201,6 +205,10 @@ function LogoStrip() {
     { name: "Harvey Nash", src: harveyNashLogo.url },
     { name: "GBTEC", src: gbtecLogo.url },
     { name: "Auping", src: aupingLogo.url },
+    { name: "Databricks", src: databricksLogo.url },
+    { name: "CrateDB", src: cratedbLogo.url },
+    { name: "AdamI", src: adamiLogo.url },
+    { name: "CTAC", src: ctacLogo.url },
   ];
   const list = [...logos, ...logos, ...logos];
   return (
