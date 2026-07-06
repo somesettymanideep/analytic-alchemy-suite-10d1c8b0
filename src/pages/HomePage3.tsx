@@ -87,7 +87,7 @@ function Hero() {
             <span className="text-[#3B7EFF] font-semibold">BlueGecko</span>, our AI-native platform.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-[#0060F0] hover:bg-[#3B7EFF] text-[#000A5C] font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(0,96,240,0.6)] transition">
+            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full btn-cta font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(0,96,240,0.6)] transition">
               Book Assessment <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </Link>
             <Link to="/bluegecko" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10 transition">
@@ -451,7 +451,7 @@ function FourPractices() {
               One data-first foundation, four practices that compound.
             </div>
           </div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#0060F0] hover:bg-[#3B7EFF] text-slate-900 font-semibold px-5 py-2.5">
+          <span className="inline-flex items-center gap-2 rounded-full btn-cta font-semibold px-5 py-2.5">
             See the platform <ArrowRight className="w-4 h-4" />
           </span>
         </Link>
@@ -1040,7 +1040,7 @@ function FinalCta() {
           Book a 45-minute assessment with our principal architects. Walk away with a costed roadmap.
         </p>
         <div className="mt-9 flex justify-center gap-3">
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#0060F0] hover:bg-[#3B7EFF] text-[#000A5C] font-semibold px-6 py-3.5">
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-cta font-semibold px-6 py-3.5">
             Book Assessment <ArrowRight className="w-4 h-4" />
           </Link>
           <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10">
