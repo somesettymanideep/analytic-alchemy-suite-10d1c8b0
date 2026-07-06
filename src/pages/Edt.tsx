@@ -310,7 +310,7 @@ function CustomersViewPremium() {
               For Customers · Extended Delivery Team
             </div>
 
-            <h1 className="font-display font-bold tracking-tight leading-[1.02] text-[44px] sm:text-[58px] md:text-[72px]">
+            <h1 className="font-display font-bold tracking-tight leading-[1.02] text-[34px] sm:text-[44px] md:text-[56px]">
               <span className="block animate-reveal-up text-foreground">Your Extended</span>
               <span className="block animate-reveal-up delay-100 text-foreground">Delivery Team</span>
               <span className="block animate-reveal-up delay-200 text-foreground">That Actually</span>
@@ -815,7 +815,7 @@ function PartnersViewPremium({
               </span>
               Built for SI Partners
             </div>
-            <h1 className="mt-7 font-display font-bold text-foreground leading-[0.98] tracking-[-0.02em] text-[clamp(2.6rem,6.4vw,5rem)]">
+            <h1 className="mt-7 font-display font-bold text-foreground leading-[0.98] tracking-[-0.02em] text-[clamp(2rem,5vw,3.75rem)]">
               Scale Your{" "}
               <span className="relative inline-block">
                 <span className="text-gradient-flow">Delivery</span>
