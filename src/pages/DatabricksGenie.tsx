@@ -318,7 +318,7 @@ export default function DatabricksGenie() {
       <main>
         <PageBanner
           image={banner}
-          eyebrow="AI Solutions · Predictive &amp; Prescriptive Analytics"
+          eyebrow="AI Solutions · Predictive & Prescriptive Analytics"
           title="Databricks Genie"
           description="Ask your data a question. Get a real answer — no SQL, no analyst required."
         />
