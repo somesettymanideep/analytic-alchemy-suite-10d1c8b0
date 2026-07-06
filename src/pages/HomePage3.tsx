@@ -61,33 +61,33 @@ function Hero() {
     [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 2], [5, 6], [6, 0], [6, 7], [7, 4], [7, 8], [8, 6], [1, 5], [2, 5],
   ];
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#0A1A4A] via-[#0C2264] to-[#081436] text-white">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#000A5C] via-[#001A80] to-[#000733] text-white">
       {/* stars */}
       <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:44px_44px]" />
       <div className="absolute -left-40 top-40 w-[420px] h-[420px] rounded-full bg-blue-500/20 blur-[140px]" />
-      <div className="absolute right-0 bottom-0 w-[520px] h-[520px] rounded-full bg-amber-400/10 blur-[160px]" />
+      <div className="absolute right-0 bottom-0 w-[520px] h-[520px] rounded-full bg-[#0060F0]/10 blur-[160px]" />
 
       <div className="container relative pt-24 pb-28 md:pt-32 md:pb-36 grid lg:grid-cols-2 gap-14 items-center">
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium backdrop-blur">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0060F0] animate-pulse" />
             Enterprise Data Platform · 2026
           </span>
           <h1 className="mt-8 font-heading font-bold leading-[1.05] tracking-tight text-3xl sm:text-4xl lg:text-5xl">
             MOST TRANSFORMATIONS
             <br />
             FAIL AT THE{" "}
-            <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#3B7EFF] via-[#0060F0] to-[#0050D0] bg-clip-text text-transparent">
               DATA LAYER.
             </span>
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-lg">
             We make sure yours does not. A Dutch–Indian Data, AI &amp; ERP transformation company. We migrate, govern, and build on top of your data —{" "}
             <span className="text-white font-semibold">50%+ faster</span> with{" "}
-            <span className="text-amber-300 font-semibold">BlueGecko</span>, our AI-native platform.
+            <span className="text-[#3B7EFF] font-semibold">BlueGecko</span>, our AI-native platform.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0A1A4A] font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(251,191,36,0.6)] transition">
+            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-[#0060F0] hover:bg-[#3B7EFF] text-[#000A5C] font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(0,96,240,0.6)] transition">
               Book Assessment <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </Link>
             <Link to="/bluegecko" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10 transition">
@@ -97,7 +97,7 @@ function Hero() {
           <div className="mt-8 flex items-center gap-3 text-sm text-white/70">
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                <Star key={i} className="w-4 h-4 fill-[#0060F0] text-[#0060F0]" />
               ))}
             </div>
             Trusted by Global Companies
@@ -109,7 +109,7 @@ function Hero() {
           <svg viewBox="-100 -80 200 160" className="absolute inset-0 w-full h-full">
             <defs>
               <radialGradient id="hg-node">
-                <stop offset="0%" stopColor="#fbbf24" />
+                <stop offset="0%" stopColor="#0060F0" />
                 <stop offset="60%" stopColor="#0060F0" stopOpacity="0.6" />
                 <stop offset="100%" stopColor="#0060F0" stopOpacity="0" />
               </radialGradient>
@@ -133,7 +133,7 @@ function Hero() {
                 <circle cx={n.x} cy={n.y} r="6" fill="url(#hg-node)" opacity="0.5">
                   <animate attributeName="r" values="5;9;5" dur={`${3 + (i % 3)}s`} repeatCount="indefinite" />
                 </circle>
-                <circle cx={n.x} cy={n.y} r="1.8" fill="#fbbf24" />
+                <circle cx={n.x} cy={n.y} r="1.8" fill="#0060F0" />
               </g>
             ))}
           </svg>
@@ -141,31 +141,31 @@ function Hero() {
           {/* Floating cards */}
           <div className="absolute top-4 left-2 md:left-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[220px] animate-float-y-slow hover-scale">
             <div className="flex items-center gap-2 text-xs text-white/70">
-              <Cpu className="w-4 h-4 text-amber-300" /> BlueGecko AI
+              <Cpu className="w-4 h-4 text-[#3B7EFF]" /> BlueGecko AI
             </div>
             <div className="mt-2 text-3xl font-bold">98.7%</div>
             <div className="text-xs text-white/60">Data quality score</div>
             <div className="mt-3 h-1.5 rounded-full bg-white/10 overflow-hidden">
-              <div className="h-full w-[98%] bg-gradient-to-r from-amber-300 to-amber-500" />
+              <div className="h-full w-[98%] bg-gradient-to-r from-[#3B7EFF] to-[#0050D0]" />
             </div>
           </div>
 
           <div className="absolute top-4 right-2 md:right-6 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[230px] animate-float-y hover-scale">
             <div className="flex items-center gap-2 text-xs text-white/70">
-              <ShieldCheck className="w-4 h-4 text-amber-300" /> Data Governance
+              <ShieldCheck className="w-4 h-4 text-[#3B7EFF]" /> Data Governance
             </div>
             <div className="mt-2 flex items-end gap-2">
               <span className="text-3xl font-bold">50%</span>
               <span className="text-xs text-white/60 pb-1">faster adoption</span>
             </div>
             <div className="mt-3 h-1.5 rounded-full bg-white/10 overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-amber-300 to-amber-500 transition-all duration-[1500ms]" style={{ width: "50%" }} />
+              <div className="h-full bg-gradient-to-r from-[#3B7EFF] to-[#0050D0] transition-all duration-[1500ms]" style={{ width: "50%" }} />
             </div>
           </div>
 
           <div className="absolute top-1/2 -translate-y-1/2 right-0 md:right-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[210px] animate-float-y-slow hover-scale">
             <div className="flex items-center gap-2 text-xs text-white/70">
-              <Cpu className="w-4 h-4 text-amber-300" /> ERP
+              <Cpu className="w-4 h-4 text-[#3B7EFF]" /> ERP
             </div>
             <div className="mt-2 text-2xl font-bold">S/4HANA · D365</div>
             <div className="mt-3 flex items-end gap-1 h-8">
@@ -177,12 +177,12 @@ function Hero() {
 
           <div className="absolute bottom-6 left-2 md:left-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[220px] animate-float-y hover-scale" style={{ animationDelay: "1s" }}>
             <div className="flex items-center gap-2 text-xs text-white/70">
-              <Database className="w-4 h-4 text-amber-300" /> DWH
+              <Database className="w-4 h-4 text-[#3B7EFF]" /> DWH
             </div>
             <div className="mt-2 text-2xl font-bold">Snowflake · Databricks</div>
             <div className="mt-3 flex gap-1.5">
               {[0, 1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-1.5 flex-1 rounded-full bg-gradient-to-r from-amber-300 to-amber-500 animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
+                <div key={i} className="h-1.5 flex-1 rounded-full bg-gradient-to-r from-[#3B7EFF] to-[#0050D0] animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
               ))}
             </div>
           </div>
@@ -212,7 +212,7 @@ function LogoStrip() {
   ];
   const list = [...logos, ...logos, ...logos];
   return (
-    <section className="bg-[#081436] text-white py-14 border-y border-white/5">
+    <section className="bg-[#000733] text-white py-14 border-y border-white/5">
       <div className="text-center text-xs uppercase tracking-[0.28em] text-white/50">
         Trusted across the modern data stack
       </div>
@@ -254,7 +254,7 @@ function ProblemSection() {
     },
   ];
   return (
-    <section className="bg-[#0A1A4A] text-white py-24">
+    <section className="bg-[#000A5C] text-white py-24">
       <div className="container grid lg:grid-cols-2 gap-14 items-start">
         <div>
           <h2 className="font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
@@ -263,7 +263,7 @@ function ProblemSection() {
             Transformations
             <br />
             Fail at{" "}
-            <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#3B7EFF] to-[#0050D0] bg-clip-text text-transparent">
               The Data
               <br />Layer.
             </span>
@@ -275,9 +275,9 @@ function ProblemSection() {
         <div className="space-y-4">
           {items.map((it, i) => (
             <RevealOnScroll key={i} delay={i * 140}>
-              <div className="group rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-amber-300/30 transition p-5 flex gap-4">
-              <div className="shrink-0 w-11 h-11 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center">
-                <it.icon className="w-5 h-5 text-amber-300" />
+              <div className="group rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-[#3B7EFF]/30 transition p-5 flex gap-4">
+              <div className="shrink-0 w-11 h-11 rounded-xl bg-[#0060F0]/10 border border-[#0060F0]/30 flex items-center justify-center">
+                <it.icon className="w-5 h-5 text-[#3B7EFF]" />
               </div>
               <div>
                 <div className="font-semibold">{it.title}</div>
@@ -297,24 +297,24 @@ function EngineeringPartner() {
   return (
     <section className="bg-slate-50 py-24">
       <div className="container">
-        <div className="text-xs font-semibold tracking-[0.28em] uppercase text-amber-500">Why NGSIT</div>
+        <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Why NGSIT</div>
         <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900 max-w-3xl">
           An engineering partner built for the data layer.
         </h2>
 
         <div className="mt-12 grid md:grid-cols-3 gap-5">
           {/* Big card */}
-          <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F2C77] to-[#0A1A4A] text-white p-8 min-h-[280px]">
+          <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1A70] to-[#000A5C] text-white p-8 min-h-[280px]">
             <div className="absolute top-6 right-6 text-xs uppercase tracking-widest text-white/50">Flagship</div>
-            <Users className="w-6 h-6 text-amber-300" />
+            <Users className="w-6 h-6 text-[#3B7EFF]" />
             <h3 className="mt-8 font-heading font-bold text-3xl">Extended Delivery Team</h3>
             <p className="mt-3 text-white/70 max-w-md">
               Senior architects and engineers embedded with your team — onsite in Europe, follow-the-sun delivery from Asia.
             </p>
-            <Link to="/edt" className="mt-6 inline-flex items-center gap-2 text-amber-300 font-medium hover:text-amber-200">
+            <Link to="/edt" className="mt-6 inline-flex items-center gap-2 text-[#3B7EFF] font-medium hover:text-[#5A9AFF]">
               Learn more <ArrowRight className="w-4 h-4" />
             </Link>
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-amber-400/10 blur-3xl" />
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-[#0060F0]/10 blur-3xl" />
           </div>
 
           <div className="rounded-3xl bg-white p-6 border border-slate-200">
@@ -323,7 +323,7 @@ function EngineeringPartner() {
             <div className="mt-3 text-sm text-slate-600">Built specifically for the modern data stack era.</div>
           </div>
 
-          <div className="rounded-3xl bg-gradient-to-br from-amber-300 to-amber-500 p-6 text-[#0A1A4A]">
+          <div className="rounded-3xl bg-gradient-to-br from-[#3B7EFF] to-[#0050D0] p-6 text-[#000A5C]">
             <Rocket className="w-5 h-5" />
             <div className="mt-6 font-heading font-bold text-4xl">50%</div>
             <div className="mt-1 text-sm font-medium">Faster Delivery</div>
@@ -344,7 +344,7 @@ function EngineeringPartner() {
 
           <div className="md:col-span-2 rounded-3xl bg-slate-900 text-white p-6 flex items-start gap-4">
             <div className="shrink-0 w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
-              <Globe className="w-5 h-5 text-amber-300" />
+              <Globe className="w-5 h-5 text-[#3B7EFF]" />
             </div>
             <div>
               <div className="font-heading font-semibold text-lg">Onsite Europe Support</div>
@@ -387,9 +387,9 @@ function FourPractices() {
       count: "7 OFFERINGS",
       title: "AI Solutions",
       desc: "BlueGecko AI agents, governance AI, predictive analytics, custom applications, AI testing.",
-      tint: "from-amber-50 to-white",
-      ring: "ring-amber-200",
-      dot: "bg-amber-500",
+      tint: "from-[#E6F0FF] to-white",
+      ring: "ring-[#5A9AFF]",
+      dot: "bg-[#0050D0]",
       href: "/solutions/ai-foundry",
     },
     {
@@ -407,7 +407,7 @@ function FourPractices() {
     <section className="bg-white py-24">
       <div className="container">
         <div className="text-center">
-          <div className="text-xs font-semibold tracking-[0.28em] uppercase text-amber-500">Solutions</div>
+          <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Solutions</div>
           <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900">
             Four practices.
             <br />
@@ -446,12 +446,12 @@ function FourPractices() {
 
         <Link to="/products/bluegecko" className="mt-8 rounded-2xl bg-slate-900 hover:bg-slate-800 transition text-white p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <div className="text-xs uppercase tracking-widest text-amber-300">BlueGecko · AI-native delivery platform</div>
+            <div className="text-xs uppercase tracking-widest text-[#3B7EFF]">BlueGecko · AI-native delivery platform</div>
             <div className="mt-1 font-heading font-semibold">
               One data-first foundation, four practices that compound.
             </div>
           </div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-5 py-2.5">
+          <span className="inline-flex items-center gap-2 rounded-full bg-[#0060F0] hover:bg-[#3B7EFF] text-slate-900 font-semibold px-5 py-2.5">
             See the platform <ArrowRight className="w-4 h-4" />
           </span>
         </Link>
@@ -498,7 +498,7 @@ function StatNumber({ end, suffix, delay = 0 }: { end: number; suffix: string; d
       style={{ transitionDelay: `${delay}ms` }}
     >
       {v}
-      <span className="text-amber-300">{suffix}</span>
+      <span className="text-[#3B7EFF]">{suffix}</span>
     </div>
   );
 }
@@ -511,12 +511,12 @@ function NumbersSection() {
     { v: 99, s: "%", label: "Client Satisfaction" },
   ];
   return (
-    <section className="bg-[#081436] text-white py-24 relative overflow-hidden">
+    <section className="bg-[#000733] text-white py-24 relative overflow-hidden">
       <div className="absolute -left-32 top-10 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl" />
       <div className="container relative">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="text-xs font-semibold tracking-[0.28em] uppercase text-amber-300">Index Report</div>
+            <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#3B7EFF]">Index Report</div>
             <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
               The numbers behind
               <br />
@@ -583,7 +583,7 @@ function InteractiveChartsSection() {
     <section ref={ref} className="bg-white py-24 border-t border-slate-100">
       <div className="container">
         <div className="max-w-2xl">
-          <div className="text-xs font-semibold tracking-[0.28em] uppercase text-amber-500">Live outcomes</div>
+          <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Live outcomes</div>
           <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900 leading-[1.05]">
             Delivery velocity you can{" "}
             <span className="text-blue-700">measure.</span>
@@ -636,7 +636,7 @@ function InteractiveChartsSection() {
                       <div
                         className={`w-full rounded-t-lg transition-all duration-[900ms] ease-out ${
                           active
-                            ? "bg-gradient-to-t from-amber-500 to-amber-300"
+                            ? "bg-gradient-to-t from-[#0050D0] to-[#3B7EFF]"
                             : "bg-gradient-to-t from-blue-700 to-blue-400"
                         }`}
                         style={{
@@ -661,7 +661,7 @@ function InteractiveChartsSection() {
 
           {/* Line chart card */}
           <div
-            className={`rounded-3xl border border-slate-200 bg-gradient-to-br from-[#0A1A4A] to-[#081436] text-white p-7 transition-all duration-700 ${
+            className={`rounded-3xl border border-slate-200 bg-gradient-to-br from-[#000A5C] to-[#000733] text-white p-7 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "160ms" }}
@@ -671,7 +671,7 @@ function InteractiveChartsSection() {
                 <div className="text-xs uppercase tracking-widest text-white/50">Data quality score</div>
                 <div className="mt-1 font-heading font-bold text-2xl">9-month uplift</div>
               </div>
-              <span className="text-xs px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-300 font-semibold">98% peak</span>
+              <span className="text-xs px-2.5 py-1 rounded-full bg-[#0060F0]/20 text-[#3B7EFF] font-semibold">98% peak</span>
             </div>
 
             <div className="mt-8 relative">
@@ -682,8 +682,8 @@ function InteractiveChartsSection() {
               >
                 <defs>
                   <linearGradient id="ic-area" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.45" />
-                    <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#0060F0" stopOpacity="0.45" />
+                    <stop offset="100%" stopColor="#0060F0" stopOpacity="0" />
                   </linearGradient>
                 </defs>
 
@@ -704,7 +704,7 @@ function InteractiveChartsSection() {
                   ref={pathRef}
                   d={pathD}
                   fill="none"
-                  stroke="#fbbf24"
+                  stroke="#0060F0"
                   strokeWidth={2.5}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -721,8 +721,8 @@ function InteractiveChartsSection() {
                       cx={p.x}
                       cy={p.y}
                       r={lineHover === i ? 5 : 3}
-                      fill={lineHover === i ? "#fbbf24" : "#0A1A4A"}
-                      stroke="#fbbf24"
+                      fill={lineHover === i ? "#0060F0" : "#000A5C"}
+                      stroke="#0060F0"
                       strokeWidth={2}
                       style={{
                         opacity: isVisible ? 1 : 0,
@@ -748,7 +748,7 @@ function InteractiveChartsSection() {
                       x2={points[lineHover].x}
                       y1={0}
                       y2={h}
-                      stroke="#fbbf24"
+                      stroke="#0060F0"
                       strokeDasharray="3 4"
                       strokeOpacity={0.5}
                     />
@@ -758,7 +758,7 @@ function InteractiveChartsSection() {
 
               {lineHover !== null && (
                 <div
-                  className="pointer-events-none absolute -translate-x-1/2 -translate-y-full rounded-lg bg-amber-400 text-[#0A1A4A] text-xs font-bold px-2.5 py-1.5 shadow-lg animate-fade-in"
+                  className="pointer-events-none absolute -translate-x-1/2 -translate-y-full rounded-lg bg-[#0060F0] text-[#000A5C] text-xs font-bold px-2.5 py-1.5 shadow-lg animate-fade-in"
                   style={{
                     left: `${(points[lineHover].x / w) * 100}%`,
                     top: `${(points[lineHover].y / h) * 100}%`,
@@ -786,14 +786,14 @@ function ProcessSection() {
   ];
   const [openStage, setOpenStage] = useState<string | null>(null);
   return (
-    <section className="bg-[#081436] text-white py-24 border-t border-white/5">
+    <section className="bg-[#000733] text-white py-24 border-t border-white/5">
       <div className="container grid lg:grid-cols-[380px_1fr] gap-12">
         <div>
-          <div className="text-xs font-semibold tracking-[0.28em] uppercase text-amber-300">Process</div>
+          <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#3B7EFF]">Process</div>
           <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
             Five stages.
             <br />
-            <span className="text-amber-300">Zero surprises.</span>
+            <span className="text-[#3B7EFF]">Zero surprises.</span>
           </h2>
           <p className="mt-5 text-white/70 max-w-sm">
             A delivery method engineered for enterprise scale — predictable outcomes, measured at every gate.
@@ -801,7 +801,7 @@ function ProcessSection() {
           <ul className="mt-8 space-y-2 text-sm text-white/60">
             {stages.map((s) => (
               <li key={s.n} className="flex items-center gap-3">
-                <span className="text-amber-300 font-semibold w-6">{s.n}</span>
+                <span className="text-[#3B7EFF] font-semibold w-6">{s.n}</span>
                 {s.title}
               </li>
             ))}
@@ -809,29 +809,29 @@ function ProcessSection() {
         </div>
 
         <div className="relative">
-          <div className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-amber-400/60 via-white/10 to-amber-400/60" />
+          <div className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-[#0060F0]/60 via-white/10 to-[#0060F0]/60" />
           <div className="space-y-5">
             {stages.map((s, i) => (
               <RevealOnScroll key={s.n} delay={i * 180} threshold={0.25} className="relative pl-16 block">
-                <div className="absolute left-0 top-3 w-12 h-12 rounded-full bg-[#0A1A4A] border-2 border-amber-400 flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.5)]">
-                  <s.icon className="w-5 h-5 text-amber-300" />
+                <div className="absolute left-0 top-3 w-12 h-12 rounded-full bg-[#000A5C] border-2 border-[#0060F0] flex items-center justify-center shadow-[0_0_20px_rgba(0,96,240,0.5)]">
+                  <s.icon className="w-5 h-5 text-[#3B7EFF]" />
                 </div>
                 <button
                   type="button"
                   onClick={() => setOpenStage((cur) => (cur === s.n ? null : s.n))}
                   aria-expanded={openStage === s.n}
-                  className={`group w-full text-left rounded-2xl border p-6 transition-all duration-300 cursor-pointer hover:border-amber-300/40 hover:bg-white/[0.06] hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-25px_rgba(251,191,36,0.4)] ${
+                  className={`group w-full text-left rounded-2xl border p-6 transition-all duration-300 cursor-pointer hover:border-[#3B7EFF]/40 hover:bg-white/[0.06] hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-25px_rgba(0,96,240,0.4)] ${
                     openStage === s.n
-                      ? "border-amber-300/50 bg-white/[0.07] shadow-[0_20px_50px_-25px_rgba(251,191,36,0.5)]"
+                      ? "border-[#3B7EFF]/50 bg-white/[0.07] shadow-[0_20px_50px_-25px_rgba(0,96,240,0.5)]"
                       : "border-white/10 bg-white/[0.03]"
                   }`}
                 >
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-xs uppercase tracking-widest text-white/50">Stage / {s.n}</div>
-                      <h3 className="mt-1 font-heading font-bold text-2xl group-hover:text-amber-200 transition-colors">{s.title}</h3>
+                      <h3 className="mt-1 font-heading font-bold text-2xl group-hover:text-[#5A9AFF] transition-colors">{s.title}</h3>
                     </div>
-                    <div className={`font-heading font-bold text-4xl transition-colors ${openStage === s.n ? "text-amber-300/70" : "text-white/10 group-hover:text-amber-300/40"}`}>{s.n}</div>
+                    <div className={`font-heading font-bold text-4xl transition-colors ${openStage === s.n ? "text-[#3B7EFF]/70" : "text-white/10 group-hover:text-[#3B7EFF]/40"}`}>{s.n}</div>
                   </div>
 
                   {/* Hover/click reveal: description + key deliverables */}
@@ -845,10 +845,10 @@ function ProcessSection() {
                     <div className="overflow-hidden">
                       <p className="text-white/70 text-sm max-w-xl">{s.desc}</p>
                       <div className="mt-4">
-                        <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-amber-300/90 mb-2">Key deliverables</div>
+                        <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-[#3B7EFF]/90 mb-2">Key deliverables</div>
                         <div className="flex flex-wrap gap-2">
                           {s.tags.map((t) => (
-                            <span key={t} className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/25 text-amber-100">
+                            <span key={t} className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0060F0]/10 border border-[#3B7EFF]/25 text-[#B8D2FF]">
                               {t}
                             </span>
                           ))}
@@ -857,7 +857,7 @@ function ProcessSection() {
                     </div>
                   </div>
 
-                  <div className={`mt-3 text-[11px] uppercase tracking-widest transition-colors ${openStage === s.n ? "text-amber-300" : "text-white/40 group-hover:text-amber-200"}`}>
+                  <div className={`mt-3 text-[11px] uppercase tracking-widest transition-colors ${openStage === s.n ? "text-[#3B7EFF]" : "text-white/40 group-hover:text-[#5A9AFF]"}`}>
                     {openStage === s.n ? "Tap to collapse" : "Hover or tap for details"}
                   </div>
                 </button>
@@ -877,7 +877,7 @@ function CaseStudiesSection() {
     { stat: "3.2×", title: "Data Platform Rebuild", sub: "Faster analytics workloads", desc: "European bank consolidated 11 warehouses onto a unified Databricks lakehouse." },
   ];
   return (
-    <section className="bg-[#081436] text-white py-24 border-t border-white/5">
+    <section className="bg-[#000733] text-white py-24 border-t border-white/5">
       <div className="container">
         <div className="flex items-end justify-between">
           <h2 className="font-heading font-bold text-4xl sm:text-5xl">Case studies.</h2>
@@ -886,9 +886,9 @@ function CaseStudiesSection() {
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {cases.map((c, i) => (
             <RevealOnScroll key={i} delay={i * 160}>
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F2C77] to-[#0A1A4A] border border-white/10 p-8 min-h-[260px] hover:border-amber-300/40 transition group h-full">
-              <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-amber-400/10 blur-3xl group-hover:bg-amber-400/20 transition" />
-              <div className="text-xs uppercase tracking-widest text-amber-300">Case Study</div>
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1A70] to-[#000A5C] border border-white/10 p-8 min-h-[260px] hover:border-[#3B7EFF]/40 transition group h-full">
+              <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#0060F0]/10 blur-3xl group-hover:bg-[#0060F0]/20 transition" />
+              <div className="text-xs uppercase tracking-widest text-[#3B7EFF]">Case Study</div>
               <div className="mt-6 font-heading font-bold text-6xl bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                 {c.stat}
               </div>
@@ -918,7 +918,7 @@ function BlueGeckoPlatform() {
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-10 items-end">
           <div>
-            <div className="text-xs font-semibold tracking-[0.28em] uppercase text-amber-500">Platform</div>
+            <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Platform</div>
             <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900">
               The BlueGecko platform.
             </h2>
@@ -930,17 +930,17 @@ function BlueGeckoPlatform() {
 
         {/* Browser mockup */}
         <div className="mt-12 relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
-          <div className="bg-[#0A1A4A] text-white">
+          <div className="bg-[#000A5C] text-white">
             <div className="flex items-center gap-2 px-5 py-3 border-b border-white/10">
               <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#0060F0]" />
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
               <div className="ml-4 text-xs px-3 py-1 rounded-md bg-white/10 text-white/70">bluegecko.ngsit.io</div>
             </div>
             <div className="grid grid-cols-[220px_1fr]">
               <div className="border-r border-white/10 p-5 space-y-2 text-sm">
                 {["Overview", "Lineage", "Quality", "Migrations", "Models", "Pipelines"].map((it, i) => (
-                  <div key={it} className={`px-3 py-2 rounded-lg ${i === 0 ? "bg-amber-400/20 text-amber-200" : "text-white/60 hover:bg-white/5"}`}>
+                  <div key={it} className={`px-3 py-2 rounded-lg ${i === 0 ? "bg-[#0060F0]/20 text-[#5A9AFF]" : "text-white/60 hover:bg-white/5"}`}>
                     {it}
                   </div>
                 ))}
@@ -1002,7 +1002,7 @@ function Testimonial() {
       <div className="container max-w-3xl">
         <div className="flex gap-0.5 mb-6">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+            <Star key={i} className="w-4 h-4 fill-[#0060F0] text-[#0060F0]" />
           ))}
         </div>
         <blockquote className="font-heading font-semibold text-2xl sm:text-3xl text-slate-900 leading-snug">
@@ -1025,14 +1025,14 @@ function Testimonial() {
 // ============ FINAL CTA ============
 function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#0A1A4A] to-[#081436] text-white py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#000A5C] to-[#000733] text-white py-24">
       <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:40px_40px]" />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-amber-400/10 blur-[160px]" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[#0060F0]/10 blur-[160px]" />
       <div className="container relative text-center">
         <h2 className="font-heading font-bold text-5xl sm:text-6xl leading-[1.05]">
           Ready to Modernize
           <br />
-          <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#3B7EFF] to-[#0050D0] bg-clip-text text-transparent">
             Your Enterprise?
           </span>
         </h2>
@@ -1040,7 +1040,7 @@ function FinalCta() {
           Book a 45-minute assessment with our principal architects. Walk away with a costed roadmap.
         </p>
         <div className="mt-9 flex justify-center gap-3">
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0A1A4A] font-semibold px-6 py-3.5">
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#0060F0] hover:bg-[#3B7EFF] text-[#000A5C] font-semibold px-6 py-3.5">
             Book Assessment <ArrowRight className="w-4 h-4" />
           </Link>
           <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10">
