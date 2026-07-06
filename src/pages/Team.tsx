@@ -423,7 +423,7 @@ export default function Team() {
               Founding Partners
             </span>
             <h2 className="text-primary text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.05] font-heading text-balance">
-              Four operators.<br />One conviction.
+              LEADERSHIP
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed text-pretty">
               Nextgenlytics was founded on a single conviction: that most transformations fail at the data layer, and that the market needed a partner built specifically to solve it. That conviction brought together a leadership team who work as one. Deep SAP heritage, enterprise sales, AI adoption, engineering and C-suite relationships, combined into a single accountable team that our clients trust to deliver.
