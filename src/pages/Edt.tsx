@@ -188,10 +188,10 @@ function HeroDashboard() {
         </div>
 
         {/* Floating tech pills */}
-        <FloatPill className="absolute -top-5 -left-4 animate-float-y" label="SAP" color="#0FAAFF" />
-        <FloatPill className="absolute top-10 -right-6 animate-float-y-slow" label="Microsoft" color="#5E5BFF" />
-        <FloatPill className="absolute -bottom-4 left-12 animate-float-y-slow" label="Azure" color="#0078D4" />
-        <FloatPill className="absolute bottom-16 -right-8 animate-float-y" label="Databricks" color="#FF3621" />
+        <FloatPill className="absolute -top-5 -left-4 animate-float-y" label="SAP" logo={sapLogo.url} color="#0FAAFF" />
+        <FloatPill className="absolute top-10 -right-6 animate-float-y-slow" label="Microsoft" logo={microsoftLogo.url} color="#5E5BFF" />
+        <FloatPill className="absolute -bottom-4 left-12 animate-float-y-slow" label="Azure" logo={azureLogo.url} color="#0078D4" />
+        <FloatPill className="absolute bottom-16 -right-8 animate-float-y" label="Databricks" logo={databricksLogo.url} color="#FF3621" />
 
         {/* Timeline ribbon */}
         <div className="absolute -bottom-6 -left-2 glass-card gradient-border rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3 animate-float-y-slow">
@@ -208,11 +208,33 @@ function HeroDashboard() {
   );
 }
 
-function FloatPill({ className, label, color }: { className?: string; label: string; color: string }) {
+function FloatPill({
+  className,
+  label,
+  color,
+  logo,
+}: {
+  className?: string;
+  label: string;
+  color: string;
+  logo?: string;
+}) {
   return (
     <div className={`glass-card gradient-border rounded-full px-3.5 py-2 shadow-lg inline-flex items-center gap-2 w-fit max-w-max whitespace-nowrap ${className ?? ""}`}>
-      <span className="w-2 h-2 rounded-full" style={{ background: color, boxShadow: `0 0 12px ${color}` }} />
-      <span className="text-xs font-semibold text-foreground">{label}</span>
+      {logo ? (
+        <img
+          src={logo}
+          alt={`${label} logo`}
+          loading="lazy"
+          className="h-4 md:h-5 w-auto object-contain"
+          style={{ filter: `drop-shadow(0 0 6px ${color}55)` }}
+        />
+      ) : (
+        <>
+          <span className="w-2 h-2 rounded-full" style={{ background: color, boxShadow: `0 0 12px ${color}` }} />
+          <span className="text-xs font-semibold text-foreground">{label}</span>
+        </>
+      )}
     </div>
   );
 }
