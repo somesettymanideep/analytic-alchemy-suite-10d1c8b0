@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import sapLogo from "@/assets/logos/sap-v2.png.asset.json";
-import microsoftLogo from "@/assets/logos/microsoft-v2.png.asset.json";
-import oracleLogo from "@/assets/logos/oracle-v2.png.asset.json";
-import awsLogo from "@/assets/logos/aws-v2.png.asset.json";
-import azureLogo from "@/assets/logos/azure-v2.png.asset.json";
-import googleCloudLogo from "@/assets/logos/google-cloud-v2.png.asset.json";
-import snowflakeLogo from "@/assets/logos/snowflake-v2.png.asset.json";
-import harveyNashLogo from "@/assets/logos/harvey-nash-v2.png.asset.json";
-import gbtecLogo from "@/assets/logos/gbtec-v2.png.asset.json";
-import aupingLogo from "@/assets/logos/auping-v2.png.asset.json";
+import sapLogo from "@/assets/logos/sap-v3.png.asset.json";
+import microsoftLogo from "@/assets/logos/microsoft-v3.png.asset.json";
+import oracleLogo from "@/assets/logos/oracle-v3.png.asset.json";
+import awsLogo from "@/assets/logos/aws-v3.png.asset.json";
+import azureLogo from "@/assets/logos/azure-v3.png.asset.json";
+import googleCloudLogo from "@/assets/logos/google-cloud-v3.png.asset.json";
+import snowflakeLogo from "@/assets/logos/snowflake-v3.png.asset.json";
+import harveyNashLogo from "@/assets/logos/harvey-nash-v3.png.asset.json";
+import gbtecLogo from "@/assets/logos/gbtec-v3.png.asset.json";
+import aupingLogo from "@/assets/logos/auping-v3.png.asset.json";
 import {
   ArrowRight,
   Play,
