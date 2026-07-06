@@ -4,6 +4,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Global CTA gradient — applied to every button-like element.
+   Matches the brand button spec: blue → teal gradient, dark text.
+   Scoped to <a>, <button>, and [role="button"] so decorative
+   .bg-accent chips/dots keep their solid brand blue.
+   ============================================================ */
+@layer components {
+  a.bg-accent,
+  button.bg-accent,
+  [role="button"].bg-accent,
+  a.bg-primary,
+  button.bg-primary,
+  [role="button"].bg-primary,
+  .btn-cta {
+    background-image: linear-gradient(90deg, #0060F0 0%, #10D9C4 100%) !important;
+    background-color: transparent !important;
+    color: #001133 !important;
+    border-color: transparent !important;
+  }
+  a.bg-accent:hover,
+  button.bg-accent:hover,
+  [role="button"].bg-accent:hover,
+  a.bg-primary:hover,
+  button.bg-primary:hover,
+  [role="button"].bg-primary:hover,
+  .btn-cta:hover {
+    background-image: linear-gradient(90deg, #0050D8 0%, #0FC4B1 100%) !important;
+    filter: brightness(1.03);
+  }
+  /* Ensure nested icons/text inherit the dark label color */
+  a.bg-accent > *,
+  button.bg-accent > *,
+  a.bg-primary > *,
+  button.bg-primary > *,
+  .btn-cta > * {
+    color: inherit;
+  }
+}
+
 @layer base {
   :root {
     --background: 210 40% 98%;
