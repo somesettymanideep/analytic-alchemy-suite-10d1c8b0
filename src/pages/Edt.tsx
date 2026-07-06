@@ -29,6 +29,20 @@ import {
   Zap,
 } from "lucide-react";
 import partnersHero from "@/assets/edt/partners-hero.jpg";
+import sapLogo from "@/assets/logos/sap-v3.png.asset.json";
+import microsoftLogo from "@/assets/logos/microsoft-v3.png.asset.json";
+import oracleLogo from "@/assets/logos/oracle-v3.png.asset.json";
+import awsLogo from "@/assets/logos/aws-v3.png.asset.json";
+import azureLogo from "@/assets/logos/azure-v3.png.asset.json";
+import googleCloudLogo from "@/assets/logos/google-cloud-v3.png.asset.json";
+import snowflakeLogo from "@/assets/logos/snowflake-v3.png.asset.json";
+import databricksLogo from "@/assets/logos/databricks-v3.png.asset.json";
+import harveyNashLogo from "@/assets/logos/harvey-nash-v3.png.asset.json";
+import gbtecLogo from "@/assets/logos/gbtec-v3.png.asset.json";
+import aupingLogo from "@/assets/logos/auping-v3.png.asset.json";
+import cratedbLogo from "@/assets/logos/cratedb-v3.png.asset.json";
+import adamiLogo from "@/assets/logos/adami-v3.png.asset.json";
+import ctacLogo from "@/assets/logos/ctac-v3.png.asset.json";
 
 type Audience = "customers" | "partners";
 
@@ -238,7 +252,22 @@ function CursorGlow({ targetRef }: { targetRef: React.RefObject<HTMLElement> }) 
 function CustomersViewPremium() {
   const heroRef = useRef<HTMLElement>(null);
 
-  const trustBrands = ["SAP", "Microsoft", "Databricks", "Azure", "Snowflake", "Oracle", "Fabric", "BlueGecko"];
+  const trustBrands = [
+    { name: "SAP", src: sapLogo.url },
+    { name: "Microsoft", src: microsoftLogo.url },
+    { name: "Snowflake", src: snowflakeLogo.url },
+    { name: "Oracle", src: oracleLogo.url },
+    { name: "AWS", src: awsLogo.url },
+    { name: "Azure", src: azureLogo.url },
+    { name: "Google Cloud", src: googleCloudLogo.url },
+    { name: "Databricks", src: databricksLogo.url },
+    { name: "Harvey Nash", src: harveyNashLogo.url },
+    { name: "GBTEC", src: gbtecLogo.url },
+    { name: "Auping", src: aupingLogo.url },
+    { name: "CrateDB", src: cratedbLogo.url },
+    { name: "AdamI", src: adamiLogo.url },
+    { name: "CTAC", src: ctacLogo.url },
+  ];
 
   const pillars = [
     { icon: Users, title: "Not outsourcing", body: "Your team. Your ways of working. Your outcomes. nextgenlytics operates inside your programme structure, not alongside it.", glow: "#2958FF" },
@@ -337,12 +366,17 @@ function CustomersViewPremium() {
           <div className="text-center text-[11px] uppercase tracking-[0.3em] text-foreground/50 font-semibold mb-6">
             Delivered across the enterprise stack
           </div>
-          <div className="relative overflow-hidden">
-            <div className="flex gap-3 animate-marquee-slow whitespace-nowrap" style={{ width: "max-content" }}>
+          <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+            <div className="flex items-center gap-16 animate-marquee-slow whitespace-nowrap will-change-transform transform-gpu group-hover:[animation-play-state:paused] motion-reduce:animate-none" style={{ width: "max-content" }}>
               {[...trustBrands, ...trustBrands, ...trustBrands].map((b, i) => (
-                <div key={i} className="glass-card gradient-border rounded-full px-6 py-3 text-sm font-display font-semibold text-foreground/80 shadow-sm">
-                  {b}
-                </div>
+                <img
+                  key={i}
+                  src={b.src}
+                  alt={b.name}
+                  loading="lazy"
+                  draggable={false}
+                  className="h-10 md:h-12 w-auto max-w-none object-contain opacity-80 hover:opacity-100 transition duration-300 shrink-0 select-none rounded-[5px]"
+                />
               ))}
             </div>
           </div>
