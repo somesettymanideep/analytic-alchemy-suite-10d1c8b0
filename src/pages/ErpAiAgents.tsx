@@ -315,7 +315,7 @@ export default function ErpAiAgents() {
       <main>
         <PageBanner
           image={banner}
-          eyebrow="AI Solutions · ERP AI Agents"
+          eyebrow="AI Solutions · ERP AI Agents — Powered by BlueGecko"
           title="ERP AI Agents for Microsoft Dynamics 365"
           description="Your ERP, working autonomously — 24/7, without manual input."
         />
