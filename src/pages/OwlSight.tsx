@@ -3,53 +3,58 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
-import owlReadingAsset from "@/assets/owl-reading.png.asset.json";
-import owlFlyingAsset from "@/assets/owl-flying.png.asset.json";
-import {
-  ArrowRight, ChevronRight, Sparkles, LineChart, Lock, ShieldCheck,
-  Cpu, ShieldAlert, ClipboardCheck, BarChart3,
-  Plug, ScanSearch, CheckCircle2, Search, Zap,
-  Database, GitBranch, FileCheck2, Users, AlertTriangle, ScrollText,
-  AlertOctagon, CheckCircle,
-} from "lucide-react";
+import owlReadingAsset from "@/assets/products/owl-reading.png";
+import owlFlyingAsset from "@/assets/products/owl-flying.png";
+import { ArrowRight, CaretRight, ChartLine, CheckCircle, Cpu, Database, FileText, GitBranch, Lightning, Lock, MagnifyingGlass, Plug, Scroll, ShieldCheck, ShieldWarning, Sparkle, Users, Warning, WarningOctagon } from "@phosphor-icons/react";
 
 const highlights = [
-  { Icon: Sparkles, title: "AI-Powered Validations", body: "100+ intelligent checks across your data" },
-  { Icon: LineChart, title: "Real-time Insights", body: "Interactive dashboards & alerts" },
-  { Icon: Lock, title: "PII Detection & Compliance", body: "Automated classification & risk scoring" },
-  { Icon: ShieldCheck, title: "Audit Ready Quality", body: "Full lineage & documentation" },
+  { Icon: Sparkle, title: "Three Independent Modules", body: "Data Quality, Issue Predict & PII Scanner — each AI-enabled" },
+  { Icon: ChartLine, title: "Consolidated Dashboard", body: "Unified insights & historical trends across all modules" },
+  { Icon: Lock, title: "Reversible PII Masking", body: "Web Mode masking or irreversible anonymisation, your choice" },
+  { Icon: ShieldCheck, title: "Up to 90% Automated", body: "Reconciliation & quality checks, audit-ready" },
 ];
 
 const capabilities = [
-  { Icon: Cpu, title: "AI-Driven Data Validations", body: "Intelligent checks for accuracy, completeness, consistency, uniqueness and more." },
-  { Icon: ShieldAlert, title: "PII Detection & Classification", body: "Automatically detects and classifies sensitive data to ensure GDPR compliance." },
-  { Icon: ClipboardCheck, title: "Reconciliation & Monitoring", body: "End-to-end reconciliation with issue tracking and root cause analysis." },
-  { Icon: BarChart3, title: "Dashboards & Reporting", body: "Real-time data quality scores, trends, and exception management." },
+  {
+    Icon: Cpu,
+    title: "Data Quality Analysis",
+    body: "Select a database and table, run dimensional quality analysis — accuracy, completeness, conformity, consistency. Bluegecko AI provides contextual insights and recommendations after each scan.",
+  },
+  {
+    Icon: ShieldWarning,
+    title: "Issue Predict",
+    body: "Forecast data issues before they surface in production. Select objects and target tables to generate predictive issue reports with dimension-level risk scoring and remediation priorities.",
+  },
+  {
+    Icon: Lock,
+    title: "PII Scanner",
+    body: "Automatically detect personally identifiable information across your database. Choose Web Mode for reversible masking with restoration, or Generator Script for irreversible anonymisation.",
+  },
 ];
 
 const steps = [
   { Icon: Plug, title: "Connect", body: "Connect to your data sources & systems" },
-  { Icon: ScanSearch, title: "Profile", body: "Profile data and understand its health" },
-  { Icon: CheckCircle2, title: "Validate", body: "Run AI-powered quality checks" },
-  { Icon: Search, title: "Analyze", body: "Detect issues, anomalies & PII risks" },
-  { Icon: Zap, title: "Act", body: "Resolve, monitor & improve continuously" },
+  { Icon: MagnifyingGlass, title: "Profile", body: "Profile data and understand its health" },
+  { Icon: CheckCircle, title: "Validate", body: "Run AI-powered quality checks" },
+  { Icon: MagnifyingGlass, title: "Analyze", body: "Detect issues, anomalies & PII risks" },
+  { Icon: Lightning, title: "Act", body: "Resolve, monitor & improve continuously" },
 ];
 
 const benefits = [
-  { value: "5x", label: "Faster Data Accuracy" },
-  { value: "3x", label: "Improvement in Data Quality" },
-  { value: "90%", label: "Reduction in Data Issues" },
-  { value: "100%", label: "Compliance Confidence" },
-  { value: "Real-time", label: "Visibility & Monitoring" },
+  { value: "Automated", label: "PII Detection & Masking" },
+  { value: "Up to 90%", label: "Automated Reconciliation & Quality Checks" },
+  { value: "Audit-Ready", label: "Traceability on Every Scan" },
+  { value: "Fewer", label: "Post-Migration Issues" },
+  { value: "Reversible", label: "Web Mode PII Masking" },
 ];
 
 const useCases = [
   { Icon: Database, title: "Data Quality Monitoring" },
   { Icon: GitBranch, title: "Data Migration Validation" },
-  { Icon: FileCheck2, title: "Analytics & Reporting Assurance" },
-  { Icon: ScrollText, title: "Regulatory & Compliance Reporting" },
+  { Icon: FileText, title: "Analytics & Reporting Assurance" },
+  { Icon: Scroll, title: "Regulatory & Compliance Reporting" },
   { Icon: Users, title: "Customer 360 & MDM" },
-  { Icon: AlertTriangle, title: "Risk & Fraud Detection" },
+  { Icon: Warning, title: "Risk & Fraud Detection" },
 ];
 
 function DataQualityMock() {
@@ -86,7 +91,7 @@ function DataQualityMock() {
 
       {/* Floating chips */}
       <div className="absolute -left-6 top-16 z-20 rounded-2xl bg-card border border-border/60 shadow-xl px-4 py-3 flex items-center gap-2 animate-float-y-slow">
-        <span className="inline-flex w-8 h-8 items-center justify-center rounded-lg bg-accent/15 text-accent"><AlertOctagon size={16} /></span>
+        <span className="inline-flex w-8 h-8 items-center justify-center rounded-lg bg-accent/15 text-accent"><WarningOctagon size={16} /></span>
         <div>
           <div className="text-[11px] text-muted-foreground leading-none">Anomaly</div>
           <div className="text-xs font-bold text-accent leading-tight">Detected</div>
@@ -122,19 +127,17 @@ export default function OwlSight() {
           <div className="container relative pt-8 pb-16 md:pt-10 md:pb-24">
             <nav className="text-xs text-muted-foreground flex items-center gap-1.5">
               <Link to="/" className="hover:text-primary">Home</Link>
-              <ChevronRight size={12} />
+              <CaretRight size={12} />
               <span>Products</span>
-              <ChevronRight size={12} />
+              <CaretRight size={12} />
               <span className="text-primary font-medium">Owl Sight</span>
             </nav>
 
             <div className="mt-8 grid lg:grid-cols-12 gap-10 items-center">
               <Reveal variant="left" className="lg:col-span-6">
                 <div className="flex items-center gap-4">
-                  <img src={owlReadingAsset.url} alt="Owl Sight mascot" width={120} height={120} className="w-24 md:w-28 h-auto drop-shadow-xl" />
-                  <h1 className="text-5xl md:text-6xl font-bold font-heading text-foreground leading-[0.95]">
-                    Owl<br />Sight
-                  </h1>
+                  <img src={owlReadingAsset} alt="Owl Sight mascot" width={180} height={180} className="w-36 md:w-44 h-auto drop-shadow-xl" />
+                  <h1 className="sr-only">Owl Sight</h1>
                 </div>
                 <p className="mt-6 text-2xl md:text-3xl font-bold text-primary font-heading leading-tight">
                   AI-Powered Data Quality<br />You Can Trust
@@ -185,7 +188,7 @@ export default function OwlSight() {
                 <span className="block mx-auto mt-2 h-1 w-16 rounded-full bg-accent" />
               </h2>
             </Reveal>
-            <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mt-12 grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {capabilities.map((c, i) => (
                 <Reveal key={c.title} variant="up" delay={i * 100}>
                   <article className="group h-full bg-card rounded-2xl border border-border/60 p-7 text-center hover:-translate-y-1.5 hover:shadow-2xl hover:border-primary/30 transition-all duration-500">
@@ -294,7 +297,7 @@ export default function OwlSight() {
                     </Link>
                   </div>
                   <div className="hidden md:flex justify-end">
-                    <img src={owlFlyingAsset.url} alt="Owl Sight flying" width={320} height={320} loading="lazy" className="w-72 h-auto drop-shadow-2xl animate-float-y-slow" />
+                    <img src={owlFlyingAsset} alt="Owl Sight flying" width={320} height={320} loading="lazy" className="w-72 h-auto drop-shadow-2xl animate-float-y-slow" />
                   </div>
                 </div>
               </div>

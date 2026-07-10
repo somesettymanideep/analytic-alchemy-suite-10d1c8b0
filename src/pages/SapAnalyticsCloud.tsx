@@ -1,46 +1,31 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-sac.jpg";
-import imgInsights from "@/assets/sac-smart-insights.jpg";
-import imgPlanning from "@/assets/sac-planning.jpg";
-import imgStorytelling from "@/assets/sac-storytelling.jpg";
+import banner from "@/assets/banners/banner-sac.jpg";
+import imgInsights from "@/assets/solutions/sac-smart-insights.jpg";
+import imgPlanning from "@/assets/solutions/sac-planning.jpg";
+import imgStorytelling from "@/assets/solutions/sac-storytelling.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  BarChart3,
-  LineChart,
-  PieChart,
-  Presentation,
-  Brain,
-  Layers,
-  Network,
-  ShieldCheck,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Gauge,
-} from "lucide-react";
+import { ArrowRight, Brain, ChartBar, ChartLine, ChartPieSlice, CheckCircle, Gauge, Graph, Minus, Plus, PresentationChart, Question, ShieldCheck, Sparkle, Stack } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
-    { Icon: Layers, value: "Unified", label: "SAP + non-SAP data sources" },
+    { Icon: Stack, value: "Unified", label: "SAP + non-SAP data sources" },
     { Icon: Brain, value: "Smart", label: "Augmented, AI-driven insights" },
-    { Icon: Presentation, value: "Boardroom", label: "Executive-ready storytelling" },
+    { Icon: PresentationChart, value: "Boardroom", label: "Executive-ready storytelling" },
   ];
   return (
     <section className="container py-12 md:py-16" ref={ref}>
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> SAP Analytics Cloud
+            <Sparkle size={14} /> SAP Analytics Cloud
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             One <span className="text-primary">reporting layer</span> for finance, operations, and executive teams — powered by SAP Analytics Cloud.
@@ -52,8 +37,10 @@ function Intro() {
             integrated with SAP S/4HANA, SAP BW, Datasphere, and any non-SAP source.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> delivers SAC end-to-end — connecting SAP and non-SAP data
-            sources into a unified reporting layer for finance, operations, and executive teams.
+            <strong className="text-foreground">Nextgenlytics</strong> delivers SAC on the same governed data foundation we
+            build with SAP Datasphere — connecting SAP and non-SAP data sources into a unified reporting layer for
+            finance, operations, and executive teams. For SAC-specific configuration beyond that foundation, we draw on
+            our certified partner capacity to complete the build.
           </p>
         </div>
 
@@ -64,7 +51,7 @@ function Intro() {
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <BarChart3 size={20} />
+              <ChartBar size={20} />
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Reporting Layer</p>
@@ -98,12 +85,12 @@ function Delivers() {
 
   const services = [
     {
-      Icon: Network,
+      Icon: Graph,
       title: "Unified Data Connectivity",
       body: "We connect SAP S/4HANA, SAP BW/4HANA, Datasphere, Snowflake, Databricks, and non-SAP sources into a single semantic layer — so finance and operations report from one version of the truth.",
     },
     {
-      Icon: LineChart,
+      Icon: ChartLine,
       title: "Finance & Operations Dashboards",
       body: "Pre-built and custom stories for P&L, cash flow, working capital, supply chain KPIs, and operational metrics — designed with the CFO and COO offices, not just IT.",
     },
@@ -118,7 +105,7 @@ function Delivers() {
       body: "SAC's built-in augmented analytics — Smart Insights, Smart Predict, and Search-to-Insight — surface anomalies and drivers automatically, so users get answers in natural language.",
     },
     {
-      Icon: Presentation,
+      Icon: PresentationChart,
       title: "Executive Storytelling",
       body: "Boardroom-ready digital boardroom experiences and mobile-optimised stories that let executives explore KPIs interactively — replacing static PowerPoint reporting cycles.",
     },
@@ -129,7 +116,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What nextgenlytics Delivers with SAC
+            <Sparkle size={14} /> What Nextgenlytics Delivers with SAC
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One reporting layer for BI, planning, and predictive
@@ -212,12 +199,12 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Layers,
-      title: "SAP-Native, Non-SAP Ready",
-      body: "We design SAC deployments that go live-connected to S/4HANA and BW while blending in Snowflake, Databricks, Fabric, or flat files — so reporting reflects the whole business, not just the ERP.",
+      Icon: Stack,
+      title: "Built on a Proven Data Foundation",
+      body: "We connect SAC to the same governed Datasphere foundation we deliver in production — live-connected to S/4HANA and BW, blending in Snowflake, Databricks, Fabric, or flat files — so reporting reflects the whole business, not just the ERP.",
     },
     {
-      Icon: PieChart,
+      Icon: ChartPieSlice,
       title: "Finance-Led Delivery",
       body: "Our consultants speak the language of the CFO — chart of accounts, cost centres, IFRS, consolidation. We deliver SAC stories that actually match how finance teams close the month.",
     },
@@ -234,13 +221,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics for SAC
+              <CheckCircle size={14} /> Why Nextgenlytics for SAC
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               SAP-native depth, finance-led delivery, governed from day one.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              SAP Analytics Cloud — implemented by nextgenlytics — turns your SAP landscape into a decision engine for
+              SAP Analytics Cloud — implemented by Nextgenlytics — turns your SAP landscape into a decision engine for
               finance, operations, and the boardroom.
             </p>
 
@@ -297,7 +284,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The nextgenlytics Difference
+                <Brain size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Finance-fluent consultants. SAP-native stories. Boardroom-ready insights.
@@ -317,16 +304,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is SAP Analytics Cloud and what is it used for?",
-    a: "SAP Analytics Cloud (SAC) is SAP's cloud-based analytics platform that combines business intelligence, planning, and predictive analytics in a single service. Organisations use it to build interactive dashboards, run driver-based financial planning, perform what-if scenario modelling, and surface AI-driven insights — all natively integrated with SAP S/4HANA, SAP BW/4HANA, Datasphere, and non-SAP data sources.",
+    q: "Is SAP Analytics Cloud the same as SAP Datasphere?",
+    a: "No — they are different products. SAP Datasphere is the data fabric layer that unifies and governs your SAP and non-SAP data; SAP Analytics Cloud is the reporting, planning, and predictive layer that sits on top of it. Nextgenlytics builds SAC on the same Datasphere foundation we deliver in production, so your reporting layer is grounded in governed, trustworthy data rather than a separate, disconnected build.",
   },
   {
-    q: "How does SAP Analytics Cloud connect to non-SAP data?",
-    a: "SAC connects to non-SAP sources — Snowflake, Databricks, Microsoft Fabric, SQL databases, flat files, and cloud APIs — using live connections or scheduled data imports. We typically model non-SAP data through SAP Datasphere or a semantic layer so that reports and plans reflect a single, governed version of the truth across the whole business.",
+    q: "How does Nextgenlytics connect SAC to the non-SAP data we already have?",
+    a: "We model your non-SAP sources — Snowflake, Databricks, Microsoft Fabric, SQL databases, flat files, and cloud APIs — through SAP Datasphere or a semantic layer, so the dashboards, plans, and forecasts you build in SAC reflect a single, governed version of the truth across the whole business.",
   },
   {
-    q: "What's the difference between SAC BI and SAC Planning?",
-    a: "SAC BI focuses on reporting, dashboards, and augmented analytics — helping teams understand what's happening and why. SAC Planning adds write-back capability, driver-based models, rolling forecasts, and workflow — so the same platform used to analyse performance can also be used to plan and forecast, with data flowing back into SAP S/4HANA where appropriate.",
+    q: "Can Nextgenlytics deliver both reporting and planning in the same SAC build?",
+    a: "Yes. We deliver SAC engagements that combine dashboards and augmented analytics with driver-based planning, rolling forecasts, and write-back workflow in the same build — so the platform your teams use to understand performance is the same one they use to plan and forecast, with data flowing back into SAP S/4HANA where appropriate.",
   },
 ];
 
@@ -338,7 +325,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -390,6 +377,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function SapAnalyticsCloud() {
+  useDocumentTitle("SAP Analytics Cloud — Reporting & Insights");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -405,7 +393,7 @@ export default function SapAnalyticsCloud() {
         <SolutionHighlight
           eyebrow="SAP Analytics Cloud — Reporting & Insights"
           headline="SAP Analytics Cloud delivery — connecting SAP and non-SAP data sources into a unified reporting layer for finance, operations, and executive teams."
-          evidence="One cloud service for BI, planning, and predictive analytics — natively integrated with SAP S/4HANA, BW, and Datasphere, and extensible to Snowflake, Databricks, and Microsoft Fabric."
+          evidence="Built on the SAP Datasphere data foundation we have delivered in production — unifying fragmented warehouses into 40+ business KPIs — with SAC as the reporting and planning layer on top."
         />
         <Delivers />
         <WhyUs />

@@ -3,50 +3,27 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useCountUp } from "@/hooks/use-count-up";
-import {
-  ArrowRight,
-  Users,
-  Handshake,
-  CheckCircle2,
-  Rocket,
-  Layers,
-  ShieldCheck,
-  Clock,
-  Sparkles,
-  Database,
-  Cloud,
-  Cpu,
-  LifeBuoy,
-  Building2,
-  Workflow,
-  Gauge,
-  TrendingUp,
-  FileText,
-  Play,
-  Star,
-  Bot,
-  Activity,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, Buildings, CheckCircle, Clock, Cloud, Cpu, Database, FileText, Gauge, Handshake, Lifebuoy, Lightning, Play, Pulse, Robot, RocketLaunch, ShieldCheck, Sparkle, Stack, Star, TreeStructure, TrendUp, Users } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 import partnersHero from "@/assets/edt/partners-hero.jpg";
-import sapLogo from "@/assets/logos/sap-v3.png.asset.json";
-import microsoftLogo from "@/assets/logos/microsoft-v3.png.asset.json";
-import oracleLogo from "@/assets/logos/oracle-v3.png.asset.json";
-import awsLogo from "@/assets/logos/aws-v3.png.asset.json";
-import azureLogo from "@/assets/logos/azure-v3.png.asset.json";
-import googleCloudLogo from "@/assets/logos/google-cloud-v3.png.asset.json";
-import snowflakeLogo from "@/assets/logos/snowflake-v3.png.asset.json";
-import databricksLogo from "@/assets/logos/databricks-v3.png.asset.json";
-import harveyNashLogo from "@/assets/logos/harvey-nash-v3.png.asset.json";
-import gbtecLogo from "@/assets/logos/gbtec-v3.png.asset.json";
-import aupingLogo from "@/assets/logos/auping-v3.png.asset.json";
-import cratedbLogo from "@/assets/logos/cratedb-v3.png.asset.json";
-import adamiLogo from "@/assets/logos/adami-v3.png.asset.json";
-import ctacLogo from "@/assets/logos/ctac-v3.png.asset.json";
+import sapLogo from "@/assets/logos/sap-v3.png";
+import microsoftLogo from "@/assets/logos/microsoft-v3.png";
+import oracleLogo from "@/assets/logos/oracle-v3.png";
+import awsLogo from "@/assets/logos/aws-v3.png";
+import azureLogo from "@/assets/logos/azure-v3.png";
+import googleCloudLogo from "@/assets/logos/google-cloud-v3.png";
+import snowflakeLogo from "@/assets/logos/snowflake-v3.png";
+import databricksLogo from "@/assets/logos/databricks-v3.png";
+import harveyNashLogo from "@/assets/logos/harvey-nash-v3.png";
+import gbtecLogo from "@/assets/logos/gbtec-v3.png";
+import aupingLogo from "@/assets/logos/auping-v3.png";
+import cratedbLogo from "@/assets/logos/cratedb-v3.png";
+import adamiLogo from "@/assets/logos/adami-v3.png";
+import ctacLogo from "@/assets/logos/ctac-v3.png";
 
 type Audience = "customers" | "partners";
 
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const { ref, isVisible } = useScrollReveal(0.15);
   return (
     <div
@@ -54,7 +31,7 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-700 ease-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
+      } ${className}`}
     >
       {children}
     </div>
@@ -87,22 +64,22 @@ function HeroDashboard() {
       ref={wrapRef}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="relative h-[460px] md:h-[560px]"
+      className="relative"
       style={{ perspective: "1400px" }}
     >
       {/* aurora behind */}
-      <div className="absolute inset-0 -z-10 overflow-hidden rounded-[28px]">
+      <div className="absolute -inset-8 -z-10 overflow-hidden rounded-[40px]">
         <div className="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-[#2958FF]/30 blur-3xl animate-aurora" />
         <div className="absolute -bottom-32 -right-16 w-[460px] h-[460px] rounded-full bg-[#6C63FF]/30 blur-3xl animate-aurora-2" />
         <div className="absolute top-1/3 right-1/4 w-[280px] h-[280px] rounded-full bg-[#00C6FF]/20 blur-3xl animate-aurora" />
       </div>
 
       <div
-        className="relative w-full h-full rounded-[28px] transition-transform duration-300 ease-out"
+        className="relative w-full rounded-[28px] transition-transform duration-300 ease-out"
         style={{ transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`, transformStyle: "preserve-3d" }}
       >
         {/* Main dashboard card */}
-        <div className="absolute inset-0 glass-card gradient-border rounded-[28px] shadow-2xl shadow-primary/10 overflow-hidden">
+        <div className="relative glass-card gradient-border rounded-[28px] shadow-2xl shadow-primary/10 overflow-hidden">
           {/* faint grid */}
           <div className="absolute inset-0 opacity-[0.4]"
                style={{ backgroundImage: "linear-gradient(to right, rgba(11,18,32,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,18,32,0.06) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
@@ -159,7 +136,7 @@ function HeroDashboard() {
                    style={{ backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
               <div className="relative flex items-center justify-between">
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-white/70">Throughput · 24h</div>
-                <Activity size={12} className="text-[#00C6FF]" />
+                <Pulse size={12} className="text-[#00C6FF]" />
               </div>
               <svg viewBox="0 0 200 60" className="relative mt-2 w-full h-16">
                 <defs>
@@ -177,7 +154,7 @@ function HeroDashboard() {
             <div className="col-span-2 rounded-2xl bg-gradient-to-br from-[#2958FF] to-[#6C63FF] text-white p-3 shadow-sm relative overflow-hidden">
               <div className="absolute inset-0 animate-shimmer-sweep bg-gradient-to-r from-transparent via-white/20 to-transparent" />
               <div className="relative flex items-center gap-2">
-                <Bot size={14} />
+                <Robot size={14} />
                 <div className="text-[11px] font-semibold uppercase tracking-wider">AI Co-pilot</div>
               </div>
               <div className="relative mt-2 text-[10px] leading-snug text-white/90">
@@ -187,11 +164,11 @@ function HeroDashboard() {
           </div>
         </div>
 
-        {/* Floating tech pills */}
-        <FloatPill className="absolute -top-5 -left-4 animate-float-y" label="SAP" logo={sapLogo.url} color="#0FAAFF" />
-        <FloatPill className="absolute top-10 -right-6 animate-float-y-slow" label="Microsoft" logo={microsoftLogo.url} color="#5E5BFF" />
-        <FloatPill className="absolute -bottom-4 left-12 animate-float-y-slow" label="Azure" logo={azureLogo.url} color="#0078D4" />
-        <FloatPill className="absolute bottom-16 -right-8 animate-float-y" label="Databricks" logo={databricksLogo.url} color="#FF3621" />
+        {/* Floating tech pills — hug the card perimeter */}
+        <FloatPill className="absolute -top-5 -left-4 animate-float-y" label="SAP" logo={sapLogo} color="#0FAAFF" />
+        <FloatPill className="absolute -top-4 -right-5 animate-float-y-slow" label="Microsoft" logo={microsoftLogo} color="#5E5BFF" />
+        <FloatPill className="absolute top-1/2 -right-6 -translate-y-1/2 animate-float-y-slow" label="Azure" logo={azureLogo} color="#0078D4" />
+        <FloatPill className="absolute -bottom-5 -right-4 animate-float-y" label="Databricks" logo={databricksLogo} color="#FF3621" />
 
         {/* Timeline ribbon */}
         <div className="absolute -bottom-6 -left-2 glass-card gradient-border rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3 animate-float-y-slow">
@@ -219,22 +196,26 @@ function FloatPill({
   color: string;
   logo?: string;
 }) {
+  // Positioning lives on an outer wrapper because `.gradient-border` forces
+  // `position: relative`, which would otherwise cancel the `absolute` utility.
   return (
-    <div className={`glass-card gradient-border rounded-full px-3.5 py-2 shadow-lg inline-flex items-center gap-2 w-fit max-w-max whitespace-nowrap ${className ?? ""}`}>
-      {logo ? (
-        <img
-          src={logo}
-          alt={`${label} logo`}
-          loading="lazy"
-          className="h-4 md:h-5 w-auto object-contain"
-          style={{ filter: `drop-shadow(0 0 6px ${color}55)` }}
-        />
-      ) : (
-        <>
-          <span className="w-2 h-2 rounded-full" style={{ background: color, boxShadow: `0 0 12px ${color}` }} />
-          <span className="text-xs font-semibold text-foreground">{label}</span>
-        </>
-      )}
+    <div className={`z-20 ${className ?? ""}`}>
+      <div className="glass-card gradient-border rounded-full px-3.5 py-2 shadow-lg inline-flex items-center gap-2 w-fit max-w-max whitespace-nowrap">
+        {logo ? (
+          <img
+            src={logo}
+            alt={`${label} logo`}
+            loading="lazy"
+            className="h-4 md:h-5 w-auto object-contain"
+            style={{ filter: `drop-shadow(0 0 6px ${color}55)` }}
+          />
+        ) : (
+          <>
+            <span className="w-2 h-2 rounded-full" style={{ background: color, boxShadow: `0 0 12px ${color}` }} />
+            <span className="text-xs font-semibold text-foreground">{label}</span>
+          </>
+        )}
+      </div>
     </div>
   );
 }
@@ -275,41 +256,48 @@ function CustomersViewPremium() {
   const heroRef = useRef<HTMLElement>(null);
 
   const trustBrands = [
-    { name: "SAP", src: sapLogo.url },
-    { name: "Microsoft", src: microsoftLogo.url },
-    { name: "Snowflake", src: snowflakeLogo.url },
-    { name: "Oracle", src: oracleLogo.url },
-    { name: "AWS", src: awsLogo.url },
-    { name: "Azure", src: azureLogo.url },
-    { name: "Google Cloud", src: googleCloudLogo.url },
-    { name: "Databricks", src: databricksLogo.url },
-    { name: "Harvey Nash", src: harveyNashLogo.url },
-    { name: "GBTEC", src: gbtecLogo.url },
-    { name: "Auping", src: aupingLogo.url },
-    { name: "CrateDB", src: cratedbLogo.url },
-    { name: "AdamI", src: adamiLogo.url },
-    { name: "CTAC", src: ctacLogo.url },
+    { name: "SAP", src: sapLogo },
+    { name: "Microsoft", src: microsoftLogo },
+    { name: "Snowflake", src: snowflakeLogo },
+    { name: "Oracle", src: oracleLogo },
+    { name: "AWS", src: awsLogo },
+    { name: "Azure", src: azureLogo },
+    { name: "Google Cloud", src: googleCloudLogo },
+    { name: "Databricks", src: databricksLogo },
+    { name: "Harvey Nash", src: harveyNashLogo },
+    { name: "GBTEC", src: gbtecLogo },
+    { name: "Auping", src: aupingLogo },
+    { name: "CrateDB", src: cratedbLogo },
+    { name: "AdamI", src: adamiLogo },
+    { name: "CTAC", src: ctacLogo },
   ];
 
   const pillars = [
-    { icon: Users, title: "Not outsourcing", body: "Your team. Your ways of working. Your outcomes. nextgenlytics operates inside your programme structure, not alongside it.", glow: "#2958FF" },
+    { icon: Users, title: "Not outsourcing", body: "Your team. Your ways of working. Your outcomes. Nextgenlytics operates inside your programme structure, not alongside it.", glow: "#2958FF" },
     { icon: ShieldCheck, title: "Not a subcontractor", body: "Embedded, dedicated, and accountable directly to you. No middlemen, no management layers.", glow: "#6C63FF" },
-    { icon: Layers, title: "Not a rotating pool", body: "The same people. Building knowledge that stays with your programme instead of leaving at the end of every engagement.", glow: "#0060F0" },
+    { icon: Stack, title: "Not a rotating pool", body: "The same people. Building knowledge that stays with your programme instead of leaving at the end of every engagement.", glow: "#0060F0" },
   ];
 
   const bento = [
-    { span: "md:col-span-2", icon: Database, title: "SAP", desc: "S/4HANA migration, ECC support, Datasphere, BTP — specialists ready in weeks.", tag: "Falcon · Orca", gradient: "from-[#2958FF]/10 to-[#6C63FF]/10" },
-    { span: "", icon: Cloud, title: "Microsoft Dynamics", desc: "D365 F&O AMS, Business Central, Power BI, Azure Data Factory.", tag: "Orca · Owl Sight", gradient: "from-[#00C6FF]/10 to-[#2958FF]/10" },
-    { span: "md:col-span-2 md:row-span-2", icon: Sparkles, title: "AI & Automation", desc: "BlueGecko AI agents, process automation, workflow engineering — production-ready, not proof-of-concept.", tag: "BlueGecko Platform", gradient: "from-[#0060F0]/15 to-[#2958FF]/10", large: true },
-    { span: "", icon: Workflow, title: "Data Engineering", desc: "Metadata-driven pipelines on Snowflake, Databricks, Fabric.", tag: "Falcon · Cheetah", gradient: "from-[#6C63FF]/10 to-[#00C6FF]/10" },
-    { span: "md:col-span-2", icon: LifeBuoy, title: "Application Managed Services", desc: "BAU support, ISV management, incident resolution, change management — shift-based coverage aligned to your time zone.", tag: "Nash Squared · 70+ entities · 9 countries", gradient: "from-[#2958FF]/10 to-[#0060F0]/10" },
+    { span: "md:col-span-2", icon: Database, title: "SAP Data & Migration", desc: "S/4HANA data migration, ECC support, SAP Datasphere analytics, BTP integration — specialists ready in weeks, not months.", tag: "Powered by Falcon Mapping & OrcaMigrate", gradient: "from-[#2958FF]/10 to-[#6C63FF]/10" },
+    { span: "", icon: Cloud, title: "Microsoft Dynamics", desc: "D365 F&O Application Managed Services, Business Central, Power BI, Azure Data Factory — single and multi-country landscapes.", tag: "Powered by OrcaMigrate & Owl Sight", gradient: "from-[#00C6FF]/10 to-[#2958FF]/10" },
+    { span: "", icon: TreeStructure, title: "Data Engineering", desc: "Metadata-driven pipelines — Snowflake, Databricks, Microsoft Fabric — designed, built, and operated at enterprise scale.", tag: "Powered by Falcon Mapping & Code Cheetah", gradient: "from-[#6C63FF]/10 to-[#00C6FF]/10" },
+    { span: "md:col-span-2 md:row-span-2", icon: AiChipIcon, title: "AI & Automation", desc: "BlueGecko AI agents, process automation, workflow engineering — production-ready, not proof-of-concept.", tag: "Powered by BlueGecko Platform", gradient: "from-[#0060F0]/15 to-[#2958FF]/10", large: true },
+    { span: "md:col-span-2 md:row-span-2", icon: Lifebuoy, title: "Application Managed Services", desc: "BAU support, ISV management, incident resolution, change management — shift-based coverage aligned to your time zone.", tag: "Shift-based coverage · Your time zone", gradient: "from-[#2958FF]/10 to-[#0060F0]/10", large: true },
   ];
 
   const timeline = [
-    { week: "Week 1", title: "Discovery", body: "We map your requirements, systems, and context.", icon: Sparkles },
-    { week: "Weeks 2–3", title: "Architecture", body: "EDT identified, briefed, and onboarded.", icon: Layers },
-    { week: "Week 4", title: "Migration", body: "Delivery begins — sprint one or BAU.", icon: Zap },
-    { week: "Ongoing", title: "Go Live", body: "Amsterdam governance and continuous growth.", icon: Rocket },
+    { week: "Week 1", title: "Discovery", body: "We map your requirements, systems, and delivery context — then tell you exactly who we're putting on your team.", icon: Sparkle },
+    { week: "Weeks 2–3", title: "Assembly", body: "Your EDT is identified, briefed, and onboarded. Senior, certified professionals — not juniors filling seats.", icon: Stack },
+    { week: "Week 4", title: "Activation", body: "Delivery begins — sprint one, BAU operations, or migration workstream, whatever your priority is.", icon: Lightning },
+    { week: "Ongoing", title: "Steady State", body: "Monthly governance reviews with your Amsterdam-based programme lead. The team grows with you.", icon: RocketLaunch },
+  ];
+
+  const audienceSegments = [
+    "Dutch and European SMBs running SAP or Microsoft ERP who need dedicated ongoing support",
+    "Organisations mid-programme who need to scale delivery capacity rapidly",
+    "Companies who have outgrown their current support partner but cannot justify a Tier-1 SI contract",
+    "Any organisation that wants enterprise-grade delivery at SMB-appropriate cost",
   ];
 
   return (
@@ -332,20 +320,17 @@ function CustomersViewPremium() {
               For Customers · Extended Delivery Team
             </div>
 
-            <h1 className="font-display font-bold tracking-tight leading-[1.02] text-[34px] sm:text-[44px] md:text-[56px]">
-              <span className="block animate-reveal-up text-foreground">Your Extended</span>
-              <span className="block animate-reveal-up delay-100 text-foreground">Delivery Team</span>
-              <span className="block animate-reveal-up delay-200 text-foreground">That Actually</span>
-              <span className="block animate-reveal-up delay-300 relative w-fit">
-                <span className="text-gradient-flow">Feels Like Yours.</span>
+            <h1 className="font-display font-bold tracking-tight leading-[1.04] text-[32px] sm:text-[42px] md:text-[52px]">
+              <span className="block animate-reveal-up text-foreground">Your Dedicated</span>
+              <span className="block animate-reveal-up delay-100 text-foreground">Technology Capability.</span>
+              <span className="block animate-reveal-up delay-200 relative w-fit">
+                <span className="text-gradient-flow">On Demand. Fully Governed.</span>
                 <span className="absolute -bottom-2 left-0 h-1.5 w-full origin-left rounded-full bg-gradient-to-r from-[#2958FF] via-[#6C63FF] to-[#0060F0]" style={{ animation: "line-grow 1.2s 0.6s cubic-bezier(0.16,1,0.3,1) both" }} />
               </span>
             </h1>
 
             <p className="mt-8 text-lg md:text-xl text-foreground/70 font-display max-w-xl animate-reveal-up delay-400">
-              Dedicated engineers. Governed from Amsterdam.
-              <br />
-              <span className="text-foreground/90">Working like your internal team.</span>
+              Stop hiring for every project. Stop paying Tier-1 rates for every sprint. Start operating with a dedicated team that knows your systems, your data, and your business — <span className="text-foreground/90">and shows up every day.</span>
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3 animate-reveal-up delay-500">
@@ -355,17 +340,17 @@ function CustomersViewPremium() {
                 style={{ background: "linear-gradient(135deg, #2958FF, #6C63FF)" }}
               >
                 <span className="absolute inset-0 animate-shimmer-sweep bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                <span className="relative">Book Assessment</span>
+                <span className="relative">Talk to Us About Your EDT</span>
                 <ArrowRight size={16} className="relative group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="#how-it-works"
+                href="#capabilities"
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full font-semibold glass-card gradient-border text-foreground hover:-translate-y-0.5 transition-all"
               >
                 <span className="w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
                   <Play size={12} className="ml-0.5" fill="currentColor" />
                 </span>
-                Watch How EDT Works
+                See Our Delivery Capabilities
               </a>
             </div>
 
@@ -406,7 +391,8 @@ function CustomersViewPremium() {
       </section>
 
       {/* ============ CHALLENGE — dark storytelling ============ */}
-      <section className="relative overflow-hidden rounded-[28px] mx-4 md:mx-8 bg-[#0B1220] text-white">
+      <section className="container">
+        <div className="relative overflow-hidden rounded-[28px] bg-[#0B1220] text-white">
         <div className="absolute inset-0 bg-grid-soft animate-grid-pan opacity-60" />
         <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#2958FF]/25 blur-3xl animate-aurora" />
         <div className="absolute bottom-10 right-10 w-72 h-72 rounded-full bg-[#6C63FF]/25 blur-3xl animate-aurora-2" />
@@ -424,9 +410,9 @@ function CustomersViewPremium() {
           />
         ))}
 
-        <div className="relative container py-24 md:py-32">
+        <div className="relative px-6 md:px-12 py-24 md:py-32">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="text-[11px] uppercase tracking-[0.3em] text-[#0060F0] font-bold mb-4">The Challenge</div>
+            <div className="text-[11px] uppercase tracking-[0.3em] text-[#00C6FF] font-bold mb-4">The Challenge</div>
             <Reveal>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05]">
                 Most companies <span className="text-white/40">hire resources.</span>
@@ -449,13 +435,14 @@ function CustomersViewPremium() {
             ].map((c, i) => (
               <Reveal key={c.t} delay={i * 150}>
                 <div className={`relative rounded-3xl p-6 backdrop-blur-xl border ${c.primary ? "bg-gradient-to-br from-[#2958FF] to-[#6C63FF] border-white/20" : "bg-white/5 border-white/10"}`}>
-                  <div className={`text-xs uppercase tracking-[0.2em] font-bold ${c.primary ? "text-[#0060F0]" : "text-white/50"}`}>0{i+1}</div>
+                  <div className={`text-xs uppercase tracking-[0.2em] font-bold ${c.primary ? "text-white/80" : "text-white/50"}`}>0{i+1}</div>
                   <div className="mt-2 text-2xl font-display font-bold">{c.t}</div>
                   <div className="mt-2 text-sm text-white/70 leading-relaxed">{c.b}</div>
                 </div>
               </Reveal>
             ))}
           </div>
+        </div>
         </div>
       </section>
 
@@ -480,7 +467,7 @@ function CustomersViewPremium() {
                 <div className="mt-5 flex items-center gap-4">
                   <div>
                     <div className="text-sm font-semibold text-foreground">Raja Devarapu</div>
-                    <div className="text-xs text-foreground/60">Co-Founder & CEO · nextgenlytics</div>
+                    <div className="text-xs text-foreground/60">Co-Founder & CEO · Nextgenlytics</div>
                   </div>
                   <div className="ml-auto flex items-center gap-1 text-[#0060F0]">
                     {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
@@ -587,28 +574,28 @@ function CustomersViewPremium() {
           <div className="relative grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
             {/* Left — photo + play */}
             <Reveal>
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden gradient-border"
+              <div className="relative w-full aspect-[4/3] md:aspect-video lg:aspect-[4/3] rounded-3xl overflow-hidden gradient-border"
                    style={{ background: "linear-gradient(135deg, #1a2545, #0B1220)" }}>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative">
-                    <button className="relative w-20 h-20 rounded-full bg-white/95 text-[#2958FF] flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+                    <button className="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 text-[#2958FF] flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
                       <Play size={26} className="ml-1" fill="currentColor" />
                       <span className="absolute inset-0 rounded-full border-2 border-white/40 animate-pulse-ring" />
                     </button>
                   </div>
                 </div>
                 {/* Floating metric chips */}
-                <div className="absolute top-5 left-5 w-fit max-w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y">
-                  <div className="text-[10px] uppercase tracking-wider text-foreground/60 font-semibold">Entities</div>
-                  <div className="text-xl font-display font-bold text-primary">70+</div>
+                <div className="!absolute top-4 left-4 md:top-6 md:left-6 min-w-[100px] w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y">
+                  <div className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/60 font-semibold">Entities</div>
+                  <div className="text-lg md:text-xl font-display font-bold text-primary">70+</div>
                 </div>
-                <div className="absolute bottom-5 left-5 w-fit max-w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y-slow">
-                  <div className="text-[10px] uppercase tracking-wider text-foreground/60 font-semibold">Faster</div>
-                  <div className="text-xl font-display font-bold text-primary">50%</div>
+                <div className="!absolute bottom-4 left-4 md:bottom-6 md:left-6 min-w-[100px] w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y-slow">
+                  <div className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/60 font-semibold">Faster</div>
+                  <div className="text-lg md:text-xl font-display font-bold text-primary">50%</div>
                 </div>
-                <div className="absolute top-5 right-5 w-fit max-w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y">
-                  <div className="text-[10px] uppercase tracking-wider text-foreground/60 font-semibold">Support</div>
-                  <div className="text-xl font-display font-bold text-primary">24/7</div>
+                <div className="!absolute top-4 right-4 md:top-6 md:right-6 min-w-[100px] w-max glass-card gradient-border rounded-2xl px-4 py-2.5 animate-float-y">
+                  <div className="text-[10px] md:text-xs uppercase tracking-wider text-foreground/60 font-semibold">Support</div>
+                  <div className="text-lg md:text-xl font-display font-bold text-primary">24/7</div>
                 </div>
               </div>
             </Reveal>
@@ -631,6 +618,29 @@ function CustomersViewPremium() {
         </div>
       </section>
 
+      {/* ============ WHO THIS IS FOR ============ */}
+      <section className="container">
+        <div className="max-w-2xl mb-12">
+          <div className="text-[11px] uppercase tracking-[0.3em] text-primary font-bold mb-3">Who This Is For</div>
+          <Reveal>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">Built for the way you actually grow.</h2>
+          </Reveal>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {audienceSegments.map((seg, i) => (
+            <Reveal key={seg} delay={i * 100}>
+              <div className="group h-full flex items-start gap-4 rounded-[24px] border border-border bg-card p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-500">
+                <span className="inline-flex items-center justify-center w-11 h-11 shrink-0 rounded-2xl text-white shadow-lg group-hover:scale-110 transition-transform"
+                  style={{ background: "linear-gradient(135deg, #2958FF, #6C63FF)" }}>
+                  <CheckCircle size={20} />
+                </span>
+                <p className="text-[15px] text-foreground/80 leading-relaxed pt-1.5">{seg}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* ============ CINEMATIC CTA ============ */}
       <section className="container pb-20">
         <div className="relative overflow-hidden rounded-[28px] p-12 md:p-20 text-center text-white"
@@ -643,12 +653,12 @@ function CustomersViewPremium() {
           <div className="relative">
             <Reveal>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05]">
-                Let's build
+                Tell us
                 <br />
-                <span className="text-gradient-flow">your team.</span>
+                <span className="text-gradient-flow">what you need.</span>
               </h2>
               <p className="mt-6 text-lg md:text-xl text-white/70 max-w-xl mx-auto">
-                Tell us what you need. We can have your team ready in under 4 weeks.
+                We can have your team ready in under 4 weeks.
               </p>
               <a
                 href="/contact"
@@ -680,8 +690,8 @@ function TiltCard({ children, delay = 0, glow = "#2958FF" }: { children: React.R
     setT({ x: -py * 5, y: px * 5 });
   };
   return (
-    <Reveal delay={delay}>
-      <div style={{ perspective: "1000px" }}>
+    <Reveal delay={delay} className="h-full">
+      <div style={{ perspective: "1000px" }} className="h-full">
         <div
           ref={ref}
           onMouseMove={onMove}
@@ -706,23 +716,23 @@ function TiltCard({ children, delay = 0, glow = "#2958FF" }: { children: React.R
 
 function PartnersView() {
   const valueProps = [
-    { n: "01", tag: "Speed", icon: Rocket, title: "Time to Market", body: "In a competitive SI landscape, the firm that can staff a programme in weeks wins the renewal. nextgenlytics reduces your talent activation time from months to weeks.", highlight: "Team ready in 2–4 weeks" },
+    { n: "01", tag: "Speed", icon: RocketLaunch, title: "Time to Market", body: "In a competitive SI landscape, the firm that can staff a programme in weeks wins the renewal. Nextgenlytics reduces your talent activation time from months to weeks.", highlight: "Team ready in 2–4 weeks" },
     { n: "02", tag: "Agility", icon: Gauge, title: "Flexibility", body: "Fixed headcount carries fixed cost. Your EDT scales up and down with your pipeline — team of 3 for discovery, team of 12 for migration, back to 4 for AMS.", highlight: "Scale up or down with your pipeline" },
-    { n: "03", tag: "Delivery", icon: ShieldCheck, title: "Quality", body: "Every EDT member is senior, certified, and pre-vetted by nextgenlytics. You are extending your own delivery capability with professionals who operate to your standards.", highlight: "Senior, certified, pre-vetted professionals" },
+    { n: "03", tag: "Delivery", icon: ShieldCheck, title: "Quality", body: "Every EDT member is senior, certified, and pre-vetted by Nextgenlytics. You are extending your own delivery capability with professionals who operate to your standards.", highlight: "Senior, certified, pre-vetted professionals" },
   ];
 
   const streams = [
     { icon: Database, title: "SAP", items: ["S/4HANA data migration", "SAP ECC support & optimisation", "SAP Datasphere & analytics", "SAP BTP integration", "SAP Basis"] },
     { icon: Cloud, title: "Microsoft", items: ["D365 Finance & Operations", "Dynamics 365 Business Central", "Power BI & Azure Synapse", "Microsoft Fabric", "Azure Data Factory"] },
-    { icon: Workflow, title: "Data Engineering", items: ["Snowflake data platform", "Databricks Lakehouse", "dbt & SQL transformation", "Kafka & Event Hub", "Metadata-driven pipelines"] },
-    { icon: Sparkles, title: "AI & Automation", items: ["BlueGecko AI agents", "Power Automate & Logic Apps", "Process automation engineering", "AI testing & validation"] },
-    { icon: LifeBuoy, title: "AMS & Support", items: ["BAU D365 & SAP support", "ISV management", "Incident management", "Change management", "Shift-based GMT coverage"] },
+    { icon: TreeStructure, title: "Data Engineering", items: ["Snowflake data platform", "Databricks Lakehouse", "Azure Data Factory pipelines", "dbt & SQL transformation", "Apache Kafka & Event Hub"] },
+    { icon: AiChipIcon, title: "AI & Automation", items: ["BlueGecko AI agents", "Power Automate & Logic Apps", "Azure Logic Apps workflows", "Process automation engineering"] },
+    { icon: Lifebuoy, title: "AMS & Support", items: ["BAU D365 & SAP support", "ISV management", "Incident management & resolution", "Change management & documentation"] },
   ];
 
   const engagements = [
     { title: "Time & Material", body: "Scale with your sprint. Pay for what you use. No fixed commitment — ideal for project-based delivery.", icon: Clock },
     { title: "Dedicated Capacity", body: "Fixed team, fixed monthly rate. Predictable cost and continuous availability for ongoing programmes.", icon: ShieldCheck },
-    { title: "Hybrid", body: "Core team on retainer, flex capacity on demand. The most common model for active SI partnerships.", icon: Layers },
+    { title: "Hybrid", body: "Core team on retainer, flex capacity on demand. The most common model for active SI partnerships.", icon: Stack },
   ];
 
   const matrix = [
@@ -776,7 +786,7 @@ function PartnersViewPremium({
     "md:col-span-2",                // Microsoft medium
     "md:col-span-2 md:row-span-2", // Data Engineering large
     "md:col-span-2",                // AI medium
-    "md:col-span-2",                // AMS small/medium
+    "md:col-span-4",                // AMS full-width — completes the grid, no hole
   ];
 
   return (
@@ -853,7 +863,7 @@ function PartnersViewPremium({
               .
             </h1>
             <p className="mt-7 text-lg md:text-xl text-foreground/75 leading-relaxed max-w-xl">
-              Your pipeline grows faster than your team. nextgenlytics's EDT model gives you a pre-assembled{" "}
+              Your pipeline grows faster than your team. Nextgenlytics's EDT model gives you a pre-assembled{" "}
               <span className="relative inline-block font-semibold text-foreground">
                 India Team
                 <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-primary to-accent" />
@@ -877,7 +887,7 @@ function PartnersViewPremium({
               </a>
             </div>
             <p className="mt-8 text-sm font-display italic text-foreground/60">
-              "Your brand. Your client relationship. nextgenlytics's delivery depth."
+              "Your brand. Your client relationship. Nextgenlytics's delivery depth."
             </p>
           </Reveal>
 
@@ -894,7 +904,7 @@ function PartnersViewPremium({
           <div className="relative rounded-[28px] glass-card gradient-border shadow-elevated p-6 md:p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-2">
               {[
-                { v: "2–4", suf: " Weeks", label: "Activation Time", Icon: Rocket },
+                { v: "2–4", suf: " Weeks", label: "Activation Time", Icon: RocketLaunch },
                 { v: "1", suf: " Contract", label: "Single Commercial Layer", Icon: FileText },
                 { v: "100%", suf: "", label: "Amsterdam Governance", Icon: ShieldCheck },
                 { v: "100%", suf: "", label: "Pre-Vetted Team", Icon: Users },
@@ -928,7 +938,7 @@ function PartnersViewPremium({
       <section className="container">
         <Reveal>
           <div className="max-w-2xl mb-12">
-            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why Partners Choose nextgenlytics</div>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why Partners Choose Nextgenlytics</div>
             <h2 className="text-4xl md:text-[3.4rem] font-display font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
               Three forces behind every partner win.
             </h2>
@@ -967,7 +977,7 @@ function PartnersViewPremium({
                   <p className="mt-4 text-[15px] text-foreground/70 leading-relaxed">{v.body}</p>
                 </div>
                 <div className="relative mt-7 pt-5 border-t border-foreground/10 flex items-center gap-2 text-sm font-semibold text-primary">
-                  <CheckCircle2 size={16} className="text-accent" /> {v.highlight}
+                  <CheckCircle size={16} className="text-accent" /> {v.highlight}
                 </div>
               </article>
             </Reveal>
@@ -1011,7 +1021,7 @@ function PartnersViewPremium({
                   <ul className="relative mt-4 space-y-2">
                     {s.items.map((it) => (
                       <li key={it} className="flex items-start gap-2 text-[13.5px] text-foreground/75">
-                        <CheckCircle2 size={14} className="text-accent shrink-0 mt-1" />
+                        <CheckCircle size={14} className="text-accent shrink-0 mt-1" />
                         <span>{it}</span>
                       </li>
                     ))}
@@ -1072,7 +1082,7 @@ function PartnersViewPremium({
                           <h3 className="text-xl font-display font-bold text-foreground tracking-tight">{e.title}</h3>
                           {selected && (
                             <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.18em] px-2 py-0.5 rounded-full bg-accent text-accent-foreground">
-                              <CheckCircle2 size={11} /> Most Chosen
+                              <CheckCircle size={11} /> Most Chosen
                             </span>
                           )}
                         </div>
@@ -1094,7 +1104,7 @@ function PartnersViewPremium({
       <section className="container">
         <Reveal>
           <div className="max-w-2xl mb-12">
-            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why nextgenlytics</div>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-accent font-bold mb-3">Why Nextgenlytics</div>
             <h2 className="text-4xl md:text-[3.4rem] font-display font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
               What you need. <span className="text-primary">What we deliver.</span>
             </h2>
@@ -1104,7 +1114,7 @@ function PartnersViewPremium({
           <div className="relative rounded-[28px] glass-card gradient-border overflow-hidden shadow-elevated">
             <div className="sticky top-0 z-10 grid grid-cols-1 md:grid-cols-[1fr_1.5fr] bg-gradient-to-r from-primary to-[#1c2f8a] text-primary-foreground text-xs font-bold uppercase tracking-[0.18em]">
               <div className="px-7 py-5 border-b md:border-b-0 md:border-r border-primary-foreground/15">What you need</div>
-              <div className="px-7 py-5">nextgenlytics delivers</div>
+              <div className="px-7 py-5">Nextgenlytics delivers</div>
             </div>
             <div>
               {matrix.map(([k, v], i) => (
@@ -1120,7 +1130,7 @@ function PartnersViewPremium({
                   </div>
                   <div className="px-7 py-5 text-foreground/80 border-b border-foreground/10 flex items-center gap-3">
                     <span className="relative inline-flex w-7 h-7 items-center justify-center rounded-full bg-accent/15 text-accent">
-                      <CheckCircle2 size={16} className="transition-transform group-hover:scale-110" />
+                      <CheckCircle size={16} className="transition-transform group-hover:scale-110" />
                     </span>
                     <span>{v}</span>
                   </div>
@@ -1233,7 +1243,7 @@ function PartnerDashboardScene() {
             <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
             <span className="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/70" />
-            <span className="ml-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/60">nextgenlytics · Partner Console</span>
+            <span className="ml-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/60">Nextgenlytics · Partner Console</span>
           </div>
           <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Live
@@ -1251,7 +1261,7 @@ function PartnerDashboardScene() {
                 <div className="text-xs text-white/70 mt-1">Across 12 partner programmes</div>
               </div>
               <span className="inline-flex items-center gap-1 text-xs font-semibold bg-white/15 px-2 py-1 rounded-full">
-                <TrendingUp size={12} /> +28%
+                <TrendUp size={12} /> +28%
               </span>
             </div>
             <div className="relative mt-5">
@@ -1268,7 +1278,7 @@ function PartnerDashboardScene() {
           <div className="col-span-6 md:col-span-2 rounded-2xl bg-white border border-foreground/5 p-5 shadow-sm relative overflow-hidden">
             <div className="flex items-center gap-2">
               <span className="inline-flex w-9 h-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#6C63FF] to-primary text-primary-foreground">
-                <Bot size={16} />
+                <Robot size={16} />
               </span>
               <div>
                 <div className="text-xs font-bold text-foreground">AI Assistant</div>
@@ -1291,7 +1301,7 @@ function PartnerDashboardScene() {
             <div className="mt-1 font-display font-bold text-foreground text-base">MSA · v3.2</div>
             <div className="mt-2 text-[11px] text-foreground/60">1 doc · 1 invoice · 1 POC</div>
             <div className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-              <CheckCircle2 size={11} /> Signed
+              <CheckCircle size={11} /> Signed
             </div>
           </div>
 
@@ -1326,11 +1336,11 @@ function PartnerDashboardScene() {
         </div>
       </div>
 
-      {/* Floating tech pills */}
-      <FloatPill className="absolute -top-4 -left-3 animate-float-y" label="SAP" color="#1636B8" />
-      <FloatPill className="absolute -top-3 right-6 animate-float-y-slow" label="Microsoft" color="#2958FF" />
-      <FloatPill className="absolute -bottom-3 left-8 animate-float-y-slow" label="Azure" color="#6C63FF" />
-      <FloatPill className="absolute -bottom-5 -right-3 animate-float-y" label="Databricks" color="#0090F0" />
+      {/* Floating tech pills — one per corner */}
+      <FloatPill className="absolute -top-4 -left-4 animate-float-y" label="SAP" color="#1636B8" />
+      <FloatPill className="absolute -top-4 -right-4 animate-float-y-slow" label="Microsoft" color="#2958FF" />
+      <FloatPill className="absolute -bottom-4 -left-4 animate-float-y-slow" label="Azure" color="#6C63FF" />
+      <FloatPill className="absolute -bottom-4 -right-4 animate-float-y" label="Databricks" color="#0090F0" />
     </div>
   );
 }

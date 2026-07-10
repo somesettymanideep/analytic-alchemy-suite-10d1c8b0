@@ -3,17 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
-import banner from "@/assets/banner-ai-foundry.jpg";
+import banner from "@/assets/banners/banner-ai-foundry.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Download,
-  Eye,
-  FileText,
-  Filter,
-  Sparkles,
-  ArrowRight,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Download, Eye, FileText, Funnel, Sparkle } from "@phosphor-icons/react";
 import {
   Accordion,
   AccordionContent,
@@ -256,7 +248,7 @@ export default function Whitepapers() {
           >
             <div>
               <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-                <Sparkles size={14} /> Featured whitepaper
+                <Sparkle size={14} /> Featured whitepaper
               </span>
               <h2 className="mt-3 text-3xl md:text-4xl font-bold font-heading text-foreground text-balance leading-tight">
                 {featured.title}
@@ -271,7 +263,7 @@ export default function Whitepapers() {
                   "12–18 month programme plan with named workstream owners",
                 ].map((l) => (
                   <li key={l} className="flex gap-2">
-                    <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" /> {l}
+                    <CheckCircle size={16} className="text-accent shrink-0 mt-0.5" /> {l}
                   </li>
                 ))}
               </ul>
@@ -304,7 +296,7 @@ export default function Whitepapers() {
                   />
                   <div className="absolute inset-6 flex flex-col justify-between text-primary-foreground">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">nextgenlytics · Whitepaper</p>
+                      <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">Nextgenlytics · Whitepaper</p>
                       <h3 className="mt-2 text-xl md:text-2xl font-bold font-heading leading-snug">
                         Clean Core Playbook
                       </h3>
@@ -324,7 +316,7 @@ export default function Whitepapers() {
         <section className="section-alt py-14">
           <div className="container">
             <div className="flex items-center gap-2 mb-4">
-              <Filter size={14} className="text-muted-foreground" />
+              <Funnel size={14} className="text-muted-foreground" />
               <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Industry</p>
             </div>
             <div className="flex gap-2 overflow-x-auto pb-2">
@@ -335,7 +327,7 @@ export default function Whitepapers() {
               ))}
             </div>
             <div className="flex items-center gap-2 mt-6 mb-4">
-              <Filter size={14} className="text-muted-foreground" />
+              <Funnel size={14} className="text-muted-foreground" />
               <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Technology</p>
             </div>
             <div className="flex gap-2 overflow-x-auto pb-2">
@@ -388,7 +380,7 @@ export default function Whitepapers() {
                 },
                 {
                   q: "Can I share them internally?",
-                  a: "Yes — please do. Share links or the PDF freely within your organisation. Republishing externally requires attribution to nextgenlytics.",
+                  a: "Yes — please do. Share links or the PDF freely within your organisation. Republishing externally requires attribution to Nextgenlytics.",
                 },
                 {
                   q: "Do you write custom research?",

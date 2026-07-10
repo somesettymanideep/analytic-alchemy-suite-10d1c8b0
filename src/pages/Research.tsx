@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
-import banner from "@/assets/banner-data-led-ai.jpg";
+import banner from "@/assets/banners/banner-data-led-ai.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { ArrowRight, Clock, Download, Filter, Share2, Sparkles } from "lucide-react";
+import { ArrowRight, Clock, Download, Funnel, ShareNetwork, Sparkle } from "@phosphor-icons/react";
 
 type Report = {
   id: string;
@@ -115,7 +115,7 @@ const REPORTS: Report[] = [
   },
   {
     id: "digital-transformation-index",
-    title: "The nextgenlytics Digital Transformation Index",
+    title: "The Nextgenlytics Digital Transformation Index",
     summary:
       "An annual index tracking transformation velocity across seven industries and four European regions.",
     category: "Digital Transformation",
@@ -203,7 +203,7 @@ function ReportCard({ r }: { r: Report }) {
               className="hover:text-primary"
               aria-label="Share"
             >
-              <Share2 size={13} />
+              <ShareNetwork size={13} />
             </button>
           </div>
         </div>
@@ -269,7 +269,7 @@ export default function Research() {
               />
               <div className="relative">
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest bg-background/20 backdrop-blur px-3 py-1 rounded-full">
-                  <Sparkles size={12} /> Featured research
+                  <Sparkle size={12} /> Featured research
                 </span>
                 <h2 className="mt-4 text-3xl md:text-5xl font-bold font-heading leading-tight max-w-xl">
                   {featured.title}
@@ -317,8 +317,8 @@ export default function Research() {
         <section className="section-alt py-12">
           <div className="container">
             <div className="flex items-center gap-2 mb-4">
-              <Filter size={14} className="text-muted-foreground" />
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Filter research</p>
+              <Funnel size={14} className="text-muted-foreground" />
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Funnel research</p>
             </div>
             <div className="grid md:grid-cols-4 gap-3">
               <select

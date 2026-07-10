@@ -3,33 +3,33 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
-import teamBanner from "@/assets/banner-team.jpg";
+import teamBanner from "@/assets/banners/banner-team.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import rajaAsset from "@/assets/team/raja.png.asset.json";
-import hugoAsset from "@/assets/team/hugo.png.asset.json";
-import emilioAsset from "@/assets/team/emilio.png.asset.json";
-import remyAsset from "@/assets/team/remy.png.asset.json";
-import lokeshAsset from "@/assets/team/lokesh.png.asset.json";
-import manognyaAsset from "@/assets/team/manognya.jpg.asset.json";
-import mohanReddyAsset from "@/assets/team/mohan_reddy.jpeg.asset.json";
-import nitinAsset from "@/assets/team/nitin.png.asset.json";
-import paragAsset from "@/assets/team/parag.png.asset.json";
-import pujeshAsset from "@/assets/team/Pujesh-2.jpeg.asset.json";
-import sridharAsset from "@/assets/team/sridhar.png.asset.json";
-import raviAsset from "@/assets/team/Ravi.png.asset.json";
-import richaAsset from "@/assets/team/Richa.jpeg.asset.json";
-import santhoshAsset from "@/assets/team/santhosh.jpg.asset.json";
-import saraswathiAsset from "@/assets/team/saraswathi.jpg.asset.json";
-import saritaAsset from "@/assets/team/sarita.png.asset.json";
-import sowbarnikaAsset from "@/assets/team/Sowbarnika.png.asset.json";
-import sravaniAsset from "@/assets/team/sravani.jpg.asset.json";
-import sravyaAsset from "@/assets/team/sravya.jpeg.asset.json";
-import ankitaAsset from "@/assets/team/ankita.jpg.asset.json";
-import anuradhaAsset from "@/assets/team/anuradha.png.asset.json";
-import bhuvaneshAsset from "@/assets/team/bhuvanesh.png.asset.json";
-import kavishAsset from "@/assets/team/Kavish.jpeg.asset.json";
-import { Linkedin, Mail, MapPin, Check } from "lucide-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import rajaAsset from "@/assets/team/raja.png";
+import hugoAsset from "@/assets/team/hugo.png";
+import emilioAsset from "@/assets/team/emilio.png";
+import remyAsset from "@/assets/team/remy.png";
+import lokeshAsset from "@/assets/team/lokesh.png";
+import manognyaAsset from "@/assets/team/manognya.jpg";
+import mohanReddyAsset from "@/assets/team/mohan_reddy.jpeg";
+import nitinAsset from "@/assets/team/nitin.png";
+import paragAsset from "@/assets/team/parag.png";
+import pujeshAsset from "@/assets/team/Pujesh-2.png";
+import sridharAsset from "@/assets/team/sridhar.png";
+import raviAsset from "@/assets/team/Ravi.png";
+import richaAsset from "@/assets/team/Richa.jpeg";
+import santhoshAsset from "@/assets/team/santhosh.jpg";
+import saraswathiAsset from "@/assets/team/saraswathi.jpg";
+import saritaAsset from "@/assets/team/sarita.png";
+import sowbarnikaAsset from "@/assets/team/Sowbarnika.png";
+import sravaniAsset from "@/assets/team/sravani.jpg";
+import sravyaAsset from "@/assets/team/sravya.jpeg";
+import ankitaAsset from "@/assets/team/ankita.jpg";
+import anuradhaAsset from "@/assets/team/anuradha.png";
+import bhuvaneshAsset from "@/assets/team/bhuvanesh.png";
+import kavishAsset from "@/assets/team/Kavish.png";
+import { Check, Envelope, LinkedinLogo, MapPin } from "@phosphor-icons/react";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 const founders = [
   {
@@ -37,14 +37,14 @@ const founders = [
     role: "Co-Founder & CEO · Data, AI & ERP Transformation",
     location: "01 · Amsterdam, NL",
     quote:
-      "Every enterprise deserves Tier-1 thinking. We built nextgenlytics to make that possible.",
-    image: rajaAsset.url,
+      "Every enterprise deserves Tier-1 thinking. We built Nextgenlytics to make that possible.",
+    image: rajaAsset,
     linkedin: "https://linkedin.com/in/raja-devarapu/",
     email: "raja.devarapu@nextgenlytics.com",
     highlights: [
       "17 years architecting enterprise data and AI programmes for global organisations — ManpowerGroup, Nationwide Building Society, ANZ Bank, and beyond",
       "Visionary architect of BlueGecko — the Data and AI platform that delivers SAP, Microsoft, and any ERP transformation at a fraction of Tier-1 cost and twice the speed",
-      "Founded nextgenlytics to give Dutch and European SMBs what was previously reserved for the Fortune 500 — world-class data, analytics, AI, and ERP capability, without the enterprise price tag",
+      "Founded Nextgenlytics to give Dutch and European SMBs what was previously reserved for the Fortune 500 — world-class data, analytics, AI, and ERP capability, without the enterprise price tag",
     ],
   },
   {
@@ -53,13 +53,13 @@ const founders = [
     location: "North Brabant, NL",
     quote:
       "Bridging the gap between legacy enterprise systems and the speed of modern product engineering.",
-    image: hugoAsset.url,
+    image: hugoAsset,
     linkedin: "https://www.linkedin.com/in/hugocooymans/",
     email: "Hugo.Cooijmans@nextgenlytics.com",
     highlights: [
       "30+ yrs building and leading SAP programmes across the Dutch enterprise market",
       "Pioneer of the Dutch SAP SI ecosystem — Tier-1 relationships built over three decades",
-      "Advises nextgenlytics because focused, AI-native teams deliver what large consultancies no longer can",
+      "Advises Nextgenlytics because focused, AI-native teams deliver what large consultancies no longer can",
     ],
   },
   {
@@ -68,7 +68,7 @@ const founders = [
     location: "North Brabant, NL",
     quote:
       "The best technology never sells itself. The right conversation does.",
-    image: emilioAsset.url,
+    image: emilioAsset,
     linkedin: "https://www.linkedin.com/in/emiliopiers/",
     email: "Emilio.Piers@nextgenlytics.com",
     highlights: [
@@ -79,17 +79,17 @@ const founders = [
   },
   {
     name: "Remy Gillet",
-    role: "Business Development · CIO, CTO & PE Advisory",
+    role: "Business Development",
     location: "Amsterdam, NL",
     quote:
-      "Technology leaders trust people who have stood where they stand. That is why I joined nextgenlytics.",
-    image: remyAsset.url,
+      "Technology leaders trust people who have stood where they stand. That is why I joined Nextgenlytics.",
+    image: remyAsset,
     linkedin: "https://www.linkedin.com/in/remygillet/",
     email: "remy.gillet@nextgenlytics.com",
     highlights: [
       "Former CIO, CTO, and PE Operating Partner — 30+ yrs of board-level transformation",
       "Opens doors in the Dutch and European C-suite — peer to peer, executive to executive",
-      "Joined nextgenlytics having seen first-hand what great data & AI transformation looks like",
+      "Joined Nextgenlytics having seen first-hand what great data & AI transformation looks like",
     ],
   },
 ];
@@ -112,7 +112,7 @@ const team: TeamMember[] = [
     bio: "SAP Data Migration Expert with strong SQL Server/ETL development background, Certified Scrum Master, and Power BI practitioner.",
     email: "sravya.syamala@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sravya-syamala-587649108/",
-    image: sravyaAsset.url,
+    image: sravyaAsset,
   },
   {
     name: "Sravani Vanukuri",
@@ -121,7 +121,7 @@ const team: TeamMember[] = [
     bio: "AI Engineer building intelligent solutions with Power BI and Azure AI services. Certified Azure AI Engineer Associate.",
     email: "sravani.vanukuri@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sravani-vanukuri-42b59a267/",
-    image: sravaniAsset.url,
+    image: sravaniAsset,
   },
   {
     name: "Ankitha Sondhiya",
@@ -130,25 +130,25 @@ const team: TeamMember[] = [
     bio: "SAP Data Migration specialist with deep SQL Server/ETL experience and SAP DataSphere delivery expertise.",
     email: "ankita.sondhiya@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/ankita-sondhiya-244700233/",
-    image: ankitaAsset.url,
+    image: ankitaAsset,
   },
   {
     name: "Nitin Mandge",
-    role: "SAP Data Migration Expert | SQL/ETL Developer | SAP DataSphere",
+    role: "Full Stack Developer",
     location: "3+ yrs · FTE",
-    bio: "SAP Data Migration engineer working across SQL Server/ETL pipelines and SAP DataSphere implementations.",
+    bio: "Full Stack Developer building end-to-end web applications, from SQL Server/ETL data pipelines to front-end delivery.",
     email: "nitin.mandge@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/nitinmandge1/",
-    image: nitinAsset.url,
+    image: nitinAsset,
   },
   {
     name: "Parag Agrawal",
-    role: "UI Developer",
+    role: "Full Stack Developer",
     location: "2+ yrs · FTE",
-    bio: "UI Developer crafting responsive, performant front-end experiences for enterprise data products.",
+    bio: "Full Stack Developer crafting responsive front-end experiences backed by robust server-side engineering for enterprise data products.",
     email: "parag.agrawal@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/parag-agrawal-b7b72a233/",
-    image: paragAsset.url,
+    image: paragAsset,
   },
   {
     name: "Manogya Kamarapu",
@@ -156,7 +156,7 @@ const team: TeamMember[] = [
     location: "8+ yrs · FTE",
     bio: "Senior practitioner blending SAP Data Migration, SQL Server/ETL development, and AI engineering across complex enterprise programmes.",
     linkedin: "https://www.linkedin.com/in/manogya-k-b8890a250/",
-    image: manognyaAsset.url,
+    image: manognyaAsset,
   },
   {
     name: "Bhuvanesh Mohan",
@@ -165,7 +165,7 @@ const team: TeamMember[] = [
     bio: "Junior AI and Data Engineer contributing to data pipelines and machine learning workflows.",
     email: "bhuvanesh.m@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/bhuvi-webdev/",
-    image: bhuvaneshAsset.url,
+    image: bhuvaneshAsset,
   },
   {
     name: "Santhosh Vemula",
@@ -174,7 +174,7 @@ const team: TeamMember[] = [
     bio: "Full Stack Developer building modern web applications across the front-end and back-end stack.",
     email: "santhosh.vemula@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/vemula17",
-    image: santhoshAsset.url,
+    image: santhoshAsset,
   },
   {
     name: "Lokesh Pulakandam",
@@ -183,7 +183,7 @@ const team: TeamMember[] = [
     bio: "Infrastructure Engineer managing cloud and on-prem environments. Certified Azure Administrator Associate.",
     email: "lokesh.pulakandam@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/lokesh-reddy-pulakandam-961b33263/",
-    image: lokeshAsset.url,
+    image: lokeshAsset,
   },
   {
     name: "Saraswathi Mathala",
@@ -192,7 +192,7 @@ const team: TeamMember[] = [
     bio: "DevOps Engineer supporting CI/CD, cloud automation, and platform reliability. AWS Certified Cloud Practitioner.",
     email: "saraswathi.mathala@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/saraswathi-mathala-443701285/",
-    image: saraswathiAsset.url,
+    image: saraswathiAsset,
   },
   {
     name: "Mohan Reddy Dhanireddy",
@@ -201,7 +201,7 @@ const team: TeamMember[] = [
     bio: "AI and Security Engineer hardening data and AI systems across the enterprise stack.",
     email: "nagamohan.dhanireddy@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/dhani-reddy/",
-    image: mohanReddyAsset.url,
+    image: mohanReddyAsset,
   },
   {
     name: "Sridhar Akula",
@@ -209,7 +209,7 @@ const team: TeamMember[] = [
     location: "20+ yrs · FTE",
     bio: "Veteran consultant bringing two decades of enterprise delivery experience across data and SAP programmes.",
     linkedin: "https://www.linkedin.com/in/sridhar-aakula",
-    image: sridharAsset.url,
+    image: sridharAsset,
   },
   {
     name: "Kavish Srivastava",
@@ -218,7 +218,7 @@ const team: TeamMember[] = [
     bio: "Functional Analyst translating business requirements into clear, deliverable solutions for enterprise teams.",
     email: "kavish.srivastava@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/kavish-srivastava-967639372/",
-    image: kavishAsset.url,
+    image: kavishAsset,
   },
   {
     name: "Anuradha Pasupuleti",
@@ -227,7 +227,7 @@ const team: TeamMember[] = [
     bio: "Functional Analyst supporting requirements gathering, process mapping, and stakeholder alignment.",
     email: "anuradha.pasupuleti@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/anuradha-pasupuleti-2399333b/",
-    image: anuradhaAsset.url,
+    image: anuradhaAsset,
   },
   {
     name: "Sowbarnika Saravanan",
@@ -236,7 +236,7 @@ const team: TeamMember[] = [
     bio: "Technical Analyst bridging engineering and business teams to deliver data-driven solutions.",
     email: "sowbarnika.saravanan@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/sowbarnikas/",
-    image: sowbarnikaAsset.url,
+    image: sowbarnikaAsset,
   },
   {
     name: "Ravi Jell",
@@ -245,7 +245,7 @@ const team: TeamMember[] = [
     bio: "Senior Functional Analyst with a decade of experience leading requirements and solution design.",
     email: "ravi.j@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/ravi-j-0164792a6/",
-    image: raviAsset.url,
+    image: raviAsset,
   },
   {
     name: "Saritha Reddy",
@@ -254,7 +254,7 @@ const team: TeamMember[] = [
     bio: "Functional Analyst contributing to enterprise solution delivery and stakeholder engagement.",
     email: "saritha.s@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/somanagurthy-saritha-0a3a032b9/",
-    image: saritaAsset.url,
+    image: saritaAsset,
   },
   {
     name: "Richa Kathpalia",
@@ -263,7 +263,7 @@ const team: TeamMember[] = [
     bio: "IT Operations Analyst ensuring smooth day-to-day operations across enterprise IT systems.",
     email: "richa.k@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/richa-kathpalia-883a86a5/",
-    image: richaAsset.url,
+    image: richaAsset,
   },
   {
     name: "Pujesh Yadav",
@@ -272,7 +272,7 @@ const team: TeamMember[] = [
     bio: "Database Analyst maintaining performance, integrity, and reliability across enterprise data stores.",
     email: "pujesh.y@nextgenlytics.com",
     linkedin: "https://www.linkedin.com/in/pujeshkumaryadav",
-    image: pujeshAsset.url,
+    image: pujeshAsset,
   },
 ];
 
@@ -349,7 +349,7 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
                 aria-label={`${m.name} on LinkedIn`}
                 className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
               >
-                <Linkedin size={14} />
+                <LinkedinLogo size={14} />
               </a>
             )}
             <a
@@ -357,7 +357,7 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
               aria-label={`Email ${m.name}`}
               className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all hover:scale-110"
             >
-              <Mail size={14} />
+              <Envelope size={14} />
             </a>
           </div>
         </div>
@@ -407,7 +407,7 @@ export default function Team() {
         <PageBanner
           image={teamBanner}
           eyebrow="Our Team"
-          title="The specialists behind nextgenlytics"
+          title="The specialists behind Nextgenlytics"
           description="35+ practitioners across Amsterdam, Hyderabad, and Lucknow — combining Tier-1 SI experience with deep product engineering on BlueGecko."
         />
 
@@ -540,14 +540,14 @@ export default function Team() {
                           aria-label={`${f.name} on LinkedIn`}
                           className="w-12 h-12 bg-primary text-primary-foreground flex items-center justify-center rounded-full hover:bg-accent hover:text-accent-foreground transition-colors"
                         >
-                          <Linkedin size={18} />
+                          <LinkedinLogo size={18} />
                         </a>
                         <a
                           href={`mailto:${f.email}`}
                           aria-label={`Email ${f.name}`}
                           className="w-12 h-12 border border-border text-primary flex items-center justify-center rounded-full hover:border-primary hover:bg-primary/5 transition-colors"
                         >
-                          <Mail size={18} />
+                          <Envelope size={18} />
                         </a>
                       </div>
                     </div>
@@ -576,14 +576,14 @@ export default function Team() {
                 aria-label="Scroll left"
                 className="w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 active:scale-95 transition-all shadow-md"
               >
-                <ChevronLeft size={20} />
+                <CaretLeft size={20} />
               </button>
               <button
                 onClick={() => scrollByCards(1)}
                 aria-label="Scroll right"
                 className="w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 active:scale-95 transition-all shadow-md"
               >
-                <ChevronRight size={20} />
+                <CaretRight size={20} />
               </button>
             </div>
           </div>

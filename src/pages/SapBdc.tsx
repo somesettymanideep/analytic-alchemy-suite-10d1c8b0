@@ -1,40 +1,23 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import bannerBdc from "@/assets/banner-bdc.jpg";
-import imgFabric from "@/assets/bdc-data-fabric.jpg";
-import imgFederation from "@/assets/bdc-federation.jpg";
-import imgGovernance from "@/assets/bdc-governance.jpg";
+import bannerBdc from "@/assets/banners/banner-bdc.jpg";
+import imgFabric from "@/assets/solutions/bdc-data-fabric.jpg";
+import imgFederation from "@/assets/solutions/bdc-federation.jpg";
+import imgGovernance from "@/assets/solutions/bdc-governance.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Database,
-  Sparkles,
-  Network,
-  Workflow,
-  MousePointerClick,
-  FileSearch,
-  Rocket,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Layers,
-  Compass,
-  Zap,
-  Brain,
-  GitBranch,
-} from "lucide-react";
+import { ArrowRight, Brain, CheckCircle, Compass, CursorClick, Database, FileMagnifyingGlass, GitBranch, Graph, Lightning, Minus, Plus, Question, RocketLaunch, Sparkle, Stack, TreeStructure } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
-    { Icon: Layers, value: "1", label: "Governed data layer" },
-    { Icon: Zap, value: "Live", label: "Federation, no copies" },
+    { Icon: Stack, value: "4", label: "Warehouses unified into one platform" },
+    { Icon: Lightning, value: "40+", label: "Business KPIs, one source of truth" },
     { Icon: Brain, value: "AI-ready", label: "With business context" },
   ];
   return (
@@ -42,20 +25,22 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Database size={14} /> SAP Business Data Cloud
+            <Database size={14} /> SAP Datasphere &amp; Business Data Cloud
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             One governed data layer across your entire{" "}
             <span className="text-primary">SAP and non-SAP landscape</span> — with business context intact.
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Fragmented data loses its meaning when it loses its context. <strong className="text-foreground">SAP Business Data Cloud</strong>,
-            powered by SAP Datasphere, creates a unified Data Fabric across your organisation — integrating SAP and non-SAP
-            data sources into a single governed environment where AI can understand not just the numbers, but the business logic behind them.
+            Fragmented data loses its meaning when it loses its context. <strong className="text-foreground">Nextgenlytics
+            implements SAP Datasphere</strong> to create a unified Data Fabric across your organisation — integrating SAP
+            and non-SAP data sources into a single governed environment where AI can understand not just the numbers, but
+            the business logic behind them.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> implements this architecture so your AI models work
-            from data that is live, clean, and contextually meaningful.
+            We deliver this today on Datasphere — evidenced by unifying 4 fragmented data warehouses into a single
+            platform for a manufacturing client. <strong className="text-foreground">SAP Business Data Cloud</strong> is
+            the natural next step on this same foundation, and we plan and roadmap it alongside your Datasphere programme.
           </p>
         </div>
 
@@ -69,7 +54,7 @@ function Intro() {
               <Compass size={20} />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Powered by</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Delivered on</p>
               <p className="text-sm font-bold text-foreground font-heading">SAP Datasphere</p>
             </div>
           </div>
@@ -100,29 +85,29 @@ function Delivers() {
 
   const services = [
     {
-      Icon: Network,
+      Icon: Graph,
       title: "Business-Centric Data Fabric",
       body: "We build a semantic integration layer that preserves the relationships and meaning within your SAP data — so when your AI queries a Profit Centre or Material Group, it understands the business logic, not just the field value.",
     },
     {
-      Icon: Workflow,
+      Icon: TreeStructure,
       title: "Live Multi-Cloud Data Federation",
       body: "Connect and federate data across SAP S/4HANA, Salesforce, AWS, and Azure without moving or duplicating records — ensuring your AI and analytics always work from the most current, live data available.",
     },
     {
-      Icon: MousePointerClick,
+      Icon: CursorClick,
       title: "Self-Service Semantic Modelling",
       body: "Built-in graphical modelling tools let business users build their own analytical views without IT involvement — democratising data access while maintaining central governance and control.",
     },
     {
-      Icon: FileSearch,
+      Icon: FileMagnifyingGlass,
       title: "End-to-End Data Lineage & Governance",
-      body: "Integrated with SAP BTP, the Business Data Cloud tracks exactly where your data originated, who accessed it, and how it was transformed — providing complete compliance auditability across your entire data estate.",
+      body: "Integrated with SAP BTP, Datasphere tracks exactly where your data originated, who accessed it, and how it was transformed — providing complete compliance auditability across your entire data estate.",
     },
     {
-      Icon: Rocket,
+      Icon: RocketLaunch,
       title: "AI & Analytics Launchpad",
-      body: "The Business Data Cloud acts as the clean, governed data foundation for your AI initiatives — powering machine learning models and real-time SAP Analytics Cloud dashboards with high-fidelity, trustworthy data.",
+      body: "Datasphere acts as the clean, governed data foundation for your AI initiatives — powering machine learning models and real-time SAP Analytics Cloud dashboards with high-fidelity, trustworthy data.",
     },
   ];
 
@@ -131,13 +116,14 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What SAP Business Data Cloud Delivers
+            <Sparkle size={14} /> What SAP Datasphere Delivers
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             A trustworthy data foundation for enterprise AI
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Live federation, preserved business semantics, and governance — all in one platform.
+            Live federation, preserved business semantics, and governance — all in one platform, with Business Data
+            Cloud as the roadmap for what comes next.
           </p>
         </div>
 
@@ -218,12 +204,12 @@ function WhyUs() {
       body: "We do not just move data tables — we move meaning. Our experts ensure your SAP business logic is preserved during integration, preventing the data quality issues that silently undermine AI accuracy.",
     },
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "Future-Proof Architecture",
-      body: "We design your Business Data Cloud to be extensible — allowing new AI models, third-party data sources, and additional SAP modules to be connected as your enterprise evolves.",
+      body: "We design your Datasphere environment to be extensible — allowing new AI models, third-party data sources, and additional SAP modules to be connected as your enterprise evolves, including Business Data Cloud as SAP's platform matures.",
     },
     {
-      Icon: Zap,
+      Icon: Lightning,
       title: "Weeks, Not Months to First Insight",
       body: "Using SAP's pre-built business content and our proprietary deployment accelerators, we dramatically reduce time-to-insight for standard SAP-to-SAP integration scenarios.",
     },
@@ -235,13 +221,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics
+              <CheckCircle size={14} /> Why Nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               AI without business context is just pattern matching.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              SAP Business Data Cloud gives your AI the meaning behind the numbers — and nextgenlytics makes it real.
+              SAP Business Data Cloud gives your AI the meaning behind the numbers — and Nextgenlytics makes it real.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -257,7 +243,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a Business Data Cloud specialist
+              Talk to Our SAP Data Platform Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -297,7 +283,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The nextgenlytics Difference
+                <Brain size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Meaning preserved. Insight accelerated.
@@ -317,16 +303,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is SAP Business Data Cloud?",
-    a: "SAP Business Data Cloud is a cloud-native data integration and management platform powered by SAP Datasphere that creates a unified Data Fabric across SAP and non-SAP environments. It preserves the business semantics of SAP data — such as organisational structures, material groups, and profit centres — making it an ideal foundation for enterprise AI and analytics.",
+    q: "What is the difference between SAP Datasphere and SAP Business Data Cloud?",
+    a: "SAP Datasphere is SAP's established data fabric platform — the technology Nextgenlytics implements today to unify SAP and non-SAP data with business context preserved. SAP Business Data Cloud is a newer SAP product built on the same Datasphere foundation, still maturing with limited live implementations globally. Nextgenlytics delivers on Datasphere now and roadmaps Business Data Cloud as the natural next step as the product matures.",
   },
   {
-    q: "What is a Data Fabric in SAP?",
-    a: "A Data Fabric in SAP is an integration architecture that connects data across multiple cloud and on-premise systems — including SAP S/4HANA, Salesforce, AWS, and Azure — without physically moving or duplicating data. It provides a unified, governed view of all enterprise data while maintaining real-time accuracy and full business context.",
+    q: "How does Nextgenlytics connect SAP and non-SAP data without duplicating it?",
+    a: "We implement Datasphere's data-fabric approach to connect SAP S/4HANA alongside sources like Salesforce, AWS, and Azure — giving you a unified, governed view of enterprise data with full business context, without physically moving or duplicating it.",
   },
   {
-    q: "How does SAP Business Data Cloud support enterprise AI?",
-    a: "SAP Business Data Cloud provides the clean, governed, semantically rich data foundation that enterprise AI models require to produce accurate outputs. By preserving business context and enabling live data federation, it ensures AI agents and machine learning models work from trusted, current data rather than stale or fragmented sources.",
+    q: "How does SAP Datasphere support enterprise AI?",
+    a: "SAP Datasphere provides the clean, governed, semantically rich data foundation that enterprise AI models require to produce accurate outputs. By preserving business context and enabling live data federation, it ensures AI agents and machine learning models work from trusted, current data rather than stale or fragmented sources.",
   },
 ];
 
@@ -338,7 +324,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -390,6 +376,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function SapBdc() {
+  useDocumentTitle("SAP Datasphere & Business Data Cloud");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -398,14 +385,14 @@ export default function SapBdc() {
         <PageBanner
           image={bannerBdc}
           eyebrow="Solutions · SAP"
-          title="SAP Business Data Cloud Implementation"
-          description="One governed data layer across your entire SAP and non-SAP landscape — with business context intact."
+          title="SAP Datasphere & Business Data Cloud"
+          description="Unified data and analytics platform on SAP Datasphere — consolidating fragmented warehouses, enabling 40+ KPIs, and integrating with enterprise systems. Business Data Cloud is the natural next step on this same foundation."
         />
         <Intro />
         <SolutionHighlight
           eyebrow="Unified Data & Analytics"
           headline="Unified data and analytics platform on SAP Datasphere — consolidating fragmented warehouses, enabling 40+ KPIs, and integrating with enterprise systems."
-          evidence="Evidenced: Bed manufacturer engagement 3 — 4 fragmented warehouses unified, S/4HANA + marketing integration. SAP BDC is the natural extension."
+          evidence="Delivered for a manufacturing client — 4 fragmented warehouses unified into one Datasphere platform, integrated with S/4HANA and marketing systems. Business Data Cloud is the natural next step."
         />
         <Delivers />
         <WhyUs />

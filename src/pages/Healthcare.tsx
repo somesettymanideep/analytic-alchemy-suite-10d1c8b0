@@ -3,22 +3,11 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
-import bannerHealthcare from "@/assets/banner-healthcare.jpg";
-import expertiseImg from "@/assets/healthcare-expertise.jpg";
-import introAsset from "@/assets/healthcare-intro.png.asset.json";
+import bannerHealthcare from "@/assets/banners/banner-healthcare.jpg";
+import expertiseImg from "@/assets/industries/healthcare-expertise.jpg";
+import introAsset from "@/assets/industries/healthcare-intro.png";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  HeartPulse,
-  Cog,
-  Sparkles,
-  Database,
-  LineChart,
-  CheckCircle2,
-  ArrowRight,
-  Clock,
-  UserCheck,
-  ScrollText,
-} from "lucide-react";
+import { ArrowRight, ChartLine, CheckCircle, Clock, Database, Gear, Heartbeat, Scroll, Sparkle, UserCheck } from "@phosphor-icons/react";
 
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
@@ -27,7 +16,7 @@ function Intro() {
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className={isVisible ? "animate-reveal-up" : "opacity-0"}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HeartPulse size={14} /> Healthcare
+            <Heartbeat size={14} /> Healthcare
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             AI & ERP Solutions for Professional Staffing Services
@@ -35,7 +24,7 @@ function Intro() {
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed text-pretty">
             In the professional staffing industry, the primary asset is time. The faster you can
             identify, vet, and deploy the right talent, the more competitive your firm becomes. At{" "}
-            <strong className="text-foreground">nextgenlytics</strong>, we modernize staffing
+            <strong className="text-foreground">Nextgenlytics</strong>, we modernize staffing
             operations by integrating AI-driven talent orchestration into your SAP BTP or
             Microsoft Dynamics 365 environment. We help you move beyond manual resume screening
             to a proactive, "Agentic" model where data identifies the perfect match before the
@@ -45,7 +34,7 @@ function Intro() {
         <div className={`relative ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
           <img
-            src={introAsset.url}
+            src={introAsset}
             alt="AI and ERP solutions for professional staffing services"
             loading="lazy"
             width={1280}
@@ -72,7 +61,7 @@ function KeyChallenges() {
       body: "Lack of real-time visibility into consultant availability results in unbillable bench time and lost revenue potential.",
     },
     {
-      Icon: ScrollText,
+      Icon: Scroll,
       title: "Complex Compliance & Payroll",
       body: "Managing diverse contract types, cross-border compliance, and multi-currency payroll creates significant administrative friction and audit risks.",
     },
@@ -82,7 +71,7 @@ function KeyChallenges() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Key Challenges
+            <Sparkle size={14} /> Key Challenges
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Key challenges in professional staffing
@@ -139,14 +128,14 @@ function OurExpertise() {
         </div>
         <div className={`order-1 lg:order-2 ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Our Expertise
+            <Gear size={14} /> Our Expertise
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             Building the foundation for seamless, enterprise-grade talent integration
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At nextgenlytics, we ensure that your staffing intelligence is as dynamic as the
-            global workforce. nextgenlytics provides expert AI and ERP implementation for staffing
+            At Nextgenlytics, we ensure that your staffing intelligence is as dynamic as the
+            global workforce. Nextgenlytics provides expert AI and ERP implementation for staffing
             agencies and professional service firms managing high-volume talent pools. Whether you
             specialize in IT, Healthcare, or Executive Search, we provide the specialized AI
             Agents and workflows to turn your human capital data into a competitive advantage.
@@ -154,7 +143,7 @@ function OurExpertise() {
           <ul className="mt-6 space-y-3">
             {points.map((p) => (
               <li key={p} className="flex items-start gap-3 text-sm text-foreground/90">
-                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" />
+                <CheckCircle size={18} className="text-accent shrink-0 mt-0.5" />
                 <span>{p}</span>
               </li>
             ))}
@@ -188,7 +177,7 @@ function PracticeAreas() {
       ],
     },
     {
-      Icon: LineChart,
+      Icon: ChartLine,
       tag: "Microsoft Dynamics 365",
       title: "Agile, AI-ready operations",
       items: [
@@ -212,7 +201,7 @@ function PracticeAreas() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Technology Practice Areas
+            <Gear size={14} /> Technology Practice Areas
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Specialized toolsets for healthcare transformation

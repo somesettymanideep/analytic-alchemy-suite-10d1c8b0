@@ -1,15 +1,17 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import Reveal from "@/components/Reveal";
-import banner from "@/assets/banner-ai-training.jpg";
-import classroom from "@/assets/training-classroom.jpg";
-import { GraduationCap, Users, Brain, Wrench, Sparkles, ArrowRight, CheckCircle2, Layers } from "lucide-react";
+import banner from "@/assets/banners/banner-ai-training.jpg";
+import classroom from "@/assets/solutions/training-classroom.jpg";
+import { ArrowRight, Brain, CheckCircle, GraduationCap, Stack, Users, Wrench } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 const modules = [
   { Icon: Brain, title: "AI Literacy", body: "From foundational concepts to hands-on prompt engineering — everyone in your organisation speaks the same AI language." },
-  { Icon: Layers, title: "Data Governance Responsibilities", body: "Owners, stewards, and consumers understand their day-to-day accountability for AI-grade data." },
+  { Icon: Stack, title: "Data Governance Responsibilities", body: "Owners, stewards, and consumers understand their day-to-day accountability for AI-grade data." },
   { Icon: Wrench, title: "Tool Adoption", body: "Practical enablement on Copilot, SAP Joule, Databricks Genie and Snowflake Cortex — the tools your teams will use." },
   { Icon: Users, title: "Data-First Culture", body: "Change habits, not just tools. We embed decision-making rituals that make data the default input, not the afterthought." },
 ];
@@ -27,7 +29,7 @@ function Intro() {
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <Reveal className="lg:col-span-7" variant="up">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> AI-Driven Organisation Training
+            <AiChipIcon size={14} /> AI-Driven Organisation Training
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Not a one-day workshop. A programme that <span className="text-primary">changes how your teams decide</span>.
@@ -37,7 +39,7 @@ function Intro() {
             A structured programme that changes how your teams use data to make decisions, faster.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Delivered by <strong className="text-foreground">NGSIT practitioners</strong> — people who have built the platforms your teams will use.
+            Delivered by <strong className="text-foreground">Nextgenlytics practitioners</strong> — people who have built the platforms your teams will use.
           </p>
         </Reveal>
         <Reveal className="lg:col-span-5" variant="scale" delay={120}>
@@ -88,13 +90,13 @@ function Audiences() {
       <div className="grid lg:grid-cols-12 gap-10 items-start">
         <Reveal className="lg:col-span-5" variant="left">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <CheckCircle2 size={14} /> Every level, every role
+            <CheckCircle size={14} /> Every level, every role
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             Tailored tracks — from boardroom to shop floor.
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Each track is delivered by NGSIT practitioners who build these platforms in production — not classroom trainers.
+            Each track is delivered by Nextgenlytics practitioners who build these platforms in production — not classroom trainers.
           </p>
           <a href="/contact" className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all">
             Design your programme <ArrowRight size={16} />
@@ -119,6 +121,7 @@ function Audiences() {
 }
 
 export default function AiTraining() {
+  useDocumentTitle("AI-Driven Organisation Training");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Rocket } from "lucide-react";
+import { RocketLaunch } from "@phosphor-icons/react";
 
 /**
  * Branded scroll-to-top: circular progress ring tracking page scroll,
@@ -88,7 +88,7 @@ export default function ScrollToTop() {
       <span
         className="absolute inset-1.5 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center border border-primary-foreground/10 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-[hsl(var(--accent))] group-hover:text-primary-foreground transition-all group-active:scale-95"
       >
-        <Rocket className="w-5 h-5 -rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+        <RocketLaunch className="w-5 h-5 -rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
       </span>
 
       {/* Hover label */}

@@ -3,62 +3,57 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
-import cheetahRun from "@/assets/cheetah-running.png.asset.json";
-import cheetahSprint from "@/assets/cheetah-sprint.png.asset.json";
-import {
-  ArrowRight,
-  Sparkles,
-  ShieldCheck,
-  Rocket,
-  Layers,
-  FileCode2,
-  Languages,
-  CheckCircle2,
-  GitBranch,
-  AlertTriangle,
-  Database,
-  BrainCircuit,
-  Wand2,
-  PlayCircle,
-  UploadCloud,
-} from "lucide-react";
+import cheetahRun from "@/assets/products/cheetah-running.png";
+import cheetahSprint from "@/assets/products/cheetah-sprint.png";
+import { ArrowRight, CheckCircle, CloudArrowUp, Database, FileCode, GitBranch, MagicWand, PlayCircle, RocketLaunch, ShieldCheck, Stack, Translate, Warning } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 const highlights = [
-  { Icon: Sparkles, title: "AI-Powered\nCode Generation", body: "Auto-generate clean, optimized SQL/Python/ETL code" },
+  { Icon: AiChipIcon, title: "AI-Powered\nCode Generation", body: "Auto-generate clean, optimized SQL/Python/ETL code" },
   { Icon: ShieldCheck, title: "Consistent &\nCompliant", body: "Ensure standards, governance and best practices" },
-  { Icon: Rocket, title: "Faster Delivery\nCycles", body: "Reduce manual coding effort by up to 70%" },
-  { Icon: Layers, title: "Scalable &\nReliable", body: "Built for enterprise scale and complex logic" },
+  { Icon: RocketLaunch, title: "Faster Delivery\nCycles", body: "Reduce manual coding effort by up to 70%" },
+  { Icon: Stack, title: "Scalable &\nReliable", body: "Built for enterprise scale and complex logic" },
 ];
 
 const capabilities = [
-  { Icon: FileCode2, title: "Rule to Code\nAutomation", body: "Convert business rules and mappings into executable code automatically." },
-  { Icon: Languages, title: "Multi-Language\nSupport", body: "Generate SQL, Python, ETL, and stored procedures with ease." },
-  { Icon: CheckCircle2, title: "Built-in\nValidations", body: "Validate logic, data types, relationships, and dependencies before deployment." },
+  { Icon: FileCode, title: "Rule to Code\nAutomation", body: "Convert business rules and mappings into executable code automatically." },
+  { Icon: Translate, title: "Multi-Language\nSupport", body: "Generate SQL, Python, ETL, and stored procedures with ease." },
+  { Icon: CheckCircle, title: "Built-in\nValidations", body: "Validate logic, data types, relationships, and dependencies before deployment." },
   { Icon: GitBranch, title: "Version Control\n& Traceability", body: "Maintain full traceability from business rule to deployed code." },
-  { Icon: AlertTriangle, title: "Error Handling\n& Logging", body: "Auto-generate robust error handling and logging framework." },
+  { Icon: Warning, title: "Error Handling\n& Logging", body: "Auto-generate robust error handling and logging framework." },
 ];
 
 const steps = [
-  { Icon: UploadCloud, title: "Ingest", body: "Import rules, mappings and metadata" },
-  { Icon: BrainCircuit, title: "Analyze", body: "AI analyzes logic, relationships & patterns" },
-  { Icon: Wand2, title: "Generate", body: "Auto-generate optimized, production-ready code" },
-  { Icon: ShieldCheck, title: "Validate", body: "Run validations & quality checks" },
-  { Icon: PlayCircle, title: "Deploy", body: "Deploy with confidence to any environment" },
+  {
+    Icon: CloudArrowUp,
+    title: "Setup ETL Environment",
+    body: "Connect your Extract DB (source) and Transform DB (target). Code Cheetah reads both schemas to understand table structure, types, and key relationships.",
+  },
+  {
+    Icon: MagicWand,
+    title: "AI-Enabled Scriptly",
+    body: "Auto-generate transformation scripts from the connected schema and Mapping Docs. Alter any script with a plain-English Bluegecko AI prompt, validate, then save.",
+  },
+  {
+    Icon: PlayCircle,
+    title: "Automated Pipelines",
+    body: "Once scripts are saved, Code Cheetah auto-generates end-to-end ETL pipelines — Bluegecko AI assembles the topology, handles dependencies, and optimises execution order.",
+  },
 ];
 
 const benefits = [
-  { value: "50-70%", label: "Reduction in\nManual Coding" },
-  { value: "3x", label: "Faster Development\nCycles" },
-  { value: "95%+", label: "Code Accuracy\nwith AI" },
+  { value: "70-80%", label: "Faster Pipeline &\nScript Generation" },
+  { value: "~60%", label: "Lower ETL\nEngineering Effort" },
+  { value: "Reusable", label: "Auto-Assembled\nPipelines" },
   { value: "100%", label: "Standard Compliance\n& Governance" },
   { value: "Scalable", label: "Supports Complex\nBusiness Logic" },
 ];
 
 function FlowDiagram() {
   const rows = [
-    { Icon: FileCode2, label: "Business\nRules" },
+    { Icon: FileCode, label: "Business\nRules" },
     { Icon: GitBranch, label: "Mappings" },
-    { Icon: CheckCircle2, label: "Validations" },
+    { Icon: CheckCircle, label: "Validations" },
     { Icon: Database, label: "Generated\nCode" },
   ];
   return (
@@ -126,18 +121,14 @@ export default function CodeCheetah() {
                 <div className="flex items-start gap-4 md:gap-6">
                   <Reveal variant="left">
                     <img
-                      src={cheetahRun.url}
+                      src={cheetahRun}
                       alt="Code Cheetah mascot running"
-                      width={220}
-                      height={220}
-                      className="w-32 md:w-44 h-auto drop-shadow-xl"
+                      width={280}
+                      height={280}
+                      className="w-44 md:w-60 h-auto drop-shadow-xl"
                     />
                   </Reveal>
-                  <Reveal variant="up" delay={120}>
-                    <h1 className="text-5xl md:text-7xl font-extrabold text-primary font-heading leading-[0.95]">
-                      Code<br />Cheetah
-                    </h1>
-                  </Reveal>
+                  <h1 className="sr-only">Code Cheetah</h1>
                 </div>
                 <Reveal variant="up" delay={240}>
                   <p className="mt-6 text-lg md:text-xl font-bold text-accent leading-snug">
@@ -216,7 +207,7 @@ export default function CodeCheetah() {
         <section className="section-alt py-16 md:py-24">
           <div className="container">
             <Reveal variant="up"><SectionHeading>How Code Cheetah Works</SectionHeading></Reveal>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-2 relative">
+            <div className="mt-12 grid sm:grid-cols-3 gap-8 md:gap-6 relative max-w-4xl mx-auto">
               {steps.map((s, i) => (
                 <Reveal key={s.title} variant="scale" delay={i * 120} className="relative flex flex-col items-center text-center">
                   <div className="relative">
@@ -225,11 +216,11 @@ export default function CodeCheetah() {
                     </div>
                   </div>
                   <h3 className="mt-4 text-sm font-bold text-primary font-heading">{i + 1}. {s.title}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground max-w-[160px] leading-relaxed">{s.body}</p>
+                  <p className="mt-1.5 text-xs text-muted-foreground max-w-[240px] leading-relaxed">{s.body}</p>
                   {i < steps.length - 1 && (
                     <ArrowRight
                       size={20}
-                      className="hidden md:block absolute top-6 -right-3 text-accent/60"
+                      className="hidden md:block absolute top-6 -right-6 text-accent/60"
                       aria-hidden
                     />
                   )}
@@ -261,7 +252,7 @@ export default function CodeCheetah() {
               <div className="absolute inset-y-0 right-0 w-1/3 bg-accent/10 blur-3xl" aria-hidden />
               <div className="relative flex flex-col md:flex-row items-center gap-6">
                 <img
-                  src={cheetahSprint.url}
+                  src={cheetahSprint}
                   alt="Cheetah sprinting"
                   width={180}
                   height={120}

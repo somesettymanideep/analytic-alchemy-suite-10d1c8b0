@@ -1,36 +1,22 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import bannerAx from "@/assets/banner-ax.jpg";
-import imgCode from "@/assets/ax-code-assessment.jpg";
-import imgData from "@/assets/ax-data-migration.jpg";
-import imgParallel from "@/assets/ax-parallel-migration.jpg";
+import bannerAx from "@/assets/banners/banner-ax.jpg";
+import imgCode from "@/assets/solutions/ax-code-assessment.jpg";
+import imgData from "@/assets/solutions/ax-data-migration.jpg";
+import imgParallel from "@/assets/solutions/ax-parallel-migration.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Code2,
-  GitBranch,
-  Database,
-  Network,
-  Bot,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  ShieldCheck,
-  Workflow,
-  PiggyBank,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Code, Database, GitBranch, Graph, Minus, PiggyBank, Plus, Question, Robot, ShieldCheck, Sparkle, TreeStructure } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
-    { Icon: Workflow, value: "Parallel", label: "Zero business disruption" },
+    { Icon: TreeStructure, value: "Parallel", label: "Zero business disruption" },
     { Icon: PiggyBank, value: "Lower TCO", label: "Predictable cloud subscription" },
     { Icon: ShieldCheck, value: "GDPR", label: "Built-in Defender for Cloud" },
   ];
@@ -39,7 +25,7 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Microsoft Dynamics AX Migration & Modernisation
+            <Sparkle size={14} /> Dynamics AX Migration & Modernisation to D365
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Transform your legacy AX system into a <span className="text-primary">future-ready, AI-powered</span> Dynamics 365 platform.
@@ -49,7 +35,7 @@ function Intro() {
             you're carrying real risk — outdated infrastructure, no vendor support, and a growing gap between your systems and what modern AI demands.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> specialises in migrating legacy AX environments to
+            <strong className="text-foreground">Nextgenlytics</strong> specialises in migrating legacy AX environments to
             Dynamics 365 Finance & Supply Chain Management — turning technical debt into a competitive advantage.
           </p>
         </div>
@@ -61,7 +47,7 @@ function Intro() {
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <Code2 size={20} />
+              <Code size={20} />
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Assess</p>
@@ -95,7 +81,7 @@ function Covers() {
 
   const services = [
     {
-      Icon: Code2,
+      Icon: Code,
       title: "Legacy Code & Data Assessment",
       body: "We analyse your custom X++ code and data structures using Microsoft Lifecycle Services (LCS) to determine what should be migrated, retired, or redesigned — reducing future technical debt from the start.",
     },
@@ -110,12 +96,12 @@ function Covers() {
       body: "Using Microsoft's Data Management Framework (DMF), we cleanse, transform, and migrate your historical data to Microsoft Dataverse — with no loss of integrity.",
     },
     {
-      Icon: Network,
+      Icon: Graph,
       title: "Modern Integration Architecture",
       body: "We replace legacy AIF integrations with OData and Logic Apps-based connections, enabling your ERP to communicate cleanly with third-party SaaS tools and AI services.",
     },
     {
-      Icon: Bot,
+      Icon: Robot,
       title: "AI Readiness from Day One",
       body: "Every migration we deliver is configured for Microsoft Copilot — so your new D365 environment is ready to power generative AI insights immediately after go-live.",
     },
@@ -126,7 +112,7 @@ function Covers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What Our AX Modernisation Covers
+            <Sparkle size={14} /> What Our AX Modernisation Covers
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             From legacy X++ to cloud-native, AI-ready ERP
@@ -208,7 +194,7 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Workflow,
+      Icon: TreeStructure,
       title: "Zero Business Disruption",
       body: "We use a phased migration approach, running your legacy AX and new Dynamics 365 environments in parallel during the transition — so operations never stop.",
     },
@@ -230,7 +216,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics
+              <CheckCircle size={14} /> Why Nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Carry your AX intelligence forward — clean, structured, and ready for AI.
@@ -292,7 +278,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Bot size={12} /> The nextgenlytics Difference
+                <Robot size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Turn technical debt into a competitive advantage.
@@ -317,7 +303,7 @@ const faqs = [
   },
   {
     q: "How long does an AX to Dynamics 365 migration take?",
-    a: "Migration timelines vary based on system complexity and data volume, but nextgenlytics uses a phased approach that minimises disruption and maintains parallel system operations throughout the transition.",
+    a: "Migration timelines vary based on system complexity and data volume, but Nextgenlytics uses a phased approach that minimises disruption and maintains parallel system operations throughout the transition.",
   },
   {
     q: "Can we keep our AX customisations when migrating to D365?",
@@ -333,7 +319,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -385,6 +371,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function DynamicsAx() {
+  useDocumentTitle("Dynamics AX Migration & Modernisation to D365");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -393,14 +380,14 @@ export default function DynamicsAx() {
         <PageBanner
           image={bannerAx}
           eyebrow="Solutions · Microsoft"
-          title="Microsoft Dynamics AX Migration & Modernisation"
+          title="Dynamics AX Migration & Modernisation to D365"
           description="Transform your legacy AX system into a future-ready, AI-powered Dynamics 365 platform."
         />
         <Intro />
         <SolutionHighlight
           eyebrow="AX → D365 Modernisation"
           headline="Move from AX 2012 to D365 Finance & Operations — data migrated, workflows standardised, ISV integrations preserved, and go-live de-risked with BlueGecko's OrcaMigrate."
-          evidence="Evidenced: Nash Squared AX/D365 F&O migration work. AX 2012 end of support is a live commercial trigger for every AX customer in the Netherlands."
+          evidence="Delivered as part of our Nash Squared AX/D365 F&O migration work. AX 2012 end of support is a live commercial trigger for every AX customer in the Netherlands."
         />
         <Covers />
         <WhyUs />

@@ -1,16 +1,17 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import Reveal from "@/components/Reveal";
-import banner from "@/assets/banner-data-maturity.jpg";
-import roadmap from "@/assets/maturity-roadmap.jpg";
-import { Compass, ShieldCheck, Gauge, Layers, Wrench, Brain, ArrowRight, CheckCircle2, Sparkles, MapPin } from "lucide-react";
+import banner from "@/assets/banners/banner-data-maturity.jpg";
+import roadmap from "@/assets/solutions/maturity-roadmap.jpg";
+import { ArrowRight, Brain, CheckCircle, Compass, Gauge, MapPin, ShieldCheck, Sparkle, Stack, Wrench } from "@phosphor-icons/react";
 
 const dimensions = [
   { Icon: ShieldCheck, title: "Governance", body: "Ownership, stewardship and policy maturity across the data estate." },
   { Icon: Gauge, title: "Quality", body: "Baseline accuracy, completeness, timeliness — and how they are measured today." },
-  { Icon: Layers, title: "Architecture", body: "Lakehouse, warehouse and integration patterns benchmarked against target state." },
+  { Icon: Stack, title: "Architecture", body: "Lakehouse, warehouse and integration patterns benchmarked against target state." },
   { Icon: Wrench, title: "Tooling", body: "Platform coverage, redundancy and cost — what to keep, retire or consolidate." },
   { Icon: Brain, title: "AI-Readiness", body: "How prepared your data, people and controls are to support production AI." },
 ];
@@ -29,7 +30,7 @@ function Intro() {
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <Reveal className="lg:col-span-7" variant="up">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Data Maturity Assessment & Advisory
+            <Sparkle size={14} /> Data Maturity Assessment & Advisory
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Before building, we assess — then deliver a <span className="text-primary">prioritised roadmap</span>.
@@ -39,7 +40,7 @@ function Intro() {
             and AI-readiness — and deliver a prioritised roadmap with clear next steps.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            A proven <strong className="text-foreground">NGSIT capability</strong>, delivered against DAMA-DMBOK.
+            A proven <strong className="text-foreground">Nextgenlytics capability</strong>, delivered against DAMA-DMBOK.
           </p>
         </Reveal>
         <Reveal className="lg:col-span-5" variant="scale" delay={120}>
@@ -89,7 +90,7 @@ function Method() {
     <section className="container py-12 md:py-16">
       <Reveal className="max-w-2xl">
         <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-          <CheckCircle2 size={14} /> Evidenced Method
+          <CheckCircle size={14} /> Evidenced Method
         </span>
         <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
           Bed manufacturer engagement — 32 stakeholders, 39 C-level workshops, one blueprint.
@@ -123,6 +124,7 @@ function Method() {
 }
 
 export default function DataMaturity() {
+  useDocumentTitle("Data Maturity Assessment & Advisory");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />

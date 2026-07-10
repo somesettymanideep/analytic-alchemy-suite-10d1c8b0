@@ -3,22 +3,11 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
-import bannerEnergy from "@/assets/banner-energy.jpg";
-import intelligenceAsset from "@/assets/energy-intro.webp.asset.json";
-import expertiseImg from "@/assets/energy-expertise.jpg";
+import bannerEnergy from "@/assets/banners/banner-energy.jpg";
+import intelligenceAsset from "@/assets/industries/energy-intro.webp";
+import expertiseImg from "@/assets/industries/energy-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Zap,
-  Cog,
-  Sparkles,
-  Database,
-  LineChart,
-  CheckCircle2,
-  ArrowRight,
-  Wrench,
-  Leaf,
-  Activity,
-} from "lucide-react";
+import { ArrowRight, ChartLine, CheckCircle, Database, Gear, Leaf, Lightning, Pulse, Sparkle, Wrench } from "@phosphor-icons/react";
 
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
@@ -27,7 +16,7 @@ function Intro() {
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className={isVisible ? "animate-reveal-up" : "opacity-0"}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Zap size={14} /> Energy & Utilities
+            <Lightning size={14} /> Energy & Utilities
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             Powering the Future with Intelligent Energy Operations
@@ -37,7 +26,7 @@ function Intro() {
             enterprise needs a digital infrastructure that balances reliability with innovation.
             The energy sector is evolving from traditional resource management to a data-intensive
             landscape focused on efficiency and decarbonization. At{" "}
-            <strong className="text-foreground">nextgenlytics</strong>, we provide specialized
+            <strong className="text-foreground">Nextgenlytics</strong>, we provide specialized
             technology consulting for oil and gas, renewables, and utility providers. We help you
             modernize legacy assets into agile, AI-driven ecosystems that optimize production and
             ensure long-term energy security.
@@ -46,7 +35,7 @@ function Intro() {
         <div className={`relative ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
           <img
-            src={intelligenceAsset.url}
+            src={intelligenceAsset}
             alt="Energy operations intelligence dashboard"
             loading="lazy"
             width={1280}
@@ -73,7 +62,7 @@ function KeyChallenges() {
       body: "Stricter environmental mandates require precise tracking of carbon footprints and emissions, demanding transparent and automated reporting systems.",
     },
     {
-      Icon: Activity,
+      Icon: Pulse,
       title: "Massive Data Volatility",
       body: "Managing vast amounts of sensor data from remote sites and smart meters makes it difficult to extract real-time insights for load balancing and production.",
     },
@@ -83,7 +72,7 @@ function KeyChallenges() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Key Challenges
+            <Sparkle size={14} /> Key Challenges
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Key challenges in the energy sector
@@ -140,14 +129,14 @@ function OurExpertise() {
         </div>
         <div className={`order-1 lg:order-2 ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Our Expertise
+            <Gear size={14} /> Our Expertise
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             Building the foundation for sustainable, high-efficiency power
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At nextgenlytics, we ensure your energy operations are intelligent, efficient, and
-            sustainable. nextgenlytics provides expert AI, ERP, and data platform solutions for
+            At Nextgenlytics, we ensure your energy operations are intelligent, efficient, and
+            sustainable. Nextgenlytics provides expert AI, ERP, and data platform solutions for
             energy and utility organizations including oil & gas, renewable energy providers, and
             power distribution companies. Whether you are optimizing asset performance, enabling
             smart grids, or improving energy forecasting, we deliver specialized AI Agents and
@@ -156,7 +145,7 @@ function OurExpertise() {
           <ul className="mt-6 space-y-3">
             {points.map((p) => (
               <li key={p} className="flex items-start gap-3 text-sm text-foreground/90">
-                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" />
+                <CheckCircle size={18} className="text-accent shrink-0 mt-0.5" />
                 <span>{p}</span>
               </li>
             ))}
@@ -190,7 +179,7 @@ function PracticeAreas() {
       ],
     },
     {
-      Icon: LineChart,
+      Icon: ChartLine,
       tag: "Microsoft Dynamics 365",
       title: "Agile, AI-ready operations",
       items: [
@@ -214,7 +203,7 @@ function PracticeAreas() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Technology Practice Areas
+            <Gear size={14} /> Technology Practice Areas
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Specialized toolsets for energy transformation

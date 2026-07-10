@@ -1,33 +1,16 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import bannerBtp from "@/assets/banner-btp.jpg";
-import imgAppDev from "@/assets/btp-app-dev.jpg";
-import imgIntegration from "@/assets/btp-integration.jpg";
-import imgAiAutomation from "@/assets/btp-ai-automation.jpg";
+import bannerBtp from "@/assets/banners/banner-btp.jpg";
+import imgAppDev from "@/assets/solutions/btp-app-dev.jpg";
+import imgIntegration from "@/assets/solutions/btp-integration.jpg";
+import imgAiAutomation from "@/assets/solutions/btp-ai-automation.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Layers,
-  Code2,
-  Workflow,
-  Database,
-  BrainCircuit,
-  Bot,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  ShieldCheck,
-  Cloud,
-  Gauge,
-  Sparkles,
-  Rocket,
-  Network,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Cloud, Code, Cpu, Database, Gauge, Graph, Minus, Plus, Question, Robot, RocketLaunch, ShieldCheck, Sparkle, Stack, TreeStructure } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -35,27 +18,28 @@ function Intro() {
   const stats = [
     { Icon: ShieldCheck, value: "Clean Core", label: "Zero ERP modification" },
     { Icon: Cloud, value: "Multi-Cloud", label: "AWS · Azure · GCP" },
-    { Icon: Rocket, value: "4–6 wks", label: "Prototype to production" },
+    { Icon: RocketLaunch, value: "4–6 wks", label: "Prototype to production" },
   ];
   return (
     <section className="container py-12 md:py-16" ref={ref}>
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Layers size={14} /> SAP Business Technology Platform
+            <Stack size={14} /> SAP BTP Integration &amp; Extension Services
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            The innovation layer that <span className="text-primary">extends your SAP core</span> — without ever touching it.
+            Connect SAP to everything else it needs to talk to — <span className="text-primary">without touching the core.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Every enterprise has processes that standard SAP cannot handle out of the box.
-            <strong className="text-foreground"> SAP Business Technology Platform (BTP)</strong> is the answer — a unified,
-            multi-cloud platform for application development, data integration, AI, and automation that sits alongside
+            Every enterprise has processes and third-party systems that standard SAP cannot handle out of the box.
+            <strong className="text-foreground"> Nextgenlytics builds the integration and extension layer on SAP Business
+            Technology Platform (BTP)</strong> — API management, event flows, and custom extensions that sit alongside
             your clean SAP core.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> uses BTP to build the custom capabilities, integrations,
-            and AI agents your business needs — without creating technical debt or making your ERP harder to upgrade.
+            Integration Engineering is core to how we deliver every SAP programme — BTP is the layer we use to connect
+            S/4HANA to the rest of your technology landscape, without creating technical debt or making your ERP harder
+            to upgrade.
           </p>
         </div>
 
@@ -66,7 +50,7 @@ function Intro() {
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <Code2 size={20} />
+              <Code size={20} />
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Build</p>
@@ -100,27 +84,27 @@ function Enables() {
 
   const services = [
     {
-      Icon: Code2,
-      title: "Custom Application Development",
-      body: "We build scalable business applications using SAP Build (low-code) or pro-code tools like ABAP Cloud and CAP — creating specialised tools that fill the gaps in your standard ERP without modifying the core.",
+      Icon: Graph,
+      title: "Seamless Third-Party Integration",
+      body: "Using SAP Integration Suite, we connect your S/4HANA environment to Salesforce, ServiceNow, Workday, and other platforms — ensuring real-time, synchronised data flow across your entire technology landscape. This is where our Integration Engineering capability sits.",
     },
     {
-      Icon: Network,
-      title: "Seamless Third-Party Integration",
-      body: "Using SAP Integration Suite, we connect your S/4HANA environment to Salesforce, ServiceNow, Workday, and other platforms — ensuring real-time, synchronised data flow across your entire technology landscape.",
+      Icon: Code,
+      title: "Custom Extension Development",
+      body: "We build focused extensions using SAP Build (low-code) or pro-code tools like ABAP Cloud and CAP — filling specific gaps in your standard ERP without modifying the core.",
     },
     {
       Icon: Database,
       title: "Data & Analytics Foundation",
-      body: "We leverage SAP Datasphere and SAP Analytics Cloud within BTP to federate data, maintain business semantic context, and power real-time dashboards and AI models from a single governed layer.",
+      body: "We connect SAP Datasphere and SAP Analytics Cloud through BTP to federate data, maintain business semantic context, and power real-time dashboards from a single governed layer.",
     },
     {
-      Icon: BrainCircuit,
-      title: "Built-in Generative AI & SAP Joule",
-      body: "BTP is the home of SAP's AI Hub and SAP Joule. We embed intelligent capabilities — automated document processing, predictive maintenance, intelligent workflows — directly into your business processes.",
+      Icon: Cpu,
+      title: "AI-Enabled Extensions",
+      body: "We embed AI into the workflows we build on BTP — connecting to SAP's native AI capabilities where relevant, and to our own BlueGecko agents where custom automation goes beyond what SAP Joule covers out of the box.",
     },
     {
-      Icon: Workflow,
+      Icon: TreeStructure,
       title: "Intelligent Process Automation",
       body: "We deploy SAP Build Process Automation to eliminate manual, repetitive tasks — combining RPA with AI to create self-learning workflows that continuously improve over time.",
     },
@@ -131,13 +115,14 @@ function Enables() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What SAP BTP Enables
+            <Sparkle size={14} /> What We Deliver on BTP
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            One platform for extension, integration, data, and AI
+            Integration first — then the extensions built on top of it
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Build the custom capabilities your business needs — alongside, never inside, your SAP core.
+            We connect your SAP core to the rest of your landscape, and build the focused extensions your business
+            needs — alongside, never inside, your ERP.
           </p>
         </div>
 
@@ -213,19 +198,19 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
+      Icon: Graph,
+      title: "Integration Engineering Is Core to Us",
+      body: "Connecting SAP to third-party systems, cloud platforms, and custom applications is a capability we bring to every SAP engagement — not a one-off add-on service.",
+    },
+    {
       Icon: ShieldCheck,
       title: "Clean Core by Design",
       body: "Every extension we build lives on BTP — never inside your ERP core. Your S/4HANA stays standard, stable, and upgrade-ready at all times.",
     },
     {
-      Icon: Cloud,
-      title: "Multi-Cloud Expertise",
-      body: "We optimise your BTP environment across AWS, Azure, and Google Cloud — ensuring high availability, resilient performance, and cost-efficient resource usage.",
-    },
-    {
-      Icon: Rocket,
+      Icon: RocketLaunch,
       title: "Prototype to Production in 4–6 Weeks",
-      body: "Our pre-built BTP accelerators and industry-specific content packages let us move standard integration scenarios from proof of concept to production-ready deployment in as few as 4 to 6 weeks.",
+      body: "Our pre-built BTP accelerators let us move standard integration scenarios from proof of concept to production-ready deployment in as few as 4 to 6 weeks.",
     },
   ];
 
@@ -235,13 +220,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics
+              <CheckCircle size={14} /> Why Nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               From system of record to system of innovation — on a clean, scalable foundation.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              SAP BTP — implemented by nextgenlytics — turns your ERP into a platform for continuous innovation.
+              SAP BTP — implemented by Nextgenlytics — turns your ERP into a platform for continuous innovation.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -257,7 +242,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a SAP BTP specialist
+              Talk to Our SAP Integration Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -297,7 +282,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Bot size={12} /> The nextgenlytics Difference
+                <Robot size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Where your ERP stops being a system of record — and becomes a system of innovation.
@@ -317,16 +302,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is SAP Business Technology Platform (BTP)?",
-    a: "SAP Business Technology Platform (BTP) is SAP's unified multi-cloud platform that combines application development, data integration, analytics, AI, and automation. It enables enterprises to extend SAP S/4HANA with custom functionality, third-party integrations, and AI-powered workflows — all while keeping the core ERP clean and unmodified.",
+    q: "What does Nextgenlytics actually deliver on SAP BTP?",
+    a: "Integration Engineering — connecting SAP S/4HANA to third-party systems, cloud platforms, and custom applications through SAP Integration Suite, API management, and event flows. We also build focused extensions and connect BTP's data and AI capabilities where they support that integration layer, all without modifying your ERP core.",
   },
   {
-    q: "What is the Clean Core principle in SAP BTP?",
-    a: "The Clean Core principle means keeping SAP S/4HANA free of custom modifications by moving all extensions, integrations, and custom logic to SAP BTP. This ensures the ERP core remains standard and easy to upgrade, while custom business capabilities are maintained separately on BTP without accumulating technical debt.",
+    q: "How does Nextgenlytics keep your S/4HANA core clean while extending it on BTP?",
+    a: "We build extensions, integrations, and custom logic on BTP rather than inside S/4HANA — so your ERP core stays standard and easy to upgrade, while the capabilities your business needs live on the platform without accumulating technical debt.",
   },
   {
-    q: "How does SAP BTP integrate with non-SAP systems?",
-    a: "SAP BTP's Integration Suite provides pre-built connectors and API management that enable real-time data synchronisation between SAP S/4HANA and non-SAP platforms including Salesforce, ServiceNow, Workday, and Microsoft 365 — without requiring point-to-point integrations that become difficult to maintain at scale.",
+    q: "How does Nextgenlytics connect SAP to the non-SAP systems we already run?",
+    a: "We build API-managed integrations between SAP S/4HANA and the third-party platforms you rely on — CRM, service management, HR, and productivity suites — so data flows in real time without brittle point-to-point connections that become difficult to maintain at scale.",
   },
 ];
 
@@ -338,7 +323,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -390,6 +375,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function SapBtp() {
+  useDocumentTitle("SAP BTP Integration & Extension Services");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -398,14 +384,14 @@ export default function SapBtp() {
         <PageBanner
           image={bannerBtp}
           eyebrow="Solutions · SAP"
-          title="SAP Business Technology Platform (BTP) Implementation"
-          description="The innovation layer that extends your SAP core — without ever touching it."
+          title="SAP BTP Integration & Extension Services"
+          description="Connect SAP S/4HANA to third-party systems, cloud platforms, and custom applications via SAP Business Technology Platform — API management, event flows, and integration engineering that is core to how we deliver every SAP programme."
         />
         <Intro />
         <SolutionHighlight
           eyebrow="Integration & Extension"
           headline="Connect SAP S/4HANA to third-party systems, cloud platforms, and custom applications via SAP Business Technology Platform — API management, event mesh, and integration flows."
-          evidence="Real capability: Integration Engineering is core to your delivery. BTP is the integration layer in every modern SAP landscape."
+          evidence="Integration Engineering is core to every SAP programme we deliver — BTP is the integration layer in every modern SAP landscape we work in."
         />
         <Enables />
         <WhyUs />

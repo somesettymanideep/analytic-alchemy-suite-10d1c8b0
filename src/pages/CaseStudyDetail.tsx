@@ -4,42 +4,21 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import Reveal from "@/components/Reveal";
-import {
-  ArrowRight,
-  ArrowLeft,
-  Download,
-  Check,
-  Users,
-  Building2,
-  Globe,
-  Clock,
-  ShieldCheck,
-  TrendingUp,
-  FileText,
-  LayoutGrid,
-  Cog,
-  Cloud,
-  DollarSign,
-  Search,
-  Map as MapIcon,
-  Target as TargetIcon,
-  Quote,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Buildings, CaretRight, Check, Clock, Cloud, CurrencyDollar, Download, FileText, Gear, Globe, MagnifyingGlass, MapTrifold as MapIcon, Quotes, ShieldCheck, SquaresFour, Target as TargetIcon, TrendUp, Users } from "@phosphor-icons/react";
 
 const iconMap: Record<string, typeof Users> = {
   users: Users,
-  building: Building2,
+  building: Buildings,
   globe: Globe,
   clock: Clock,
   shield: ShieldCheck,
-  trend: TrendingUp,
+  trend: TrendUp,
   file: FileText,
-  grid: LayoutGrid,
-  cog: Cog,
+  grid: SquaresFour,
+  cog: Gear,
   cloud: Cloud,
-  dollar: DollarSign,
-  search: Search,
+  dollar: CurrencyDollar,
+  search: MagnifyingGlass,
   map: MapIcon,
   target: TargetIcon,
 };
@@ -54,7 +33,7 @@ export default function CaseStudyDetail() {
         <Navbar />
         <div className="container py-32 text-center">
           <h1 className="text-2xl font-bold text-foreground">Case study not found</h1>
-          <Link to="/case-study" className="mt-4 inline-flex items-center gap-2 text-primary">
+          <Link to="/client-work" className="mt-4 inline-flex items-center gap-2 text-primary">
             <ArrowLeft size={16} /> Back to Case Studies
           </Link>
         </div>
@@ -76,11 +55,11 @@ export default function CaseStudyDetail() {
           <Link to="/" className="hover:text-primary">
             Home
           </Link>
-          <ChevronRight size={14} />
-          <Link to="/case-study" className="hover:text-primary">
+          <CaretRight size={14} />
+          <Link to="/client-work" className="hover:text-primary">
             Case Studies
           </Link>
-          <ChevronRight size={14} />
+          <CaretRight size={14} />
           <span className="text-foreground font-medium truncate">{cs.title}</span>
         </div>
       </div>
@@ -219,7 +198,7 @@ export default function CaseStudyDetail() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
             {cs.approach.map((step, i) => {
-              const Icon = iconMap[step.icon] ?? Search;
+              const Icon = iconMap[step.icon] ?? MagnifyingGlass;
               return (
                 <Reveal key={step.title} delay={i * 120} className="text-center relative">
                   <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary mb-2">
@@ -267,7 +246,7 @@ export default function CaseStudyDetail() {
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {cs.results.map((r, i) => {
-            const Icon = iconMap[r.icon] ?? TrendingUp;
+            const Icon = iconMap[r.icon] ?? TrendUp;
             return (
               <Reveal
                 key={r.label}
@@ -289,7 +268,7 @@ export default function CaseStudyDetail() {
       {/* Testimonial */}
       <section className="container pb-12">
         <Reveal variant="scale" className="rounded-2xl bg-secondary border border-border p-6 md:p-8 flex flex-col md:flex-row items-start gap-6">
-          <Quote size={40} className="text-primary/30 shrink-0" />
+          <Quotes size={40} className="text-primary/30 shrink-0" />
           <div className="flex-1">
             <p className="text-foreground/85 italic leading-relaxed">"{cs.testimonial.quote}"</p>
             <p className="mt-3 text-sm font-semibold text-primary">
@@ -337,7 +316,7 @@ export default function CaseStudyDetail() {
               className=""
             >
             <Link
-              to={`/case-study/${r.slug}`}
+              to={`/client-work/${r.slug}`}
               className="group block rounded-xl overflow-hidden border border-border bg-card hover:shadow-md hover:-translate-y-0.5 transition"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-primary">

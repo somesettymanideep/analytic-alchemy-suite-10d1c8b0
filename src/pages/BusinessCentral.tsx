@@ -1,56 +1,43 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import bannerBc from "@/assets/banner-bc.jpg";
-import imgFinance from "@/assets/bc-finance.jpg";
-import imgInventory from "@/assets/bc-inventory.jpg";
-import imgProjects from "@/assets/bc-projects.jpg";
+import bannerBc from "@/assets/banners/banner-bc.jpg";
+import imgFinance from "@/assets/solutions/bc-finance.jpg";
+import imgInventory from "@/assets/solutions/bc-inventory.jpg";
+import imgProjects from "@/assets/solutions/bc-projects.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Wallet,
-  Boxes,
-  ShoppingCart,
-  Briefcase,
-  Bot,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Rocket,
-  Mail,
-  TrendingUp,
-} from "lucide-react";
+import { ArrowRight, Briefcase, CheckCircle, Envelope, Minus, Plus, Question, Robot, RocketLaunch, ShoppingCart, Sparkle, SquaresFour, TrendUp, Wallet } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
-    { Icon: Rocket, value: "8–12 wks", label: "Quick-Start go-live" },
-    { Icon: Mail, value: "Outlook · Teams", label: "Works where teams work" },
-    { Icon: TrendingUp, value: "Scales", label: "From SMB to mid-market" },
+    { Icon: RocketLaunch, value: "8–12 wks", label: "Quick-Start go-live" },
+    { Icon: Envelope, value: "Outlook · Teams", label: "Works where teams work" },
+    { Icon: TrendUp, value: "Scales", label: "From SMB to mid-market" },
   ];
   return (
     <section className="container py-12 md:py-16" ref={ref}>
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Microsoft Dynamics 365 Business Central
+            <Sparkle size={14} /> Dynamics 365 Business Central — Migration & Implementation
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Enterprise-grade ERP built for <span className="text-primary">growing businesses</span> — without the enterprise complexity.
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Microsoft Dynamics 365 Business Central</strong> is an all-in-one ERP solution
-            designed for small and mid-sized businesses that need to manage finance, sales, inventory, and operations from one place.
+            <strong className="text-foreground">Nextgenlytics delivers data migration and implementation</strong> for SME and
+            mid-market businesses moving to Business Central — clean data, configured workflows, and a governed analytics
+            foundation from day one.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> implements and optimises Business Central so growing companies
-            get the same data intelligence and process automation as large enterprises — without the cost or complexity.
+            Rapid implementations run through our India ECC team, with certified partner capacity engaged for larger,
+            more complex programmes — one clear delivery path either way.
           </p>
         </div>
 
@@ -100,7 +87,7 @@ function Delivers() {
       body: "AI-powered accounts payable and receivable, real-time cash flow forecasting, and automated bank reconciliations — so your finance team spends less time on close and more time on strategy.",
     },
     {
-      Icon: Boxes,
+      Icon: SquaresFour,
       title: "Intelligent Inventory & Supply Chain",
       body: "Demand forecasting prevents stockouts and overstock. We also integrate Business Central with Shopify and e-commerce platforms for end-to-end order management.",
     },
@@ -115,7 +102,7 @@ function Delivers() {
       body: "Real-time resource utilisation and job costing ensure every project stays on budget and on time — with full visibility for project managers and finance teams.",
     },
     {
-      Icon: Bot,
+      Icon: Robot,
       title: "Copilot & AI Agent Orchestration",
       body: "Microsoft Copilot automates routine tasks like drafting marketing content, summarising customer history, and processing sales orders from incoming emails — no manual entry needed.",
     },
@@ -126,7 +113,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What nextgenlytics Delivers with Business Central
+            <Sparkle size={14} /> What Nextgenlytics Delivers with Business Central
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One ERP for finance, inventory, sales, and projects
@@ -208,17 +195,17 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Rocket,
+      Icon: RocketLaunch,
       title: "Quick-Start in 8–12 Weeks",
       body: "Our structured Quick-Start methodology gets your core Business Central environment live — covering General Ledger, Accounts Payable/Receivable, and Bank Reconciliation — in as few as 8 to 12 weeks.",
     },
     {
-      Icon: Mail,
+      Icon: Envelope,
       title: "Works Where Your Team Works",
       body: "Business Central integrates natively with Outlook, Teams, and Excel. Your team manages ERP data inside tools they already use daily — no switching required.",
     },
     {
-      Icon: TrendingUp,
+      Icon: TrendUp,
       title: "Grows With You",
       body: "As your business scales, we extend Business Central using the Power Platform — adding new capabilities without ever requiring a full system overhaul.",
     },
@@ -230,13 +217,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics
+              <CheckCircle size={14} /> Why Nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Fast to deploy. Easy to adopt. Built to scale.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Business Central gives you one platform — and nextgenlytics gets you there fast.
+              Business Central gives you one platform — and Nextgenlytics gets you there fast.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -252,7 +239,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a Business Central specialist
+              Talk to Our Business Central Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -292,7 +279,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Bot size={12} /> The nextgenlytics Difference
+                <Robot size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Enterprise discipline. SMB speed. AI from day one.
@@ -312,12 +299,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
+    q: "How does Nextgenlytics deliver Business Central implementations?",
+    a: "Rapid, standard implementations run through our India ECC team using our Quick-Start methodology. For larger, more complex programmes, we engage certified partner capacity — Nextgenlytics coordinates the engagement end to end either way, so you always have one clear point of accountability.",
+  },
+  {
     q: "What is Microsoft Dynamics 365 Business Central?",
     a: "Business Central is a cloud ERP solution from Microsoft designed for small and mid-sized businesses to manage financials, supply chain, sales, and operations in one unified platform.",
   },
   {
     q: "How quickly can Business Central be implemented?",
-    a: "With nextgenlytics' Quick-Start methodology, a core Business Central environment covering essential financial modules can go live in as few as 8 to 12 weeks.",
+    a: "With Nextgenlytics' Quick-Start methodology, a core Business Central environment covering essential financial modules can go live in as few as 8 to 12 weeks.",
   },
   {
     q: "Is Business Central suitable for growing businesses?",
@@ -333,7 +324,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -385,6 +376,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function BusinessCentral() {
+  useDocumentTitle("Dynamics 365 Business Central — Migration & Implementation");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -393,14 +385,14 @@ export default function BusinessCentral() {
         <PageBanner
           image={bannerBc}
           eyebrow="Solutions · Microsoft"
-          title="Microsoft Dynamics 365 Business Central"
-          description="Enterprise-grade ERP built for growing businesses — without the enterprise complexity."
+          title="Dynamics 365 Business Central — Migration & Implementation"
+          description="Data migration and implementation for SME and mid-market businesses moving to Business Central — clean data, configured workflows, and a governed analytics foundation."
         />
         <Intro />
         <SolutionHighlight
           eyebrow="Migration & Implementation"
           headline="Data migration and implementation for SME and mid-market businesses moving to Business Central — clean data, configured workflows, and a governed analytics foundation."
-          evidence="India ECC team can deliver BC implementations rapidly. Partner-enabled for larger programmes. Legitimate ambition with clear delivery path."
+          evidence="Delivered via our India ECC team for rapid implementations, with certified partner capacity engaged for larger programmes — a clear, honest delivery model, not a black box."
         />
         <Delivers />
         <WhyUs />

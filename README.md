@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Nextgenlytics
 
-TODO: Document your project here
+Welcome to the Nextgenlytics project repository.

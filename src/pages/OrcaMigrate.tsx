@@ -3,49 +3,32 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
-import orcaJump from "@/assets/orca-jump.png.asset.json";
-import orcaRest from "@/assets/orca-rest.png.asset.json";
-import {
-  ArrowRight,
-  Workflow,
-  ShieldCheck,
-  Rocket,
-  Server,
-  Layers3,
-  ClipboardList,
-  Database,
-  CheckCircle2,
-  Settings2,
-  LineChart,
-  ScanSearch,
-  Map,
-  PlayCircle,
-  Activity,
-  Eye,
-} from "lucide-react";
+import orcaJump from "@/assets/products/orca-jump.png";
+import orcaRest from "@/assets/products/orca-rest.png";
+import { ArrowRight, ChartLine, CheckCircle, ClipboardText, Database, Eye, Faders, HardDrives, MagnifyingGlass, MapTrifold, PlayCircle, Pulse, RocketLaunch, ShieldCheck, Stack, TreeStructure } from "@phosphor-icons/react";
 
 const highlights = [
-  { Icon: Workflow, title: "End-to-End\nMigration", body: "Complete migration lifecycle in one platform" },
+  { Icon: TreeStructure, title: "End-to-End\nMigration", body: "Complete migration lifecycle in one platform" },
   { Icon: ShieldCheck, title: "Low Risk\n& Reliable", body: "Built-in validations, rollback & audit" },
-  { Icon: Rocket, title: "Faster\nTime to Value", body: "Accelerate migrations by up to 90%" },
-  { Icon: Server, title: "Broad Platform\nSupport", body: "Migrate to D365, Azure, and beyond" },
-  { Icon: Layers3, title: "Enterprise\nScale", body: "Handle large, complex migrations seamlessly" },
+  { Icon: RocketLaunch, title: "Faster\nTime to Value", body: "Accelerate migrations by up to 90%" },
+  { Icon: HardDrives, title: "Broad Platform\nSupport", body: "Migrate to D365, Azure, and beyond" },
+  { Icon: Stack, title: "Enterprise\nScale", body: "Handle large, complex migrations seamlessly" },
 ];
 
 const capabilities = [
-  { Icon: ClipboardList, title: "Assessment &\nPlanning", body: "Auto-discover, analyze dependencies and create migration plans." },
+  { Icon: ClipboardText, title: "Assessment &\nPlanning", body: "Auto-discover, analyze dependencies and create migration plans." },
   { Icon: Database, title: "Data & Config\nMigration", body: "Migrate master data, transactions, configs, and customizations." },
-  { Icon: CheckCircle2, title: "Validation &\nReconciliation", body: "Advanced validation and reconciliation for data integrity." },
-  { Icon: Settings2, title: "Automation &\nOrchestration", body: "Automate workflows with intelligent orchestration engine." },
-  { Icon: LineChart, title: "Monitoring &\nReporting", body: "Real-time monitoring, dashboards, and audit-ready reports." },
+  { Icon: CheckCircle, title: "Validation &\nReconciliation", body: "Advanced validation and reconciliation for data integrity." },
+  { Icon: Faders, title: "Automation &\nOrchestration", body: "Automate workflows with intelligent orchestration engine." },
+  { Icon: ChartLine, title: "Monitoring &\nReporting", body: "Real-time monitoring, dashboards, and audit-ready reports." },
 ];
 
 const steps = [
-  { Icon: ScanSearch, title: "Assess", body: "Analyze systems, data & dependencies" },
-  { Icon: Map, title: "Plan", body: "Define strategy, scope & timelines" },
+  { Icon: MagnifyingGlass, title: "Assess", body: "Analyze systems, data & dependencies" },
+  { Icon: MapTrifold, title: "Plan", body: "Define strategy, scope & timelines" },
   { Icon: PlayCircle, title: "Migrate", body: "Execute migration with automation & control" },
-  { Icon: CheckCircle2, title: "Validate", body: "Validate & reconcile for accuracy" },
-  { Icon: Activity, title: "Go Live", body: "Cutover with confidence & post-migration support" },
+  { Icon: CheckCircle, title: "Validate", body: "Validate & reconcile for accuracy" },
+  { Icon: Pulse, title: "Go Live", body: "Cutover with confidence & post-migration support" },
 ];
 
 const benefits = [
@@ -60,10 +43,10 @@ const CY = "text-cyan-300";
 
 function OrbitDiagram() {
   const nodes = [
-    { Icon: ScanSearch, label: "Assess", pos: "top-0 left-1/2 -translate-x-1/2" },
+    { Icon: MagnifyingGlass, label: "Assess", pos: "top-0 left-1/2 -translate-x-1/2" },
     { Icon: PlayCircle, label: "Migrate", pos: "top-[22%] right-0" },
-    { Icon: CheckCircle2, label: "Validate", pos: "bottom-[10%] right-[8%]" },
-    { Icon: Settings2, label: "Optimise", pos: "bottom-[10%] left-[8%]" },
+    { Icon: CheckCircle, label: "Validate", pos: "bottom-[10%] right-[8%]" },
+    { Icon: Faders, label: "Optimise", pos: "bottom-[10%] left-[8%]" },
     { Icon: Eye, label: "Monitor", pos: "top-[22%] left-0" },
   ];
   return (
@@ -74,7 +57,7 @@ function OrbitDiagram() {
       </svg>
       {/* center */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-accent/15 border border-accent/40 shadow-[0_0_40px_rgba(0,96,240,0.35)] flex items-center justify-center">
-        <img src={orcaJump.url} alt="" className="w-16 h-16 object-contain" />
+        <img src={orcaJump} alt="" className="w-16 h-16 object-contain" />
       </div>
       {nodes.map((n, i) => (
         <Reveal key={n.label} variant="scale" delay={i * 100} className={`absolute ${n.pos}`}>
@@ -116,16 +99,14 @@ export default function OrcaMigrate() {
                 <div className="flex items-start gap-4 md:gap-6">
                   <Reveal variant="left">
                     <img
-                      src={orcaJump.url}
+                      src={orcaJump}
                       alt="Orca Migrate mascot"
-                      width={200}
-                      height={200}
-                      className="w-32 md:w-44 h-auto drop-shadow-[0_10px_30px_rgba(34,211,238,0.4)]"
+                      width={260}
+                      height={260}
+                      className="w-44 md:w-60 h-auto drop-shadow-[0_10px_30px_rgba(34,211,238,0.4)]"
                     />
                   </Reveal>
-                  <Reveal variant="up" delay={120}>
-                    <h1 className="text-5xl md:text-7xl font-extrabold font-heading leading-[0.95] text-primary">Orca Migrate</h1>
-                  </Reveal>
+                  <h1 className="sr-only">Orca Migrate</h1>
                 </div>
                 <Reveal variant="up" delay={240}>
                   <p className="mt-6 text-lg md:text-2xl font-bold leading-snug text-accent">
@@ -254,7 +235,7 @@ export default function OrcaMigrate() {
                   Request a Demo <ArrowRight size={16} />
                 </Link>
                 <img
-                  src={orcaRest.url}
+                  src={orcaRest}
                   alt="Orca mascot resting"
                   width={180}
                   height={120}

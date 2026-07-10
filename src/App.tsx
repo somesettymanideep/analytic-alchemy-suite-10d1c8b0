@@ -7,7 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import HomePage3 from "./pages/HomePage3.tsx";
 import Contact from "./pages/Contact.tsx";
 import About from "./pages/About.tsx";
-import About2 from "./pages/About2.tsx";
 import Team from "./pages/Team.tsx";
 import Careers from "./pages/Careers.tsx";
 import Blog from "./pages/Blog.tsx";
@@ -49,12 +48,9 @@ import FalconMapping from "./pages/FalconMapping.tsx";
 import CodeCheetah from "./pages/CodeCheetah.tsx";
 import OwlSight from "./pages/OwlSight.tsx";
 import OrcaMigrate from "./pages/OrcaMigrate.tsx";
-import AmsServices from "./pages/AmsServices.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
 import CaseStudyDetail from "./pages/CaseStudyDetail.tsx";
 import Edt from "./pages/Edt.tsx";
-import HomePage2 from "./pages/HomePage2.tsx";
-import CareersPage2 from "./pages/CareersPage2.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -70,7 +66,6 @@ const App = () => (
           <Route path="/" element={<HomePage3 />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/about-2" element={<About2 />} />
           <Route path="/team" element={<Team />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
@@ -95,29 +90,26 @@ const App = () => (
           <Route path="/solutions/dynamics-ax-migration" element={<DynamicsAx />} />
           <Route path="/solutions/snowflake" element={<Snowflake />} />
           <Route path="/solutions/databricks" element={<Databricks />} />
-          <Route path="/solutions/microsoft-fabric" element={<Fabric />} />
+          <Route path="/solutions/microsoft-fabric-data-engineering" element={<Fabric />} />
           <Route path="/solutions/sap-analytics-cloud" element={<SapAnalyticsCloud />} />
           <Route path="/solutions/data-governance" element={<DataGovernance />} />
           <Route path="/solutions/ai-organisation-training" element={<AiTraining />} />
           <Route path="/solutions/data-maturity-assessment" element={<DataMaturity />} />
-          <Route path="/solutions/erp-ai-agents" element={<ErpAiAgents />} />
-          <Route path="/solutions/ai-foundry" element={<AiFoundry />} />
-          <Route path="/solutions/databricks-genie" element={<DatabricksGenie />} />
+          <Route path="/solutions/erp-ai-agents-powered-by-blue-gecko" element={<ErpAiAgents />} />
+          <Route path="/solutions/ai-strategy-and-readiness-assessment" element={<AiFoundry />} />
+          <Route path="/solutions/predictive-and-prescriptive-analytics" element={<DatabricksGenie />} />
           <Route path="/solutions/data-led-ai-transformation" element={<DataLedAi />} />
-          <Route path="/solutions/sap-joule" element={<SapJoule />} />
-          <Route path="/solutions/snowflake-cortex" element={<SnowflakeCortex />} />
+          <Route path="/solutions/conversational-ai" element={<SapJoule />} />
+          <Route path="/solutions/ai-powered-data-insights" element={<SnowflakeCortex />} />
           <Route path="/solutions/ai-testing-validation" element={<AiTesting />} />
           <Route path="/products/bluegecko" element={<BlueGecko />} />
           <Route path="/products/falcon-mapping" element={<FalconMapping />} />
           <Route path="/products/code-cheetah" element={<CodeCheetah />} />
           <Route path="/products/owl-sight" element={<OwlSight />} />
           <Route path="/products/orca-migrate" element={<OrcaMigrate />} />
-          <Route path="/ams-services" element={<AmsServices />} />
-          <Route path="/case-study" element={<CaseStudy />} />
-          <Route path="/case-study/:slug" element={<CaseStudyDetail />} />
+          <Route path="/client-work" element={<CaseStudy />} />
+          <Route path="/client-work/:slug" element={<CaseStudyDetail />} />
           <Route path="/edt" element={<Edt />} />
-          <Route path="/home-2" element={<HomePage2 />} />
-          <Route path="/careers-2" element={<CareersPage2 />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

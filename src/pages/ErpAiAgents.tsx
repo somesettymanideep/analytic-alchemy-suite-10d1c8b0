@@ -1,30 +1,15 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-erp-ai-agents.jpg";
-import introImg from "@/assets/erp-ai-agents-autonomous.jpg";
+import banner from "@/assets/banners/banner-erp-ai-agents.jpg";
+import introImg from "@/assets/solutions/erp-ai-agents-autonomous.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Bot,
-  Calculator,
-  Truck,
-  Wallet,
-  PackageSearch,
-  ShieldCheck,
-  UserCheck,
-  Rocket,
-  HelpCircle,
-  Plus,
-  Minus,
-  ArrowRight,
-  CheckCircle2,
-  Brain,
-  Cpu,
-} from "lucide-react";
+import { ArrowRight, Brain, Calculator, CheckCircle, Cpu, Minus, Package, Plus, Question, Robot, RocketLaunch, ShieldCheck, Truck, UserCheck, Wallet } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -34,19 +19,21 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Autonomous ERP, Powered by AI
+            <AiChipIcon size={14} /> ERP AI Agents · Powered by BlueGecko
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Your ERP, working autonomously — <span className="text-primary">24/7, without manual input.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
             Most ERP systems are powerful but passive — they store data and wait for people to act on it.
-            <strong className="text-foreground"> nextgenlytics</strong> changes that by deploying AI Agents that live directly
-            inside your Microsoft Dynamics 365 environment and execute real business processes end to end.
+            <strong className="text-foreground"> Nextgenlytics</strong> changes that with a RAG-based multi-agent platform,
+            built on <strong className="text-foreground">BlueGecko</strong>, that runs real business processes end to end
+            across SAP S/4HANA, Dynamics 365, Salesforce, and cloud platforms.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            From closing the books to managing vendor communications and forecasting demand, our agents handle complex,
-            high-volume tasks so your teams can focus on decisions that actually need human judgment.
+            From automating data migration, field mapping, and quality validation to closing the books and forecasting
+            demand, our self-learning agents — refined over 2+ years — deliver up to 10X faster migration cycles and 4X
+            faster ERP adoption. This is a production platform, not a prototype.
           </p>
         </div>
 
@@ -98,7 +85,7 @@ function WhatAgentsDo() {
       body: "The system reviews payment history and risk scores to automatically prioritise and follow up on overdue accounts — improving cash flow without adding headcount.",
     },
     {
-      Icon: PackageSearch,
+      Icon: Package,
       title: "Predictive Inventory Management",
       body: "AI agents monitor stock levels and market trends to generate purchase orders and suggest inventory relocations before shortages occur — reactive becomes proactive.",
     },
@@ -109,7 +96,7 @@ function WhatAgentsDo() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Bot size={14} /> What ERP AI Agents Do for Your Business
+            <Robot size={14} /> What ERP AI Agents Do for Your Business
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Real work, executed end-to-end — inside your ERP.
@@ -155,7 +142,7 @@ function WhyUs() {
       body: "Agents operate autonomously but flag anomalies for human approval when needed — so your team stays in control of every critical decision.",
     },
     {
-      Icon: Rocket,
+      Icon: RocketLaunch,
       title: "Rapid Deployment",
       body: "Using our AI Agent Deployment Accelerator with pre-mapped D365 module configurations, we go from evaluation to a live AI environment faster than any generic implementation approach.",
     },
@@ -167,7 +154,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose nextgenlytics for ERP AI Agents?
+              <CheckCircle size={14} /> Why Choose Nextgenlytics for ERP AI Agents?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Your ERP already holds the intelligence. Our agents put it to work.
@@ -180,7 +167,7 @@ function WhyUs() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Brain size={12} /> The nextgenlytics Difference
+                  <Brain size={12} /> The Nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   Autonomous by default. Accountable by design.
@@ -240,11 +227,11 @@ const faqs = [
   },
   {
     q: "How do AI Agents integrate with Microsoft Dynamics 365?",
-    a: "nextgenlytics deploys AI Agents directly within the Dynamics 365 Finance, Supply Chain Management, and Business Central modules using native APIs and connectors — requiring no significant changes to your existing infrastructure.",
+    a: "Nextgenlytics deploys AI Agents directly within the Dynamics 365 Finance, Supply Chain Management, and Business Central modules using native APIs and connectors — requiring no significant changes to your existing infrastructure.",
   },
   {
     q: "Are ERP AI Agents safe to use in regulated industries?",
-    a: "Yes. nextgenlytics builds every AI Agent with human-in-the-loop safeguards, role-based access controls, and compliance guardrails, making them suitable for regulated industries including financial services, healthcare, and manufacturing.",
+    a: "Yes. Nextgenlytics builds every AI Agent with human-in-the-loop safeguards, role-based access controls, and compliance guardrails, making them suitable for regulated industries including financial services, healthcare, and manufacturing.",
   },
 ];
 
@@ -256,7 +243,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -308,6 +295,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function ErpAiAgents() {
+  useDocumentTitle("ERP AI Agents — Powered by BlueGecko");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />

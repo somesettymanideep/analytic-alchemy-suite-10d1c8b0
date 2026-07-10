@@ -1,38 +1,23 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-databricks.jpg";
-import imgLakehouse from "@/assets/databricks-lakehouse.jpg";
-import imgCollab from "@/assets/databricks-collab.jpg";
-import imgAi from "@/assets/databricks-ai.jpg";
+import banner from "@/assets/banners/banner-databricks.jpg";
+import imgLakehouse from "@/assets/solutions/databricks-lakehouse.jpg";
+import imgCollab from "@/assets/solutions/databricks-collab.jpg";
+import imgAi from "@/assets/solutions/databricks-ai.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Layers,
-  Workflow,
-  Users,
-  Gauge,
-  ShieldCheck,
-  Brain,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Network,
-  Cpu,
-  Database,
-} from "lucide-react";
+import { ArrowRight, Brain, CheckCircle, Cpu, Database, Gauge, Graph, Minus, Plus, Question, ShieldCheck, Sparkle, Stack, TreeStructure, Users } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
-    { Icon: Layers, value: "Lakehouse", label: "One platform, lake + warehouse" },
-    { Icon: Workflow, value: "Delta Live", label: "Self-healing ETL pipelines" },
+    { Icon: Stack, value: "Lakehouse", label: "One platform, lake + warehouse" },
+    { Icon: TreeStructure, value: "Delta Live", label: "Self-healing ETL pipelines" },
     { Icon: Brain, value: "AI-Native", label: "MLflow, Mosaic AI & Genie" },
   ];
   return (
@@ -40,7 +25,7 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Databricks Lakehouse Platform
+            <Sparkle size={14} /> Databricks Lakehouse Engineering
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             One unified platform for data engineering, data science, and AI — built on an <span className="text-primary">open, scalable Lakehouse</span>.
@@ -53,7 +38,7 @@ function Intro() {
             learning, and real-time analytics.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> implements and optimises Databricks Lakehouse
+            <strong className="text-foreground">Nextgenlytics</strong> implements and optimises Databricks Lakehouse
             environments so your data team can move faster, at lower cost, with production-grade reliability.
           </p>
         </div>
@@ -99,14 +84,14 @@ function Delivers() {
 
   const services = [
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "Unified Lakehouse Architecture",
       body: "We implement Delta Lake on Databricks to combine your data lake and warehouse into one — giving you ACID transactions, scalable metadata handling, and unified batch and streaming data processing on a single open platform.",
     },
     {
-      Icon: Workflow,
-      title: "Production-Grade ETL with Delta Live Tables",
-      body: "We use Delta Live Tables (DLT) to build declarative data pipelines with automated testing, built-in data quality checks, and full lineage visibility — replacing brittle, hand-crafted ETL scripts with reliable, self-healing pipelines.",
+      Icon: TreeStructure,
+      title: "Production-Grade ETL, Generated Not Hand-Coded",
+      body: "We build Delta Live Tables (DLT) pipelines using Code Cheetah — our automated PySpark and SQL generation tool — with built-in data quality checks and full lineage visibility, replacing brittle, hand-crafted ETL scripts with reliable, self-healing pipelines.",
     },
     {
       Icon: Users,
@@ -130,7 +115,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What nextgenlytics Delivers with Databricks
+            <Sparkle size={14} /> What Nextgenlytics Delivers with Databricks
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One Lakehouse for engineering, analytics, and AI
@@ -218,7 +203,7 @@ function WhyUs() {
       body: "We fine-tune Apache Spark configurations to run your jobs faster and at lower cost — eliminating idle cluster expenses and maximising ROI on every workload.",
     },
     {
-      Icon: Network,
+      Icon: Graph,
       title: "Cross-Platform Integration",
       body: "We connect your Databricks environment to Azure, AWS, SAP S/4HANA, Microsoft Fabric, and SAP DataSphere — creating a fluid, cross-cloud data ecosystem with no blind spots.",
     },
@@ -235,13 +220,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics for Databricks
+              <CheckCircle size={14} /> Why Nextgenlytics for Databricks
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Spark-tuned, cross-cloud integrated, AI-ready from day one.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Data engineering is the foundation every AI initiative is built on. nextgenlytics builds that foundation on
+              Data engineering is the foundation every AI initiative is built on. Nextgenlytics builds that foundation on
               Databricks — open, scalable, and production-ready from day one.
             </p>
 
@@ -258,7 +243,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a Databricks specialist
+              Talk to Our Databricks Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -298,7 +283,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The nextgenlytics Difference
+                <Brain size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Tuned Spark. Connected clouds. Governed AI foundations.
@@ -339,7 +324,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -391,6 +376,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function Databricks() {
+  useDocumentTitle("Databricks Lakehouse Engineering");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -399,7 +385,7 @@ export default function Databricks() {
         <PageBanner
           image={banner}
           eyebrow="Solutions · Data Engineering"
-          title="Databricks Lakehouse Implementation"
+          title="Databricks Lakehouse Engineering"
           description="One unified platform for data engineering, data science, and AI — built on an open, scalable Lakehouse."
         />
         <Intro />

@@ -4,18 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import banner from "@/assets/banner-data-led-ai.jpg";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Clock,
-  Download,
-  Linkedin,
-  Mail,
-  Share2,
-  Quote,
-  MessageCircle,
-} from "lucide-react";
+import banner from "@/assets/banners/banner-data-led-ai.jpg";
+import { ArrowLeft, ArrowRight, ChatCircle, Clock, Download, Envelope, LinkedinLogo, Quotes, ShareNetwork } from "@phosphor-icons/react";
 
 type Section = { id: string; heading: string; body: string[] };
 
@@ -66,7 +56,7 @@ const REPORTS: Report[] = [
     methodology: [
       "Online survey of 240 European enterprises, October–December 2025.",
       "Follow-up interviews with 32 SAP architecture leads.",
-      "Programme telemetry from 18 nextgenlytics live engagements, anonymised.",
+      "Programme telemetry from 18 Nextgenlytics live engagements, anonymised.",
     ],
     caseStudies: [
       {
@@ -87,7 +77,7 @@ const REPORTS: Report[] = [
     ],
     references: [
       "SAP 2027 maintenance timeline, SAP SE (2024)",
-      "nextgenlytics programme telemetry, 2024–2025",
+      "Nextgenlytics programme telemetry, 2024–2025",
       "European Digital Transformation Barometer, 2025",
     ],
     sections: [
@@ -227,7 +217,7 @@ export default function ResearchDetail() {
                   }}
                   className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-primary-foreground/10 transition"
                 >
-                  <Share2 size={14} /> Share
+                  <ShareNetwork size={14} /> Share
                 </button>
               </div>
             </div>
@@ -297,7 +287,7 @@ export default function ResearchDetail() {
 
                   {i === 1 && (
                     <blockquote className="my-8 relative rounded-xl border-l-4 border-accent bg-accent/5 p-6">
-                      <Quote className="absolute -top-3 -left-3 text-accent bg-background rounded-full p-1" size={28} />
+                      <Quotes className="absolute -top-3 -left-3 text-accent bg-background rounded-full p-1" size={28} />
                       <p className="text-lg md:text-xl font-heading font-semibold text-foreground leading-snug">
                         {report.pullQuote}
                       </p>
@@ -379,14 +369,14 @@ export default function ResearchDetail() {
                       aria-label="Share on LinkedIn"
                       className="h-9 w-9 grid place-items-center rounded-full border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition"
                     >
-                      <Linkedin size={14} />
+                      <LinkedinLogo size={14} />
                     </a>
                     <a
                       href={`mailto:?subject=${encodeURIComponent(report.title)}&body=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
                       aria-label="Share by email"
                       className="h-9 w-9 grid place-items-center rounded-full border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition"
                     >
-                      <Mail size={14} />
+                      <Envelope size={14} />
                     </a>
                     <a
                       href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}&text=${encodeURIComponent(report.title)}`}
@@ -395,7 +385,7 @@ export default function ResearchDetail() {
                       aria-label="Share on Twitter"
                       className="h-9 w-9 grid place-items-center rounded-full border border-border/60 text-primary hover:bg-primary hover:text-primary-foreground transition"
                     >
-                      <Share2 size={14} />
+                      <ShareNetwork size={14} />
                     </a>
                   </div>
                 </div>
@@ -407,7 +397,7 @@ export default function ResearchDetail() {
                   <p className="text-xs font-bold uppercase tracking-widest opacity-90">Contact an expert</p>
                   <p className="mt-2 font-heading font-bold text-lg">Talk to the research team</p>
                   <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold">
-                    <MessageCircle size={13} /> Start a conversation
+                    <ChatCircle size={13} /> Start a conversation
                     <ArrowRight size={13} />
                   </span>
                 </Link>

@@ -1,34 +1,16 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import bannerRise from "@/assets/banner-rise-sap.jpg";
-import imgInfra from "@/assets/rise-cloud-infrastructure.jpg";
-import imgProcess from "@/assets/rise-process-intelligence.jpg";
-import imgAi from "@/assets/rise-ai-automation.jpg";
+import bannerRise from "@/assets/banners/banner-rise-sap.jpg";
+import imgInfra from "@/assets/solutions/rise-cloud-infrastructure.jpg";
+import imgProcess from "@/assets/solutions/rise-process-intelligence.jpg";
+import imgAi from "@/assets/solutions/rise-ai-automation.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Cloud,
-  Sparkles,
-  CloudCog,
-  Activity,
-  Server,
-  Layers,
-  BrainCircuit,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  ShieldCheck,
-  Target,
-  Handshake,
-  Gauge,
-  Rocket,
-  Package,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Cloud, CloudCheck, Cpu, Gauge, Handshake, HardDrives, Minus, Package, Plus, Pulse, Question, RocketLaunch, ShieldCheck, Sparkle, Stack, Target } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -36,27 +18,28 @@ function Intro() {
   const stats = [
     { Icon: Package, value: "1", label: "Unified commercial agreement" },
     { Icon: Gauge, value: "99.9%", label: "Cloud availability SLA" },
-    { Icon: Rocket, value: "6–12 mo", label: "Typical mid-market go-live" },
+    { Icon: RocketLaunch, value: "6–12 mo", label: "Typical mid-market go-live" },
   ];
   return (
     <section className="container py-12 md:py-16" ref={ref}>
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cloud size={14} /> RISE with SAP
+            <Cloud size={14} /> RISE with SAP — Data Readiness &amp; Migration
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            Your entire move to the cloud —{" "}
-            <span className="text-primary">software, infrastructure, and transformation</span> under one strategy.
+            RISE is the commercial model. <span className="text-primary">Your data readiness is what makes it work.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Business transformation used to mean a multi-year project, multiple vendors, and endless complexity.
-            <strong className="text-foreground"> RISE with SAP</strong> bundles SAP S/4HANA Cloud, cloud infrastructure,
-            process intelligence, and managed services into a single commercial agreement — simplifying the entire cloud journey.
+            <strong className="text-foreground">RISE with SAP</strong> bundles SAP S/4HANA Cloud, cloud infrastructure,
+            process intelligence, and managed services into a single commercial agreement — simplifying procurement and
+            accountability for your cloud journey.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> implements the RISE framework to move you beyond
-            simple cloud hosting toward genuinely autonomous, AI-powered enterprise operations.
+            <strong className="text-foreground">Nextgenlytics leads the data readiness and integration workstream</strong> —
+            ensuring your data is migration-ready, governed, and clean before the RISE journey begins. Full functional
+            implementation is delivered through our certified partner network, with Nextgenlytics coordinating the
+            programme end to end.
           </p>
         </div>
 
@@ -101,27 +84,27 @@ function Includes() {
 
   const services = [
     {
-      Icon: CloudCog,
+      Icon: CloudCheck,
       title: "SAP S/4HANA Cloud Deployment",
       body: "Access SAP's intelligent ERP in a private or public cloud environment — always on the latest version, always powered by the newest AI innovations, with a 99.9% availability SLA built into the offering.",
     },
     {
-      Icon: Activity,
+      Icon: Pulse,
       title: "Business Process Intelligence via SAP Signavio",
       body: "We use integrated process mining to analyse how your business actually runs today — identifying bottlenecks and benchmarking your operations against industry standards for rapid, evidence-based improvement.",
     },
     {
-      Icon: Server,
+      Icon: HardDrives,
       title: "Your Choice of Cloud Infrastructure",
       body: "Run on AWS, Azure, or Google Cloud — all managed by SAP, with enterprise-grade security and compliance standards built into the RISE offering by default.",
     },
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "SAP BTP Credits for Custom Innovation",
       body: "Included BTP credits let us build custom AI extensions, integrate third-party applications, and manage data transitions — all outside the clean core, without creating technical debt.",
     },
     {
-      Icon: BrainCircuit,
+      Icon: Cpu,
       title: "Embedded SAP Joule & Business AI",
       body: "RISE natively includes SAP Joule and Business AI capabilities — enabling intelligent automation of financial matching, supply chain forecasting, and HR workflows from day one.",
     },
@@ -132,13 +115,15 @@ function Includes() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What RISE with SAP Includes
+            <Sparkle size={14} /> What RISE with SAP Includes
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            Everything you need to run a cloud-native enterprise
+            Everything the programme includes — coordinated by one accountable partner
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Software, infrastructure, intelligence, and AI — all under a single, simplified subscription.
+            Software, infrastructure, intelligence, and AI — all under a single subscription. Nextgenlytics coordinates
+            the programme and leads your data readiness, so nothing falls between SAP, your infrastructure provider, and
+            your implementation partner.
           </p>
         </div>
 
@@ -214,14 +199,14 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Handshake,
-      title: "Simplified Accountability",
-      body: "We act as your strategic partner across the entire RISE ecosystem — coordinating between SAP, your infrastructure provider, and your internal teams so nothing falls through the cracks.",
+      Icon: ShieldCheck,
+      title: "We Own Your Data Readiness",
+      body: "Before your RISE journey begins, we ensure your data is migration-ready, governed, and clean — the layer that determines whether the transition succeeds or stalls, evidenced across live SAP data-migration engagements.",
     },
     {
-      Icon: ShieldCheck,
-      title: "Clean Core Discipline",
-      body: "We enforce Clean Core methodology throughout your RISE journey — keeping your ERP standard, upgrade-friendly, and fully AI-ready at every stage of the programme.",
+      Icon: Handshake,
+      title: "Transparent Delivery Model",
+      body: "We are upfront about how the programme is delivered: Nextgenlytics leads data readiness and integration, and full functional implementation runs through our certified partner network — coordinated as one accountable programme, not a black box.",
     },
     {
       Icon: Target,
@@ -236,13 +221,15 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics
+              <CheckCircle size={14} /> Why Nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
-              The fastest path to a clean, intelligent, cloud-native enterprise.
+              Clean data in. A clean, intelligent enterprise out.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              nextgenlytics makes sure you get there — with AI embedded from the very start, and a single partner accountable for the outcome.
+              We lead the data readiness and integration workstream — the layer that determines RISE success or failure —
+              while our certified partner network delivers the functional build, with Nextgenlytics accountable for the
+              outcome throughout.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -258,7 +245,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a RISE with SAP specialist
+              Talk to Our SAP Data Readiness Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -298,7 +285,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Rocket size={12} /> The nextgenlytics Difference
+                <RocketLaunch size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 One partner. One agreement. One intelligent enterprise.
@@ -318,16 +305,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is RISE with SAP?",
-    a: "RISE with SAP is SAP's Business Transformation as a Service offering that bundles SAP S/4HANA Cloud, cloud infrastructure, process intelligence tools (SAP Signavio), SAP BTP access, and managed services into a single subscription agreement — simplifying the cloud migration journey for enterprises of all sizes.",
+    q: "How does Nextgenlytics deliver a RISE with SAP programme?",
+    a: "Nextgenlytics leads the data readiness and integration workstream — ensuring your data is migration-ready, governed, and clean before the RISE journey begins. Full functional implementation is delivered through our certified partner network, with Nextgenlytics coordinating the programme end to end as your single point of accountability.",
   },
   {
-    q: "What is the difference between RISE with SAP and a standard S/4HANA implementation?",
-    a: "A standard S/4HANA implementation requires separate procurement of software licences, cloud infrastructure, and support services. RISE with SAP consolidates all of these under one commercial agreement, including infrastructure management, guaranteed SLAs, and access to SAP Signavio process intelligence and BTP credits as part of the package.",
+    q: "Why bring Nextgenlytics into a RISE with SAP programme rather than going direct to SAP?",
+    a: "RISE bundles infrastructure, licensing, and managed services, but it does not solve your data. We fill that gap — cleansing, governing, and migrating your data before and during the RISE journey, and coordinating our certified partner network so the programme has a single accountable owner rather than multiple disconnected vendors.",
   },
   {
-    q: "How long does a RISE with SAP implementation take?",
-    a: "Implementation timelines vary based on business complexity and migration approach. nextgenlytics uses a phased delivery model that prioritises early business value, typically delivering core cloud operations within 6 to 12 months for mid-sized organisations, with AI enablement milestones built into each phase.",
+    q: "How long does a RISE with SAP programme take?",
+    a: "Timelines vary based on business complexity and migration approach. Nextgenlytics uses a phased delivery model that prioritises early business value — typically delivering core cloud operations within 6 to 12 months for mid-sized organisations, with data readiness milestones built into each phase.",
   },
 ];
 
@@ -339,7 +326,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -391,6 +378,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function SapRise() {
+  useDocumentTitle("RISE with SAP — Data Readiness & Migration");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -399,8 +387,8 @@ export default function SapRise() {
         <PageBanner
           image={bannerRise}
           eyebrow="Solutions · SAP"
-          title="RISE with SAP Implementation"
-          description="Your entire move to the cloud — software, infrastructure, and transformation — under one strategy."
+          title="RISE with SAP — Data Readiness & Migration"
+          description="RISE with SAP is the cloud commercial model. We ensure your data is migration-ready, governed, and clean before your RISE journey begins."
         />
         <Intro />
         <SolutionHighlight

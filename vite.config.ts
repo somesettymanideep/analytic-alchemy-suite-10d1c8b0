@@ -40,7 +40,7 @@ function assetPointerFallback() {
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080,
+    port: Number(process.env.PORT) || 3000,
     hmr: {
       overlay: false,
     },
@@ -52,6 +52,12 @@ export default defineConfig(({ mode }) => ({
         target: "https://analytic-alchemy-suite.lovable.app",
         changeOrigin: true,
         secure: true,
+      },
+      // Local FastAPI backend (Api/) for the Careers / Contact / Demo forms.
+      // In production set VITE_API_URL instead (see src/lib/api.ts).
+      "/api": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
       },
     },
   },

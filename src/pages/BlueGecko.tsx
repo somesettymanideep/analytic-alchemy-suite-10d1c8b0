@@ -3,27 +3,11 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import mascotAsset from "@/assets/bluegecko-mascot.png.asset.json";
-import {
-  ArrowRight,
-  Users,
-  Sparkles,
-  Zap,
-  ShieldCheck,
-  Handshake,
-  Wrench,
-  UploadCloud,
-  BrainCircuit,
-  Settings2,
-  BarChart3,
-  CheckCircle2,
-  Layers,
-  Database,
-  TrendingUp,
-  FileCheck2,
-} from "lucide-react";
+import mascotAsset from "@/assets/products/bluegecko-mascot.png";
+import { ArrowRight, ChartBar, CheckCircle, CloudArrowUp, Cpu, Database, Faders, FileText, Handshake, Lightning, ShieldCheck, Stack, TrendUp, Users, Wrench } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
-const mascot = mascotAsset.url;
+const mascot = mascotAsset;
 
 /* ---------------- Hero ---------------- */
 function Hero() {
@@ -112,9 +96,9 @@ function Hero() {
             <div className="grid grid-cols-4 gap-3">
               {[
                 { icon: Database, label: "Projects", value: "24", delta: "+18%" },
-                { icon: Layers, label: "Mappings", value: "1,250", delta: "+24%" },
-                { icon: TrendingUp, label: "Pipelines", value: "68", delta: "+30%" },
-                { icon: FileCheck2, label: "Data Quality", value: "98.6%", delta: "+12%" },
+                { icon: Stack, label: "Mappings", value: "1,250", delta: "+24%" },
+                { icon: TrendUp, label: "Pipelines", value: "68", delta: "+30%" },
+                { icon: FileText, label: "Data Quality", value: "98.6%", delta: "+12%" },
               ].map((k) => (
                 <div key={k.label} className="rounded-lg bg-secondary/60 p-2.5">
                   <div className="flex items-center gap-1 text-primary">
@@ -161,8 +145,8 @@ function Hero() {
 function FeatureStrip() {
   const feats = [
     { Icon: Users, title: "Unified Platform", body: "Four products seamlessly integrated in one powerful ecosystem." },
-    { Icon: Sparkles, title: "AI Intelligence", body: "Automated mapping and ETL suggestions with Gen-AI." },
-    { Icon: Zap, title: "Faster Delivery", body: "Reduce delivery timelines by up to 70%." },
+    { Icon: AiChipIcon, title: "AI Intelligence", body: "Automated mapping and ETL suggestions with Gen-AI." },
+    { Icon: Lightning, title: "Faster Delivery", body: "Reduce delivery timelines by up to 70%." },
     { Icon: ShieldCheck, title: "Data Quality", body: "Proactive detection and resolution of data issues for trusted data." },
     { Icon: Handshake, title: "Collaboration-First", body: "Built for teams with transparency and shared ownership." },
   ];
@@ -188,10 +172,10 @@ function FeatureStrip() {
 function HowItWorks() {
   const steps = [
     { Icon: Wrench, title: "Set Up", body: "Configure your environment and data sources." },
-    { Icon: UploadCloud, title: "Upload", body: "Upload mapping files, schemas or documents." },
-    { Icon: BrainCircuit, title: "AI-Powered Mapping", body: "BlueGecko Gen-AI suggests mappings and transformations." },
-    { Icon: Settings2, title: "Automate & Execute", body: "Run ETL pipelines and automate workflows." },
-    { Icon: BarChart3, title: "Monitor & Improve", body: "Track progress, data quality and optimize continuously." },
+    { Icon: CloudArrowUp, title: "Upload", body: "Upload mapping files, schemas or documents." },
+    { Icon: Cpu, title: "AI-Powered Mapping", body: "BlueGecko Gen-AI suggests mappings and transformations." },
+    { Icon: Faders, title: "Automate & Execute", body: "Run ETL pipelines and automate workflows." },
+    { Icon: ChartBar, title: "Monitor & Improve", body: "Track progress, data quality and optimize continuously." },
   ];
   const { ref, isVisible } = useScrollReveal();
   return (
@@ -257,7 +241,7 @@ function WhyChoose() {
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground shrink-0">
-                <CheckCircle2 size={18} />
+                <CheckCircle size={18} />
               </span>
               <span className="text-sm font-semibold text-foreground text-balance max-w-[180px]">
                 {it}
@@ -273,8 +257,8 @@ function WhyChoose() {
 /* ---------------- Final CTA ---------------- */
 function FinalCta() {
   const chips = [
-    { Icon: Sparkles, label: "AI-Powered Automation" },
-    { Icon: Zap, label: "Faster Deliveries" },
+    { Icon: AiChipIcon, label: "AI-Powered Automation" },
+    { Icon: Lightning, label: "Faster Deliveries" },
     { Icon: Database, label: "End-to-End Data Management" },
     { Icon: ShieldCheck, label: "Trusted Data Quality" },
   ];

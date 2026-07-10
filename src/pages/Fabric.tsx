@@ -1,39 +1,23 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-fabric.jpg";
-import imgOneLake from "@/assets/fabric-onelake.jpg";
-import imgRealtime from "@/assets/fabric-realtime.jpg";
-import imgCopilot from "@/assets/fabric-copilot.jpg";
+import banner from "@/assets/banners/banner-fabric.jpg";
+import imgOneLake from "@/assets/solutions/fabric-onelake.jpg";
+import imgRealtime from "@/assets/solutions/fabric-realtime.jpg";
+import imgCopilot from "@/assets/solutions/fabric-copilot.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Layers,
-  Workflow,
-  Database,
-  Gauge,
-  ShieldCheck,
-  Brain,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Network,
-  Cpu,
-  Activity,
-  Cloud,
-} from "lucide-react";
+import { ArrowRight, Brain, CheckCircle, Cloud, Cpu, Database, Gauge, Graph, Minus, Plus, Pulse, Question, ShieldCheck, Sparkle, Stack, TreeStructure } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
     { Icon: Database, value: "OneLake", label: "Single org-wide data lake" },
-    { Icon: Layers, value: "All-in-One", label: "Engineering, BI & AI unified" },
+    { Icon: Stack, value: "All-in-One", label: "Engineering, BI & AI unified" },
     { Icon: Brain, value: "Copilot", label: "Natural-language analytics" },
   ];
   return (
@@ -41,7 +25,7 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Microsoft Fabric Data Engineering
+            <Sparkle size={14} /> Microsoft Fabric Data Engineering & Analytics
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             One platform, one data lake, one team — from raw data to <span className="text-primary">AI-driven insight</span> without the complexity.
@@ -52,7 +36,7 @@ function Intro() {
             by unifying data engineering, data science, real-time analytics, and business intelligence into a single SaaS platform built on OneLake.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> implements Fabric so your organisation moves from fragmented data
+            <strong className="text-foreground">Nextgenlytics</strong> implements Fabric so your organisation moves from fragmented data
             infrastructure to a governed, AI-ready analytics environment — faster and at lower total cost.
           </p>
         </div>
@@ -103,7 +87,7 @@ function Delivers() {
       body: "We implement OneLake — Fabric's unified logical data lake — as the single storage layer for all your data. Every team, tool, and AI model works from the same governed source, eliminating duplication, silos, and version conflicts across departments.",
     },
     {
-      Icon: Workflow,
+      Icon: TreeStructure,
       title: "Modern Data Pipelines with Data Factory",
       body: "We use Fabric's next-generation Data Factory to orchestrate complex, multi-cloud data ingestion pipelines through a low-code visual interface — reducing pipeline build time and making data integration accessible beyond specialist engineering teams.",
     },
@@ -113,7 +97,7 @@ function Delivers() {
       body: "We build and scale resilient Lakehouses using Fabric's optimised Spark environment — processing and transforming large, complex datasets for heavy-duty engineering workloads and machine learning feature preparation.",
     },
     {
-      Icon: Activity,
+      Icon: Pulse,
       title: "Real-Time Intelligence",
       body: "We configure Fabric's Real-Time Intelligence to ingest and process high-frequency streaming data from IoT devices, ERP events, and operational systems — giving your business immediate visibility into what is happening right now.",
     },
@@ -129,7 +113,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What nextgenlytics Delivers with Microsoft Fabric
+            <Sparkle size={14} /> What Nextgenlytics Delivers with Microsoft Fabric
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One unified platform — engineering, BI, and AI
@@ -211,12 +195,12 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Network,
+      Icon: Graph,
       title: "Full Microsoft Ecosystem Integration",
       body: "We synchronise Fabric with Dynamics 365, the Power Platform, and Microsoft 365 — creating a fluid workspace where data flows freely across your entire Microsoft environment without friction.",
     },
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "SAP & Cross-Platform Connectivity",
       body: "We connect Fabric to your SAP landscape using SAP DataSphere or direct connectors — ensuring your operational and financial data is integrated without losing its business context or semantic meaning.",
     },
@@ -233,13 +217,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics for Microsoft Fabric
+              <CheckCircle size={14} /> Why Nextgenlytics for Microsoft Fabric
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Microsoft-aligned, SAP-connected, cost-optimised from day one.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Fragmented data tools slow everyone down. Microsoft Fabric — implemented by nextgenlytics — gives your entire data team one platform, one lake, and one path to AI.
+              Fragmented data tools slow everyone down. Microsoft Fabric — implemented by Nextgenlytics — gives your entire data team one platform, one lake, and one path to AI.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -255,7 +239,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a Fabric specialist
+              Talk to Our Fabric Data Engineering Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -295,7 +279,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The nextgenlytics Difference
+                <Brain size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 One platform. One lake. One path to AI.
@@ -335,7 +319,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -387,6 +371,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function Fabric() {
+  useDocumentTitle("Microsoft Fabric Data Engineering & Analytics");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -395,14 +380,14 @@ export default function Fabric() {
         <PageBanner
           image={banner}
           eyebrow="Solutions · Data Engineering"
-          title="Microsoft Fabric Data Engineering Implementation"
-          description="One platform, one data lake, one team — from raw data to AI-driven insight without the complexity."
+          title="Microsoft Fabric Data Engineering & Analytics"
+          description="Design, implement, and operate data platforms on Microsoft Fabric — lakehouses, pipelines, Power BI semantic models, and real-time analytics for enterprise reporting."
         />
         <Intro />
         <SolutionHighlight
           eyebrow="Data Engineering & Analytics"
           headline="Design, implement, and operate data platforms on Microsoft Fabric — lakehouses, pipelines, Power BI semantic models, and real-time analytics for enterprise reporting."
-          evidence="Evidenced: Nash Squared infrastructure and BI support — Azure, SQL DBA, Microsoft Fabric housekeeping, ADF monitoring, Power BI report management."
+          evidence="Delivered for Nash Squared — Azure, SQL DBA, Microsoft Fabric housekeeping, ADF pipeline monitoring, and Power BI report management across 9 countries."
         />
         <Delivers />
         <WhyUs />

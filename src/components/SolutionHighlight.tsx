@@ -1,4 +1,4 @@
-import { Sparkles, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle, Sparkle } from "@phosphor-icons/react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 type Props = {
@@ -49,7 +49,7 @@ export default function SolutionHighlight({ eyebrow, headline, evidence }: Props
             {/* Headline column */}
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent ring-1 ring-inset ring-accent/20">
-                <Sparkles size={14} aria-hidden="true" />
+                <Sparkle size={14} aria-hidden="true" />
                 <span>{eyebrow}</span>
               </span>
               <h2
@@ -73,7 +73,7 @@ export default function SolutionHighlight({ eyebrow, headline, evidence }: Props
                     aria-hidden="true"
                     className="shrink-0 inline-flex items-center justify-center w-11 h-11 min-w-11 min-h-11 rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/25 ring-4 ring-primary/10"
                   >
-                    <CheckCircle2 size={20} />
+                    <CheckCircle size={20} />
                   </span>
                   <div className="min-w-0">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">

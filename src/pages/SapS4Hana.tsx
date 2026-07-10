@@ -1,36 +1,18 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import bannerSap from "@/assets/banner-sap-s4hana.jpg";
-import imgFinance from "@/assets/sap-finance-realtime.jpg";
-import imgSupply from "@/assets/sap-supply-chain.jpg";
-import imgManufacturing from "@/assets/sap-manufacturing.jpg";
-import imgCleanCore from "@/assets/sap-clean-core.jpg";
-import imgMigration from "@/assets/sap-migration-team.jpg";
+import bannerSap from "@/assets/banners/banner-sap-s4hana.jpg";
+import imgFinance from "@/assets/solutions/sap-finance-realtime.jpg";
+import imgSupply from "@/assets/solutions/sap-supply-chain.jpg";
+import imgManufacturing from "@/assets/solutions/sap-manufacturing.jpg";
+import imgCleanCore from "@/assets/solutions/sap-clean-core.jpg";
+import imgMigration from "@/assets/brand/sap-migration-team.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Boxes,
-  Sparkles,
-  Wallet,
-  Truck,
-  ShoppingCart,
-  Factory,
-  Bot,
-  ShieldCheck,
-  Database,
-  Route,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Zap,
-  Gauge,
-  LineChart,
-} from "lucide-react";
+import { ArrowRight, ChartLine, CheckCircle, Database, Factory, Gauge, Lightning, Minus, Path, Plus, Question, Robot, ShieldCheck, ShoppingCart, Sparkle, SquaresFour, Truck, Wallet } from "@phosphor-icons/react";
 
 /* -------------------------------------------------------------- */
 /*  Intro — split layout with stat strip                           */
@@ -38,9 +20,9 @@ import {
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
-    { Icon: Gauge, value: "10×", label: "Faster financial close" },
-    { Icon: LineChart, value: "Real-time", label: "Universal Journal" },
-    { Icon: Zap, value: "2027", label: "ECC end of maintenance" },
+    { Icon: Gauge, value: "4", label: "Countries migrated" },
+    { Icon: ChartLine, value: "250+", label: "Dealers, studios & hotels" },
+    { Icon: Lightning, value: "20+", label: "Month transformation programme" },
   ];
   return (
     <section className="container py-12 md:py-16" ref={ref}>
@@ -48,21 +30,22 @@ function Intro() {
         {/* Left text */}
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Boxes size={14} /> SAP S/4HANA Implementation
+            <SquaresFour size={14} /> SAP S/4HANA Data Migration &amp; Implementation
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            The intelligent ERP that runs your business in real time —{" "}
-            <span className="text-primary">and powers your AI strategy</span> from the core.
+            The hardest part of moving to S/4HANA is the data. <span className="text-primary">That is where we lead.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Legacy ERP systems were built for a world of batch processing and end-of-day reports.
-            <strong className="text-foreground"> SAP S/4HANA</strong> is built for now — an in-memory, cloud-native ERP
-            that gives your business real-time financial visibility, AI-driven supply chain intelligence, and a clean
-            foundation for autonomous agents.
+            Most S/4HANA programmes fail or stall on data — legacy sources that do not map cleanly, quality issues
+            discovered too late, and cutovers that put the business at risk.
+            <strong className="text-foreground"> Nextgenlytics leads the data migration and integration workstream</strong> —
+            the layer that determines whether an S/4HANA programme succeeds — evidenced by a live engagement moving 250+
+            dealers, studios, and hotels across 4 countries onto SAP S/4HANA Public Cloud.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> specialises in implementing S/4HANA with a Clean
-            Core approach, so your system is fast today and AI-ready for tomorrow.
+            Full functional implementation is delivered through our{" "}
+            <strong className="text-foreground">certified partner network and India ECC team</strong>, built on a Clean
+            Core approach — so your system is fast today and AI-ready for tomorrow.
           </p>
         </div>
 
@@ -82,7 +65,7 @@ function Intro() {
           {/* Floating accent badge */}
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <Sparkles size={20} />
+              <Sparkle size={20} />
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Clean Core</p>
@@ -147,7 +130,7 @@ function Capabilities() {
       body: "Automated invoice processing and intelligent spend analysis streamline vendor management — reducing costs and ensuring compliance without adding headcount.",
     },
     {
-      Icon: Bot,
+      Icon: Robot,
       title: "Native SAP Joule & AI Agents",
       body: "S/4HANA's Clean Core architecture is designed to work directly with SAP Joule and custom AI agents — making it the ideal foundation for autonomous enterprise operations.",
     },
@@ -158,13 +141,14 @@ function Capabilities() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Capabilities
+            <Sparkle size={14} /> What We Deliver
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            What SAP S/4HANA delivers for your business
+            What your S/4HANA migration unlocks across the business
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Real-time intelligence across every line of business — built on a Clean Core, ready for AI.
+            We migrate and configure the data foundation behind real-time intelligence across every line of business —
+            built on a Clean Core, ready for AI.
           </p>
         </div>
 
@@ -245,25 +229,25 @@ function Capabilities() {
 }
 
 /* -------------------------------------------------------------- */
-/*  Why nextgenlytics — split image + stacked pillars              */
+/*  Why Nextgenlytics — split image + stacked pillars              */
 /* -------------------------------------------------------------- */
 function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
+      Icon: Database,
+      title: "Data-Led Migration, Proven at Scale",
+      body: "We cleanse, govern, and migrate your data during the move — evidenced by a live engagement across 4 countries and 250+ dealers, studios, and hotels, with data quality, engineering, and validation built in throughout.",
+    },
+    {
+      Icon: Path,
+      title: "Certified Partner Network + India ECC Team",
+      body: "We are transparent about how we deliver: Nextgenlytics leads the data and integration workstream, and full functional implementation is delivered through our certified partner network and India ECC team — one accountable programme, not a black box.",
+    },
+    {
       Icon: ShieldCheck,
       title: "Clean Core Strategy",
       body: "We build on standard SAP processes and modular extensions — keeping your system agile, upgrade-friendly, and ready for whatever AI innovation comes next.",
-    },
-    {
-      Icon: Database,
-      title: "Data-Led Migration",
-      body: "We cleanse, govern, and optimise your data during the move — ensuring your AI models are grounded in high-fidelity, trustworthy information from day one.",
-    },
-    {
-      Icon: Route,
-      title: "Proven Transition Paths",
-      body: "Whether Greenfield, Brownfield, or Selective Data Transition, we choose the migration approach that delivers maximum ROI with minimum disruption.",
     },
   ];
   return (
@@ -273,14 +257,14 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics
+              <CheckCircle size={14} /> Why Nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
-              Your foundation for an AI-native enterprise.
+              We lead the workstream that decides whether your migration succeeds.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              SAP S/4HANA is not just a new ERP — it is the foundation your AI strategy is built on.
-              We make sure that foundation is solid.
+              SAP S/4HANA is not just a new ERP — it is the foundation your AI strategy is built on. We make sure your
+              data gets there clean, governed, and on time.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -294,8 +278,8 @@ function WhyUs() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/10 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5">
-                <p className="text-primary-foreground text-sm font-semibold">Greenfield · Brownfield · Selective</p>
-                <p className="text-primary-foreground/80 text-xs mt-1">Migration paths tailored to your business.</p>
+                <p className="text-primary-foreground text-sm font-semibold">Data-Led Migration</p>
+                <p className="text-primary-foreground/80 text-xs mt-1">A migration path tailored to your business.</p>
               </div>
             </div>
 
@@ -303,7 +287,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to an SAP S/4HANA specialist
+              Talk to Our SAP Migration Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -354,7 +338,7 @@ function WhyUs() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/40" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Sparkles size={12} /> The nextgenlytics Difference
+                <Sparkle size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Clean Core means upgrade-ready for life.
@@ -376,16 +360,16 @@ function WhyUs() {
 /* -------------------------------------------------------------- */
 const faqs = [
   {
-    q: "What is SAP S/4HANA?",
-    a: "SAP S/4HANA is SAP's next-generation ERP suite, built on an in-memory database (SAP HANA) that enables real-time data processing, AI integration, and cloud deployment. It replaces traditional SAP ECC with a simplified data model, modern UI (SAP Fiori), and native AI capabilities including SAP Joule.",
+    q: "How does Nextgenlytics deliver an SAP S/4HANA migration?",
+    a: "Nextgenlytics leads the data migration and integration workstream — cleansing, mapping, and validating your legacy data — while full functional implementation is delivered through our certified partner network and India ECC team. It is one accountable programme with Nextgenlytics as your single point of contact, evidenced by a live engagement migrating 250+ dealers, studios, and hotels across 4 countries onto SAP S/4HANA Public Cloud.",
   },
   {
-    q: "What is the difference between SAP ECC and SAP S/4HANA?",
-    a: "SAP ECC runs on a traditional relational database with batch processing, while SAP S/4HANA uses an in-memory HANA database for real-time processing, a simplified data model, and built-in AI capabilities. SAP will end mainstream maintenance for ECC in 2027, making S/4HANA migration a strategic priority for every ECC customer.",
+    q: "Why does data migration matter so much for S/4HANA success?",
+    a: "Most S/4HANA programmes that stall or fail do so because of data — unclean legacy sources, mappings that break under real volume, or quality issues discovered too late to fix without delaying go-live. Getting the data layer right first is what determines whether the rest of the implementation goes smoothly.",
   },
   {
-    q: "What does Clean Core mean in SAP S/4HANA?",
-    a: "Clean Core is a SAP methodology that keeps the S/4HANA system standard and unmodified by moving all customisations to the SAP Business Technology Platform (BTP). This ensures the core ERP remains easy to upgrade and AI-ready, while custom business logic is maintained separately without accumulating technical debt.",
+    q: "How does Nextgenlytics keep our S/4HANA core clean and upgrade-ready?",
+    a: "We build on standard SAP processes and keep custom logic on SAP BTP rather than in the core — so your S/4HANA environment stays standard, easy to upgrade, and ready for AI innovation as it arrives, without accumulating technical debt.",
   },
 ];
 
@@ -397,7 +381,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -459,6 +443,7 @@ function Faq() {
 /*  Page                                                          */
 /* -------------------------------------------------------------- */
 export default function SapS4Hana() {
+  useDocumentTitle("SAP S/4HANA Data Migration & Implementation");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -467,14 +452,14 @@ export default function SapS4Hana() {
         <PageBanner
           image={bannerSap}
           eyebrow="Solutions · SAP"
-          title="SAP S/4HANA Implementation"
-          description="The intelligent ERP that runs your business in real time — and powers your AI strategy from the core."
+          title="SAP S/4HANA Data Migration & Implementation"
+          description="We lead the data migration and integration workstream that determines whether your S/4HANA programme succeeds — with full implementation delivered through our certified partner network and India ECC team."
         />
         <Intro />
         <SolutionHighlight
-          eyebrow="Lead with Data Migration"
-          headline="Lead with data migration — your strongest proof. Full S/4HANA implementation delivered via certified partner network and India ECC team."
-          evidence="Evidenced: Bed manufacturer — 4 countries, 250+ dealers/studios/hotels, 20+ month programme."
+          eyebrow="Data Migration & Implementation"
+          headline="We own the data — the layer that decides whether S/4HANA succeeds. Cleansing, mapping, and migrating your legacy estate, with full functional implementation delivered through our certified partner network and India ECC team."
+          evidence="Delivered for a bed manufacturer — 250+ dealers, studios & hotels across 4 countries, 20+ month transformation programme, migrated onto SAP S/4HANA Public Cloud."
         />
         <Capabilities />
         <WhyUs />

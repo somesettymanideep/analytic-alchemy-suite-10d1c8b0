@@ -1,8 +1,9 @@
-import logoAsset from "@/assets/logo.gif.asset.json";
-const logo = logoAsset.url;
-import footerBg from "@/assets/footer-bg.jpg";
+import { useRef, useState } from "react";
+import logoAsset from "@/assets/brand/logo.gif";
+const logo = logoAsset;
+import footerBg from "@/assets/brand/footer-bg.jpg";
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
+import { CaretDown, Envelope, LinkedinLogo, MapPin, Phone, TwitterLogo, YoutubeLogo } from "@phosphor-icons/react";
 
 const productLinks = [
   { label: "BlueGecko", to: "/products/bluegecko" },
@@ -12,10 +13,81 @@ const productLinks = [
   { label: "Orca Migrate", to: "/products/orca-migrate" },
 ];
 
-const companyLinks = [
-  { label: "About nextgenlytics", to: "/about" },
+const solutionsMenu = [
+  {
+    key: "sap",
+    label: "SAP Solutions",
+    items: [
+      { label: "SAP S/4HANA Data Migration & Implementation", to: "/solutions/sap-s4hana" },
+      { label: "SAP ECC Support, Optimisation & Migration", to: "/solutions/sap-ecc" },
+      { label: "RISE with SAP — Data Readiness & Migration", to: "/solutions/rise-with-sap" },
+      { label: "SAP Datasphere & Business Data Cloud", to: "/solutions/sap-business-data-cloud" },
+      { label: "SAP BTP Integration & Extension Services", to: "/solutions/sap-btp" },
+    ],
+  },
+  {
+    key: "microsoft",
+    label: "Microsoft Solutions",
+    items: [
+      { label: "D365 Finance & Operations — Implementation & AMS", to: "/solutions/microsoft-dynamics-365" },
+      { label: "Dynamics 365 Business Central — Migration & Implementation", to: "/solutions/business-central" },
+      { label: "Dynamics AX Migration & Modernisation to D365", to: "/solutions/dynamics-ax-migration" },
+      { label: "Microsoft Fabric Data Engineering & Analytics", to: "/solutions/microsoft-fabric-data-engineering" },
+    ],
+  },
+  {
+    key: "ai",
+    label: "AI Solutions",
+    items: [
+      { label: "ERP AI Agents — Powered by BlueGecko", to: "/solutions/erp-ai-agents-powered-by-blue-gecko" },
+      { label: "AI Strategy & Readiness Assessment", to: "/solutions/ai-strategy-and-readiness-assessment" },
+      { label: "Predictive & Prescriptive Analytics", to: "/solutions/predictive-and-prescriptive-analytics" },
+      { label: "Data-Led AI Transformation", to: "/solutions/data-led-ai-transformation" },
+      { label: "Conversational AI for SAP & D365", to: "/solutions/conversational-ai" },
+      { label: "AI-Powered Data Insights", to: "/solutions/ai-powered-data-insights" },
+      { label: "AI Testing & Validation", to: "/solutions/ai-testing-validation" },
+    ],
+  },
+  {
+    key: "data",
+    label: "Data Platform & Engineering",
+    items: [
+      { label: "Snowflake Data Platform Services", to: "/solutions/snowflake" },
+      { label: "Databricks Lakehouse Engineering", to: "/solutions/databricks" },
+      { label: "Microsoft Fabric Data Engineering", to: "/solutions/microsoft-fabric-data-engineering" },
+      { label: "SAP Analytics Cloud — Reporting & Insights", to: "/solutions/sap-analytics-cloud" },
+      { label: "Data Governance", to: "/solutions/data-governance" },
+      { label: "AI-Driven Organisation Training", to: "/solutions/ai-organisation-training" },
+      { label: "Data Maturity Assessment & Advisory", to: "/solutions/data-maturity-assessment" },
+    ],
+  },
+];
+
+const industriesLinks = [
+  { label: "Manufacturing", to: "/industries/manufacturing" },
+  { label: "Logistics & Supply Chain", to: "/industries/logistics" },
+  { label: "Retail & Wholesale", to: "/industries/retail" },
+  { label: "Healthcare", to: "/industries/healthcare" },
+  { label: "Financial Services", to: "/industries/financial-services" },
+  { label: "Staffing", to: "/industries/staffing" },
+  { label: "Energy & Utilities", to: "/industries/energy" },
+];
+
+const clientWorkLinks = [
+  { label: "All Case Studies", to: "/client-work" },
+  { label: "AMS Services", to: "/client-work/application-managed-services-d365" },
+  { label: "Data Maturity Assessment and Consulting", to: "/client-work/data-maturity-assessment-and-consulting" },
+  { label: "Ax2012 to SAP S/4HANA Data Migration", to: "/client-work/ax2012-to-sap-s4hana-data-migration" },
+  { label: "Unified Data & Analytics Platform", to: "/client-work/unified-data-and-analytics-platform" },
+];
+
+const edtLinks = [
+  { label: "Extended Delivery Team", to: "/edt" },
+];
+
+const aboutLinks = [
+  { label: "About Nextgenlytics", to: "/about" },
   { label: "Our Team", to: "/team" },
-  { label: "Case Study", to: "/case-study" },
   { label: "Careers", to: "/careers" },
 ];
 
@@ -25,9 +97,84 @@ const contactItems = [
     label: "B. Amsterdam, Johan Huizingalaan 763A, 1066 VH, Amsterdam",
     href: "https://maps.google.com/?q=B.+Amsterdam+Johan+Huizingalaan+763A",
   },
-  { Icon: Phone, label: "+31 (0) 20 123 4567", href: "tel:+31201234567" },
-  { Icon: Mail, label: "Info@nextgenlytics.com", href: "mailto:Info@nextgenlytics.com" },
+  { Icon: Phone, label: "+31 6 57 29 50 20", href: "tel:+31657295020" },
+  { Icon: Envelope, label: "Info@nextgenlytics.com", href: "mailto:Info@nextgenlytics.com" },
 ];
+
+function FooterSolutionsMenu() {
+  const [openKey, setOpenKey] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openCategory = (key: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenKey(key);
+  };
+  const scheduleClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpenKey(null), 150);
+  };
+
+  return (
+    <div>
+      <h4 className="text-primary-foreground font-semibold mb-4">Solutions</h4>
+      <ul className="space-y-1">
+        {solutionsMenu.map((cat) => {
+          const isOpen = openKey === cat.key;
+          return (
+            <li key={cat.key} onMouseEnter={() => openCategory(cat.key)} onMouseLeave={scheduleClose}>
+              <button
+                type="button"
+                onClick={() => setOpenKey((k) => (k === cat.key ? null : cat.key))}
+                aria-expanded={isOpen}
+                className="w-full flex items-center justify-between gap-2 text-sm py-1.5 text-left hover:text-accent transition-colors"
+              >
+                <span>{cat.label}</span>
+                <CaretDown
+                  size={14}
+                  className={`shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {isOpen && (
+                <ul className="pl-3 mb-2 space-y-1.5 border-l border-primary-foreground/10 animate-fade-in">
+                  {cat.items.map((item) => (
+                    <li key={item.to}>
+                      <Link
+                        to={item.to}
+                        className="text-xs text-primary-foreground/60 inline-block hover:text-accent hover:translate-x-1 transition-all duration-300"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+function FooterLinkColumn({ title, links }: { title: string; links: { label: string; to: string }[] }) {
+  return (
+    <div>
+      <h4 className="text-primary-foreground font-semibold mb-4">{title}</h4>
+      <ul className="space-y-2.5">
+        {links.map((link) => (
+          <li key={link.label}>
+            <Link
+              to={link.to}
+              className="text-sm inline-block hover:text-accent hover:translate-x-1 transition-all duration-300"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function Footer() {
   return (
@@ -48,18 +195,19 @@ export default function Footer() {
       />
 
       <div className="container relative">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <img src={logo} alt="nextgenlytics" className="h-20 rounded-lg mb-4 bg-white p-3 shadow-md" />
+            <img src={logo} alt="Nextgenlytics" className="h-20 rounded-lg mb-4 bg-white p-3 shadow-md" />
             <p className="text-sm leading-relaxed">
               AI-native data and transformation partner for mid-market enterprises.
             </p>
             <div className="flex gap-3 mt-5">
               {[
-                { Icon: Linkedin, href: "https://www.linkedin.com/company/nextgenlytics1/", label: "LinkedIn" },
-                { Icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-                { Icon: Mail, href: "mailto:hello@nextgenlytics.com", label: "Email" },
+                { Icon: LinkedinLogo, href: "https://www.linkedin.com/company/nextgenlytics1/", label: "LinkedIn" },
+                { Icon: TwitterLogo, href: "https://twitter.com", label: "TwitterLogo" },
+                { Icon: YoutubeLogo, href: "https://www.youtube.com/@Nextgenlytics", label: "YouTube" },
+                { Icon: Envelope, href: "mailto:hello@nextgenlytics.com", label: "Email" },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -75,11 +223,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Our Products */}
+          <FooterSolutionsMenu />
+          <FooterLinkColumn title="Our Products" links={productLinks} />
+          <FooterLinkColumn title="Industries" links={industriesLinks} />
+          <FooterLinkColumn title="Client Work" links={clientWorkLinks} />
+
+          {/* Extended Delivery Team — a standalone offering, kept separate from Client Work */}
           <div>
-            <h4 className="text-primary-foreground font-semibold mb-4">Our Products</h4>
+            <h4 className="text-primary-foreground font-semibold mb-4">Extended Delivery Team</h4>
             <ul className="space-y-2.5">
-              {productLinks.map((link) => (
+              {edtLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.to}
@@ -90,24 +243,12 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            <p className="mt-3 text-xs text-primary-foreground/50 leading-relaxed">
+              Dedicated India delivery, governed from Amsterdam.
+            </p>
           </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="text-primary-foreground font-semibold mb-4">Company</h4>
-            <ul className="space-y-2.5">
-              {companyLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    className="text-sm inline-block hover:text-accent hover:translate-x-1 transition-all duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterLinkColumn title="About" links={aboutLinks} />
 
           {/* Contact */}
           <div>
@@ -131,7 +272,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/40">
-          © {new Date().getFullYear()} nextgenlytics. All rights reserved.
+          © {new Date().getFullYear()} Nextgenlytics. All rights reserved.
         </div>
       </div>
     </footer>

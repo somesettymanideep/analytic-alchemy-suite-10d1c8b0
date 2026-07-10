@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight, Megaphone, ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen, CalendarBlank, CaretLeft, CaretRight, PuzzlePiece, RocketLaunch, type Icon as LucideIcon } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 type Announcement = {
+  Icon: LucideIcon | typeof AiChipIcon;
   message: string;
   cta: string;
   href: string;
@@ -10,27 +12,32 @@ type Announcement = {
 
 const announcements: Announcement[] = [
   {
-    message: "🚀 New: BlueGecko Platform v2 — accelerate SAP & D365 migrations by up to 50%",
+    Icon: RocketLaunch,
+    message: "New: BlueGecko Platform v2 — accelerate SAP & D365 migrations by up to 50%",
     cta: "Explore BlueGecko",
     href: "/products/bluegecko",
   },
   {
-    message: "🤖 Discover our AI Solutions — from AI Foundry to Databricks Genie & SAP Joule",
+    Icon: AiChipIcon,
+    message: "Discover our AI Solutions — from AI Foundry to Databricks Genie & SAP Joule",
     cta: "See AI Solutions",
-    href: "/solutions/ai-foundry",
+    href: "/solutions/ai-strategy-and-readiness-assessment",
   },
   {
-    message: "🧩 Meet your Extended Delivery Team — embedded engineers governed from Amsterdam",
+    Icon: PuzzlePiece,
+    message: "Meet your Extended Delivery Team — embedded engineers governed from Amsterdam",
     cta: "Visit EDT",
     href: "/edt",
   },
   {
-    message: "📖 New on the blog: SAP Clean Core in 2025 — what European enterprises must know",
+    Icon: BookOpen,
+    message: "New on the blog: SAP Clean Core in 2025 — what European enterprises must know",
     cta: "Read more",
     href: "/blog",
   },
   {
-    message: "📅 Ready to see it in action? Book a personalised demo with our team",
+    Icon: CalendarBlank,
+    message: "Ready to see it in action? Book a personalised demo with our team",
     cta: "Request a demo",
     href: "/contact",
   },
@@ -50,7 +57,6 @@ export default function AnnouncementBar() {
   return (
     <div className="bg-primary text-primary-foreground">
       <div className="container flex items-center gap-3 h-9 text-xs md:text-sm">
-        <Megaphone size={14} className="shrink-0 text-accent" />
         <div className="flex-1 overflow-hidden relative h-5">
           {announcements.map((item, i) => (
             <div
@@ -59,6 +65,7 @@ export default function AnnouncementBar() {
                 i === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
               }`}
             >
+              <item.Icon size={14} className="shrink-0 text-accent" />
               <span className="truncate">{item.message}</span>
               <Link
                 to={item.href}
@@ -83,14 +90,14 @@ export default function AnnouncementBar() {
             aria-label="Previous announcement"
             className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
           >
-            <ChevronLeft size={14} />
+            <CaretLeft size={14} />
           </button>
           <button
             onClick={next}
             aria-label="Next announcement"
             className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
           >
-            <ChevronRight size={14} />
+            <CaretRight size={14} />
           </button>
         </div>
       </div>

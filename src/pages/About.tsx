@@ -2,23 +2,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
-import aboutBanner from "@/assets/banner-about.jpg";
+import aboutBanner from "@/assets/banners/banner-about.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Building2,
-  Target,
-  Compass,
-  Globe2,
-  ShieldCheck,
-  Rocket,
-  Users,
-  Award,
-  TrendingUp,
-  Zap,
-  CheckCircle2,
-  MapPin,
-  Bot,
-} from "lucide-react";
+import { Buildings, CheckCircle, Compass, Globe, Lightning, MapPin, Medal, Robot, RocketLaunch, ShieldCheck, Target, TrendUp, Users } from "@phosphor-icons/react";
 
 /* -------------------------------------------------------------- */
 /*  Company Overview                                              */
@@ -28,7 +14,7 @@ function CompanyOverview() {
   const stats = [
     { value: "35+", label: "Specialists" },
     { value: "3", label: "Global hubs" },
-    { value: "20+", label: "Years SI heritage" },
+    { value: "20+", label: "Yrs founder SI experience" },
     { value: "100%", label: "Outcome-based" },
   ];
   return (
@@ -36,24 +22,23 @@ function CompanyOverview() {
       <div className="grid lg:grid-cols-12 gap-12 items-start">
         <div className={`lg:col-span-5 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Building2 size={14} /> Company Overview
+            <Buildings size={14} /> Company Overview
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            An Amsterdam-founded enterprise consultancy, built by SI veterans.
+            Redefining enterprise consultancy with veteran expertise and <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">AI-driven precision.</span>
           </h2>
         </div>
         <div className={`lg:col-span-7 space-y-5 ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
-            nextgenlytics is a next-generation enterprise consulting and services firm
-            specialising in <strong className="text-foreground">SAP, Microsoft, Data & AI,
-            and Cloud</strong> transformations. We pair Tier-1 system integrator
-            experience with our own delivery platform — <strong className="text-foreground">BlueGecko</strong> —
-            to make enterprise programmes faster, leaner, and predictable.
+            Nextgenlytics is a premier advisory firm established by industry veterans in <strong className="text-foreground">SAP, 
+            Microsoft, and Data & AI</strong>. We recognized that traditional integrators often rely on bloated staffing models 
+            and junior hand-offs, so we built an alternative: a boutique powerhouse that brings elite execution standards directly 
+            to the front lines of your transformation.
           </p>
           <p className="text-base text-muted-foreground leading-relaxed text-pretty">
-            Headquartered at <strong className="text-foreground">B. Amsterdam</strong>, with delivery
-            centres in <strong className="text-foreground">Hyderabad</strong> and <strong className="text-foreground">Lucknow</strong>,
-            we operate as a single, accountable team — not an offshore subcontracting chain.
+            By operating as a single, highly accountable unit, we eliminate the friction of conventional offshoring. 
+            Our engagement model is built strictly around measurable, outcome-driven success—ensuring your strategic vision 
+            is realised without compromise.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
             {stats.map((s) => (
@@ -82,14 +67,14 @@ function VisionMission() {
       icon: Compass,
       tag: "Our Vision",
       number: "01",
-      title: "Be Europe's most trusted enterprise transformation partner.",
-      body: "A consultancy where senior practitioners — not pyramids — deliver enterprise outcomes, powered by our own BlueGecko platform.",
-      pillars: ["Senior-led delivery", "Productised platform", "European trust"],
+      title: "To be Europe's premier partner for digital and enterprise transformation.",
+      body: "We envision a landscape where complex technological shifts are no longer viewed as high-risk endeavors, but as seamless catalysts for business growth.",
+      pillars: ["Outcome-focused", "Technological agility", "Unwavering trust"],
       proof: [
         { value: "100%", label: "Senior-led engagements" },
         { value: "3", label: "Global delivery hubs" },
-        { value: "20+", label: "Years SI heritage" },
-        { value: "9.4/10", label: "Client trust score" },
+        { value: "20+", label: "Yrs founder SI experience" },
+        { value: "99%", label: "Client satisfaction" },
       ],
       tone: "primary" as const,
     },
@@ -97,14 +82,14 @@ function VisionMission() {
       icon: Target,
       tag: "Our Mission",
       number: "02",
-      title: "Make enterprise migrations faster, leaner, and predictable.",
-      body: "We compress timelines and de-risk transformation by combining decades of SI expertise with productised delivery accelerators.",
-      pillars: ["Compress timelines", "De-risk cutovers", "Predictable outcomes"],
+      title: "To execute enterprise migrations with unprecedented speed, efficiency, and predictability.",
+      body: "We radically compress timelines and mitigate risks by fusing decades of strategic insight with advanced, productised accelerators, ensuring you realize value on day one.",
+      pillars: ["Compress timelines", "De-risk cutovers", "Maximize ROI"],
       proof: [
         { value: "50%", label: "Faster migrations" },
         { value: "35%", label: "Lower programme cost" },
-        { value: "<9 mo", label: "Avg. D365 go-live" },
-        { value: "98%", label: "On-time cutovers" },
+        { value: "90%", label: "Faster provisioning (PaaS)" },
+        { value: "50–70%", label: "Less reconciliation effort" },
       ],
       tone: "accent" as const,
     },
@@ -230,7 +215,7 @@ function VisionMission() {
                               : "border-primary/20 bg-primary/5 text-primary"
                           }`}
                         >
-                          <CheckCircle2 size={12} strokeWidth={2.5} />
+                          <CheckCircle size={12} strokeWidth={2.5} />
                           {p}
                         </li>
                       ))}
@@ -256,57 +241,57 @@ function OurJourney() {
     year: string;
     title: string;
     bullets: Bullet[];
-    icon: typeof Rocket;
+    icon: typeof RocketLaunch;
     highlight?: boolean;
   }[] = [
     {
       year: "2022",
       title: "Nextgenlytics founded",
       bullets: [{ text: "Founded in Amsterdam" }],
-      icon: Rocket,
+      icon: RocketLaunch,
     },
     {
       year: "2023",
-      title: "First customer & offshore hub",
+      title: "First Global Client & Expansion",
       bullets: [
         { text: "Onboarded 1st NL customer" },
         { text: "1st offshore delivery center: Hyderabad", highlight: true },
-        { text: "Advisory, Data Strategy, Data Analytics, Digital Transformation" },
+        { text: "Advisory, Data Strategy, Analytics, & Digital Transformation" },
       ],
-      icon: Building2,
+      icon: Buildings,
       highlight: true,
     },
     {
       year: "2024",
-      title: "AI & business applications",
+      title: "AI Integration & Business Applications",
       bullets: [
-        { text: "Expanded focus: implementing AI services" },
-        { text: "Business Application expertise & services: SAP, D365 & Salesforce" },
+        { text: "Expanded focus: implementing cutting-edge AI services" },
+        { text: "Business Application expertise: SAP, D365 & Salesforce" },
       ],
-      icon: Zap,
+      icon: Lightning,
     },
     {
       year: "2025",
-      title: "Global scale & BlueGecko",
+      title: "Global Scale & BlueGecko Launch",
       bullets: [
         { text: "Onboarded 1st UK customer" },
-        { text: "Launched Application Managed Services (AMS)", highlight: true },
+        { text: "Launched advanced Application Managed Services (AMS)", highlight: true },
         { text: "Cloud Infra Managed Services" },
-        { text: "2nd offshore delivery center: Lucknow", highlight: true },
-        { text: "Global launch of flagship platform: BlueGecko", highlight: true },
+        { text: "2nd offshore engineering hub: Lucknow", highlight: true },
+        { text: "Global launch of our flagship platform: BlueGecko", highlight: true },
       ],
-      icon: Globe2,
+      icon: Globe,
       highlight: true,
     },
     {
       year: "2026",
-      title: "AI Agents practice",
+      title: "Autonomous AI Agents Practice",
       bullets: [
-        { text: "Launched dedicated AI Agents practice", highlight: true },
+        { text: "Pioneered a dedicated Autonomous AI Agents practice", highlight: true },
         { text: "Autonomous agents for ERP, data, and operations workflows" },
-        { text: "Agentic capabilities embedded across BlueGecko" },
+        { text: "Integrated next-generation agentic capabilities across BlueGecko" },
       ],
-      icon: Bot,
+      icon: Robot,
       highlight: true,
     },
   ];
@@ -320,13 +305,13 @@ function OurJourney() {
       <div className="container">
         <div className={`max-w-2xl ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Rocket size={14} /> Our Journey
+            <RocketLaunch size={14} /> Our Journey
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             From founding insight to a productised delivery platform.
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            A short timeline of the milestones that shaped nextgenlytics into the firm it is today.
+            A short timeline of the milestones that shaped Nextgenlytics into the firm it is today.
           </p>
         </div>
 
@@ -611,15 +596,15 @@ function GlobalPresence() {
     {
       city: "Hyderabad",
       country: "India",
-      role: "Delivery Hub",
-      address: "Specialist engineering & delivery teams",
+      role: "Engineering Hub",
+      address: "Dedicated centre for engineering and delivery excellence",
       tag: "SAP · D365 · Cloud",
     },
     {
       city: "Lucknow",
       country: "India",
-      role: "Delivery Hub",
-      address: "Specialist engineering & AMS teams",
+      role: "Engineering Hub",
+      address: "Specialist centre for AI and AMS teams",
       tag: "Data & AI · AMS",
     },
   ];
@@ -628,14 +613,14 @@ function GlobalPresence() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Globe2 size={14} /> Global Presence
+            <Globe size={14} /> Global Presence
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            One team, three hubs, one accountable delivery model.
+            One unified team. Three global hubs. Absolute accountability.
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Onshore engagement orchestration in Amsterdam, paired with senior delivery
-            capacity across two Indian hubs — never subcontracted.
+            Strategic onshore orchestration in Amsterdam, seamlessly integrated with elite engineering 
+            capacity across our Indian hubs—ensuring uncompromising quality with zero subcontracting.
           </p>
         </div>
 
@@ -674,47 +659,47 @@ function GlobalPresence() {
 }
 
 /* -------------------------------------------------------------- */
-/*  Why Choose nextgenlytics                                      */
+/*  Why Choose Nextgenlytics                                      */
 /* -------------------------------------------------------------- */
 function WhyChoose() {
   const { ref, isVisible } = useScrollReveal();
   const reasons = [
     {
       icon: ShieldCheck,
-      title: "Senior-led delivery",
-      body: "Tier-1 SI veterans run engagements end-to-end. No pyramids, no surprise junior hand-offs.",
+      title: "Practitioner-Led Execution",
+      body: "Instead of armies of juniors learning on your dime, your transformation is driven directly by seasoned veterans. No pyramids, just elite expertise from day one.",
     },
     {
-      icon: Zap,
-      title: "BlueGecko platform",
-      body: "Productised accelerators compress migration timelines and de-risk cutovers.",
+      icon: Lightning,
+      title: "The BlueGecko Advantage",
+      body: "We replace manual effort with intelligent automation. Our proprietary platform radically speeds up your migration while engineering out the risks that cause projects to fail.",
     },
     {
       icon: Users,
-      title: "One accountable team",
-      body: "Onshore-orchestrated, never subcontracted. Single throat to choke across hubs.",
+      title: "Zero Outsourcing Friction",
+      body: "We operate as one seamless, highly accountable unit across Europe and India. No third-party subcontractors, no dropped handoffs—just one team fully invested in your success.",
     },
     {
-      icon: TrendingUp,
-      title: "Outcome-based engagements",
-      body: "Commercial models tied to measurable enterprise outcomes — not staff augmentation.",
+      icon: TrendUp,
+      title: "Outcome-Obsessed Partnerships",
+      body: "We don't just bill for hours; we commit to results. Our commercial models are strictly tied to the tangible business value and strategic goals we deliver.",
     },
     {
-      icon: Award,
-      title: "Specialist depth",
-      body: "Dedicated practices for SAP, Microsoft, Data & AI, Cloud and AMS — no generalists.",
+      icon: Medal,
+      title: "Masters, Not Generalists",
+      body: "We focus exclusively on what we do best: deploying deeply specialized, elite talent across SAP, Microsoft, and Data & AI ecosystems.",
     },
     {
-      icon: CheckCircle2,
-      title: "European delivery standards",
-      body: "EU-grade governance, security, and engagement quality across all three hubs.",
+      icon: CheckCircle,
+      title: "EU-Grade Integrity",
+      body: "Every engagement is anchored by rigorous European standards for data security, operational governance, and uncompromising delivery quality.",
     },
   ];
   return (
     <section id="why" className="container py-12 md:py-16" ref={ref}>
       <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-          <Award size={14} /> Why Choose nextgenlytics
+          <Medal size={14} /> Why Choose Nextgenlytics
         </span>
         <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
           Six reasons enterprises trust us with their transformations.
@@ -753,9 +738,9 @@ export default function About() {
       <main>
         <PageBanner
           image={aboutBanner}
-          eyebrow="About nextgenlytics"
-          title="Built by the people who ran these programmes."
-          description="Amsterdam-founded, globally delivered. We combine Tier-1 SI experience with our own BlueGecko platform to make enterprise migrations faster, leaner, and predictable."
+          eyebrow="About Nextgenlytics"
+          title="Enterprise transformations, engineered by experts."
+          description="Nextgenlytics accelerates digital journeys. We combine deep domain mastery with productised innovation to deliver complex migrations that are faster, leaner, and highly predictable."
         />
 
         <CompanyOverview />

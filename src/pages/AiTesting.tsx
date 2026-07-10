@@ -1,29 +1,15 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-ai-testing.jpg";
-import introImg from "@/assets/ai-testing-intro.jpg";
+import banner from "@/assets/banners/banner-ai-testing.jpg";
+import introImg from "@/assets/solutions/ai-testing-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  ShieldCheck,
-  Gauge,
-  Scale,
-  Bug,
-  RefreshCcw,
-  Activity,
-  ClipboardCheck,
-  Layers,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  ArrowRight,
-  ScanSearch,
-} from "lucide-react";
+import { ArrowRight, ArrowsCounterClockwise, Bug, CheckCircle, ClipboardText, Gauge, MagnifyingGlass, Minus, Plus, Pulse, Question, Scales, ShieldCheck, Sparkle, Stack } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -33,7 +19,7 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> AI Testing & Validation
+            <AiChipIcon size={14} /> AI Testing & Validation
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Trust your AI <span className="text-primary">before it touches your customers or your critical business processes.</span>
@@ -44,9 +30,11 @@ function Intro() {
             always obvious until it is too late.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics AI Testing</strong> provides a comprehensive validation framework
-            that ensures every AI agent, model, and LLM-powered workflow you deploy is accurate, safe, fair, and ready for
-            enterprise-scale use — before it ever reaches a live environment.
+            <strong className="text-foreground">Nextgenlytics AI Testing</strong> provides a comprehensive validation framework
+            — powered by our <strong className="text-foreground">Owl Sight</strong> anomaly-detection and reconciliation
+            engine — that ensures every AI agent, model, and LLM-powered workflow you deploy is accurate, safe, fair, and
+            ready for enterprise-scale use before it ever reaches a live environment. It applies to any AI implementation,
+            including BlueGecko agents, conversational AI, and third-party models.
           </p>
         </div>
 
@@ -83,7 +71,7 @@ function Framework() {
   const { ref, isVisible } = useScrollReveal();
   const items = [
     {
-      Icon: ScanSearch,
+      Icon: MagnifyingGlass,
       title: "LLM Output Evaluation",
       body: "We use automated LLM-as-a-judge frameworks to score AI responses for relevance, coherence, and factual accuracy — systematically catching hallucinations before they reach users or critical systems.",
     },
@@ -93,12 +81,12 @@ function Framework() {
       body: "We simulate prompt injection attacks and edge-case scenarios to verify that your AI cannot be manipulated into bypassing security protocols or surfacing sensitive information.",
     },
     {
-      Icon: Scale,
+      Icon: Scales,
       title: "Bias and Fairness Auditing",
       body: "We test models against diverse datasets to identify and mitigate algorithmic bias — ensuring your AI remains ethical and compliant with global regulations including the EU AI Act.",
     },
     {
-      Icon: RefreshCcw,
+      Icon: ArrowsCounterClockwise,
       title: "RAG Regression Testing",
       body: "When your internal data changes, we verify that your Retrieval-Augmented Generation systems continue to provide the correct context and accurate answers — without quality degradation.",
     },
@@ -114,7 +102,7 @@ function Framework() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <ClipboardCheck size={14} /> What Our AI Testing Framework Covers
+            <ClipboardText size={14} /> What Our AI Testing Framework Covers
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Accuracy, safety, fairness, and resilience — validated end to end.
@@ -150,17 +138,17 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Activity,
+      Icon: Pulse,
       title: "Continuous Drift Monitoring",
       body: "AI models degrade over time as your data changes. We build ongoing monitoring frameworks that ensure your AI performs just as well on day 300 as it did on day one.",
     },
     {
-      Icon: ClipboardCheck,
+      Icon: ClipboardText,
       title: "Compliance-Ready Audit Trails",
       body: "Every test generates a detailed, traceable audit trail — giving you the documentation required for regulated industries and the confidence to go live with board-level accountability.",
     },
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "From Experimental to Enterprise-Ready",
       body: "Whether you are deploying a small internal tool or a global consumer-facing agent, our testing frameworks scale to match the risk level and complexity of your AI application.",
     },
@@ -172,7 +160,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose nextgenlytics for AI Testing?
+              <CheckCircle size={14} /> Why Choose Nextgenlytics for AI Testing?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               AI you cannot trust is AI you cannot use. We make sure your AI earns that trust — before it goes live.
@@ -185,7 +173,7 @@ function WhyUs() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The nextgenlytics Difference
+                  <Sparkle size={12} /> The Nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   Validation engineered for enterprise-grade AI.
@@ -249,7 +237,7 @@ const faqs = [
   },
   {
     q: "What regulations does AI testing help with?",
-    a: "nextgenlytics AI Testing generates audit trails and bias assessments that support compliance with key AI regulations including the EU AI Act, GDPR, and industry-specific frameworks in financial services, healthcare, and other regulated sectors.",
+    a: "Nextgenlytics AI Testing generates audit trails and bias assessments that support compliance with key AI regulations including the EU AI Act, GDPR, and industry-specific frameworks in financial services, healthcare, and other regulated sectors.",
   },
 ];
 
@@ -261,7 +249,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -313,6 +301,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function AiTesting() {
+  useDocumentTitle("AI Testing & Validation");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />

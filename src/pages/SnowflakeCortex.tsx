@@ -1,29 +1,15 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-snowflake-cortex.jpg";
-import introImg from "@/assets/snowflake-cortex-intro.jpg";
+import banner from "@/assets/banners/banner-snowflake-cortex.jpg";
+import introImg from "@/assets/solutions/snowflake-cortex-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Snowflake,
-  Terminal,
-  MessageSquare,
-  FileSearch,
-  Image as ImageIcon,
-  ShieldCheck,
-  Lock,
-  Zap,
-  Eye,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, Chat, CheckCircle, Eye, FileMagnifyingGlass, Lightning, Lock, Minus, Plus, Question, ShieldCheck, Snowflake, Sparkle, TerminalWindow } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -33,20 +19,21 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Snowflake Cortex
+            <AiChipIcon size={14} /> AI-Powered Data Insights
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            AI that runs where your data already lives — <span className="text-primary">no movement, no risk, no complexity.</span>
+            Turn your governed data into insight — <span className="text-primary">automatically.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Moving data between systems to run AI on it is slow, expensive, and introduces security risk. Snowflake Cortex
-            eliminates that problem by bringing state-of-the-art generative AI and machine learning directly to your
-            governed data — inside Snowflake, where it already lives.
+            Your data platform holds the answers, but the insights sit locked inside it — waiting for someone to go
+            looking. Nextgenlytics builds an intelligent analytics layer on top of your governed Snowflake or Databricks
+            platform: AI-driven anomaly detection, pattern recognition, and automated insight delivery that reaches your
+            business teams without a data-team request.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> implements Cortex to help you build, deploy, and
-            scale AI applications that deliver real-time intelligence without ever taking your data outside the secure
-            Snowflake perimeter.
+            The service is <strong className="text-foreground">powered by Owl Sight</strong> for data quality and
+            governance, and runs AI in place on your platform — using each vendor's native engine, such as Snowflake
+            Cortex or Databricks ML, so your data never leaves its secure perimeter.
           </p>
         </div>
 
@@ -54,7 +41,7 @@ function Intro() {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-border/60">
             <img
               src={introImg}
-              alt="Snowflake Cortex AI running serverless inside the Snowflake data cloud"
+              alt="AI-powered data insights surfacing anomalies and patterns on a governed data platform"
               width={1280}
               height={896}
               loading="lazy"
@@ -67,8 +54,8 @@ function Intro() {
               <Snowflake size={20} />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">In-Place AI</p>
-              <p className="text-sm font-bold text-foreground font-heading">Zero Data Movement</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Powered by Owl Sight</p>
+              <p className="text-sm font-bold text-foreground font-heading">Quality-Assured Insight</p>
             </div>
           </div>
           <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-accent/20 blur-3xl -z-10" />
@@ -83,29 +70,29 @@ function Enables() {
   const { ref, isVisible } = useScrollReveal();
   const items = [
     {
-      Icon: Terminal,
-      title: "Serverless AI on Your Existing Data",
-      body: "Perform complex AI tasks — sentiment analysis, document summarisation, translation, and data extraction — using simple SQL commands on your existing Snowflake data, with no infrastructure setup required.",
+      Icon: Eye,
+      title: "Automated Anomaly Detection",
+      body: "We deploy models that continuously scan your data for outliers, errors, and emerging risks — surfacing the problems and opportunities that matter before they show up in a month-end report. Powered by Owl Sight's detection engine.",
     },
     {
-      Icon: MessageSquare,
-      title: "Conversational Analytics for Business Users",
-      body: "Cortex Analyst lets your business users explore structured data through natural language questions — delivering precise, governed answers without writing a single line of code.",
+      Icon: FileMagnifyingGlass,
+      title: "Pattern Recognition at Scale",
+      body: "Our models find the trends, correlations, and signals buried across your finance, operations, and supply-chain data — relationships far too subtle and numerous for manual analysis to catch.",
     },
     {
-      Icon: FileSearch,
-      title: "Intelligent Search Across Documents",
-      body: "We use Cortex Search to index your unstructured files — contracts, PDFs, reports — making them instantly queryable by AI and transforming static documents into dynamic knowledge assets.",
+      Icon: Chat,
+      title: "Insight Delivered to Business Teams",
+      body: "Insights are pushed to the people who act on them — in plain language, in the tools they already use — instead of waiting in a data-team backlog. Analytics becomes something everyone consumes, not just specialists.",
     },
     {
-      Icon: ImageIcon,
-      title: "Multimodal Intelligence",
-      body: "Beyond text, Cortex processes images and audio files — extracting structured insights from diverse media formats directly within your Snowflake environment.",
+      Icon: TerminalWindow,
+      title: "Runs Where Your Data Lives",
+      body: "AI executes in place on your governed Snowflake or Databricks platform, using each vendor's native engine — so there is no slow, risky, or costly movement of data to an external service.",
     },
     {
       Icon: ShieldCheck,
-      title: "Built-in AI Safety Guardrails",
-      body: "Cortex AI Guardrails ensure every AI response is filtered for sensitive content and aligned with your enterprise standards — nothing leaves your Snowflake governance boundary.",
+      title: "Quality & Governance Built In",
+      body: "Owl Sight underpins the service with continuous data-quality monitoring and governance — so every insight is grounded in clean, verified, access-controlled data, never a dirty or unauthorised source.",
     },
   ];
 
@@ -114,10 +101,10 @@ function Enables() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Snowflake size={14} /> What Snowflake Cortex Enables for Your Business
+            <Snowflake size={14} /> What AI-Powered Data Insights Delivers
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            Generative AI, conversational analytics, and multimodal intelligence — all in SQL.
+            Anomaly detection, pattern recognition, and automated insight — on data you can trust.
           </h2>
         </div>
 
@@ -150,19 +137,19 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
+      Icon: ShieldCheck,
+      title: "Powered by Owl Sight",
+      body: "Insight is only trustworthy when the data beneath it is. Owl Sight, our data-quality and governance engine, ensures every insight rests on clean, verified, continuously monitored data — not a silent data-quality problem.",
+    },
+    {
       Icon: Lock,
-      title: "Zero Data Movement",
-      body: "All AI inference and model activity stays within your Snowflake environment — your data never moves to an external service, maintaining full security and compliance at all times.",
+      title: "In-Place and Secure",
+      body: "AI runs inside your governed Snowflake or Databricks perimeter using native engines — no data movement to external services, full role-based access control, and complete auditability on every query.",
     },
     {
-      Icon: Zap,
-      title: "Rapid Time to Value",
-      body: "Snowflake's serverless infrastructure eliminates GPU management and complex infrastructure setup — we move your AI projects from pilot to production in weeks, not months.",
-    },
-    {
-      Icon: Eye,
-      title: "Fully Governed and Auditable",
-      body: "All AI-driven insights are governed by Snowflake's native role-based access controls, column-level security, and Horizon governance policies — complete transparency on every query.",
+      Icon: Lightning,
+      title: "Built for Business Teams",
+      body: "We deliver insight to decision-makers in plain language, embedded where they work — turning analytics from a specialist function into something the whole organisation can act on, fast.",
     },
   ];
 
@@ -172,26 +159,28 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose nextgenlytics for Snowflake Cortex?
+              <CheckCircle size={14} /> Why Choose Nextgenlytics for AI-Powered Insights?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
-              Your Snowflake data is already your most valuable asset. Cortex makes it intelligent.
+              Insight is only trustworthy when the data beneath it is — and that is where we start.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Zero data movement, serverless scale, and full governance — implemented and tuned by nextgenlytics.
+              A quality-first insights layer, powered by Owl Sight, running securely in place on your governed Snowflake or
+              Databricks platform.
             </p>
 
             <article className="mt-8 relative overflow-hidden rounded-2xl border border-border/60 shadow-lg bg-primary">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The nextgenlytics Difference
+                  <Sparkle size={12} /> The Nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
-                  Production-grade AI — inside your Snowflake perimeter.
+                  AI-powered insight on a governed foundation.
                 </h3>
                 <p className="mt-3 text-sm md:text-base text-primary-foreground/85 leading-relaxed">
-                  Cortex Analyst, Cortex Search, AI Guardrails, and multimodal pipelines — implemented end to end.
+                  Anomaly detection, pattern recognition, and automated delivery — powered by Owl Sight, running in place
+                  on Snowflake or Databricks.
                 </p>
               </div>
             </article>
@@ -227,7 +216,7 @@ function WhyUs() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Implement Snowflake Cortex
+              Talk to Our Data Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -240,16 +229,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is Snowflake Cortex?",
-    a: "Snowflake Cortex is a fully managed AI service within the Snowflake Data Cloud that provides direct access to leading Large Language Models and specialised AI functions — enabling organisations to run generative AI and machine learning on their governed data using SQL and Python, without moving data outside Snowflake.",
+    q: "What are AI-Powered Data Insights?",
+    a: "It is a Nextgenlytics service that adds an intelligent analytics layer on top of your governed data platform — automating anomaly detection, pattern recognition, and insight delivery so business teams receive relevant findings without commissioning bespoke analysis. It is powered by Owl Sight for data quality and governance.",
   },
   {
-    q: "How does Snowflake Cortex keep data secure?",
-    a: "Snowflake Cortex keeps all AI inference and model activity within the Snowflake governance boundary — meaning your data is never sent to external AI services, and all outputs are controlled by your existing role-based access and column-level security policies.",
+    q: "Which platforms does the service run on?",
+    a: "It runs in place on your governed Snowflake or Databricks platform, using each vendor's native AI and machine-learning engine — such as Snowflake Cortex or Databricks ML — as the underlying compute. Your data never leaves its secure perimeter, and Owl Sight ensures the quality of everything the models consume.",
   },
   {
-    q: "What types of AI tasks can Snowflake Cortex perform?",
-    a: "Snowflake Cortex supports a wide range of AI tasks including document summarisation, sentiment analysis, translation, natural language data querying, unstructured document search, and multimodal analysis of images and audio — all executable directly from SQL within your Snowflake environment.",
+    q: "How do you make sure the insights are trustworthy?",
+    a: "Trust starts with the data. Owl Sight continuously monitors quality, detects anomalies, and enforces governance, while all AI activity respects your existing role-based access and column-level security — so every insight is grounded in clean, authorised data with a full audit trail.",
   },
 ];
 
@@ -261,7 +250,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -313,6 +302,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function SnowflakeCortex() {
+  useDocumentTitle("AI-Powered Data Insights");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -322,7 +312,7 @@ export default function SnowflakeCortex() {
           image={banner}
           eyebrow="AI Solutions · AI-Powered Data Insights"
           title="AI-Powered Data Insights"
-          description="AI that runs where your data already lives — no movement, no risk, no complexity."
+          description="Intelligent analytics on your governed Snowflake or Databricks platform — AI-driven anomaly detection, pattern recognition, and automated insight delivery for business teams."
         />
         <Intro />
         <SolutionHighlight

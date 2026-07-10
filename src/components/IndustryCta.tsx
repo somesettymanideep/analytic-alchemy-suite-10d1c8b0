@@ -1,4 +1,4 @@
-import { Calendar, PlayCircle, Phone, ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarBlank, Phone, PlayCircle } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
@@ -11,7 +11,7 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
 
   const actions = [
     {
-      Icon: Calendar,
+      Icon: CalendarBlank,
       title: "Book a 30-min consultation",
       desc: "Strategic assessment with a senior partner.",
       href: "/contact",
@@ -66,14 +66,14 @@ export default function IndustryCta({ sector }: IndustryCtaProps) {
                 Ready to transform your {sector} operations?
               </h2>
               <p className="mt-5 text-primary-foreground/75 text-base md:text-lg leading-relaxed text-pretty max-w-md">
-                Talk to a nextgenlytics specialist who understands your sector.
+                Talk to a Nextgenlytics specialist who understands your sector.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-primary-foreground text-primary hover:shadow-xl active:scale-[0.97] transition-all"
                 >
-                  <Calendar size={16} /> Book Consultation
+                  <CalendarBlank size={16} /> Book Consultation
                 </Link>
                 <Link
                   to="/contact"

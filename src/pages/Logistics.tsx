@@ -3,22 +3,11 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
-import bannerLogistics from "@/assets/banner-logistics.jpg";
-import introAsset from "@/assets/logistics-intro.webp.asset.json";
-import expertiseImg from "@/assets/logistics-expertise.jpg";
+import bannerLogistics from "@/assets/banners/banner-logistics.jpg";
+import introAsset from "@/assets/industries/logistics-intro.webp";
+import expertiseImg from "@/assets/industries/logistics-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Truck,
-  Cog,
-  Sparkles,
-  Database,
-  LineChart,
-  CheckCircle2,
-  ArrowRight,
-  Route,
-  Eye,
-  Warehouse,
-} from "lucide-react";
+import { ArrowRight, ChartLine, CheckCircle, Database, Eye, Gear, Path, Sparkle, Truck, Warehouse } from "@phosphor-icons/react";
 
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
@@ -35,7 +24,7 @@ function Intro() {
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed text-pretty">
             In a world of constant disruption, static supply chains are a liability. Today's
             logistics leaders require total visibility, predictive agility, and a
-            "frictionless" flow of goods. At <strong className="text-foreground">nextgenlytics</strong>,
+            "frictionless" flow of goods. At <strong className="text-foreground">Nextgenlytics</strong>,
             we modernize your logistics operations by integrating advanced AI and real-time
             tracking into your Microsoft Dynamics 365 or SAP S/4HANA ecosystem. We help you
             move beyond traditional tracking to create an autonomous supply chain that
@@ -45,7 +34,7 @@ function Intro() {
         <div className={`relative ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" aria-hidden />
           <img
-            src={introAsset.url}
+            src={introAsset}
             alt="Global logistics network with AI-driven real-time tracking"
             loading="lazy"
             width={1280}
@@ -62,8 +51,8 @@ function KeyChallenges() {
   const { ref, isVisible } = useScrollReveal();
   const challenges = [
     {
-      Icon: Route,
-      title: "Inefficient Route & Fleet Utilization",
+      Icon: Path,
+      title: "Inefficient Path & Fleet Utilization",
       body: "Rising fuel costs and manual routing lead to increased delivery times and lower asset utilization. Every empty mile traveled impacts profitability and sustainability goals.",
     },
     {
@@ -82,7 +71,7 @@ function KeyChallenges() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Key Challenges
+            <Sparkle size={14} /> Key Challenges
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Key challenges in modern logistics
@@ -139,13 +128,13 @@ function OurExpertise() {
         </div>
         <div className={`order-1 lg:order-2 ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Our Expertise
+            <Gear size={14} /> Our Expertise
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             Building the foundation for the autonomous supply chain
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At nextgenlytics, we ensure that your logistics intelligence is as mobile as your fleet.
+            At Nextgenlytics, we ensure that your logistics intelligence is as mobile as your fleet.
             We provide expert AI and ERP implementation for logistics and transportation
             organizations managing complex global networks. Whether you are a 3PL provider, a
             freight forwarder, or a private fleet operator, we deliver the specialized AI Agents
@@ -154,7 +143,7 @@ function OurExpertise() {
           <ul className="mt-6 space-y-3">
             {points.map((p) => (
               <li key={p} className="flex items-start gap-3 text-sm text-foreground/90">
-                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" />
+                <CheckCircle size={18} className="text-accent shrink-0 mt-0.5" />
                 <span>{p}</span>
               </li>
             ))}
@@ -188,7 +177,7 @@ function PracticeAreas() {
       ],
     },
     {
-      Icon: LineChart,
+      Icon: ChartLine,
       tag: "Microsoft Dynamics 365",
       title: "Agile, AI-ready operations",
       items: [
@@ -212,7 +201,7 @@ function PracticeAreas() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Technology Practice Areas
+            <Gear size={14} /> Technology Practice Areas
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Specialized toolsets for supply chain transformation

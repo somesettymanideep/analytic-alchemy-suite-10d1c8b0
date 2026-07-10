@@ -1,14 +1,24 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import logoAsset from "@/assets/logo.gif.asset.json";
-const logo = logoAsset.url;
-import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy, Truck, ShoppingBag, HeartPulse, Landmark, Users, Zap, Boxes, Cloud, Sparkles, Server, Building2, UsersRound, PenLine, ScrollText, Video, RefreshCw, Microscope, LayoutGrid, Map, Code2, Eye, ArrowLeftRight, Mail } from "lucide-react";
+import logoAsset from "@/assets/brand/logo.gif";
+const logo = logoAsset;
+import { ArrowRight, ArrowsClockwise, Bank, Buildings, CaretDown, ChartBar, Cloud, Cpu, Database, Envelope, Factory, Gear, HardDrives, Heartbeat, Lightning, List, MagnifyingGlass, PencilLine, Scroll, Sparkle, SquaresFour, Tote, Truck, Users, VideoCamera, X } from "@phosphor-icons/react";
 import AnnouncementBar from "./AnnouncementBar";
+import bluegeckoMascot from "@/assets/products/bluegecko-mascot.png";
+import bluegeckoChatbot from "@/assets/products/bluegecko-chatbot.png";
+import falconMascot from "@/assets/products/falcon-mascot.png";
+import cheetahMascot from "@/assets/products/cheetah-running.png";
+import owlMascot from "@/assets/products/owl-reading.png";
+import orcaMascot from "@/assets/products/orca-jump.png";
+import sapLogo from "@/assets/logos/sap-v3.png";
+import microsoftLogo from "@/assets/logos/microsoft-glyph.png";
 
 type SolutionCategory = {
   key: string;
   label: string;
-  Icon: typeof Boxes;
+  Icon: typeof SquaresFour;
+  logo?: string;
+  tint?: string;
   items: { label: string; href: string }[];
 };
 
@@ -16,7 +26,8 @@ const solutionsMenu: SolutionCategory[] = [
   {
     key: "sap",
     label: "SAP Solutions",
-    Icon: Boxes,
+    Icon: SquaresFour,
+    logo: sapLogo,
     items: [
       { label: "SAP S/4HANA Data Migration & Implementation", href: "/solutions/sap-s4hana" },
       { label: "SAP ECC Support, Optimisation & Migration", href: "/solutions/sap-ecc" },
@@ -29,35 +40,38 @@ const solutionsMenu: SolutionCategory[] = [
     key: "microsoft",
     label: "Microsoft Solutions",
     Icon: Cloud,
+    logo: microsoftLogo,
     items: [
       { label: "D365 Finance & Operations — Implementation & AMS", href: "/solutions/microsoft-dynamics-365" },
       { label: "Dynamics 365 Business Central — Migration & Implementation", href: "/solutions/business-central" },
       { label: "Dynamics AX Migration & Modernisation to D365", href: "/solutions/dynamics-ax-migration" },
-      { label: "Microsoft Fabric Data Engineering & Analytics", href: "/solutions/microsoft-fabric" },
+      { label: "Microsoft Fabric Data Engineering & Analytics", href: "/solutions/microsoft-fabric-data-engineering" },
     ],
   },
   {
     key: "ai",
     label: "AI Solutions",
-    Icon: Sparkles,
+    Icon: Cpu,
+    tint: "bg-violet-500/15 text-violet-600",
     items: [
-      { label: "ERP AI Agents — Powered by BlueGecko", href: "/solutions/erp-ai-agents" },
-      { label: "AI Strategy & Readiness Assessment", href: "/solutions/ai-foundry" },
-      { label: "Predictive & Prescriptive Analytics", href: "/solutions/databricks-genie" },
+      { label: "ERP AI Agents — Powered by BlueGecko", href: "/solutions/erp-ai-agents-powered-by-blue-gecko" },
+      { label: "AI Strategy & Readiness Assessment", href: "/solutions/ai-strategy-and-readiness-assessment" },
+      { label: "Predictive & Prescriptive Analytics", href: "/solutions/predictive-and-prescriptive-analytics" },
       { label: "Data-Led AI Transformation", href: "/solutions/data-led-ai-transformation" },
-      { label: "Conversational AI for SAP & D365", href: "/solutions/sap-joule" },
-      { label: "AI-Powered Data Insights", href: "/solutions/snowflake-cortex" },
+      { label: "Conversational AI for SAP & D365", href: "/solutions/conversational-ai" },
+      { label: "AI-Powered Data Insights", href: "/solutions/ai-powered-data-insights" },
       { label: "AI Testing & Validation", href: "/solutions/ai-testing-validation" },
     ],
   },
   {
     key: "data",
-    label: "Data Flow Engineering",
-    Icon: Server,
+    label: "Data Platform & Engineering",
+    Icon: Database,
+    tint: "bg-teal-500/15 text-teal-600",
     items: [
       { label: "Snowflake Data Platform Services", href: "/solutions/snowflake" },
       { label: "Databricks Lakehouse Engineering", href: "/solutions/databricks" },
-      { label: "Microsoft Fabric Data Engineering", href: "/solutions/microsoft-fabric" },
+      { label: "Microsoft Fabric Data Engineering", href: "/solutions/microsoft-fabric-data-engineering" },
       { label: "SAP Analytics Cloud — Reporting & Insights", href: "/solutions/sap-analytics-cloud" },
       { label: "Data Governance", href: "/solutions/data-governance" },
       { label: "AI-Driven Organisation Training", href: "/solutions/ai-organisation-training" },
@@ -67,45 +81,62 @@ const solutionsMenu: SolutionCategory[] = [
 ];
 
 
-const insightsMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
-  { label: "Blogs", Icon: PenLine, href: "/blog" },
-  { label: "Whitepapers", Icon: ScrollText, href: "/whitepapers" },
-  { label: "Research", Icon: Microscope, href: "/research" },
+const insightsMenu: { label: string; Icon: typeof SquaresFour; href: string }[] = [
+  { label: "Blogs", Icon: PencilLine, href: "/blog" },
+  { label: "Whitepapers", Icon: Scroll, href: "/whitepapers" },
+  { label: "Research", Icon: MagnifyingGlass, href: "/research" },
 ];
 
-const aboutMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
-  { label: "About nextgenlytics", Icon: Building2, href: "/about" },
-  { label: "Our Team", Icon: UsersRound, href: "/team" },
-  { label: "Contact", Icon: Mail, href: "/contact" },
+const aboutMenu: { label: string; Icon: typeof SquaresFour; href: string }[] = [
+  { label: "About Nextgenlytics", Icon: Buildings, href: "/about" },
+  { label: "Our Team", Icon: Users, href: "/team" },
+  { label: "Contact", Icon: Envelope, href: "/contact" },
 ];
 
-const productsMenu: { label: string; Icon: typeof Boxes; href: string; subItems?: { label: string; Icon: typeof Boxes; href: string }[] }[] = [
+/** Pixel-accurate square crop of a mascot's face, found empirically per source image. */
+type MascotImage = { src: string; naturalSize: number; crop: { x: number; y: number; size: number } };
+
+const productsMenu: { label: string; image: MascotImage; viewImage?: MascotImage; href: string; subItems?: { label: string; image: MascotImage; href: string }[] }[] = [
   {
     label: "BlueGecko Platform",
-    Icon: LayoutGrid,
+    image: { src: bluegeckoMascot, naturalSize: 1024, crop: { x: 345, y: 30, size: 430 } },
+    viewImage: { src: bluegeckoChatbot, naturalSize: 500, crop: { x: 135, y: 55, size: 230 } },
     href: "/products/bluegecko",
     subItems: [
-      { label: "Falcon Mapping", Icon: Map, href: "/products/falcon-mapping" },
-      { label: "Code Cheetah", Icon: Code2, href: "/products/code-cheetah" },
-      { label: "Owl Sight", Icon: Eye, href: "/products/owl-sight" },
-      { label: "Orca Migrate", Icon: ArrowLeftRight, href: "/products/orca-migrate" },
+      { label: "Falcon Mapping", image: { src: falconMascot, naturalSize: 500, crop: { x: 35, y: 60, size: 155 } }, href: "/products/falcon-mapping" },
+      { label: "Code Cheetah", image: { src: cheetahMascot, naturalSize: 800, crop: { x: 60, y: 90, size: 280 } }, href: "/products/code-cheetah" },
+      { label: "Owl Sight", image: { src: owlMascot, naturalSize: 612, crop: { x: 55, y: 45, size: 195 } }, href: "/products/owl-sight" },
+      { label: "Orca Migrate", image: { src: orcaMascot, naturalSize: 455, crop: { x: 258, y: 172, size: 185 } }, href: "/products/orca-migrate" },
     ],
   },
 ];
 
-const clientWorkMenu: { label: string; Icon: typeof Boxes; href: string }[] = [
-  { label: "AMS Services", Icon: LifeBuoy, href: "/ams-services" },
-  { label: "Case Study", Icon: FileText, href: "/case-study" },
-];
+function MascotFace({ image, className }: { image: MascotImage; className: string }) {
+  const scale = 100 / image.crop.size; // renders crop.size px of source as 100% of the box
+  return (
+    <span className={`relative block overflow-hidden ${className}`}>
+      <img
+        src={image.src}
+        alt=""
+        className="absolute max-w-none"
+        style={{
+          width: `${image.naturalSize * scale}%`,
+          left: `${-image.crop.x * scale}%`,
+          top: `${-image.crop.y * scale}%`,
+        }}
+      />
+    </span>
+  );
+}
 
 const industriesMenu = [
   { label: "Manufacturing", desc: "Smart factories and connected operations.", Icon: Factory, href: "/industries/manufacturing" },
   { label: "Logistics & Supply Chain", desc: "End-to-end visibility and resilience.", Icon: Truck, href: "/industries/logistics" },
-  { label: "Retail & Wholesale", desc: "Omnichannel commerce and demand insight.", Icon: ShoppingBag, href: "/industries/retail" },
-  { label: "Healthcare", desc: "Patient-centric data and compliance.", Icon: HeartPulse, href: "/industries/healthcare" },
-  { label: "Financial Services", desc: "Secure, real-time financial intelligence.", Icon: Landmark, href: "/industries/financial-services" },
+  { label: "Retail & Wholesale", desc: "Omnichannel commerce and demand insight.", Icon: Tote, href: "/industries/retail" },
+  { label: "Healthcare", desc: "Patient-centric data and compliance.", Icon: Heartbeat, href: "/industries/healthcare" },
+  { label: "Financial Services", desc: "Secure, real-time financial intelligence.", Icon: Bank, href: "/industries/financial-services" },
   { label: "Staffing", desc: "Workforce analytics and talent operations.", Icon: Users, href: "/industries/staffing" },
-  { label: "Energy & Utilities", desc: "Sustainable, data-driven grid operations.", Icon: Zap, href: "/industries/energy" },
+  { label: "Energy & Utilities", desc: "Sustainable, data-driven grid operations.", Icon: Lightning, href: "/industries/energy" },
 ];
 
 const navLinks = [
@@ -114,13 +145,13 @@ const navLinks = [
   { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Extended Delivery Team", href: "/edt" },
-  { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
+  { label: "Client Work", href: "/client-work" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Careers", href: "/careers" },
 ];
 
-type MenuKey = "insights" | "about" | "products" | "clientWork" | "industries" | "solutions" | null;
+type MenuKey = "insights" | "about" | "products" | "industries" | "solutions" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -164,7 +195,7 @@ export default function Navbar() {
       <AnnouncementBar />
       <div className="container flex items-center justify-between h-16 md:h-20">
         <a href="/" className="flex items-center gap-2">
-          <img src={logo} alt="nextgenlytics" className="h-14 md:h-16 rounded" />
+          <img src={logo} alt="Nextgenlytics" className="h-14 md:h-16 rounded" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-6">
@@ -184,7 +215,7 @@ export default function Navbar() {
                   aria-expanded={openMenuKey === l.hasMenu}
                 >
                   {l.label}
-                  <ChevronDown
+                  <CaretDown
                     size={14}
                     className={`transition-transform duration-200 ${openMenuKey === l.hasMenu ? "rotate-180" : ""}`}
                   />
@@ -192,11 +223,11 @@ export default function Navbar() {
 
                 {openMenuKey === "insights" && l.hasMenu === "insights" && (
                   <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    className="absolute right-0 top-full mt-2 w-[min(320px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-3 animate-fade-in"
                     onMouseEnter={() => openMenu("insights")}
                     onMouseLeave={scheduleClose}
                   >
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 gap-2">
                       {insightsMenu.map((i) => (
                         <a
                           key={i.label}
@@ -242,11 +273,19 @@ export default function Navbar() {
                               }`}
                             >
                               <span
-                                className={`flex items-center justify-center w-9 h-9 rounded-lg shrink-0 transition-colors ${
-                                  active ? "bg-primary-foreground/15 text-primary-foreground" : "bg-primary/10 text-primary"
+                                className={`relative flex items-center justify-center w-9 h-9 rounded-lg shrink-0 overflow-hidden transition-colors ${
+                                  cat.logo
+                                    ? "bg-white shadow-sm"
+                                    : active
+                                    ? "bg-primary-foreground/15 text-primary-foreground"
+                                    : cat.tint ?? "bg-primary/10 text-primary"
                                 }`}
                               >
-                                <Icon size={18} />
+                                {cat.logo ? (
+                                  <img src={cat.logo} alt="" className="w-full h-full object-contain scale-110 p-0.5" />
+                                ) : (
+                                  <Icon size={18} strokeWidth={2.2} />
+                                )}
                               </span>
                               <span className="text-sm font-semibold flex-1">{cat.label}</span>
                               <ArrowRight
@@ -295,7 +334,7 @@ export default function Navbar() {
 
                 {openMenuKey === "about" && l.hasMenu === "about" && (
                   <div
-                    className="absolute right-0 top-full mt-2 w-[min(360px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    className="absolute right-0 top-full mt-2 w-[min(288px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-3 animate-fade-in"
                     onMouseEnter={() => openMenu("about")}
                     onMouseLeave={scheduleClose}
                   >
@@ -339,8 +378,8 @@ export default function Navbar() {
                           }
                           className="w-full flex items-center gap-4 rounded-2xl border border-border/60 p-4 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group mb-3 text-left"
                         >
-                          <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
-                            <parent.Icon size={24} />
+                          <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 overflow-hidden shrink-0">
+                            <MascotFace image={parent.image} className="h-10 w-10 rounded-lg" />
                           </span>
                           <span className="flex-1 min-w-0">
                             <span className="block text-base font-bold text-foreground group-hover:text-primary">
@@ -350,7 +389,7 @@ export default function Navbar() {
                               AI-powered data management platform — migration, mapping, ETL and quality unified in one place.
                             </span>
                           </span>
-                          <ChevronDown
+                          <CaretDown
                             size={18}
                             className={`text-accent shrink-0 transition-transform duration-200 ${expandedProduct === parent.label ? "rotate-180" : ""}`}
                           />
@@ -362,8 +401,8 @@ export default function Navbar() {
                               onClick={closeNow}
                               className="col-span-2 flex items-center gap-3 rounded-xl border border-primary/30 bg-primary/5 p-3 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 group"
                             >
-                              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                <parent.Icon size={18} />
+                              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 overflow-hidden shrink-0">
+                                <MascotFace image={parent.viewImage ?? parent.image} className="h-7 w-7 rounded-md" />
                               </span>
                               <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
                                 View {parent.label}
@@ -377,8 +416,8 @@ export default function Navbar() {
                                 onClick={closeNow}
                                 className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                               >
-                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                  <i.Icon size={18} />
+                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 overflow-hidden shrink-0">
+                                  <MascotFace image={i.image} className="h-7 w-7 rounded-md" />
                                 </span>
                                 <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
                                   {i.label}
@@ -390,33 +429,6 @@ export default function Navbar() {
                         )}
                       </div>
                     ))}
-                  </div>
-                )}
-
-                {openMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
-                  <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(440px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
-                    onMouseEnter={() => openMenu("clientWork")}
-                    onMouseLeave={scheduleClose}
-                  >
-                    <div className="grid grid-cols-1 gap-2">
-                      {clientWorkMenu.map(({ label, Icon, href }) => (
-                        <a
-                          key={label}
-                          href={href}
-                          onClick={closeNow}
-                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
-                        >
-                          <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                            <Icon size={18} />
-                          </span>
-                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1 whitespace-nowrap">
-                            {label}
-                          </span>
-                          <ArrowRight size={14} className="text-accent opacity-70" />
-                        </a>
-                      ))}
-                    </div>
                   </div>
                 )}
 
@@ -469,7 +481,7 @@ export default function Navbar() {
           className="lg:hidden p-2 text-foreground active:scale-95 transition-transform"
           aria-label="Toggle menu"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={24} /> : <List size={24} />}
         </button>
       </div>
 
@@ -486,7 +498,7 @@ export default function Navbar() {
                     className="w-full flex items-center justify-between text-sm font-medium text-foreground/80 py-2"
                   >
                     {l.label}
-                    <ChevronDown
+                    <CaretDown
                       size={16}
                       className={`transition-transform ${mobileMenuKey === l.hasMenu ? "rotate-180" : ""}`}
                     />
@@ -529,7 +541,13 @@ export default function Navbar() {
                                   : "bg-muted text-foreground/80"
                               }`}
                             >
-                              <Icon size={12} />
+                              {cat.logo ? (
+                                <span className="w-4 h-4 rounded bg-white overflow-hidden shrink-0 flex items-center justify-center">
+                                  <img src={cat.logo} alt="" className="w-full h-full object-contain p-0.5" />
+                                </span>
+                              ) : (
+                                <Icon size={13} strokeWidth={2.4} />
+                              )}
                               {cat.label}
                             </button>
                           );
@@ -588,10 +606,10 @@ export default function Navbar() {
                               className="w-full flex items-center justify-between py-2 text-sm font-semibold text-foreground/90"
                             >
                               <span className="flex items-center gap-2">
-                                <parent.Icon size={18} className="text-primary" />
+                                <MascotFace image={parent.image} className="h-5 w-5 rounded shrink-0" />
                                 <span>{parent.label}</span>
                               </span>
-                              <ChevronDown
+                              <CaretDown
                                 size={16}
                                 className={`text-accent transition-transform ${expandedProduct === parent.label ? "rotate-180" : ""}`}
                               />
@@ -608,7 +626,7 @@ export default function Navbar() {
                                     }}
                                     className="flex items-center gap-2 py-1.5 text-sm font-medium text-foreground/90"
                                   >
-                                    <parent.Icon size={14} className="text-primary" />
+                                    <MascotFace image={parent.viewImage ?? parent.image} className="h-4 w-4 rounded shrink-0" />
                                     <span>View {parent.label}</span>
                                   </a>
                                 </li>
@@ -623,34 +641,13 @@ export default function Navbar() {
                                       }}
                                       className="flex items-center gap-2 py-1.5 text-sm text-foreground/80"
                                     >
-                                      <i.Icon size={14} className="text-accent" />
+                                      <MascotFace image={i.image} className="h-4 w-4 rounded shrink-0" />
                                       <span>{i.label}</span>
                                     </a>
                                   </li>
                                 ))}
                               </ul>
                             )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {mobileMenuKey === "clientWork" && l.hasMenu === "clientWork" && (
-                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
-                      <ul>
-                        {clientWorkMenu.map(({ label, Icon, href }) => (
-                          <li key={label}>
-                            <a
-                              href={href}
-                              onClick={() => {
-                                setOpen(false);
-                                setMobileMenuKey(null);
-                              }}
-                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
-                            >
-                              <Icon size={16} className="text-primary" />
-                              <span>{label}</span>
-                            </a>
                           </li>
                         ))}
                       </ul>

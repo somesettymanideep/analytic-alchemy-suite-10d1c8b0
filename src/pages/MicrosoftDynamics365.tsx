@@ -1,58 +1,43 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import bannerD365 from "@/assets/banner-d365.jpg";
-import imgInsights from "@/assets/d365-customer-insights.jpg";
-import imgFinance from "@/assets/d365-finance-ops.jpg";
-import imgSupply from "@/assets/d365-supply-chain.jpg";
+import bannerD365 from "@/assets/banners/banner-d365.jpg";
+import imgInsights from "@/assets/solutions/d365-customer-insights.jpg";
+import imgFinance from "@/assets/solutions/d365-finance-ops.jpg";
+import imgSupply from "@/assets/solutions/d365-supply-chain.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Users,
-  Wallet,
-  Truck,
-  Wrench,
-  Bot,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Cloud,
-  Layers,
-  Database,
-  Workflow,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Cloud, Database, Minus, Plus, Question, Robot, Sparkle, Stack, TreeStructure, Truck, Users, Wallet, Wrench } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
-    { Icon: Cloud, value: "One Platform", label: "ERP + CRM unified" },
-    { Icon: Bot, value: "Copilot", label: "Native AI throughout" },
-    { Icon: Workflow, value: "12–24 wks", label: "Typical implementation" },
+    { Icon: Stack, value: "70+", label: "Legal entities supported" },
+    { Icon: Cloud, value: "9", label: "Countries live" },
+    { Icon: TreeStructure, value: "6", label: "ISVs integrated" },
   ];
   return (
     <section className="container py-12 md:py-16" ref={ref}>
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Microsoft Dynamics 365
+            <Sparkle size={14} /> D365 Finance & Operations — Implementation & AMS
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            One connected platform for <span className="text-primary">finance, sales, supply chain & operations</span> — powered by AI.
+            Implementation gets you live. <span className="text-primary">AMS keeps you running.</span> We do both.
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">Microsoft Dynamics 365</strong> is a suite of cloud-based ERP and CRM
-            applications that connects every part of your business — from customer-facing sales and marketing to back-office
-            finance and supply chain.
+            <strong className="text-foreground">Nextgenlytics delivers full-lifecycle Dynamics 365 Finance & Operations</strong> —
+            data migration, implementation, ISV integration, and ongoing Application Managed Services — across
+            multi-country, multi-entity landscapes.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> specialises in deploying and customising Dynamics 365
-            so that your teams work from a single source of truth — with AI doing the heavy lifting on decisions and automation.
+            This is our most evidenced Microsoft engagement: Nash Squared, 70+ legal entities across 9 countries, running
+            on 6 ISVs, supported end to end.
           </p>
         </div>
 
@@ -63,7 +48,7 @@ function Intro() {
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <Bot size={20} />
+              <Robot size={20} />
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Built-in</p>
@@ -97,9 +82,9 @@ function Delivers() {
 
   const services = [
     {
-      Icon: Users,
-      title: "AI-Powered Customer Insights",
-      body: "We connect Dynamics 365 Sales and Marketing to give your team AI-driven lead scoring, customer behaviour predictions, and automated campaign journeys — so every interaction moves the needle.",
+      Icon: Wrench,
+      title: "Application Managed Services",
+      body: "Our strongest Microsoft proof point: 70+ legal entities across 9 countries, 6 ISVs (Kofax, TAS/SKG, Lasernet, CMS, Nétive) — supported end to end across UK, Ireland, Netherlands, Belgium, Poland, Germany, the Americas, Canada, and India.",
     },
     {
       Icon: Wallet,
@@ -112,12 +97,12 @@ function Delivers() {
       body: "End-to-end visibility across your value chain. We configure predictive analytics to flag disruptions before they happen, and automation to keep warehouse and procurement running smoothly.",
     },
     {
-      Icon: Wrench,
-      title: "Next-Generation Field Service",
-      body: "AI-driven scheduling ensures your field teams have the right parts, the right information, and the right route — reducing repeat visits and improving customer satisfaction.",
+      Icon: Users,
+      title: "AI-Powered Customer Insights",
+      body: "We connect Dynamics 365 Sales and Marketing to give your team AI-driven lead scoring, customer behaviour predictions, and automated campaign journeys — so every interaction moves the needle.",
     },
     {
-      Icon: Bot,
+      Icon: Robot,
       title: "Microsoft Copilot Integration",
       body: "Dynamics 365 is built for Copilot. We enable your teams to draft emails, summarise cases, and generate reports using natural language — directly inside the tools they already use.",
     },
@@ -128,13 +113,13 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What nextgenlytics Delivers with Dynamics 365
+            <Sparkle size={14} /> What Nextgenlytics Delivers with D365 F&O
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            From customer engagement to back-office automation — in one suite
+            Implementation, integration, and the AMS that keeps it all running
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            A unified ERP and CRM foundation, optimised for AI-driven decisions and continuous productivity gains.
+            Live across multi-country, multi-entity landscapes — evidenced in production, not a slide deck.
           </p>
         </div>
 
@@ -210,12 +195,12 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "Full Microsoft Stack Expertise",
       body: "We synchronise Dynamics 365 with Microsoft 365, Azure, and the Power Platform — so data flows freely across your entire Microsoft environment without friction.",
     },
     {
-      Icon: Workflow,
+      Icon: TreeStructure,
       title: "Low-Code Extensibility",
       body: "Using the Power Platform, we build custom apps and automations on top of your Dynamics setup — solving unique business problems without heavy custom development costs.",
     },
@@ -232,13 +217,14 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics
+              <CheckCircle size={14} /> Why Nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
-              Your end-to-end Microsoft Dynamics 365 partner.
+              We stay after go-live. That's the difference.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              From strategy and implementation to AI enablement and ongoing optimisation.
+              Implementation, ISV integration, and AMS run by the same team — one accountable partner from
+              go-live through years of operation.
             </p>
 
             <div className="mt-8 relative rounded-3xl overflow-hidden shadow-xl border border-border/60">
@@ -254,7 +240,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a Dynamics 365 specialist
+              Talk to Our D365 F&O Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -294,7 +280,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Bot size={12} /> The nextgenlytics Difference
+                <Robot size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Where Dynamics 365 stops being software — and becomes your operating system for growth.
@@ -314,12 +300,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
+    q: "Do you support D365 F&O after go-live, or just implementation?",
+    a: "Both, run by the same team. Our Application Managed Services cover 70+ legal entities across 9 countries for Nash Squared, integrating 6 ISVs (Kofax, TAS/SKG, Lasernet, CMS, Nétive) into daily operations — one accountable partner from implementation through years of ongoing support.",
+  },
+  {
     q: "What is Microsoft Dynamics 365 used for?",
     a: "Microsoft Dynamics 365 is a cloud-based ERP and CRM platform used by enterprises to manage finance, supply chain, sales, customer service, and field operations in one connected system.",
   },
   {
     q: "How long does a Dynamics 365 implementation take?",
-    a: "A standard Dynamics 365 implementation with nextgenlytics typically ranges from 12 to 24 weeks depending on the scope, existing systems, and level of customisation required.",
+    a: "A standard Dynamics 365 implementation with Nextgenlytics typically ranges from 12 to 24 weeks depending on the scope, existing systems, and level of customisation required.",
   },
   {
     q: "Does Dynamics 365 work with Microsoft Copilot?",
@@ -335,7 +325,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -387,6 +377,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function MicrosoftDynamics365() {
+  useDocumentTitle("D365 Finance & Operations — Implementation & AMS");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -395,14 +386,14 @@ export default function MicrosoftDynamics365() {
         <PageBanner
           image={bannerD365}
           eyebrow="Solutions · Microsoft"
-          title="Microsoft Dynamics 365 Implementation"
-          description="One connected platform for finance, sales, supply chain, and operations — powered by AI."
+          title="D365 Finance & Operations — Implementation & AMS"
+          description="Full D365 F&O delivery — data migration, implementation, ISV integration, and ongoing Application Managed Services across multi-country, multi-entity landscapes."
         />
         <Intro />
         <SolutionHighlight
           eyebrow="Implementation & AMS"
           headline="Full D365 F&O delivery — data migration, implementation, ISV integration, and ongoing Application Managed Services across multi-country, multi-entity landscapes."
-          evidence="Evidenced: Nash Squared — 70+ legal entities, 9 countries, 6 ISVs (Kofax, TAS/SKG, Lasernet, CMS, Nétive). AMS running across UK, IE, NL, BE, PL, DE, Americas, Canada, India."
+          evidence="Delivered for Nash Squared — 70+ legal entities, 9 countries, 6 ISVs (Kofax, TAS/SKG, Lasernet, CMS, Nétive). AMS running across UK, Ireland, Netherlands, Belgium, Poland, Germany, the Americas, Canada, and India."
         />
         <Delivers />
         <WhyUs />

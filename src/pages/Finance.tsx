@@ -3,23 +3,12 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
-import bannerFinance from "@/assets/banner-finance.jpg";
-import intelligenceAsset from "@/assets/finance-intelligence.png.asset.json";
-const intelligenceImg = intelligenceAsset.url;
-import expertiseImg from "@/assets/finance-expertise.jpg";
+import bannerFinance from "@/assets/banners/banner-finance.jpg";
+import intelligenceAsset from "@/assets/industries/finance-intelligence.png";
+const intelligenceImg = intelligenceAsset;
+import expertiseImg from "@/assets/industries/finance-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Landmark,
-  Cog,
-  Sparkles,
-  Database,
-  LineChart,
-  CheckCircle2,
-  ArrowRight,
-  Server,
-  ShieldCheck,
-  AlertTriangle,
-} from "lucide-react";
+import { ArrowRight, Bank, ChartLine, CheckCircle, Database, Gear, HardDrives, ShieldCheck, Sparkle, Warning } from "@phosphor-icons/react";
 
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
@@ -28,7 +17,7 @@ function Intro() {
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className={isVisible ? "animate-reveal-up" : "opacity-0"}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Landmark size={14} /> Financial Services
+            <Bank size={14} /> Financial Services
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             Modernizing Capital Markets and Banking with Intelligent Finance
@@ -38,7 +27,7 @@ function Intro() {
             institution needs a digital core that outpaces the market. The financial services
             landscape is shifting from traditional transaction processing to real-time,
             data-driven intelligence. At{" "}
-            <strong className="text-foreground">nextgenlytics</strong>, we provide expert
+            <strong className="text-foreground">Nextgenlytics</strong>, we provide expert
             technology consulting for banks, NBFCs, and insurance firms. We help you navigate
             complex regulatory environments while transforming legacy systems into agile,
             AI-powered platforms that drive sustainable growth.
@@ -64,7 +53,7 @@ function KeyChallenges() {
   const { ref, isVisible } = useScrollReveal();
   const challenges = [
     {
-      Icon: Server,
+      Icon: HardDrives,
       title: "Legacy System Rigidity",
       body: "Outdated core banking and insurance systems hinder the ability to launch new digital products quickly, leading to lost market share to fintech competitors.",
     },
@@ -74,7 +63,7 @@ function KeyChallenges() {
       body: "Increasing global and local (RBI/SEBI) mandates for reporting and data residency require automated, high-precision audit trails and governance.",
     },
     {
-      Icon: AlertTriangle,
+      Icon: Warning,
       title: "Sophisticated Cyber & Fraud Risks",
       body: "As transactions move to real-time, traditional fraud detection methods fail to catch modern threats, risking both capital and customer trust.",
     },
@@ -84,7 +73,7 @@ function KeyChallenges() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Key Challenges
+            <Sparkle size={14} /> Key Challenges
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Key challenges in financial services
@@ -141,14 +130,14 @@ function OurExpertise() {
         </div>
         <div className={`order-1 lg:order-2 ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Our Expertise
+            <Gear size={14} /> Our Expertise
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             Building the foundation for secure, high-velocity finance
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At nextgenlytics, we ensure that your financial systems are secure, intelligent, and
-            future-ready. nextgenlytics provides expert AI, ERP, and data platform implementation
+            At Nextgenlytics, we ensure that your financial systems are secure, intelligent, and
+            future-ready. Nextgenlytics provides expert AI, ERP, and data platform implementation
             for financial institutions including banks, insurance companies, and fintech
             organizations. Whether you are modernizing core banking systems, enhancing fraud
             detection, or improving customer engagement, we deliver specialized AI Agents and
@@ -157,7 +146,7 @@ function OurExpertise() {
           <ul className="mt-6 space-y-3">
             {points.map((p) => (
               <li key={p} className="flex items-start gap-3 text-sm text-foreground/90">
-                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" />
+                <CheckCircle size={18} className="text-accent shrink-0 mt-0.5" />
                 <span>{p}</span>
               </li>
             ))}
@@ -191,7 +180,7 @@ function PracticeAreas() {
       ],
     },
     {
-      Icon: LineChart,
+      Icon: ChartLine,
       tag: "Microsoft Dynamics 365",
       title: "Agile, AI-ready operations",
       items: [
@@ -215,7 +204,7 @@ function PracticeAreas() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Technology Practice Areas
+            <Gear size={14} /> Technology Practice Areas
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Specialized toolsets for financial transformation

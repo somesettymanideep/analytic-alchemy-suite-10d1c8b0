@@ -6,52 +6,35 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Reveal from "@/components/Reveal";
 import { caseStudies, caseCategories } from "@/data/caseStudies";
-import {
-  BarChart3,
-  LineChart,
-  Cog,
-  DollarSign,
-  LifeBuoy,
-  ArrowRight,
-  Users,
-  Building2,
-  Globe,
-  Clock,
-  ShieldCheck,
-  TrendingUp,
-  FileText,
-  LayoutGrid,
-  Check,
-  Search,
-  Map as MapIcon,
-  Target as TargetIcon,
-  Cloud,
-} from "lucide-react";
+import { ArrowRight, ArrowsClockwise, Buildings, ChartBar, ChartLine, Check, Clock, Cloud, Compass, CurrencyDollar, FileText, Gear, Globe, Lifebuoy, MagnifyingGlass, MapTrifold as MapIcon, ShieldCheck, SquaresFour, Stack, Target as TargetIcon, TrendUp, Users } from "@phosphor-icons/react";
 
 const statIconMap: Record<string, typeof Users> = {
   users: Users,
-  building: Building2,
+  building: Buildings,
   globe: Globe,
   clock: Clock,
   shield: ShieldCheck,
-  trend: TrendingUp,
+  trend: TrendUp,
   file: FileText,
-  grid: LayoutGrid,
-  cog: Cog,
+  grid: SquaresFour,
+  cog: Gear,
   cloud: Cloud,
-  dollar: DollarSign,
-  search: Search,
+  dollar: CurrencyDollar,
+  search: MagnifyingGlass,
   map: MapIcon,
   target: TargetIcon,
 };
 
-const categoryIconMap: Record<string, typeof LifeBuoy> = {
-  all: LayoutGrid,
-  support: LifeBuoy,
-  analytics: LineChart,
-  automation: Cog,
-  finance: DollarSign,
-  "support-services": LifeBuoy,
+const categoryIconMap: Record<string, typeof Lifebuoy> = {
+  all: SquaresFour,
+  support: Lifebuoy,
+  analytics: ChartLine,
+  automation: Gear,
+  finance: CurrencyDollar,
+  "support-services": Lifebuoy,
+  "data-strategy": Compass,
+  migration: ArrowsClockwise,
+  "data-platform": Stack,
 };
 
 function CaseCard({ cs, index }: { cs: (typeof caseStudies)[number]; index: number }) {
@@ -70,7 +53,7 @@ function CaseCard({ cs, index }: { cs: (typeof caseStudies)[number]; index: numb
       <div className="md:col-span-7 p-6 md:p-8 flex flex-col">
         <div className="flex items-start gap-3 mb-2">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0 mt-0.5">
-            <BarChart3 size={18} />
+            <ChartBar size={18} />
           </span>
           <div>
             <div className="text-[11px] font-bold uppercase tracking-widest text-accent">
@@ -114,7 +97,7 @@ function CaseCard({ cs, index }: { cs: (typeof caseStudies)[number]; index: numb
 
         <div className="mt-auto flex justify-end">
           <Link
-            to={`/case-study/${cs.slug}`}
+            to={`/client-work/${cs.slug}`}
             className="inline-flex items-center gap-2 rounded-full border border-primary text-primary px-5 py-2 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
           >
             View Details <ArrowRight size={14} />
@@ -171,7 +154,7 @@ export default function CaseStudy() {
       <section className="container py-8 md:py-10">
         <Reveal className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
           {caseCategories.map((cat) => {
-            const Icon = categoryIconMap[cat.key] ?? LayoutGrid;
+            const Icon = categoryIconMap[cat.key] ?? SquaresFour;
             const active = filter === cat.key;
             return (
               <button

@@ -1,28 +1,14 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-databricks-genie.jpg";
-import introImg from "@/assets/databricks-genie-intro.jpg";
+import banner from "@/assets/banners/banner-databricks-genie.jpg";
+import introImg from "@/assets/solutions/databricks-genie-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  MessageSquare,
-  Languages,
-  ShieldCheck,
-  CheckCircle2,
-  Code2,
-  HelpCircle,
-  Plus,
-  Minus,
-  ArrowRight,
-  Users,
-  TrendingUp,
-  Building2,
-  Wand2,
-} from "lucide-react";
+import { ArrowRight, Buildings, Chat, CheckCircle, Code, MagicWand, Minus, Plus, Question, ShieldCheck, Sparkle, TrendUp, Users } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -32,19 +18,20 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Databricks Genie
+            <Sparkle size={14} /> Predictive &amp; Prescriptive Analytics
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            Ask your data a question. <span className="text-primary">Get a real answer — no SQL, no analyst required.</span>
+            Stop reporting the past. <span className="text-primary">Start shaping what happens next.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Most business intelligence tools are built for data analysts, not the executives and managers who actually need
-            the insights. Databricks Genie changes that — a context-aware data assistant that lets anyone in your organisation
-            ask complex business questions in plain English and receive accurate, visualised answers instantly.
+            Most analytics tells you what already happened. Nextgenlytics builds AI models that go further — anticipating
+            risk, surfacing opportunity, and recommending the next best action in real time, so your teams make decisions
+            before events force their hand.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> implements and customises Genie so it understands your
-            specific business terminology, data relationships, and governance requirements.
+            We build these models on your <strong className="text-foreground">governed ERP data</strong> — from SAP
+            S/4HANA and Dynamics 365 — using enterprise platforms such as Azure, Databricks, and Snowflake, so every
+            forecast is grounded in data you can trust.
           </p>
         </div>
 
@@ -52,7 +39,7 @@ function Intro() {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-border/60">
             <img
               src={introImg}
-              alt="Databricks Genie conversational analytics dashboard with natural language queries"
+              alt="Predictive and prescriptive analytics dashboard forecasting risk and recommending action"
               width={1280}
               height={896}
               loading="lazy"
@@ -62,11 +49,11 @@ function Intro() {
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <MessageSquare size={20} />
+              <Chat size={20} />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Ask in plain English</p>
-              <p className="text-sm font-bold text-foreground font-heading">Answers · Visualised · Governed</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Beyond dashboards</p>
+              <p className="text-sm font-bold text-foreground font-heading">Predict · Recommend · Act</p>
             </div>
           </div>
           <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-accent/20 blur-3xl -z-10" />
@@ -81,29 +68,29 @@ function Enables() {
   const { ref, isVisible } = useScrollReveal();
   const items = [
     {
-      Icon: MessageSquare,
-      title: "Conversational Access to Your Data",
-      body: "Business users — from executives to operations managers — can ask questions like 'What was our North American churn last quarter?' and get a precise, visualised answer without waiting for a data team request.",
+      Icon: TrendUp,
+      title: "Anticipate Risk Before It Hits",
+      body: "We build predictive models that forecast demand swings, cash-flow gaps, supplier disruption, and churn — giving your teams the lead time to act while the outcome can still be changed.",
     },
     {
-      Icon: Languages,
-      title: "Semantic Tuning for Your Business Language",
-      body: "We configure Genie Spaces with your company-specific terminology, common queries, and data relationships — so Genie understands your business language, not just standard SQL concepts.",
+      Icon: Sparkle,
+      title: "Surface Hidden Opportunity",
+      body: "Our models detect the patterns and signals buried in your finance, operations, and supply-chain data — turning raw ERP records into opportunities your dashboards would never reveal.",
+    },
+    {
+      Icon: MagicWand,
+      title: "Recommend the Next Best Action",
+      body: "Prescriptive analytics goes beyond prediction. Our models don't just tell you what will happen — they recommend the specific action to take, ranked by impact and confidence.",
     },
     {
       Icon: ShieldCheck,
-      title: "Governed and Secure by Default",
-      body: "Every Genie response is governed by your existing Databricks Unity Catalog security policies — users only see data they are authorised to access, with full compliance baked in.",
+      title: "Grounded in Governed ERP Data",
+      body: "Every model is built on clean, governed data from SAP S/4HANA and Dynamics 365 — so your forecasts reflect your real business, not disconnected spreadsheets. Evidenced across 40+ enterprise KPIs.",
     },
     {
-      Icon: CheckCircle2,
-      title: "Self-Correcting Query Logic",
-      body: "Genie reviews its own SQL logic before responding — verifying date ranges, join conditions, and data accuracy — so your teams can trust every answer they receive.",
-    },
-    {
-      Icon: Code2,
-      title: "AI-Assisted Data Engineering",
-      body: "For technical teams, Genie Code acts as an AI pair-programmer — helping build Lakeflow pipelines, optimise Spark queries, and automate ETL workflows through natural language.",
+      Icon: Code,
+      title: "Real-Time, on Enterprise Platforms",
+      body: "We engineer and operate these models on Azure, Databricks, and Snowflake — delivering insight in real time and embedding it where your teams already work, not in a report they have to go find.",
     },
   ];
 
@@ -112,10 +99,10 @@ function Enables() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Wand2 size={14} /> What Databricks Genie Enables
+            <MagicWand size={14} /> What Predictive &amp; Prescriptive Analytics Delivers
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            Self-service intelligence — for every role in your organisation.
+            From describing the past to deciding the future.
           </h2>
         </div>
 
@@ -148,19 +135,19 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
+      Icon: ShieldCheck,
+      title: "Predictions Built on Governed Data",
+      body: "A forecast is only as good as the data beneath it. We build on governed ERP foundations — evidenced by unifying 40+ KPIs for a manufacturer and standardising analytics across Nash Squared's D365 estate.",
+    },
+    {
+      Icon: Buildings,
+      title: "ERP-Native Models",
+      body: "We understand the business logic inside SAP and Dynamics 365 — so our models reason about cost centres, materials, and customers the way your business does, not as anonymous columns.",
+    },
+    {
       Icon: Users,
-      title: "Reduced Dependency on Data Teams",
-      body: "Self-service analytics for business leaders means fewer ad-hoc requests to your data engineering team — freeing them for higher-value work.",
-    },
-    {
-      Icon: TrendingUp,
-      title: "Smarter Over Time",
-      body: "We set up feedback loops so Genie learns from every interaction — continuously improving its accuracy and relevance to your specific business context.",
-    },
-    {
-      Icon: Building2,
-      title: "Works Across Industries",
-      body: "Whether you are a retailer tracking inventory or a fintech firm analysing market volatility, we build the custom Genie Skills to make your data work for your specific use case.",
+      title: "Your Stack, Not a Lock-In",
+      body: "We are platform-agnostic across Azure, Databricks, and Snowflake — building on the tools you already run and choosing the right engine for each workload, never forcing a single vendor.",
     },
   ];
 
@@ -170,26 +157,28 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose nextgenlytics for Databricks Genie?
+              <CheckCircle size={14} /> Why Choose Nextgenlytics for Predictive Analytics?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
-              Your data already has the answers. We make them accessible to everyone — not just your data team.
+              The best predictions come from the best data foundation — and we build both.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Implemented and tuned by nextgenlytics — governed by Unity Catalog, customised for your business, and continuously learning.
+              Data-first practitioners who ground every model in governed ERP data, understand your SAP and Dynamics
+              landscape, and build on the enterprise platform that fits your stack.
             </p>
 
             <article className="mt-8 relative overflow-hidden rounded-2xl border border-border/60 shadow-lg bg-primary">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The nextgenlytics Difference
+                  <Sparkle size={12} /> The Nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
-                  Conversational analytics. Real answers. Zero SQL.
+                  From descriptive dashboards to decisions.
                 </h3>
                 <p className="mt-3 text-sm md:text-base text-primary-foreground/85 leading-relaxed">
-                  Custom Genie Spaces, semantic tuning, and governance-first deployment — implemented end to end.
+                  Predictive forecasts and prescriptive recommendations, grounded in governed ERP data and delivered on
+                  Azure, Databricks, or Snowflake.
                 </p>
               </div>
             </article>
@@ -225,7 +214,7 @@ function WhyUs() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Deploy Databricks Genie
+              Talk to Our Data Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -238,16 +227,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is Databricks Genie?",
-    a: "Databricks Genie is a conversational AI data assistant within the Databricks AI/BI platform that allows business users to query complex datasets using plain English, receiving accurate, governed, and visualised answers without requiring SQL knowledge.",
+    q: "What is the difference between predictive and prescriptive analytics?",
+    a: "Predictive analytics forecasts what is likely to happen — such as demand, churn, or cash-flow risk — while prescriptive analytics goes a step further and recommends the specific action to take in response. Nextgenlytics builds both on your governed ERP data, so your teams move from insight to decision.",
   },
   {
-    q: "How does Databricks Genie handle data security?",
-    a: "Databricks Genie is natively integrated with Databricks Unity Catalog, meaning all responses respect your existing role-based access controls and data governance policies — users only see data they are authorised to access.",
+    q: "How is this different from standard BI dashboards?",
+    a: "Standard BI describes what already happened. Nextgenlytics builds AI models that anticipate risk, surface opportunity, and recommend action in real time — turning your data from a record of the past into a guide for the decisions ahead.",
   },
   {
-    q: "Can Databricks Genie understand company-specific terminology?",
-    a: "Yes. nextgenlytics configures custom Genie Spaces with your organisation's specific business terminology, example queries, and data relationships — ensuring Genie understands your business language, not just generic SQL patterns.",
+    q: "What platforms do you build predictive analytics on?",
+    a: "We are platform-agnostic and build on the enterprise tools you already run — including Microsoft Azure, Databricks, and Snowflake — always grounding the models in clean, governed data from your SAP S/4HANA and Dynamics 365 systems.",
   },
 ];
 
@@ -259,7 +248,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -311,6 +300,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function DatabricksGenie() {
+  useDocumentTitle("Predictive & Prescriptive Analytics");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -320,7 +310,7 @@ export default function DatabricksGenie() {
           image={banner}
           eyebrow="AI Solutions · Predictive & Prescriptive Analytics"
           title="Predictive & Prescriptive Analytics"
-          description="Ask your data a question. Get a real answer — no SQL, no analyst required."
+          description="AI models that go beyond descriptive dashboards — anticipating risk, surfacing opportunity, and recommending the next best action on your governed ERP data."
         />
         <Intro />
         <SolutionHighlight

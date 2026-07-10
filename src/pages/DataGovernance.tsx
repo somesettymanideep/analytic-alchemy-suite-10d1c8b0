@@ -1,17 +1,18 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import Reveal from "@/components/Reveal";
-import banner from "@/assets/banner-data-governance.jpg";
-import framework from "@/assets/governance-framework.jpg";
-import { ShieldCheck, Users, Gauge, GitBranch, ScrollText, Eye, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import banner from "@/assets/banners/banner-data-governance.jpg";
+import framework from "@/assets/solutions/governance-framework.jpg";
+import { ArrowRight, CheckCircle, Eye, Gauge, GitBranch, Scroll, ShieldCheck, Sparkle, Users } from "@phosphor-icons/react";
 
 const pillars = [
   { Icon: Users, title: "Data Ownership", body: "Clear accountability for every domain — owners, stewards, and decision rights defined and adopted across the business." },
   { Icon: Gauge, title: "Quality Standards", body: "Measurable quality rules for accuracy, completeness and timeliness — enforced through automated controls." },
   { Icon: GitBranch, title: "Lineage Tracking", body: "End-to-end visibility of how data moves and transforms — from source system through every downstream AI model." },
-  { Icon: ScrollText, title: "Compliance Controls", body: "Policy-driven controls aligned to GDPR, industry regulation, and internal audit — built into the platform, not bolted on." },
+  { Icon: Scroll, title: "Compliance Controls", body: "Policy-driven controls aligned to GDPR, industry regulation, and internal audit — built into the platform, not bolted on." },
 ];
 
 function Intro() {
@@ -20,7 +21,7 @@ function Intro() {
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <Reveal className="lg:col-span-7" variant="up">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Data Governance
+            <Sparkle size={14} /> Data Governance
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             The foundation of every AI programme — <span className="text-primary">governance first</span>, models second.
@@ -51,7 +52,7 @@ function Pillars() {
       <div className="container">
         <Reveal className="max-w-2xl mx-auto text-center">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <CheckCircle2 size={14} /> Four Pillars of AI-Ready Data
+            <CheckCircle size={14} /> Four Pillars of AI-Ready Data
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             A governance framework built for AI outcomes
@@ -112,7 +113,7 @@ function Evidence() {
           <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-lg bg-primary">
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
             <div className="relative p-8 text-primary-foreground">
-              <p className="text-[10px] uppercase tracking-widest text-accent font-semibold">The NGSIT view</p>
+              <p className="text-[10px] uppercase tracking-widest text-accent font-semibold">The Nextgenlytics View</p>
               <h3 className="mt-3 text-2xl font-bold font-heading">Governance is the entry point to AI.</h3>
               <p className="mt-3 text-primary-foreground/85 leading-relaxed">
                 Every AI programme we deliver starts with governance — because organisations that skip it fail.
@@ -127,6 +128,7 @@ function Evidence() {
 }
 
 export default function DataGovernance() {
+  useDocumentTitle("Data Governance");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />

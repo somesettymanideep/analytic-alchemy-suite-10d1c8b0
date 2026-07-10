@@ -2,10 +2,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import imgTeamCollab from "@/assets/careers/team-collab.jpg";
-import careersHeroAsset from "@/assets/careers/careers-hero.webp.asset.json";
+import careersHeroAsset from "@/assets/careers/careers-hero.webp";
 import imgLifeInside from "@/assets/careers/life-inside.jpg";
 import imgHiringHandshake from "@/assets/careers/hiring-handshake.jpg";
-import bannerCareers from "@/assets/banner-careers.jpg";
+import bannerCareers from "@/assets/banners/banner-careers.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -26,36 +26,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
-import {
-  ArrowRight,
-  ArrowLeft,
-  MapPin,
-  Calendar,
-  Users,
-  Target,
-  Lightbulb,
-  Globe,
-  TrendingUp,
-  Heart,
-  Send,
-  Database,
-  Layers,
-  Cpu,
-  Cloud,
-  BarChart3,
-  Search,
-  X,
-  Briefcase,
-  CheckCircle2,
-  Clock,
-} from "lucide-react";
+import { postFormData, ApiError } from "@/lib/api";
+import { ArrowLeft, ArrowRight, Briefcase, CalendarBlank, ChartBar, CheckCircle, Clock, Cloud, Cpu, Database, Globe, Heart, Lightbulb, MagnifyingGlass, MapPin, PaperPlaneRight, Stack, Target, TrendUp, Users, X } from "@phosphor-icons/react";
 
 const whyItems = [
   { Icon: Users, title: "People First", body: "A culture built on respect, trust, and collaboration." },
   { Icon: Target, title: "Purpose Driven", body: "Work on meaningful projects that create real impact." },
   { Icon: Lightbulb, title: "Future Ready", body: "Learning, innovation and growth at the core of everything we do." },
   { Icon: Globe, title: "Global Impact", body: "Collaborate across borders and industries." },
-  { Icon: TrendingUp, title: "Grow Together", body: "Continuous learning and clear career growth paths." },
+  { Icon: TrendUp, title: "Grow Together", body: "Continuous learning and clear career growth paths." },
   { Icon: Heart, title: "Well-being Matters", body: "We care for your well-being and work-life balance." },
 ];
 
@@ -97,7 +76,7 @@ const openJobs: Job[] = [
     ],
   },
   {
-    Icon: Layers,
+    Icon: Stack,
     title: "Solution Architect (D365)",
     dept: "Business Applications",
     location: "Hyderabad, India",
@@ -160,7 +139,7 @@ const openJobs: Job[] = [
     ],
   },
   {
-    Icon: BarChart3,
+    Icon: ChartBar,
     title: "Business Analyst",
     dept: "Consulting",
     location: "Amsterdam, Netherlands",
@@ -245,7 +224,7 @@ function Hero() {
           >
             <div className="relative aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl shadow-primary/15 ring-1 ring-border/60 animate-float-y-slow">
               <img
-                src={careersHeroAsset.url}
+                src={careersHeroAsset}
                 alt="Careers at Nextgenlytics"
                 className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-105"
                 loading="eager"
@@ -381,16 +360,16 @@ function OpenOpportunities() {
             {/* Filters */}
             <div className="flex flex-col gap-3">
               <div className="relative">
-                <Search
+                <MagnifyingGlass
                   size={16}
                   className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
                 />
                 <Input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search by title, department, location…"
+                  placeholder="MagnifyingGlass by title, department, location…"
                   className="pl-9 pr-9 h-10"
-                  aria-label="Search jobs"
+                  aria-label="MagnifyingGlass jobs"
                 />
                 {search && (
                   <button
@@ -500,7 +479,7 @@ function OpenOpportunities() {
                       <MapPin size={13} className="text-accent" /> {j.location}
                     </span>
                     <span className="inline-flex items-center gap-1.5">
-                      <Calendar size={13} className="text-accent" /> {j.exp}
+                      <CalendarBlank size={13} className="text-accent" /> {j.exp}
                     </span>
                   </div>
 
@@ -553,7 +532,7 @@ function OpenOpportunities() {
                   <MapPin size={13} className="text-accent" /> {activeJob.location}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Calendar size={13} className="text-accent" /> {activeJob.exp}
+                  <CalendarBlank size={13} className="text-accent" /> {activeJob.exp}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <Briefcase size={13} className="text-accent" /> {activeJob.type}
@@ -574,7 +553,7 @@ function OpenOpportunities() {
                 <ul className="mt-2 space-y-2">
                   {activeJob.responsibilities.map((r) => (
                     <li key={r} className="flex gap-2 text-sm text-foreground/80">
-                      <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
+                      <CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />
                       <span>{r}</span>
                     </li>
                   ))}
@@ -588,7 +567,7 @@ function OpenOpportunities() {
                 <ul className="mt-2 space-y-2">
                   {activeJob.requirements.map((r) => (
                     <li key={r} className="flex gap-2 text-sm text-foreground/80">
-                      <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
+                      <CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />
                       <span>{r}</span>
                     </li>
                   ))}
@@ -640,14 +619,37 @@ function ApplyDialog({ job, onClose }: { job: Job | null; onClose: () => void })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!resume) {
+      toast({ title: "Resume required", description: "Please attach your resume (PDF or DOCX)." });
+      return;
+    }
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 700));
-    setSubmitting(false);
-    toast({
-      title: "Application submitted",
-      description: `Thanks ${name.split(" ")[0] || ""}, we've received your application for ${job?.title}. Our team will be in touch shortly.`,
-    });
-    onClose();
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("role", job?.title ?? "");
+      if (phone) formData.append("phone", phone);
+      if (linkedin) formData.append("linkedin", linkedin);
+      if (experience) formData.append("experience", experience);
+      if (message) formData.append("message", message);
+      formData.append("resume", resume);
+
+      await postFormData("/api/forms/careers", formData);
+
+      toast({
+        title: "Application submitted",
+        description: `Thanks ${name.split(" ")[0] || ""}, we've received your application for ${job?.title}. Our team will be in touch shortly.`,
+      });
+      onClose();
+    } catch (err) {
+      toast({
+        title: "Submission failed",
+        description: err instanceof ApiError ? err.message : "Please try again in a moment.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -690,11 +692,12 @@ function ApplyDialog({ job, onClose }: { job: Job | null; onClose: () => void })
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="apply-resume" className="text-xs">Resume / CV (PDF, DOC)</Label>
+                <Label htmlFor="apply-resume" className="text-xs">Resume / CV (PDF, DOCX) *</Label>
                 <Input
                   id="apply-resume"
                   type="file"
-                  accept=".pdf,.doc,.docx"
+                  required
+                  accept=".pdf,.docx"
                   onChange={(e) => setResume(e.target.files?.[0] ?? null)}
                   className="cursor-pointer file:mr-3 file:rounded-md file:border-0 file:bg-primary/10 file:px-3 file:py-1 file:text-xs file:font-semibold file:text-primary"
                 />
@@ -727,7 +730,7 @@ function ApplyDialog({ job, onClose }: { job: Job | null; onClose: () => void })
                   disabled={submitting}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all disabled:opacity-60"
                 >
-                  {submitting ? "Submitting…" : (<>Submit Application <Send size={14} /></>)}
+                  {submitting ? "Submitting…" : (<>Submit Application <PaperPlaneRight size={14} /></>)}
                 </button>
               </div>
             </form>
@@ -816,7 +819,7 @@ function ImpactCta() {
       >
         <div className="relative flex flex-col md:flex-row md:items-center gap-6">
           <div className="inline-flex items-center justify-center w-14 h-14 shrink-0 rounded-full border-2 border-accent text-accent">
-            <Send size={22} />
+            <PaperPlaneRight size={22} />
           </div>
           <div className="flex-1">
             <h3 className="text-xl md:text-2xl font-heading font-bold leading-tight">

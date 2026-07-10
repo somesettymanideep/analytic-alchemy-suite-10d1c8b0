@@ -1,28 +1,15 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-data-led-ai.jpg";
-import introImg from "@/assets/data-led-ai-intro.jpg";
+import banner from "@/assets/banners/banner-data-led-ai.jpg";
+import introImg from "@/assets/solutions/data-led-ai-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Database,
-  ShieldCheck,
-  Layers,
-  TrendingUp,
-  CheckCircle2,
-  Rocket,
-  Boxes,
-  Workflow,
-  HelpCircle,
-  Plus,
-  Minus,
-  ArrowRight,
-  Building2,
-} from "lucide-react";
+import { ArrowRight, Buildings, CheckCircle, Database, Minus, Plus, Question, RocketLaunch, ShieldCheck, Sparkle, SquaresFour, Stack, TreeStructure, TrendUp } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -32,7 +19,7 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Data-Led AI Transformation
+            <AiChipIcon size={14} /> Data-Led AI Transformation
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Great AI starts with great data. <span className="text-primary">We build both — together.</span>
@@ -42,7 +29,7 @@ function Intro() {
             of the AI itself — they are failing because their data is fragmented, ungoverned, or simply not ready.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> does not just connect AI tools to your existing
+            <strong className="text-foreground">Nextgenlytics</strong> does not just connect AI tools to your existing
             systems. We fix the data foundation first, then build AI on top of it — ensuring every insight is accurate,
             every decision is grounded in reality, and every AI agent operates with full contextual awareness of your business.
           </p>
@@ -62,7 +49,7 @@ function Intro() {
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <Boxes size={20} />
+              <SquaresFour size={20} />
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Foundation First</p>
@@ -91,12 +78,12 @@ function Framework() {
       body: "Using Microsoft Purview or Databricks Unity Catalog, we implement governance frameworks that ensure your AI agents always respect data privacy, lineage, and compliance requirements — automatically.",
     },
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "Semantic Layer Development",
       body: "We build the contextual bridge between your raw data and your AI — defining clear relationships between ERP entities like customers, suppliers, and cost centres so AI understands your business logic.",
     },
     {
-      Icon: TrendingUp,
+      Icon: TrendUp,
       title: "Predictive and Prescriptive Pipelines",
       body: "We move you beyond historical reporting. Your systems learn to forecast what will happen next and recommend the best course of action — turning data from a record of the past into a guide for the future.",
     },
@@ -107,7 +94,7 @@ function Framework() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Workflow size={14} /> Our Data-Led AI Transformation Framework
+            <TreeStructure size={14} /> Our Data-Led AI Transformation Framework
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Four foundations. One AI-ready enterprise.
@@ -143,17 +130,17 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Rocket,
+      Icon: RocketLaunch,
       title: "Strategy Meets Execution",
       body: "We do not hand over a slide deck and wish you luck. We build the actual data pipelines, governance frameworks, and AI models that make your transformation real.",
     },
     {
-      Icon: Building2,
+      Icon: Buildings,
       title: "ERP-Native Expertise",
       body: "We understand the specific complexities of Dynamics 365 and SAP environments — ensuring your AI transformation integrates seamlessly with your core business logic and existing workflows.",
     },
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "Model-Agnostic Foundation",
       body: "The data foundation we build today is compatible with the AI models of tomorrow — so your investment is never locked to a single vendor or technology.",
     },
@@ -165,7 +152,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose nextgenlytics for AI Transformation?
+              <CheckCircle size={14} /> Why Choose Nextgenlytics for AI Transformation?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               The businesses that win with AI are the ones with the best data foundations.
@@ -178,7 +165,7 @@ function WhyUs() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The nextgenlytics Difference
+                  <Sparkle size={12} /> The Nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                   We build both the data foundation and the AI on top.
@@ -238,11 +225,11 @@ const faqs = [
   },
   {
     q: "Why is data governance important for AI?",
-    a: "Without proper data governance, AI models can produce inaccurate, biased, or non-compliant outputs. nextgenlytics implements governance frameworks that ensure AI agents always operate on clean, authorised, and lineage-tracked data.",
+    a: "Without proper data governance, AI models can produce inaccurate, biased, or non-compliant outputs. Nextgenlytics implements governance frameworks that ensure AI agents always operate on clean, authorised, and lineage-tracked data.",
   },
   {
-    q: "How does nextgenlytics approach AI transformation differently?",
-    a: "Unlike consultancies that deliver strategy frameworks only, nextgenlytics builds the actual data pipelines, semantic layers, and AI models — providing both strategic direction and hands-on technical execution.",
+    q: "How does Nextgenlytics approach AI transformation differently?",
+    a: "Unlike consultancies that deliver strategy frameworks only, Nextgenlytics builds the actual data pipelines, semantic layers, and AI models — providing both strategic direction and hands-on technical execution.",
   },
 ];
 
@@ -254,7 +241,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -306,6 +293,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function DataLedAi() {
+  useDocumentTitle("Data-Led AI Transformation");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -321,7 +309,7 @@ export default function DataLedAi() {
         <SolutionHighlight
           eyebrow="Data-Led AI Transformation"
           headline="AI is only as good as the data underneath it. We assess your data estate, design your AI architecture, and execute — from governed data foundation to production AI in one integrated programme."
-          evidence="NGSIT has been a data-first AI practitioner since 2021. Every AI programme we run starts with data governance, not model selection. This is our core positioning."
+          evidence="Nextgenlytics has been a data-first AI practitioner since 2021. Every AI programme we run starts with data governance, not model selection. This is our core positioning."
         />
         <Framework />
         <WhyUs />

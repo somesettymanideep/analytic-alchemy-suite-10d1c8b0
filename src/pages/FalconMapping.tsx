@@ -3,99 +3,80 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
-import mascotAsset from "@/assets/falcon-mascot.png.asset.json";
-import flyingAsset from "@/assets/falcon-flying.png.asset.json";
-import {
-  ArrowRight,
-  Sparkles,
-  Zap,
-  ShieldCheck,
-  Layers,
-  Search,
-  Lightbulb,
-  CheckCircle2,
-  Rocket,
-  Plug,
-  Building2,
-  Database,
-  Users,
-  Boxes,
-  GitMerge,
-  FileCheck,
-  Warehouse,
-  BarChart3,
-  Briefcase,
-  Package,
-  Cpu,
-} from "lucide-react";
+import mascotAsset from "@/assets/products/falcon-mascot.png";
+import flyingAsset from "@/assets/products/falcon-flying.png";
+import sapLogo from "@/assets/logos/sap-v3.png";
+import oracleLogo from "@/assets/logos/oracle-v3.png";
+import salesforceLogo from "@/assets/logos/salesforce-v3.svg";
+import dynamics365Logo from "@/assets/logos/dynamics365-v3.svg";
+import ibmLogo from "@/assets/logos/ibm-v3.svg";
+import odooLogo from "@/assets/logos/odoo-v3.svg";
+import { ArrowRight, Briefcase, Buildings, ChartBar, CheckCircle, CloudArrowUp, Cpu, FileText, GitMerge, Lightning, MagnifyingGlass, Plug, RocketLaunch, ShieldCheck, SquaresFour, Stack, Users, Warehouse } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 const highlights = [
-  { Icon: Sparkles, title: "AI-Powered Mapping", body: "Auto-suggests mappings with high accuracy" },
-  { Icon: Zap, title: "Accelerated Delivery", body: "Reduce mapping time by up to 60%" },
-  { Icon: ShieldCheck, title: "End-to-End Governance", body: "Built-in standards, approvals & audit" },
-  { Icon: Layers, title: "Scalable & Flexible", body: "Handle complex migrations at scale" },
+  { Icon: AiChipIcon, title: "AI-Powered Mapping", body: "Bluegecko AI auto-suggests mappings with confidence scores" },
+  { Icon: Lightning, title: "Accelerated Delivery", body: "65% faster source-to-target mapping" },
+  { Icon: ShieldCheck, title: "Built-In Data Governance", body: "Owner, steward & load-sequence assignment per object" },
+  { Icon: Stack, title: "Lineage-Aware Code Gen", body: "Auto-generates SQL, PySpark & SSIS from confirmed mappings" },
 ];
 
 const capabilities = [
   {
-    Icon: Sparkles,
-    title: "AI-Guided Mapping Suggestions",
-    body: "Leverage machine learning to analyze metadata, identify relationships and recommend accurate mappings.",
-  },
-  {
-    Icon: Database,
-    title: "Centralized Mapping Repository",
-    body: "Maintain a single source of truth for all mappings with versioning, reusability and lineage tracking.",
-  },
-  {
-    Icon: ShieldCheck,
-    title: "Governance & Compliance",
-    body: "Enforce mapping standards, approvals and change controls to ensure consistency and compliance.",
-  },
-  {
     Icon: Users,
-    title: "Collaboration & Productivity",
-    body: "Enable business & technical teams to collaborate in real time with role-based access and workflows.",
+    title: "Data Governance",
+    body: "Assign Data Owner, Functional Consultant, Data Steward, PM and Data Engineer per object — and set the migration load sequence so dependencies load in the right order.",
+  },
+  {
+    Icon: GitMerge,
+    title: "Business Context & Lineage",
+    body: "Understand the full data journey, field by field. Bluegecko AI embeds business rules, domain glossary, and compliance context directly into every mapping decision.",
+  },
+  {
+    Icon: Cpu,
+    title: "Lineage-Aware AI Code Generation",
+    body: "Once mappings are confirmed, Bluegecko AI generates production-ready transformation code — SQL, PySpark, or SSIS — automatically from your mapping definitions.",
   },
 ];
 
 const steps = [
-  { Icon: Plug, title: "Connect", body: "Connect to source and target systems" },
-  { Icon: Search, title: "Discover", body: "Automatically discover metadata & structures" },
-  { Icon: Lightbulb, title: "Suggest", body: "AI suggests mappings and transformations" },
-  { Icon: CheckCircle2, title: "Validate", body: "Business review, validate & approve" },
-  { Icon: Rocket, title: "Deploy", body: "Generate mappings for ETL / ELT pipelines" },
+  { Icon: Buildings, title: "Define the Scope", body: "Organisation & systems" },
+  { Icon: ShieldCheck, title: "Govern Your Data", body: "Ownership & load order" },
+  { Icon: Plug, title: "Connect Systems", body: "Source & target databases" },
+  { Icon: CloudArrowUp, title: "Upload & Prepare", body: "Specs & documentation" },
+  { Icon: MagnifyingGlass, title: "Map Source → Target", body: "Field-by-field mapping" },
+  { Icon: ChartBar, title: "Migration Dashboard", body: "Health & readiness" },
 ];
 
 const benefits = [
-  { value: "60%", label: "Reduction in Mapping Time" },
-  { value: "50%", label: "Lower Integration Costs" },
-  { value: "95%+", label: "Mapping Accuracy with AI" },
-  { value: "100%", label: "End-to-End Traceability" },
-  { value: "Scalable", label: "Supports Complex Migrations" },
+  { value: "60–70%", label: "Faster Data Quality Issue Identification" },
+  { value: "65%", label: "Faster Source-to-Target Mapping" },
+  { value: "40–50%", label: "Less Manual Mapping Effort" },
+  { value: "100%", label: "Field-Level Lineage & Audit Trail" },
+  { value: "Auto-Generated", label: "SQL, PySpark & SSIS Code" },
 ];
 
 const useCases = [
-  { Icon: Boxes, title: "ERP & Cloud Migrations" },
+  { Icon: SquaresFour, title: "ERP & Cloud Migrations" },
   { Icon: GitMerge, title: "Application Integrations" },
-  { Icon: FileCheck, title: "Regulatory Reporting" },
+  { Icon: FileText, title: "Regulatory Reporting" },
   { Icon: Warehouse, title: "Data Warehouse Onboarding" },
   { Icon: Briefcase, title: "Mergers & Acquisitions" },
   { Icon: Cpu, title: "Data Modernization" },
 ];
 
 const sources = [
-  { Icon: Package, label: "ERP" },
-  { Icon: Users, label: "CRM" },
-  { Icon: Briefcase, label: "HCM" },
-  { Icon: Database, label: "Legacy" },
+  { logo: sapLogo, label: "SAP ECC" },
+  { logo: salesforceLogo, label: "Salesforce CRM" },
+  { logo: dynamics365Logo, label: "Dynamics BC" },
+  { logo: ibmLogo, label: "Legacy DB2" },
 ];
 
 const targets = [
-  { Icon: Warehouse, label: "Data Warehouse" },
-  { Icon: Database, label: "Data Lake" },
-  { Icon: BarChart3, label: "Analytics" },
-  { Icon: Boxes, label: "Applications" },
+  { logo: sapLogo, label: "SAP S/4HANA" },
+  { logo: dynamics365Logo, label: "D365 F&O" },
+  { logo: oracleLogo, label: "Oracle Fusion" },
+  { logo: odooLogo, label: "Odoo" },
 ];
 
 function SectionHeading({ title }: { title: string }) {
@@ -134,8 +115,8 @@ function IntegrationDiagram() {
                 className="flex items-center gap-2 rounded-lg bg-card border border-border/70 px-2.5 py-2 shadow-sm animate-reveal-left"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <span className="inline-flex w-7 h-7 rounded-md bg-primary/10 text-primary items-center justify-center">
-                  <s.Icon size={14} />
+                <span className="inline-flex h-7 min-w-[2rem] px-1 rounded-md bg-white border border-border/60 items-center justify-center overflow-hidden">
+                  <img src={s.logo} alt={`${s.label} logo`} className="h-5 w-auto max-w-[2.25rem] object-contain" />
                 </span>
                 <span className="text-xs md:text-sm font-semibold text-foreground">{s.label}</span>
               </li>
@@ -159,7 +140,7 @@ function IntegrationDiagram() {
           </svg>
           <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-card border-2 border-accent shadow-lg flex items-center justify-center animate-reveal-scale">
             <img
-              src={mascotAsset.url}
+              src={mascotAsset}
               alt="Falcon Mapping mascot"
               width={96}
               height={96}
@@ -180,8 +161,8 @@ function IntegrationDiagram() {
                 className="flex items-center gap-2 rounded-lg bg-card border border-border/70 px-2.5 py-2 shadow-sm animate-reveal-right"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <span className="inline-flex w-7 h-7 rounded-md bg-primary/10 text-primary items-center justify-center">
-                  <t.Icon size={14} />
+                <span className="inline-flex h-7 min-w-[2rem] px-1 rounded-md bg-white border border-border/60 items-center justify-center overflow-hidden">
+                  <img src={t.logo} alt={`${t.label} logo`} className="h-5 w-auto max-w-[2.25rem] object-contain" />
                 </span>
                 <span className="text-xs md:text-sm font-semibold text-foreground">{t.label}</span>
               </li>
@@ -223,15 +204,13 @@ export default function FalconMapping() {
               <Reveal variant="left" className="lg:col-span-6">
                 <div className="flex items-center gap-4">
                   <img
-                    src={mascotAsset.url}
+                    src={mascotAsset}
                     alt="Falcon Mapping"
-                    width={96}
-                    height={96}
-                    className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                    width={160}
+                    height={160}
+                    className="w-32 h-32 md:w-40 md:h-40 object-contain"
                   />
-                  <h1 className="text-4xl md:text-6xl font-bold text-primary font-heading leading-[0.95]">
-                    Falcon<br />Mapping
-                  </h1>
+                  <h1 className="sr-only">Falcon Mapping</h1>
                 </div>
                 <p className="mt-6 text-xl md:text-2xl font-bold text-primary font-heading">
                   Intelligent Data Mapping for Smarter Integrations
@@ -288,7 +267,7 @@ export default function FalconMapping() {
             <Reveal>
               <SectionHeading title="Key Capabilities" />
             </Reveal>
-            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {capabilities.map((c, i) => (
                 <Reveal key={c.title} delay={i * 100}>
                   <article className="h-full bg-card rounded-2xl border border-border/60 p-6 text-center hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 transition-all">
@@ -317,7 +296,7 @@ export default function FalconMapping() {
                 className="hidden md:block absolute left-[8%] right-[8%] top-8 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent"
                 aria-hidden
               />
-              <ol className="grid grid-cols-2 md:grid-cols-5 gap-8">
+              <ol className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
                 {steps.map((s, i) => (
                   <Reveal key={s.title} delay={i * 120}>
                     <li className="relative text-center list-none">
@@ -408,7 +387,7 @@ export default function FalconMapping() {
                   </div>
                   <div className="relative flex justify-center md:justify-end">
                     <img
-                      src={flyingAsset.url}
+                      src={flyingAsset}
                       alt="Falcon in flight"
                       width={448}
                       height={320}

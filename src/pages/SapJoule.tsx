@@ -1,28 +1,15 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-sap-joule.jpg";
-import introImg from "@/assets/sap-joule-intro.jpg";
+import banner from "@/assets/banners/banner-ai-foundry.jpg";
+import introImg from "@/assets/solutions/rise-ai-automation.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Bot,
-  Workflow,
-  Network,
-  Brain,
-  Wrench,
-  ShieldCheck,
-  TrendingDown,
-  AlertTriangle,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, Brain, CheckCircle, Graph, Minus, Plus, Question, Robot, ShieldCheck, Sparkle, TreeStructure, TrendDown, Warning, Wrench } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -32,20 +19,20 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> SAP Joule
+            <AiChipIcon size={14} /> Conversational AI for SAP &amp; D365
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            One AI assistant across your entire SAP landscape — <span className="text-primary">that actually gets things done.</span>
+            Talk to your ERP. <span className="text-primary">It answers — and acts.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            SAP Joule is the generative AI assistant embedded across SAP's cloud suite — including S/4HANA Cloud,
-            SAP SuccessFactors, and SAP BTP. Unlike a basic chatbot, Joule plans, coordinates, and executes multi-step
-            workflows across your entire SAP environment through a single conversational interface.
+            Most of your ERP's power is locked behind complex screens and specialist knowledge. Nextgenlytics builds
+            conversational AI on top of SAP S/4HANA and Dynamics 365 — so business users query data, trigger workflows,
+            and get intelligent recommendations in plain language, without writing a single query.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> helps enterprises unlock the full potential of
-            Joule — from initial implementation to building custom AI skills that extend Joule's capabilities to your
-            unique processes and third-party integrations.
+            We build this capability on <strong className="text-foreground">BlueGecko AI Agents</strong> and your governed
+            ERP data layer — and integrate native assistants such as SAP Joule or Microsoft Copilot where they already fit
+            your landscape. The result works the same way across finance, operations, procurement, and supply chain.
           </p>
         </div>
 
@@ -53,7 +40,7 @@ function Intro() {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-border/60">
             <img
               src={introImg}
-              alt="SAP Joule conversational AI assistant orchestrating SAP cloud workflows"
+              alt="Conversational AI assistant querying SAP and Dynamics 365 ERP data in plain language"
               width={1280}
               height={896}
               loading="lazy"
@@ -63,11 +50,11 @@ function Intro() {
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <Bot size={20} />
+              <Robot size={20} />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Agentic AI</p>
-              <p className="text-sm font-bold text-foreground font-heading">One Thread · Every Module</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Plain language</p>
+              <p className="text-sm font-bold text-foreground font-heading">Ask · Trigger · Act</p>
             </div>
           </div>
           <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-accent/20 blur-3xl -z-10" />
@@ -82,24 +69,24 @@ function WhatJoule() {
   const { ref, isVisible } = useScrollReveal();
   const items = [
     {
-      Icon: Workflow,
-      title: "Agentic Workflow Execution",
-      body: "Joule goes beyond answering questions — it researches complex issues, plans multi-step resolutions, and executes workflows across finance, supply chain, and HR without manual intervention.",
+      Icon: TreeStructure,
+      title: "Query Data in Plain Language",
+      body: "Business users ask questions across finance, supply chain, procurement, and operations — 'show me overdue invoices for the DACH region' — and get accurate, governed answers from SAP S/4HANA and Dynamics 365, no query language required.",
     },
     {
-      Icon: Network,
-      title: "Cross-Application Orchestration",
-      body: "A supply chain alert in S/4HANA can automatically trigger a workforce adjustment in SuccessFactors — different systems, one conversational thread, zero manual handoffs.",
+      Icon: Graph,
+      title: "Trigger Workflows, Not Just Answers",
+      body: "Our conversational AI is agentic — built on BlueGecko AI Agents, it plans and executes multi-step processes end to end, so a single request can raise, route, and complete a workflow across your ERP without manual handoffs.",
     },
     {
       Icon: Brain,
-      title: "Deep Business Reasoning via SAP Knowledge Graph",
-      body: "Joule understands the intricate relationships between your business entities — suppliers, cost centres, material requirements — ensuring every insight is grounded in your actual SAP data, not generic assumptions.",
+      title: "Grounded in Your Governed ERP Data",
+      body: "Every response reasons over your real business relationships — suppliers, cost centres, materials — because it runs on your governed ERP data layer, not generic assumptions. Answers you can act on with confidence.",
     },
     {
       Icon: Wrench,
-      title: "Custom AI Skills with Joule Studio",
-      body: "We use Joule Studio to build and deploy custom AI skills tailored to your unique business logic — including integrations with third-party systems and highly customised SAP configurations.",
+      title: "Custom Skills for Your Processes",
+      body: "We build conversational skills tailored to your specific business logic and third-party integrations — and where SAP Joule or Microsoft Copilot are already part of your landscape, we extend and integrate them rather than replace them.",
     },
   ];
 
@@ -108,10 +95,10 @@ function WhatJoule() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Bot size={14} /> What SAP Joule Does Across Your Organisation
+            <Robot size={14} /> What Conversational AI Delivers
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            One conversational layer. Every SAP module. Real action.
+            One conversational layer across SAP and Dynamics 365 — that takes real action.
           </h2>
         </div>
 
@@ -144,19 +131,19 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: TrendingDown,
-      title: "Up to 80% Reduction in Routine Task Time",
-      body: "Automated reconciliation, dispute management, and project setup mean your teams spend less time on process and more time on decisions that create real value.",
+      Icon: TrendDown,
+      title: "Less Time on Process, More on Decisions",
+      body: "By handling reconciliation, dispute management, status chasing, and routine setup through conversation, our AI frees your teams from repetitive process work so they can focus on the decisions that create real value.",
     },
     {
-      Icon: AlertTriangle,
+      Icon: Warning,
       title: "Proactive, Not Reactive",
-      body: "Joule identifies potential disruptions — like supplier delays or cash flow gaps — and suggests mitigation strategies before they become business problems.",
+      body: "Because it runs on your live ERP data, our conversational AI surfaces potential disruptions — supplier delays, cash-flow gaps — and suggests mitigation before they become business problems.",
     },
     {
       Icon: ShieldCheck,
       title: "Enterprise Security and Compliance",
-      body: "Joule respects your existing role-based access controls and adheres to global AI ethics and data privacy standards — built on SAP's enterprise-grade security foundation.",
+      body: "Every interaction respects your existing role-based access controls and data-privacy standards, with human-in-the-loop approval on critical actions — built to enterprise-grade security and AI-ethics expectations.",
     },
   ];
 
@@ -166,26 +153,28 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Choose nextgenlytics for SAP Joule?
+              <CheckCircle size={14} /> Why Choose Nextgenlytics for Conversational AI?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
-              If your business runs on SAP, Joule is the AI layer that ties everything together.
+              The AI layer that ties SAP and Dynamics together — built on data you govern.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              From implementation to Joule Studio custom skills — we make Joule work exactly the way your business needs.
+              Built on BlueGecko AI Agents and your governed ERP data — implemented end to end, and integrated with SAP
+              Joule or Microsoft Copilot where they fit.
             </p>
 
             <article className="mt-8 relative overflow-hidden rounded-2xl border border-border/60 shadow-lg bg-primary">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Sparkles size={12} /> The nextgenlytics Difference
+                  <Sparkle size={12} /> The Nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
-                  Agentic AI across S/4HANA, SuccessFactors, and BTP.
+                  Conversational AI across SAP S/4HANA and Dynamics 365.
                 </h3>
                 <p className="mt-3 text-sm md:text-base text-primary-foreground/85 leading-relaxed">
-                  Custom AI skills, knowledge graph reasoning, and orchestration — implemented end to end.
+                  Powered by BlueGecko AI Agents, grounded in your governed ERP data, and secured with human-in-the-loop
+                  control.
                 </p>
               </div>
             </article>
@@ -221,7 +210,7 @@ function WhyUs() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Deploy SAP Joule
+              Talk to Our AI Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -234,16 +223,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is SAP Joule?",
-    a: "SAP Joule is a generative AI assistant embedded natively across SAP's cloud applications — including S/4HANA Cloud and SAP SuccessFactors — that enables users to execute complex, multi-step workflows across finance, supply chain, and HR using natural language.",
+    q: "What is conversational AI for SAP and Dynamics 365?",
+    a: "It is a natural-language layer Nextgenlytics builds on top of your SAP S/4HANA and Dynamics 365 systems, allowing business users to query data, trigger workflows, and receive intelligent recommendations in plain language — without writing queries or navigating complex screens. It is built on BlueGecko AI Agents and your governed ERP data.",
   },
   {
-    q: "How does SAP Joule differ from a standard chatbot?",
-    a: "Unlike a standard chatbot that only responds to questions, SAP Joule is an agentic AI system that plans, coordinates, and executes multi-step workflows across multiple SAP applications — taking real action, not just providing information.",
+    q: "Do you use SAP Joule or Microsoft Copilot?",
+    a: "Where SAP Joule or Microsoft Copilot are already part of your landscape, Nextgenlytics integrates and extends them with custom skills for your specific processes. Where you need capability beyond the native assistants — or across both SAP and Dynamics — we build it on BlueGecko AI Agents, always grounded in your governed data.",
   },
   {
-    q: "Can SAP Joule be customised for specific business processes?",
-    a: "Yes. Using Joule Studio, nextgenlytics builds custom AI skills that extend Joule's native capabilities to match your unique business workflows, custom SAP configurations, and third-party system integrations.",
+    q: "Is conversational AI safe to use on live ERP data?",
+    a: "Yes. Every interaction respects your existing role-based access controls and data-privacy policies, and critical actions are gated with human-in-the-loop approval — so users only see and change what they are authorised to, with a full audit trail.",
   },
 ];
 
@@ -255,7 +244,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -307,6 +296,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function SapJoule() {
+  useDocumentTitle("Conversational AI for SAP & D365");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -316,7 +306,7 @@ export default function SapJoule() {
           image={banner}
           eyebrow="AI Solutions · Conversational AI for SAP & D365"
           title="Conversational AI for SAP & D365"
-          description="One AI assistant across your entire SAP landscape — that actually gets things done."
+          description="Natural-language interfaces on SAP S/4HANA and Dynamics 365 — your teams query ERP data, trigger workflows, and get intelligent recommendations without writing a single query."
         />
         <Intro />
         <SolutionHighlight

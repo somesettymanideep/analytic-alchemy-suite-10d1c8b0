@@ -1,37 +1,23 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-snowflake.jpg";
-import imgElastic from "@/assets/snowflake-elastic.jpg";
-import imgSharing from "@/assets/snowflake-sharing.jpg";
-import imgAi from "@/assets/snowflake-ai.jpg";
+import banner from "@/assets/banners/banner-snowflake.jpg";
+import imgElastic from "@/assets/solutions/snowflake-elastic.jpg";
+import imgSharing from "@/assets/solutions/snowflake-sharing.jpg";
+import imgAi from "@/assets/solutions/snowflake-ai.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Gauge,
-  Settings,
-  Share2,
-  ShieldCheck,
-  Brain,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Layers,
-  Network,
-  Lock,
-} from "lucide-react";
+import { ArrowRight, Brain, CheckCircle, Gauge, Gear, Graph, Lock, Minus, Plus, Question, ShareNetwork, ShieldCheck, Sparkle, Stack } from "@phosphor-icons/react";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
     { Icon: Gauge, value: "Elastic", label: "Storage / compute decoupled" },
-    { Icon: Settings, value: "Zero-Ops", label: "Fully managed platform" },
+    { Icon: Gear, value: "Zero-Ops", label: "Fully managed platform" },
     { Icon: Brain, value: "AI-Ready", label: "Powered by Snowflake Cortex" },
   ];
   return (
@@ -39,7 +25,7 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Snowflake Data Platform
+            <Sparkle size={14} /> Snowflake Data Platform Services
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             A cloud-native data platform that <span className="text-primary">scales with your business</span> — and powers your AI without the infrastructure headaches.
@@ -51,7 +37,7 @@ function Intro() {
             warehousing, analytics, and AI workloads can all run simultaneously without competing for resources.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> implements and optimises Snowflake so your teams spend less
+            <strong className="text-foreground">Nextgenlytics</strong> implements and optimises Snowflake so your teams spend less
             time managing infrastructure and more time extracting value from data.
           </p>
         </div>
@@ -63,7 +49,7 @@ function Intro() {
           </div>
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <Layers size={20} />
+              <Stack size={20} />
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Architecture</p>
@@ -102,12 +88,12 @@ function Delivers() {
       body: "Snowflake's decoupled storage and compute architecture means your BI dashboards, data engineering pipelines, and AI model training all run in parallel — no queuing, no resource contention, no performance degradation at peak times.",
     },
     {
-      Icon: Settings,
-      title: "Zero-Maintenance Infrastructure",
-      body: "We configure Snowflake's fully managed environment to automate data partitioning, indexing, and performance tuning — eliminating the operational overhead that drains your data team's time and inflates your total cost of ownership.",
+      Icon: Gear,
+      title: "50–60% Less Engineering Effort",
+      body: "We build your Snowflake pipelines using Falcon Mapping and Code Cheetah — our own automated mapping and ETL-generation tools — cutting manual pipeline engineering by 50–60% versus hand-coded builds.",
     },
     {
-      Icon: Share2,
+      Icon: ShareNetwork,
       title: "Secure Real-Time Data Sharing",
       body: "Share live datasets with partners, suppliers, or internal teams instantly — without building slow, expensive ETL pipelines. Snowflake's Secure Data Sharing lets data move in real time while staying fully governed and access-controlled.",
     },
@@ -128,7 +114,7 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What nextgenlytics Delivers with Snowflake
+            <Sparkle size={14} /> What Nextgenlytics Delivers with Snowflake
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             One platform for analytics, sharing, and AI — at any scale
@@ -211,12 +197,12 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Layers,
+      Icon: Stack,
       title: "Architectural Excellence",
       body: "We design your Snowflake environment for cost-efficiency from the start — preventing cloud sprawl and ensuring every credit spent delivers measurable business value.",
     },
     {
-      Icon: Network,
+      Icon: Graph,
       title: "Full Ecosystem Integration",
       body: "We connect Snowflake seamlessly with SAP S/4HANA, Microsoft Fabric, Databricks, and your existing BI tools — creating one unified data fabric where information flows without friction.",
     },
@@ -233,13 +219,13 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics for Snowflake
+              <CheckCircle size={14} /> Why Nextgenlytics for Snowflake
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Architected for cost, integrated by design, governed from day one.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Your data is already there. Snowflake — implemented by nextgenlytics — turns it into a scalable, AI-ready
+              Your data is already there. Snowflake — implemented by Nextgenlytics — turns it into a scalable, AI-ready
               competitive advantage without the infrastructure burden.
             </p>
 
@@ -256,7 +242,7 @@ function WhyUs() {
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Talk to a Snowflake specialist
+              Talk to Our Snowflake Team
               <ArrowRight size={16} />
             </a>
           </div>
@@ -296,14 +282,14 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Brain size={12} /> The nextgenlytics Difference
+                <Brain size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
-                Cost-aware architecture. Cortex-ready data. Governance you can audit.
+                Automated pipelines. Cortex-ready data. Governance you can audit.
               </h3>
               <p className="mt-3 text-sm md:text-base text-primary-foreground/85 leading-relaxed max-w-xl">
-                We pair Snowflake-certified architects with FinOps discipline — so every warehouse, every share, and every
-                pipeline you ship is right-sized, secure, and ready for AI from day one.
+                We pair Snowflake-certified architects with Falcon Mapping and Code Cheetah automation — so every
+                warehouse, every share, and every pipeline you ship is right-sized, secure, and ready for AI from day one.
               </p>
             </div>
           </article>
@@ -337,7 +323,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -389,6 +375,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function Snowflake() {
+  useDocumentTitle("Snowflake Data Platform Services");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -397,7 +384,7 @@ export default function Snowflake() {
         <PageBanner
           image={banner}
           eyebrow="Solutions · Data Engineering"
-          title="Snowflake Data Platform Implementation"
+          title="Snowflake Data Platform Services"
           description="A cloud-native data platform that scales with your business — and powers your AI without the infrastructure headaches."
         />
         <Intro />

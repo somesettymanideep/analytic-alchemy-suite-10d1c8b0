@@ -1,29 +1,15 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import banner from "@/assets/banner-ai-foundry.jpg";
-import introImg from "@/assets/ai-foundry-intro.jpg";
+import banner from "@/assets/banners/banner-ai-foundry.jpg";
+import introImg from "@/assets/solutions/ai-foundry-intro.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Sparkles,
-  Brain,
-  Cpu,
-  Database,
-  Layers,
-  ShieldCheck,
-  Lock,
-  Plug,
-  Workflow,
-  HelpCircle,
-  Plus,
-  Minus,
-  ArrowRight,
-  CheckCircle2,
-  Factory,
-} from "lucide-react";
+import { ArrowRight, Brain, CheckCircle, Database, Factory, Lock, Minus, Plug, Plus, Question, ShieldCheck, Stack, TreeStructure } from "@phosphor-icons/react";
+import AiChipIcon from "@/components/icons/AiChipIcon";
 
 /* ---------------- Intro ---------------- */
 function Intro() {
@@ -33,19 +19,20 @@ function Intro() {
       <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> nextgenlytics AI Foundry
+            <AiChipIcon size={14} /> AI Strategy &amp; Readiness Assessment
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
-            Custom AI built on your data — <span className="text-primary">not generic models built on everyone else's.</span>
+            Before you invest in AI, <span className="text-primary">know exactly where it will pay off.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Off-the-shelf AI tools are a starting point, not a strategy. Real competitive advantage comes from AI that
-            understands your industry, your compliance requirements, and your specific business logic.
+            Most AI programmes stall not because the technology fails, but because they start in the wrong place — on data
+            that is fragmented, ungoverned, or simply not ready. Nextgenlytics starts every engagement with a structured
+            assessment, so your first euro of AI spend lands where it creates real impact.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics AI Foundry</strong> is a comprehensive environment where we
-            design, orchestrate, and manage high-performance AI models built entirely around how your business works —
-            using your proprietary data, not public training sets.
+            We map your data estate, score your AI-readiness, and rank your highest-value use cases — then hand you a
+            prioritised, costed roadmap. A data-first AI practitioner since 2021, Nextgenlytics assesses foundations
+            first, because that is what determines whether your AI investment succeeds.
           </p>
         </div>
 
@@ -53,7 +40,7 @@ function Intro() {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-border/60">
             <img
               src={introImg}
-              alt="AI Foundry workbench with custom LLM fine-tuning and RAG orchestration"
+              alt="AI readiness assessment mapping a data estate and prioritised use-case roadmap"
               width={1280}
               height={896}
               loading="lazy"
@@ -66,8 +53,8 @@ function Intro() {
               <Factory size={20} />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Foundation</p>
-              <p className="text-sm font-bold text-foreground font-heading">Your Data · Your Models</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Output</p>
+              <p className="text-sm font-bold text-foreground font-heading">90-Day Roadmap</p>
             </div>
           </div>
           <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-accent/20 blur-3xl -z-10" />
@@ -82,24 +69,24 @@ function Delivers() {
   const { ref, isVisible } = useScrollReveal();
   const items = [
     {
-      Icon: Cpu,
-      title: "Custom Model Fine-Tuning",
-      body: "We refine Large Language Models (LLMs) using your enterprise data — so the AI understands your industry terminology, compliance standards, and operational processes, not just generic language patterns.",
-    },
-    {
       Icon: Database,
-      title: "RAG Pipelines That Eliminate Hallucinations",
-      body: "We build Retrieval-Augmented Generation (RAG) pipelines that connect your AI to your actual knowledge bases, PDFs, and internal databases — grounding every response in verified, proprietary information.",
+      title: "Data Estate Mapping",
+      body: "We map where your data lives, how it flows, and how healthy it is across SAP, Dynamics 365, and your wider landscape — surfacing the gaps that quietly undermine AI accuracy before a single model is built.",
     },
     {
-      Icon: Workflow,
-      title: "Multi-Model Orchestration",
-      body: "We design workflows that seamlessly switch between or combine models like GPT-4o, Claude, and Llama — always selecting the right balance of performance, speed, and cost for each specific task.",
+      Icon: Stack,
+      title: "Prioritised AI Use-Case Backlog",
+      body: "We identify and rank your highest-value AI opportunities by business impact and feasibility — so you invest in the use cases that pay back first, not the ones that simply sound impressive.",
     },
     {
       Icon: ShieldCheck,
-      title: "Enterprise AI Governance Built In",
-      body: "Every solution includes data encryption, bias monitoring, and ethical safeguards — ensuring your AI stays trustworthy, compliant, and secure as it scales across the organisation.",
+      title: "Data Readiness Score",
+      body: "We score your organisation across governance, quality, architecture, tooling, and AI-readiness — giving leadership an objective, evidence-based baseline instead of a subjective opinion.",
+    },
+    {
+      Icon: TreeStructure,
+      title: "90-Day Execution Plan",
+      body: "You leave with a concrete, sequenced roadmap — the next steps, owners, and milestones to move from assessment to production AI. A plan you can act on, not a slide deck that gathers dust.",
     },
   ];
 
@@ -108,10 +95,10 @@ function Delivers() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Brain size={14} /> What nextgenlytics AI Foundry Delivers
+            <Brain size={14} /> What the Assessment Delivers
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            Production AI, engineered around your business.
+            A clear, evidence-based path from data to production AI.
           </h2>
         </div>
 
@@ -144,19 +131,19 @@ function WhyUs() {
   const { ref, isVisible } = useScrollReveal();
   const pillars = [
     {
-      Icon: Lock,
-      title: "Your Data Stays Yours",
-      body: "We build with data sovereignty as a core principle — your proprietary information is never used to train public models or shared outside your environment.",
+      Icon: Database,
+      title: "Data-First AI Practitioners Since 2021",
+      body: "Every AI programme we run starts with data governance, not model selection. We assess foundations first because that is what actually determines whether AI delivers — a discipline we have applied since 2021.",
     },
     {
       Icon: Plug,
-      title: "Plugs Into Your Existing Stack",
-      body: "AI Foundry solutions integrate directly with your Dynamics 365, SAP, or custom ERP environment — no need to replace what is already working.",
+      title: "Assessment That Leads Straight to Execution",
+      body: "We are the team that delivers what the assessment recommends — from governance to migration to production AI. The roadmap you receive is one we can build, not a hand-off to someone else.",
     },
     {
-      Icon: Layers,
-      title: "Future-Proof by Design",
-      body: "As AI technology evolves, our Foundry architecture lets you swap underlying models or update logic without rebuilding your entire application from scratch.",
+      Icon: Lock,
+      title: "Built for Business Leaders, Not Data Scientists",
+      body: "A focused, structured assessment designed for decision-makers — a ranked use-case backlog, a readiness score, and a 90-day plan in plain business language, not a technical audit no one reads.",
     },
   ];
 
@@ -166,26 +153,28 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why Build with nextgenlytics AI Foundry?
+              <CheckCircle size={14} /> Why Assess with Nextgenlytics?
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
-              Generic AI gives you generic results. Foundry gives you intelligence nobody else can replicate.
+              The best AI outcomes start with the best data foundation — and knowing where you stand.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Sovereign by default, integrated with your enterprise stack, and engineered to evolve with the AI landscape.
+              A structured, business-led assessment from a team that has been putting data first since 2021 — and that
+              delivers the roadmap it recommends.
             </p>
 
             <article className="mt-8 relative overflow-hidden rounded-2xl border border-border/60 shadow-lg bg-primary">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
               <div className="relative p-7 md:p-8 text-primary-foreground">
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                  <Brain size={12} /> The nextgenlytics Difference
+                  <Brain size={12} /> The Nextgenlytics Difference
                 </span>
                 <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
-                  Your models. Your data. Your competitive edge.
+                  Assess first. Then build what actually pays back.
                 </h3>
                 <p className="mt-3 text-sm md:text-base text-primary-foreground/85 leading-relaxed">
-                  Fine-tuned LLMs, grounded RAG pipelines, and multi-model orchestration — governed end to end.
+                  A ranked use-case backlog, an objective data-readiness score, and a 90-day execution plan — grounded in
+                  your data, ready to act on.
                 </p>
               </div>
             </article>
@@ -221,7 +210,7 @@ function WhyUs() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              Build with AI Foundry
+              Book Your Assessment
               <ArrowRight size={16} />
             </a>
           </div>
@@ -234,16 +223,16 @@ function WhyUs() {
 /* ---------------- FAQ ---------------- */
 const faqs = [
   {
-    q: "What is an AI Foundry?",
-    a: "An AI Foundry is a managed environment for designing, building, and operating custom AI models trained on an organisation's proprietary data — delivering more accurate, relevant, and compliant AI than off-the-shelf tools.",
+    q: "What is an AI Strategy & Readiness Assessment?",
+    a: "It is a structured Nextgenlytics engagement that evaluates your organisation's readiness for AI across five dimensions — governance, quality, architecture, tooling, and AI-readiness. You receive a ranked, high-value AI use-case backlog, an objective data-readiness score, and a prioritised 90-day execution plan.",
   },
   {
-    q: "How is custom AI different from tools like ChatGPT?",
-    a: "Custom AI models built by nextgenlytics AI Foundry are fine-tuned on your specific business data, trained on your compliance requirements, and connected to your internal knowledge bases — unlike general-purpose tools that rely on public training data.",
+    q: "Who is the assessment designed for, and how long does it take?",
+    a: "It is designed for business leaders, not data scientists. The core is a focused, structured assessment — typically run as a short, intensive engagement — that produces clear, decision-ready outputs in plain business language rather than a lengthy technical audit.",
   },
   {
-    q: "What LLMs does nextgenlytics AI Foundry support?",
-    a: "nextgenlytics AI Foundry supports a range of leading LLMs including GPT-4o, Claude, and open-source models like Llama — orchestrated to match the right model to the right task for optimal performance and cost efficiency.",
+    q: "What do we get at the end of the assessment?",
+    a: "You leave with three concrete deliverables: a prioritised AI use-case backlog ranked by value and feasibility, a data-readiness score that baselines your current state, and a costed 90-day roadmap with clear next steps — a plan Nextgenlytics can then help you execute.",
   },
 ];
 
@@ -255,7 +244,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -307,6 +296,7 @@ function Faq() {
 
 /* ---------------- Page ---------------- */
 export default function AiFoundry() {
+  useDocumentTitle("AI Strategy & Readiness Assessment");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -316,7 +306,7 @@ export default function AiFoundry() {
           image={banner}
           eyebrow="AI Solutions · AI Strategy & Readiness Assessment"
           title="AI Strategy & Readiness Assessment"
-          description="Custom AI built on your data — not generic models built on everyone else's."
+          description="Before we build any AI, we assess. We map your data estate, score your AI-readiness, and hand you a prioritised roadmap — so your investment lands where it creates real impact."
         />
         <Intro />
         <SolutionHighlight

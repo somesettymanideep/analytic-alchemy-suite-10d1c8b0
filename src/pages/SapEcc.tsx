@@ -1,36 +1,16 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageBanner from "@/components/PageBanner";
 import SolutionHighlight from "@/components/SolutionHighlight";
-import bannerEcc from "@/assets/banner-sap-ecc.jpg";
-import imgPerformance from "@/assets/ecc-performance.jpg";
-import imgRoadmap from "@/assets/ecc-migration-roadmap.jpg";
-import imgApi from "@/assets/ecc-api-connectivity.jpg";
+import bannerEcc from "@/assets/banners/banner-sap-ecc.jpg";
+import imgPerformance from "@/assets/solutions/ecc-performance.jpg";
+import imgRoadmap from "@/assets/solutions/ecc-migration-roadmap.jpg";
+import imgApi from "@/assets/solutions/ecc-api-connectivity.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Boxes,
-  Sparkles,
-  Gauge,
-  Globe,
-  BrainCircuit,
-  Map,
-  Plug,
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  Plus,
-  Minus,
-  Zap,
-  TrendingUp,
-  ShieldCheck,
-  Target,
-  Clock,
-  AlertTriangle,
-  Cpu,
-  Code2,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Clock, Code, Cpu, Gauge, Globe, Lightning, MapTrifold, Minus, Plug, Plus, Question, ShieldCheck, Sparkle, SquaresFour, Target, TrendUp, Warning } from "@phosphor-icons/react";
 
 /* -------------------------------------------------------------- */
 /*  Intro — split layout with stat strip                           */
@@ -39,7 +19,7 @@ function Intro() {
   const { ref, isVisible } = useScrollReveal();
   const stats = [
     { Icon: Clock, value: "2027", label: "ECC maintenance ends" },
-    { Icon: TrendingUp, value: "30–40%", label: "Performance gains typical" },
+    { Icon: TrendUp, value: "30–40%", label: "Performance gains typical" },
     { Icon: ShieldCheck, value: "100%", label: "Audit-ready compliance" },
   ];
   return (
@@ -48,7 +28,7 @@ function Intro() {
         {/* Left text */}
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Boxes size={14} /> SAP ECC Services
+            <SquaresFour size={14} /> SAP ECC Services
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground font-heading text-balance leading-[1.1]">
             Protect your ECC investment today —{" "}
@@ -60,7 +40,7 @@ function Intro() {
             But with SAP mainstream maintenance ending in 2027, every ECC customer needs a strategy.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            <strong className="text-foreground">nextgenlytics</strong> provides expert ECC optimisation and strategic migration
+            <strong className="text-foreground">Nextgenlytics</strong> provides expert ECC optimisation and strategic migration
             planning: keeping your core stable today while building a confident, well-prepared path to S/4HANA and AI.
           </p>
         </div>
@@ -81,7 +61,7 @@ function Intro() {
           {/* Floating accent badge */}
           <div className="absolute -bottom-6 -left-6 hidden md:flex items-center gap-3 bg-card rounded-2xl px-5 py-4 shadow-xl border border-border/60">
             <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-accent/15 text-accent">
-              <AlertTriangle size={20} />
+              <Warning size={20} />
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Deadline</p>
@@ -129,12 +109,12 @@ function Capabilities() {
       body: "Decades of built-in regulatory support across finance (FI), controlling (CO), sales (SD), and materials management (MM) keep multi-country compliance and reporting solid and fully auditable.",
     },
     {
-      Icon: BrainCircuit,
+      Icon: Cpu,
       title: "Sidecar AI Solutions",
       body: "We deploy AI agents that sit alongside your ECC core — extracting deep business value from your stable environment without disrupting transaction processing or requiring core modifications.",
     },
     {
-      Icon: Map,
+      Icon: MapTrifold,
       title: "Strategic Migration Roadmap",
       body: "We help you navigate the 2027 and 2030 support deadlines with a clear, data-led migration plan that preserves your business logic and protects your investment throughout the transition.",
     },
@@ -150,10 +130,10 @@ function Capabilities() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> What We Deliver
+            <Sparkle size={14} /> What We Deliver
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-            What nextgenlytics Delivers for SAP ECC
+            What Nextgenlytics Delivers for SAP ECC
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             Optimise today. Migrate confidently tomorrow. Every engagement targets measurable outcomes.
@@ -248,7 +228,7 @@ function WhyUs() {
       body: "We actively improve your ECC environment — every engagement targets measurable performance and efficiency gains, not just keeping the lights on.",
     },
     {
-      Icon: Map,
+      Icon: MapTrifold,
       title: "Clear Path to S/4HANA",
       body: "Our migration planning preserves years of business logic and customisation, ensuring nothing is lost and everything is ready when the time comes to move.",
     },
@@ -266,7 +246,7 @@ function WhyUs() {
         <div className="lg:col-span-5">
           <div className={`lg:sticky lg:top-24 ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-              <CheckCircle2 size={14} /> Why nextgenlytics
+              <CheckCircle size={14} /> Why Nextgenlytics
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
               Your ECC system holds years of intelligence. We help you carry it forward.
@@ -340,7 +320,7 @@ function WhyUs() {
             <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2 -translate-x-1/2" />
             <div className="relative p-7 md:p-8 text-primary-foreground">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-accent">
-                <Code2 size={12} /> The nextgenlytics Difference
+                <Code size={12} /> The Nextgenlytics Difference
               </span>
               <h3 className="mt-3 text-xl md:text-2xl font-bold font-heading">
                 Business logic preserved. Technical debt removed.
@@ -367,11 +347,11 @@ const faqs = [
   },
   {
     q: "Can AI be applied to SAP ECC without migrating to S/4HANA?",
-    a: "Yes. nextgenlytics deploys sidecar AI solutions that extract and process data from your SAP ECC environment using API layers and integration connectors — enabling AI-driven automation and analytics without modifying your stable ECC core or requiring an immediate migration.",
+    a: "Yes. Nextgenlytics deploys sidecar AI solutions that extract and process data from your SAP ECC environment using API layers and integration connectors — enabling AI-driven automation and analytics without modifying your stable ECC core or requiring an immediate migration.",
   },
   {
-    q: "What is the difference between Greenfield and Brownfield SAP migration?",
-    a: "A Greenfield migration is a fresh S/4HANA implementation starting with clean processes and minimal legacy customisation. A Brownfield migration converts your existing ECC system to S/4HANA, preserving historical data and custom configurations. nextgenlytics evaluates both approaches and recommends the right path based on your business complexity and timelines.",
+    q: "How does Nextgenlytics prepare our ECC data and customisations for a future S/4HANA migration?",
+    a: "We map every customisation, cleanse and reconcile your data, and document your business rules while your ECC core stays untouched. This gives you an audit-ready, well-understood environment — so when you are ready to migrate, the transition is faster, lower-risk, and nothing is lost.",
   },
 ];
 
@@ -383,7 +363,7 @@ function Faq() {
       <div className="container max-w-4xl" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <HelpCircle size={14} /> FAQ
+            <Question size={14} /> FAQ
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Frequently asked questions
@@ -445,6 +425,7 @@ function Faq() {
 /*  Page                                                          */
 /* -------------------------------------------------------------- */
 export default function SapEcc() {
+  useDocumentTitle("SAP ECC Support, Optimisation & Migration Planning");
   return (
     <div className="min-h-screen bg-background">
       <ScrollToTop />
@@ -460,7 +441,7 @@ export default function SapEcc() {
         <SolutionHighlight
           eyebrow="Stabilise & Optimise"
           headline="Stabilise and optimise your ECC landscape — reduce technical debt, improve performance, and prepare your data for the S/4HANA transition."
-          evidence="ECC mainstream maintenance ends 2027. Every ECC customer needs this service now. Real capability."
+          evidence="With SAP mainstream maintenance for ECC ending in 2027, every ECC customer needs an active strategy now — not a wait-and-see approach."
         />
         <Capabilities />
         <WhyUs />

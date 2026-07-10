@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, MapPin, ArrowLeft, CalendarCheck, MonitorPlay, Phone, Clock } from "lucide-react";
+import { ArrowLeft, CalendarCheck, Clock, Envelope, MapPin, MonitorPlay, Phone } from "@phosphor-icons/react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageBanner from "@/components/PageBanner";
-import contactBanner from "@/assets/banner-contact.jpg";
+import contactBanner from "@/assets/banners/banner-contact.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -16,12 +16,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
+import { postForm, ApiError } from "@/lib/api";
 
 type Mode = "consultation" | "demo";
 
 const COMPANY_EMAIL = "Info@nextgenlytics.com";
 const COMPANY_LOCATION = "B. Amsterdam, Johan Huizingalaan 763A, 1066 VH, Amsterdam";
-const COMPANY_PHONE = "+31 (0) 20 123 4567";
+const COMPANY_PHONE = "+31 6 57 29 50 20";
 const WORKING_HOURS = [
   { day: "Mon – Fri", hours: "8:00 AM – 5:00 PM" },
   { day: "Saturday", hours: "Closed" },
@@ -53,44 +54,58 @@ export default function Contact() {
     solution: "",
     product: "",
   });
+  const [submitting, setSubmitting] = useState(false);
 
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim()) {
-      toast({ title: "Missing details", description: "Please fill in name and email." });
+    if (!form.name.trim() || !form.email.trim() || !form.company.trim()) {
+      toast({ title: "Missing details", description: "Please fill in name, email, and company." });
       return;
     }
-    const subject =
-      mode === "consultation"
-        ? `Book Consultation – ${form.name} (${form.company || "—"})`
-        : `Request Demo – ${form.name} (${form.company || "—"})`;
-    const lines =
-      mode === "consultation"
-        ? [
-            `Name: ${form.name}`,
-            `Email: ${form.email}`,
-            `Company: ${form.company}`,
-            `Phone: ${form.phone}`,
-            `Solution of interest: ${form.solution}`,
-            ``,
-            `Message:`,
-            form.message,
-          ]
-        : [
-            `Name: ${form.name}`,
-            `Email: ${form.email}`,
-            `Company: ${form.company}`,
-            `Phone: ${form.phone}`,
-            `Product: ${form.product}`,
-            ``,
-            `Message:`,
-            form.message,
-          ];
-    const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
-    toast({ title: "Opening your email client", description: "We'll get back to you within one business day." });
+    if (mode === "consultation" && !form.message.trim()) {
+      toast({ title: "Missing details", description: "Please tell us what you'd like to discuss." });
+      return;
+    }
+    if (mode === "demo" && !form.product) {
+      toast({ title: "Missing details", description: "Please select a product for the demo." });
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      if (mode === "consultation") {
+        await postForm("/api/forms/consultation", {
+          name: form.name,
+          email: form.email,
+          phone: form.phone || undefined,
+          company: form.company,
+          message: form.solution ? `Solution of interest: ${form.solution}\n\n${form.message}` : form.message,
+        });
+      } else {
+        await postForm("/api/forms/demo", {
+          name: form.name,
+          email: form.email,
+          phone: form.phone || undefined,
+          company: form.company,
+          product: form.product,
+          message: form.message || undefined,
+        });
+      }
+      toast({
+        title: mode === "consultation" ? "Consultation requested" : "Demo requested",
+        description: "Thanks — we'll get back to you within one business day.",
+      });
+      setForm({ name: "", email: "", company: "", phone: "", message: "", solution: "", product: "" });
+    } catch (err) {
+      toast({
+        title: "Something went wrong",
+        description: err instanceof ApiError ? err.message : "Please try again in a moment.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -120,7 +135,7 @@ export default function Contact() {
                     Get in touch
                   </span>
                   <h2 className="mt-4 text-2xl md:text-3xl font-bold font-heading leading-tight">
-                    Reach the nextgenlytics team
+                    Reach the Nextgenlytics team
                   </h2>
                   <p className="mt-3 text-sm md:text-base text-primary-foreground/80 leading-relaxed">
                     Prefer email or a call? Use the details below — we typically respond within one business day.
@@ -135,7 +150,7 @@ export default function Contact() {
                   className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 hover:border-primary/40 hover:shadow-md hover:shadow-primary/5 transition-all"
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <Mail className="w-5 h-5 text-primary-foreground" />
+                    <Envelope className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div className="min-w-0">
                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email us</p>
@@ -248,8 +263,8 @@ export default function Contact() {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="company">Company</Label>
-                    <Input id="company" value={form.company} onChange={(e) => update("company", e.target.value)} placeholder="Acme Inc." />
+                    <Label htmlFor="company">Company *</Label>
+                    <Input id="company" required value={form.company} onChange={(e) => update("company", e.target.value)} placeholder="Acme Inc." />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone</Label>
@@ -312,13 +327,14 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold bg-accent text-accent-foreground hover:shadow-xl hover:shadow-accent/30 active:scale-[0.97] transition-all duration-200"
+                  disabled={submitting}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold bg-accent text-accent-foreground hover:shadow-xl hover:shadow-accent/30 active:scale-[0.97] transition-all duration-200 disabled:opacity-60 disabled:pointer-events-none"
                 >
-                  {mode === "consultation" ? "Book Consultation" : "Request Demo"} →
+                  {submitting ? "Sending…" : `${mode === "consultation" ? "Book Consultation" : "Request Demo"} →`}
                 </button>
 
                 <p className="text-xs text-muted-foreground">
-                  By submitting, you agree to be contacted by nextgenlytics about your enquiry.
+                  By submitting, you agree to be contacted by Nextgenlytics about your enquiry.
                 </p>
               </form>
             </section>

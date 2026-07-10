@@ -1,42 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import sapLogo from "@/assets/logos/sap-v3.png.asset.json";
-import microsoftLogo from "@/assets/logos/microsoft-v3.png.asset.json";
-import oracleLogo from "@/assets/logos/oracle-v3.png.asset.json";
-import awsLogo from "@/assets/logos/aws-v3.png.asset.json";
-import azureLogo from "@/assets/logos/azure-v3.png.asset.json";
-import googleCloudLogo from "@/assets/logos/google-cloud-v3.png.asset.json";
-import snowflakeLogo from "@/assets/logos/snowflake-v3.png.asset.json";
-import harveyNashLogo from "@/assets/logos/harvey-nash-v3.png.asset.json";
-import gbtecLogo from "@/assets/logos/gbtec-v3.png.asset.json";
-import aupingLogo from "@/assets/logos/auping-v3.png.asset.json";
-import databricksLogo from "@/assets/logos/databricks-v3.png.asset.json";
-import cratedbLogo from "@/assets/logos/cratedb-v3.png.asset.json";
-import adamiLogo from "@/assets/logos/adami-v3.png.asset.json";
-import ctacLogo from "@/assets/logos/ctac-v3.png.asset.json";
-import {
-  ArrowRight,
-  Play,
-  Star,
-  Cpu,
-  Database,
-  ShieldCheck,
-  Sparkles,
-  Users,
-  Globe,
-  Rocket,
-  LineChart,
-  Layers,
-  Boxes,
-  Bot,
-  Compass,
-  ClipboardCheck,
-  MoveRight,
-  Gauge,
-  Lock,
-  CheckCircle2,
-  Download,
-} from "lucide-react";
+import sapLogo from "@/assets/logos/sap-v3.png";
+import microsoftLogo from "@/assets/logos/microsoft-v3.png";
+import oracleLogo from "@/assets/logos/oracle-v3.png";
+import awsLogo from "@/assets/logos/aws-v3.png";
+import azureLogo from "@/assets/logos/azure-v3.png";
+import googleCloudLogo from "@/assets/logos/google-cloud-v3.png";
+import snowflakeLogo from "@/assets/logos/snowflake-v3.png";
+import harveyNashLogo from "@/assets/logos/harvey-nash-v3.png";
+import gbtecLogo from "@/assets/logos/gbtec-v3.png";
+import aupingLogo from "@/assets/logos/auping-v3.png";
+import databricksLogo from "@/assets/logos/databricks-v3.png";
+import cratedbLogo from "@/assets/logos/cratedb-v3.png";
+import adamiLogo from "@/assets/logos/adami-v3.png";
+import ctacLogo from "@/assets/logos/ctac-v3.png";
+import migrationSapImg from "@/assets/banners/banner-sap-s4hana.jpg";
+import migrationAxImg from "@/assets/solutions/ax-data-migration.jpg";
+import migrationDataImg from "@/assets/solutions/snowflake-elastic.jpg";
+import migrationBcImg from "@/assets/solutions/bc-finance.jpg";
+import migrationEdtImg from "@/assets/edt/partners-hero.jpg";
+import { ArrowRight, ArrowsClockwise, ChartLine, CheckCircle, ClipboardText, CloudArrowUp, Compass, Cpu, Database, Download, Gauge, Globe, Handshake, Lock, Play, Robot, ShieldCheck, SquaresFour, Stack, Star, Users, Wallet } from "@phosphor-icons/react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -71,7 +54,7 @@ function Hero() {
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium backdrop-blur">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0060F0] animate-pulse" />
-            Enterprise Data Platform · 2026
+            Enterprise AI Data Management Platform
           </span>
           <h1 className="mt-8 font-heading font-bold leading-[1.05] tracking-tight text-3xl sm:text-4xl lg:text-5xl">
             MOST TRANSFORMATIONS
@@ -195,20 +178,20 @@ function Hero() {
 // ============ LOGO MARQUEE ============
 function LogoStrip() {
   const logos = [
-    { name: "SAP", src: sapLogo.url },
-    { name: "Microsoft", src: microsoftLogo.url },
-    { name: "Snowflake", src: snowflakeLogo.url },
-    { name: "Oracle", src: oracleLogo.url },
-    { name: "AWS", src: awsLogo.url },
-    { name: "Azure", src: azureLogo.url },
-    { name: "Google Cloud", src: googleCloudLogo.url },
-    { name: "Harvey Nash", src: harveyNashLogo.url },
-    { name: "GBTEC", src: gbtecLogo.url },
-    { name: "Auping", src: aupingLogo.url },
-    { name: "Databricks", src: databricksLogo.url },
-    { name: "CrateDB", src: cratedbLogo.url },
-    { name: "AdamI", src: adamiLogo.url },
-    { name: "CTAC", src: ctacLogo.url },
+    { name: "SAP", src: sapLogo },
+    { name: "Microsoft", src: microsoftLogo },
+    { name: "Snowflake", src: snowflakeLogo },
+    { name: "Oracle", src: oracleLogo },
+    { name: "AWS", src: awsLogo },
+    { name: "Azure", src: azureLogo },
+    { name: "Google Cloud", src: googleCloudLogo },
+    { name: "Harvey Nash", src: harveyNashLogo },
+    { name: "GBTEC", src: gbtecLogo },
+    { name: "Auping", src: aupingLogo },
+    { name: "Databricks", src: databricksLogo },
+    { name: "CrateDB", src: cratedbLogo },
+    { name: "AdamI", src: adamiLogo },
+    { name: "CTAC", src: ctacLogo },
   ];
   const list = [...logos, ...logos, ...logos];
   return (
@@ -248,7 +231,7 @@ function ProblemSection() {
       desc: "Cutovers slip, master data drifts, the business loses trust.",
     },
     {
-      icon: Bot,
+      icon: Robot,
       title: "AI without quality data",
       desc: "Models hallucinate when fed unreliable, ungoverned sources.",
     },
@@ -257,19 +240,16 @@ function ProblemSection() {
     <section className="bg-[#000A5C] text-white py-24">
       <div className="container grid lg:grid-cols-2 gap-14 items-start">
         <div>
-          <h2 className="font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
-            Most
+          <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#3B7EFF]">The Pattern</div>
+          <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
+            Three failure modes.
             <br />
-            Transformations
-            <br />
-            Fail at{" "}
             <span className="bg-gradient-to-r from-[#3B7EFF] to-[#0050D0] bg-clip-text text-transparent">
-              The Data
-              <br />Layer.
+              One root cause.
             </span>
           </h2>
           <p className="mt-6 text-white/70 max-w-md">
-            70% of enterprise modernization programs miss their goals — not from lack of ambition, but from foundation gaps.
+            Every failed programme we&apos;ve diagnosed traces back to the same place. Different symptoms, same foundation gap.
           </p>
         </div>
         <div className="space-y-4">
@@ -297,7 +277,7 @@ function EngineeringPartner() {
   return (
     <section className="bg-slate-50 py-24">
       <div className="container">
-        <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Why NGSIT</div>
+        <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Why Nextgenlytics</div>
         <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900 max-w-3xl">
           An engineering partner built for the data layer.
         </h2>
@@ -306,7 +286,9 @@ function EngineeringPartner() {
           {/* Big card */}
           <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1A70] to-[#000A5C] text-white p-8 min-h-[280px]">
             <div className="absolute top-6 right-6 text-xs uppercase tracking-widest text-white/50">Flagship</div>
-            <Users className="w-6 h-6 text-[#3B7EFF]" />
+            <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
+              <Users className="w-5 h-5 text-[#3B7EFF]" />
+            </div>
             <h3 className="mt-8 font-heading font-bold text-3xl">Extended Delivery Team</h3>
             <p className="mt-3 text-white/70 max-w-md">
               Senior architects and engineers embedded with your team — onsite in Europe, follow-the-sun delivery from Asia.
@@ -324,13 +306,17 @@ function EngineeringPartner() {
           </div>
 
           <div className="rounded-3xl bg-gradient-to-br from-[#3B7EFF] to-[#0050D0] p-6 text-[#000A5C]">
-            <Rocket className="w-5 h-5" />
+            <div className="w-11 h-11 rounded-xl bg-white/25 flex items-center justify-center">
+              <Gauge className="w-5 h-5" />
+            </div>
             <div className="mt-6 font-heading font-bold text-4xl">50%</div>
             <div className="mt-1 text-sm font-medium">Faster Delivery</div>
           </div>
 
           <div className="rounded-3xl bg-white p-6 border border-slate-200">
-            <Sparkles className="w-5 h-5 text-blue-600" />
+            <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center">
+              <Cpu className="w-5 h-5 text-blue-600" />
+            </div>
             <div className="mt-4 font-heading font-semibold text-slate-900">BlueGecko AI Platform</div>
             <div className="mt-2 text-sm text-slate-600">
               Proprietary accelerators for lineage, quality, and migration automation across SAP and Databricks.
@@ -363,7 +349,7 @@ function EngineeringPartner() {
 function FourPractices() {
   const items = [
     {
-      icon: Boxes,
+      icon: SquaresFour,
       count: "5 OFFERINGS",
       title: "SAP Solutions",
       desc: "Data migration, ECC support, Datasphere, BTP integration — partner-enabled implementation.",
@@ -373,7 +359,7 @@ function FourPractices() {
       href: "/solutions/sap-s4hana",
     },
     {
-      icon: Layers,
+      icon: Stack,
       count: "4 OFFERINGS",
       title: "Microsoft Solutions",
       desc: "D365 F&O implementation & AMS, Business Central, AX migration, Fabric engineering.",
@@ -383,14 +369,14 @@ function FourPractices() {
       href: "/solutions/microsoft-dynamics-365",
     },
     {
-      icon: Bot,
+      icon: Robot,
       count: "7 OFFERINGS",
       title: "AI Solutions",
       desc: "BlueGecko AI agents, governance AI, predictive analytics, custom applications, AI testing.",
       tint: "from-[#E6F0FF] to-white",
       ring: "ring-[#5A9AFF]",
       dot: "bg-[#0050D0]",
-      href: "/solutions/ai-foundry",
+      href: "/solutions/ai-strategy-and-readiness-assessment",
     },
     {
       icon: Database,
@@ -433,8 +419,7 @@ function FourPractices() {
               </div>
               <h3 className="mt-6 font-heading font-bold text-2xl text-slate-900">{it.title}</h3>
               <p className="mt-3 text-slate-600 text-sm">{it.desc}</p>
-              <div className="mt-6 flex items-center justify-between text-sm">
-                <span className="text-slate-500">Powered by <span className="text-blue-700 font-semibold">BlueGecko</span></span>
+              <div className="mt-6 flex items-center justify-end text-sm">
                 <span className="inline-flex items-center gap-1 text-blue-700 font-semibold group-hover:gap-2 transition-all">
                   Explore <ArrowRight className="w-4 h-4" />
                 </span>
@@ -444,17 +429,214 @@ function FourPractices() {
           ))}
         </div>
 
-        <Link to="/products/bluegecko" className="mt-8 rounded-2xl bg-slate-900 hover:bg-slate-800 transition text-white p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <Link to="/products/bluegecko" className="mt-8 rounded-2xl bg-[#000A5C] border border-white/10 hover:border-[#3B7EFF]/40 transition text-white p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-[0_20px_50px_-25px_rgba(0,96,240,0.5)]">
           <div>
-            <div className="text-xs uppercase tracking-widest text-[#3B7EFF]">BlueGecko · AI-native delivery platform</div>
-            <div className="mt-1 font-heading font-semibold">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#5A9AFF]">BlueGecko · AI-native delivery platform</div>
+            <div className="mt-2 font-heading font-semibold text-lg text-white">
               One data-first foundation, four practices that compound.
             </div>
           </div>
-          <span className="inline-flex items-center gap-2 rounded-full btn-cta font-semibold px-5 py-2.5">
+          <span className="shrink-0 inline-flex items-center gap-2 rounded-full btn-cta font-semibold px-5 py-2.5">
             See the platform <ArrowRight className="w-4 h-4" />
           </span>
         </Link>
+      </div>
+    </section>
+  );
+}
+
+// ============ MIGRATION PATHS ============
+function MigrationPathsSection() {
+  const paths = [
+    {
+      tag: "ERP · SAP",
+      from: "SAP ECC",
+      to: "S/4HANA",
+      desc: "Clean-core migration with automated data validation, zero-downtime cutover, and lineage you can audit end to end.",
+      icon: Database,
+      accent: "#3B7EFF",
+      href: "/solutions/sap-s4hana",
+      image: migrationSapImg,
+    },
+    {
+      tag: "ERP · Microsoft",
+      from: "Dynamics AX",
+      to: "D365 F&O",
+      desc: "Parallel-run migration to the cloud — zero business disruption, lower total cost of ownership, built-in GDPR compliance.",
+      icon: ArrowsClockwise,
+      accent: "#5A9AFF",
+      href: "/solutions/dynamics-ax-migration",
+      image: migrationAxImg,
+    },
+    {
+      tag: "Data Platform",
+      from: "On-Premise Warehouses",
+      to: "Databricks · Snowflake",
+      desc: "Consolidate siloed data warehouses into one governed lakehouse — metadata-driven pipelines built and operated at scale.",
+      icon: CloudArrowUp,
+      accent: "#00C6FF",
+      href: "/solutions/databricks",
+      image: migrationDataImg,
+    },
+    {
+      tag: "ERP · SMB",
+      from: "Legacy Finance Systems",
+      to: "Business Central",
+      desc: "Our Quick-Start methodology gets General Ledger, AP/AR, and Bank Reconciliation live in as few as 8 to 12 weeks.",
+      icon: Wallet,
+      accent: "#6C63FF",
+      href: "/solutions/business-central",
+      image: migrationBcImg,
+    },
+    {
+      tag: "Delivery Model",
+      from: "Rotating SI Teams",
+      to: "Extended Delivery Team",
+      desc: "Trade Big Four rates and rotating consultants for a dedicated, Amsterdam-governed team activated in 2–4 weeks.",
+      icon: Handshake,
+      accent: "#0060F0",
+      href: "/edt",
+      image: migrationEdtImg,
+    },
+  ];
+  const [active, setActive] = useState(0);
+
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#000A5C] to-[#000733] text-white py-24">
+      <div className="absolute inset-0 bg-grid-soft opacity-30" />
+      <div className="container relative">
+        <div className="flex items-center gap-3 text-xs font-semibold tracking-[0.28em] uppercase text-[#3B7EFF]">
+          <span className="h-px w-6 bg-[#3B7EFF]" />
+          Migration Paths
+        </div>
+        <h2 className="mt-4 font-heading font-bold text-4xl sm:text-5xl leading-[1.05] max-w-2xl">
+          Find your migration path — where are you today?
+        </h2>
+
+        {/* Desktop: hover-expand strip */}
+        <div className="hidden md:flex mt-14 gap-3 h-[420px]">
+          {paths.map((p, i) => {
+            const isActive = active === i;
+            return (
+              <Link
+                key={p.from}
+                to={p.href}
+                onMouseEnter={() => setActive(i)}
+                className={`group relative rounded-3xl overflow-hidden border border-white/10 transition-all duration-500 ease-out ${
+                  isActive ? "flex-[3.4]" : "flex-1"
+                }`}
+              >
+                <div className="absolute inset-0 bg-[#0B1220]" />
+                <img
+                  src={p.image}
+                  alt=""
+                  loading="lazy"
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+                    isActive ? "opacity-100 scale-105" : "opacity-35 grayscale-[30%]"
+                  }`}
+                />
+                <div
+                  className="absolute inset-0 mix-blend-multiply transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(160deg, ${p.accent}66, transparent 55%)`,
+                    opacity: isActive ? 0.18 : 0.55,
+                  }}
+                />
+                <div
+                  className="absolute inset-0 transition-opacity duration-500"
+                  style={{
+                    background: isActive
+                      ? "linear-gradient(to top, #000733 0%, rgba(0,7,51,0.88) 18%, rgba(0,7,51,0.4) 42%, rgba(0,7,51,0.06) 62%, transparent 78%)"
+                      : "linear-gradient(to top, #000733 0%, rgba(0,7,51,0.7) 60%, rgba(0,7,51,0.1) 100%)",
+                  }}
+                />
+
+                {/* collapsed label */}
+                <div
+                  className={`absolute inset-0 flex items-end p-5 transition-opacity duration-300 ${
+                    isActive ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  <span
+                    className="text-sm font-semibold text-white/80 whitespace-nowrap"
+                    style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                  >
+                    {p.from} → {p.to}
+                  </span>
+                </div>
+
+                {/* expanded content */}
+                <div
+                  className={`absolute inset-0 p-7 flex flex-col justify-end transition-all duration-500 ${
+                    isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
+                  }`}
+                >
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                    style={{ background: `${p.accent}22`, border: `1px solid ${p.accent}55` }}
+                  >
+                    <p.icon className="w-5 h-5" style={{ color: p.accent }} />
+                  </div>
+                  <div className="text-[10px] uppercase tracking-widest text-white/50">{p.tag}</div>
+                  <div className="mt-2 font-heading font-bold text-xl leading-snug">
+                    {p.from}
+                    <ArrowRight className="inline w-4 h-4 mx-1.5 -translate-y-0.5" style={{ color: p.accent }} />
+                    {p.to}
+                  </div>
+                  <p className="mt-3 text-sm text-white/70 leading-relaxed">{p.desc}</p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: p.accent }}>
+                    See the path <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Mobile: accordion */}
+        <div className="md:hidden mt-10 space-y-3">
+          {paths.map((p, i) => {
+            const isOpen = active === i;
+            return (
+              <div key={p.from} className="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.03]">
+                <button
+                  type="button"
+                  onClick={() => setActive(isOpen ? -1 : i)}
+                  aria-expanded={isOpen}
+                  className="w-full flex items-center gap-4 p-5 text-left"
+                >
+                  <div
+                    className="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center"
+                    style={{ background: `${p.accent}22`, border: `1px solid ${p.accent}55` }}
+                  >
+                    <p.icon className="w-5 h-5" style={{ color: p.accent }} />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-[10px] uppercase tracking-widest text-white/50">{p.tag}</div>
+                    <div className="font-heading font-semibold">
+                      {p.from} → {p.to}
+                    </div>
+                  </div>
+                  <ArrowRight className={`w-4 h-4 shrink-0 transition-transform ${isOpen ? "rotate-90" : ""}`} />
+                </button>
+                <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                  <div className="overflow-hidden">
+                    <div className="px-5 pb-5">
+                      <p className="text-sm text-white/70 leading-relaxed">{p.desc}</p>
+                      <Link
+                        to={p.href}
+                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold"
+                        style={{ color: p.accent }}
+                      >
+                        See the path <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -779,16 +961,45 @@ function InteractiveChartsSection() {
 function ProcessSection() {
   const stages = [
     { n: "01", title: "Discover", icon: Compass, desc: "Audit data estate, ERP landscape, and target outcomes.", tags: ["Stakeholder interviews", "Source-system inventory", "Outcome mapping"] },
-    { n: "02", title: "Assess", icon: ClipboardCheck, desc: "Score readiness across governance, quality, and architecture.", tags: ["Maturity scoring", "Risk register", "Costed roadmap"] },
-    { n: "03", title: "Migrate", icon: MoveRight, desc: "Execute cutovers with BlueGecko-automated lineage and validation.", tags: ["Automated lineage", "Zero-downtime cutover", "Reconciliation"] },
+    { n: "02", title: "Assess", icon: ClipboardText, desc: "Score readiness across governance, quality, and architecture.", tags: ["Maturity scoring", "Risk register", "Costed roadmap"] },
+    { n: "03", title: "Migrate", icon: ArrowRight, desc: "Execute cutovers with BlueGecko-automated lineage and validation.", tags: ["Automated lineage", "Zero-downtime cutover", "Reconciliation"] },
     { n: "04", title: "Optimize", icon: Gauge, desc: "Tune cost, performance, and AI workloads on the new stack.", tags: ["FinOps tuning", "Query acceleration", "Model evaluation"] },
     { n: "05", title: "Govern", icon: Lock, desc: "Operationalize policies, observability, and ongoing stewardship.", tags: ["Policy as code", "Observability", "Stewardship model"] },
   ];
-  const [openStage, setOpenStage] = useState<string | null>(null);
+  const [activeStage, setActiveStage] = useState(0);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Scroll-spy: the card whose center is closest to the viewport center becomes active.
+  useEffect(() => {
+    const onScroll = () => {
+      const mid = window.innerHeight / 2;
+      let best = 0;
+      let bestDist = Infinity;
+      cardRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        const dist = Math.abs(r.top + r.height / 2 - mid);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = i;
+        }
+      });
+      setActiveStage(best);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
     <section className="bg-[#000733] text-white py-24 border-t border-white/5">
-      <div className="container grid lg:grid-cols-[380px_1fr] gap-12">
-        <div>
+      <div className="container grid lg:grid-cols-[380px_1fr] gap-12 items-start">
+        {/* Sticky left rail — stays in view while the stages scroll past */}
+        <div className="lg:sticky lg:top-28 self-start">
           <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#3B7EFF]">Process</div>
           <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
             Five stages.
@@ -798,71 +1009,110 @@ function ProcessSection() {
           <p className="mt-5 text-white/70 max-w-sm">
             A delivery method engineered for enterprise scale — predictable outcomes, measured at every gate.
           </p>
-          <ul className="mt-8 space-y-2 text-sm text-white/60">
-            {stages.map((s) => (
-              <li key={s.n} className="flex items-center gap-3">
-                <span className="text-[#3B7EFF] font-semibold w-6">{s.n}</span>
-                {s.title}
-              </li>
-            ))}
+
+          {/* Progress rail — active step highlights as you scroll */}
+          <ul className="mt-8 space-y-1">
+            {stages.map((s, i) => {
+              const active = activeStage === i;
+              return (
+                <li key={s.n}>
+                  <div
+                    className={`flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-300 ${
+                      active ? "bg-white/[0.06]" : ""
+                    }`}
+                  >
+                    <span
+                      className={`grid place-items-center w-7 h-7 rounded-lg text-xs font-bold shrink-0 transition-all duration-300 ${
+                        active
+                          ? "bg-[#0060F0] text-white shadow-[0_0_16px_rgba(0,96,240,0.6)]"
+                          : "bg-white/5 text-white/50"
+                      }`}
+                    >
+                      {s.n}
+                    </span>
+                    <span
+                      className={`text-sm font-semibold transition-colors duration-300 ${
+                        active ? "text-white" : "text-white/50"
+                      }`}
+                    >
+                      {s.title}
+                    </span>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
+        {/* Right — the stage cards */}
         <div className="relative">
-          <div className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-[#0060F0]/60 via-white/10 to-[#0060F0]/60" />
+          <div className="absolute left-6 top-4 bottom-4 w-px bg-white/10" />
+          <div
+            className="absolute left-6 top-4 w-px bg-gradient-to-b from-[#3B7EFF] to-[#0060F0] transition-all duration-500 ease-out"
+            style={{ height: `${(activeStage / (stages.length - 1)) * 100}%` }}
+          />
           <div className="space-y-5">
-            {stages.map((s, i) => (
-              <RevealOnScroll key={s.n} delay={i * 180} threshold={0.25} className="relative pl-16 block">
-                <div className="absolute left-0 top-3 w-12 h-12 rounded-full bg-[#000A5C] border-2 border-[#0060F0] flex items-center justify-center shadow-[0_0_20px_rgba(0,96,240,0.5)]">
-                  <s.icon className="w-5 h-5 text-[#3B7EFF]" />
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setOpenStage((cur) => (cur === s.n ? null : s.n))}
-                  aria-expanded={openStage === s.n}
-                  className={`group w-full text-left rounded-2xl border p-6 transition-all duration-300 cursor-pointer hover:border-[#3B7EFF]/40 hover:bg-white/[0.06] hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-25px_rgba(0,96,240,0.4)] ${
-                    openStage === s.n
-                      ? "border-[#3B7EFF]/50 bg-white/[0.07] shadow-[0_20px_50px_-25px_rgba(0,96,240,0.5)]"
-                      : "border-white/10 bg-white/[0.03]"
-                  }`}
+            {stages.map((s, i) => {
+              const active = activeStage === i;
+              return (
+                <div
+                  key={s.n}
+                  ref={(el) => (cardRefs.current[i] = el)}
+                  className="relative pl-16"
                 >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <div className="text-xs uppercase tracking-widest text-white/50">Stage / {s.n}</div>
-                      <h3 className="mt-1 font-heading font-bold text-2xl group-hover:text-[#5A9AFF] transition-colors">{s.title}</h3>
-                    </div>
-                    <div className={`font-heading font-bold text-4xl transition-colors ${openStage === s.n ? "text-[#3B7EFF]/70" : "text-white/10 group-hover:text-[#3B7EFF]/40"}`}>{s.n}</div>
-                  </div>
-
-                  {/* Hover/click reveal: description + key deliverables */}
                   <div
-                    className={`grid transition-all duration-500 ease-out ${
-                      openStage === s.n
-                        ? "grid-rows-[1fr] opacity-100 mt-4"
-                        : "grid-rows-[0fr] opacity-0 mt-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-4"
+                    className={`absolute left-0 top-3 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      active
+                        ? "bg-[#0060F0] border-2 border-[#3B7EFF] shadow-[0_0_24px_rgba(0,96,240,0.7)] scale-110"
+                        : "bg-[#000A5C] border-2 border-[#0060F0]/50 shadow-[0_0_20px_rgba(0,96,240,0.3)]"
                     }`}
                   >
-                    <div className="overflow-hidden">
-                      <p className="text-white/70 text-sm max-w-xl">{s.desc}</p>
-                      <div className="mt-4">
-                        <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-[#3B7EFF]/90 mb-2">Key deliverables</div>
-                        <div className="flex flex-wrap gap-2">
-                          {s.tags.map((t) => (
-                            <span key={t} className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0060F0]/10 border border-[#3B7EFF]/25 text-[#B8D2FF]">
-                              {t}
-                            </span>
-                          ))}
+                    <s.icon className={`w-5 h-5 transition-colors ${active ? "text-white" : "text-[#3B7EFF]"}`} />
+                  </div>
+                  <div
+                    className={`rounded-2xl border p-6 transition-all duration-500 ${
+                      active
+                        ? "border-[#3B7EFF]/50 bg-white/[0.07] shadow-[0_20px_50px_-25px_rgba(0,96,240,0.5)]"
+                        : "border-white/10 bg-white/[0.03]"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <div className="text-xs uppercase tracking-widest text-white/50">Stage / {s.n}</div>
+                        <h3 className={`mt-1 font-heading font-bold text-2xl transition-colors ${active ? "text-[#5A9AFF]" : ""}`}>{s.title}</h3>
+                      </div>
+                      <div className={`font-heading font-bold text-4xl transition-colors ${active ? "text-[#3B7EFF]/70" : "text-white/10"}`}>{s.n}</div>
+                    </div>
+
+                    {/* One-line preview so collapsed cards don't read as empty */}
+                    {!active && (
+                      <p className="mt-2 text-sm text-white/45 line-clamp-1">{s.desc}</p>
+                    )}
+
+                    {/* Full details reveal for the active (in-view) stage */}
+                    <div
+                      className={`grid transition-all duration-500 ease-out ${
+                        active ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 mt-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-white/70 text-sm max-w-xl">{s.desc}</p>
+                        <div className="mt-4">
+                          <div className="text-[10px] font-semibold tracking-[0.24em] uppercase text-[#3B7EFF]/90 mb-2">Key deliverables</div>
+                          <div className="flex flex-wrap gap-2">
+                            {s.tags.map((t) => (
+                              <span key={t} className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#0060F0]/10 border border-[#3B7EFF]/25 text-[#B8D2FF]">
+                                {t}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  <div className={`mt-3 text-[11px] uppercase tracking-widest transition-colors ${openStage === s.n ? "text-[#3B7EFF]" : "text-white/40 group-hover:text-[#5A9AFF]"}`}>
-                    {openStage === s.n ? "Tap to collapse" : "Hover or tap for details"}
-                  </div>
-                </button>
-              </RevealOnScroll>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -881,12 +1131,12 @@ function CaseStudiesSection() {
       <div className="container">
         <div className="flex items-end justify-between">
           <h2 className="font-heading font-bold text-4xl sm:text-5xl">Case studies.</h2>
-          <Link to="/case-study" className="text-sm text-white/70 hover:text-white inline-flex items-center gap-1">All stories <ArrowRight className="w-4 h-4" /></Link>
+          <Link to="/client-work" className="text-sm text-white/70 hover:text-white inline-flex items-center gap-1">All stories <ArrowRight className="w-4 h-4" /></Link>
         </div>
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {cases.map((c, i) => (
             <RevealOnScroll key={i} delay={i * 160}>
-              <Link to="/case-study" className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1A70] to-[#000A5C] border border-white/10 p-8 min-h-[260px] hover:border-[#3B7EFF]/40 transition group h-full block">
+              <Link to="/client-work" className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1A70] to-[#000A5C] border border-white/10 p-8 min-h-[260px] hover:border-[#3B7EFF]/40 transition group h-full block">
               <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#0060F0]/10 blur-3xl group-hover:bg-[#0060F0]/20 transition" />
               <div className="text-xs uppercase tracking-widest text-[#3B7EFF]">Case Study</div>
               <div className="mt-6 font-heading font-bold text-6xl bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
@@ -980,10 +1230,10 @@ function BlueGeckoPlatform() {
                 </div>
                 <div className="mt-5 flex flex-wrap gap-2 text-xs">
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/20">
-                    <CheckCircle2 className="w-3 h-3" /> Policy enforced
+                    <CheckCircle className="w-3 h-3" /> Policy enforced
                   </span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-400/10 text-blue-300 border border-blue-400/20">
-                    <LineChart className="w-3 h-3" /> AI lineage detected
+                    <ChartLine className="w-3 h-3" /> AI lineage detected
                   </span>
                 </div>
               </div>
@@ -1062,6 +1312,7 @@ const HomePage3 = () => {
       <RevealOnScroll delay={80}><ProblemSection /></RevealOnScroll>
       <RevealOnScroll delay={120}><EngineeringPartner /></RevealOnScroll>
       <RevealOnScroll delay={80}><FourPractices /></RevealOnScroll>
+      <RevealOnScroll delay={120}><MigrationPathsSection /></RevealOnScroll>
       <RevealOnScroll delay={120}><NumbersSection /></RevealOnScroll>
       <RevealOnScroll delay={80}><InteractiveChartsSection /></RevealOnScroll>
       <RevealOnScroll delay={120}><ProcessSection /></RevealOnScroll>

@@ -3,23 +3,12 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import IndustryCta from "@/components/IndustryCta";
 import PageBanner from "@/components/PageBanner";
-import bannerManufacturing from "@/assets/banner-manufacturing.jpg";
-import intelligenceAsset from "@/assets/manufacturing-intelligence.png.asset.json";
-const intelligenceImg = intelligenceAsset.url;
-import expertiseImg from "@/assets/manufacturing-expertise.jpg";
+import bannerManufacturing from "@/assets/banners/banner-manufacturing.jpg";
+import intelligenceAsset from "@/assets/industries/manufacturing-intelligence.png";
+const intelligenceImg = intelligenceAsset;
+import expertiseImg from "@/assets/industries/manufacturing-expertise.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  Factory,
-  Cog,
-  ShieldCheck,
-  Activity,
-  Boxes,
-  Sparkles,
-  Database,
-  LineChart,
-  CheckCircle2,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, ChartLine, CheckCircle, Database, Factory, Gear, Pulse, ShieldCheck, Sparkle, SquaresFour } from "@phosphor-icons/react";
 
 /* -------------------------------------------------------------- */
 /*  Intro                                                          */
@@ -38,7 +27,7 @@ function Intro() {
           </h2>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed text-pretty">
             Driving efficiency, cutting costs, and maintaining high-quality standards are the
-            pillars of modern manufacturing. At <strong className="text-foreground">nextgenlytics</strong>,
+            pillars of modern manufacturing. At <strong className="text-foreground">Nextgenlytics</strong>,
             we provide world-class technology. By combining strategic advisory, rapid project
             delivery, and end-to-end application management, we solve critical production
             challenges and empower companies to achieve sustainable, AI-driven growth.
@@ -67,12 +56,12 @@ function KeyChallenges() {
   const { ref, isVisible } = useScrollReveal();
   const challenges = [
     {
-      Icon: Activity,
+      Icon: Pulse,
       title: "Efficient Production Operations",
       body: "Managing complex, multi-site production cycles while battling unplanned machine downtime. Every minute of idle time impacts delivery reliability.",
     },
     {
-      Icon: Boxes,
+      Icon: SquaresFour,
       title: "Fragile Global Supply Chains",
       body: "Increasing volatility in raw material sourcing creates uncertainty. Manufacturers must move from reactive to predictive supply chain models.",
     },
@@ -87,7 +76,7 @@ function KeyChallenges() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Sparkles size={14} /> Key Challenges
+            <Sparkle size={14} /> Key Challenges
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Key challenges in modern manufacturing
@@ -147,13 +136,13 @@ function OurExpertise() {
         </div>
         <div className={`order-1 lg:order-2 ${isVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Our Expertise
+            <Gear size={14} /> Our Expertise
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance leading-tight">
             Building the foundation for the autonomous factory
           </h2>
           <p className="mt-5 text-base text-muted-foreground leading-relaxed text-pretty">
-            At nextgenlytics, we ensure that your manufacturing intelligence is as scalable as your output.
+            At Nextgenlytics, we ensure that your manufacturing intelligence is as scalable as your output.
             We provide expert AI and ERP implementation for organizations utilizing complex production
             ecosystems. Whether you are managing discrete manufacturing or continuous process
             industries, we provide the specialized AI Agents and workflows to turn your operational
@@ -162,7 +151,7 @@ function OurExpertise() {
           <ul className="mt-6 space-y-3">
             {points.map((p) => (
               <li key={p} className="flex items-start gap-3 text-sm text-foreground/90">
-                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" />
+                <CheckCircle size={18} className="text-accent shrink-0 mt-0.5" />
                 <span>{p}</span>
               </li>
             ))}
@@ -199,7 +188,7 @@ function PracticeAreas() {
       ],
     },
     {
-      Icon: LineChart,
+      Icon: ChartLine,
       tag: "Microsoft Dynamics 365",
       title: "Agile, AI-ready operations",
       items: [
@@ -223,7 +212,7 @@ function PracticeAreas() {
       <div className="container" ref={ref}>
         <div className={`max-w-2xl mx-auto text-center ${isVisible ? "animate-reveal-up" : "opacity-0"}`}>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <Cog size={14} /> Technology Practice Areas
+            <Gear size={14} /> Technology Practice Areas
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
             Specialized toolsets for industrial transformation

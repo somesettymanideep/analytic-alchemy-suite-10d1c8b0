@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="mBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EEF3FD"/><stop offset="1" stop-color="#E1EAFB"/>
+    </linearGradient>
+    <linearGradient id="mBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#1746c9"/>
+    </linearGradient>
+    <linearGradient id="mNavy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2568"/><stop offset="1" stop-color="#0d1547"/>
+    </linearGradient>
+    <filter id="mShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#12245b" flood-opacity="0.18"/>
+    </filter>
+    <pattern id="mDots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#2f6bff" opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="820" rx="28" fill="url(#mBg)"/>
+  <rect width="1200" height="820" rx="28" fill="url(#mDots)"/>
+
+  <!-- ===== LEGACY card (center x=220) ===== -->
+  <g filter="url(#mShadow)"><rect x="70" y="260" width="300" height="240" rx="22" fill="url(#mNavy)"/></g>
+  <rect x="96" y="286" width="86" height="26" rx="13" fill="#ffffff" opacity="0.14"/>
+  <text x="139" y="304" fill="#cfe0ff" font-size="13" font-weight="700" letter-spacing="1" text-anchor="middle">LEGACY</text>
+  <!-- database icon, centered at x=220 -->
+  <g transform="translate(190,332)" fill="none" stroke="#9db8ff" stroke-width="5">
+    <ellipse cx="30" cy="12" rx="30" ry="12" fill="#9db8ff" stroke="none" opacity="0.22"/>
+    <ellipse cx="30" cy="12" rx="30" ry="12"/>
+    <path d="M0,12 v40 a30,12 0 0 0 60,0 v-40"/>
+    <path d="M0,32 a30,12 0 0 0 60,0"/>
+  </g>
+  <text x="220" y="448" fill="#ffffff" font-size="25" font-weight="800" text-anchor="middle">Dynamics AX 2012</text>
+  <text x="220" y="474" fill="#9db8ff" font-size="15" text-anchor="middle">Legacy data sources</text>
+
+  <!-- ===== TARGET card (center x=980) ===== -->
+  <g filter="url(#mShadow)"><rect x="830" y="260" width="300" height="240" rx="22" fill="url(#mBlue)"/></g>
+  <rect x="854" y="286" width="84" height="26" rx="13" fill="#ffffff" opacity="0.22"/>
+  <text x="896" y="304" fill="#ffffff" font-size="13" font-weight="700" letter-spacing="1" text-anchor="middle">TARGET</text>
+  <!-- cloud icon, centered at x=980 -->
+  <path d="M948,398 a24,24 0 0 1 4,-47 a30,30 0 0 1 56,8 a20,20 0 0 1 -4,39 z" fill="#ffffff" opacity="0.95"/>
+  <text x="980" y="448" fill="#ffffff" font-size="25" font-weight="800" text-anchor="middle">SAP S/4HANA</text>
+  <text x="980" y="474" fill="#d6e4ff" font-size="15" text-anchor="middle">Public Cloud</text>
+
+  <!-- ===== migration flow ===== -->
+  <line x1="378" y1="380" x2="808" y2="380" stroke="#2f6bff" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="470" cy="380" r="9" fill="#2f6bff">
+    <animate attributeName="cx" values="410;770;410" dur="3.6s" repeatCount="indefinite" begin="0s"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="3.6s" repeatCount="indefinite" begin="0s"/>
+  </circle>
+  <circle cx="560" cy="380" r="9" fill="#4f86ff">
+    <animate attributeName="cx" values="410;770;410" dur="3.6s" repeatCount="indefinite" begin="0.9s"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="3.6s" repeatCount="indefinite" begin="0.9s"/>
+  </circle>
+  <circle cx="650" cy="380" r="9" fill="#7aa6ff">
+    <animate attributeName="cx" values="410;770;410" dur="3.6s" repeatCount="indefinite" begin="1.8s"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="3.6s" repeatCount="indefinite" begin="1.8s"/>
+  </circle>
+  <circle cx="740" cy="380" r="9" fill="#f5b51a">
+    <animate attributeName="cx" values="410;770;410" dur="3.6s" repeatCount="indefinite" begin="2.7s"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.85;1" dur="3.6s" repeatCount="indefinite" begin="2.7s"/>
+  </circle>
+  <path d="M786,380 l34,0 m-13,-11 l13,11 l-13,11" fill="none" stroke="#1746c9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Metadata-driven migration engine badge (center x=600) -->
+  <g filter="url(#mShadow)"><rect x="452" y="296" width="296" height="52" rx="26" fill="#ffffff"/></g>
+  <circle cx="484" cy="322" r="15" fill="#eaf1ff"/>
+  <circle cx="484" cy="322" r="6" fill="#f5b51a"/>
+  <text x="510" y="328" fill="#0d1547" font-size="15" font-weight="700">Metadata-Driven Migration</text>
+
+  <!-- ===== bottom cards ===== -->
+  <g filter="url(#mShadow)"><rect x="330" y="570" width="250" height="118" rx="18" fill="#ffffff"/></g>
+  <rect x="356" y="596" width="42" height="42" rx="11" fill="#eaf1ff"/>
+  <path d="M368,610 h18 M368,619 h18 M368,628 h18" stroke="#2f6bff" stroke-width="4" stroke-linecap="round"/>
+  <text x="414" y="614" fill="#0d1547" font-size="17" font-weight="800">Modern Data</text>
+  <text x="414" y="636" fill="#0d1547" font-size="17" font-weight="800">Platform</text>
+  <text x="356" y="672" fill="#64748b" font-size="13">Analytics &amp; reporting</text>
+
+  <g filter="url(#mShadow)"><rect x="620" y="570" width="250" height="118" rx="18" fill="#ffffff"/></g>
+  <rect x="646" y="596" width="42" height="42" rx="11" fill="#fff3d6"/>
+  <path d="M657,606 h20 v26 h-20 z M657,614 h20" fill="none" stroke="#e0a30f" stroke-width="4" stroke-linejoin="round"/>
+  <text x="704" y="614" fill="#0d1547" font-size="17" font-weight="800">Archival</text>
+  <text x="704" y="636" fill="#0d1547" font-size="17" font-weight="800">System</text>
+  <text x="646" y="672" fill="#64748b" font-size="13">Legacy record retention</text>
+
+  <!-- ===== stat chips ===== -->
+  <g filter="url(#mShadow)"><rect x="110" y="120" width="200" height="66" rx="33" fill="#ffffff"/></g>
+  <text x="210" y="150" fill="#1746c9" font-size="24" font-weight="800" text-anchor="middle">250+</text>
+  <text x="210" y="171" fill="#64748b" font-size="12" text-anchor="middle">Dealers · Studios · Hotels</text>
+
+  <g filter="url(#mShadow)"><rect x="890" y="120" width="200" height="66" rx="33" fill="#ffffff"/></g>
+  <text x="990" y="150" fill="#1746c9" font-size="24" font-weight="800" text-anchor="middle">4 Countries</text>
+  <text x="990" y="171" fill="#64748b" font-size="12" text-anchor="middle">20+ month program</text>
+</svg>
