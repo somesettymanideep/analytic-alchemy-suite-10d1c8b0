@@ -54,6 +54,17 @@ import Edt from "./pages/Edt.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import TermsAndConditions from "./pages/TermsAndConditions.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import AdminLogin from "./pages/AdminLogin.tsx";
+import AdminLayout from "./components/AdminLayout.tsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
+import AdminBlogs from "./pages/admin/AdminBlogs.tsx";
+import AdminBlogForm from "./pages/admin/AdminBlogForm.tsx";
+import AdminWhitepapers from "./pages/admin/AdminWhitepapers.tsx";
+import AdminWhitepaperForm from "./pages/admin/AdminWhitepaperForm.tsx";
+import AdminResearch from "./pages/admin/AdminResearch.tsx";
+import AdminResearchForm from "./pages/admin/AdminResearchForm.tsx";
+import AdminContacts from "./pages/admin/AdminContacts.tsx";
+import { AuthProvider } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
 
@@ -63,8 +74,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTopOnRouteChange />
-        <Routes>
+        <AuthProvider>
+          <ScrollToTopOnRouteChange />
+          <Routes>
           <Route path="/" element={<HomePage3 />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
@@ -114,9 +126,21 @@ const App = () => (
           <Route path="/edt" element={<Edt />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="blogs" element={<AdminBlogs />} />
+            <Route path="blogs/:id" element={<AdminBlogForm />} />
+            <Route path="whitepapers" element={<AdminWhitepapers />} />
+            <Route path="whitepapers/:id" element={<AdminWhitepaperForm />} />
+            <Route path="research" element={<AdminResearch />} />
+            <Route path="research/:id" element={<AdminResearchForm />} />
+            <Route path="contacts" element={<AdminContacts />} />
+          </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
