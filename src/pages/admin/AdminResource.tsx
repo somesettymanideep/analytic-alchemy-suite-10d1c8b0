@@ -170,8 +170,8 @@ export function AdminResourceForm({ resource }: { resource: keyof typeof CONFIGS
     e.preventDefault();
     setSaving(true);
     const { error } = isNew
-      ? await supabase.from(cfg.table).insert(form)
-      : await supabase.from(cfg.table).update(form).eq("id", id!);
+      ? await supabase.from(cfg.table).insert(form as any)
+      : await supabase.from(cfg.table).update(form as any).eq("id", id!);
     setSaving(false);
     if (error) return toast({ title: "Save failed", description: error.message, variant: "destructive" });
     toast({ title: isNew ? "Created" : "Updated" });
