@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { Lock, SignIn, UserPlus } from "@phosphor-icons/react";
+import logo from "@/assets/brand/logo.gif";
 
 export default function AdminLogin() {
   const { session, isAdmin, loading } = useAuth();
@@ -44,14 +45,13 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen grid place-items-center bg-gradient-to-br from-primary/5 via-background to-accent/5 px-4">
       <div className="w-full max-w-md bg-card border border-border/60 rounded-2xl shadow-xl p-8">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="h-11 w-11 rounded-xl bg-primary text-primary-foreground grid place-items-center">
-            <Lock size={22} weight="bold" />
-          </div>
-          <div>
+        <div className="flex flex-col items-center text-center mb-6">
+          <img src={logo} alt="Nextgenlytics" className="h-16 md:h-20 rounded mb-4" />
+          <div className="flex items-center gap-2">
+            <Lock size={18} weight="bold" className="text-primary" />
             <h1 className="font-heading font-bold text-xl text-primary">Admin Portal</h1>
-            <p className="text-xs text-muted-foreground">Nextgenlytics Content Management</p>
           </div>
+          <p className="text-xs text-muted-foreground mt-1">Nextgenlytics Content Management</p>
         </div>
 
         <form onSubmit={submit} className="space-y-4">
