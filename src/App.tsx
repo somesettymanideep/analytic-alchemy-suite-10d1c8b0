@@ -52,6 +52,14 @@ import CaseStudy from "./pages/CaseStudy.tsx";
 import CaseStudyDetail from "./pages/CaseStudyDetail.tsx";
 import Edt from "./pages/Edt.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import { AuthProvider } from "./hooks/useAuth";
+import AdminLogin from "./pages/AdminLogin.tsx";
+import AdminLayout from "./components/AdminLayout.tsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
+import AdminBlogs from "./pages/admin/AdminBlogs.tsx";
+import AdminWhitepapers from "./pages/admin/AdminWhitepapers.tsx";
+import AdminResearch from "./pages/admin/AdminResearch.tsx";
+import AdminContacts from "./pages/admin/AdminContacts.tsx";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +70,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
+        <AuthProvider>
         <Routes>
           <Route path="/" element={<HomePage3 />} />
           <Route path="/contact" element={<Contact />} />
@@ -110,9 +119,18 @@ const App = () => (
           <Route path="/client-work" element={<CaseStudy />} />
           <Route path="/client-work/:slug" element={<CaseStudyDetail />} />
           <Route path="/edt" element={<Edt />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="blogs" element={<AdminBlogs />} />
+            <Route path="whitepapers" element={<AdminWhitepapers />} />
+            <Route path="research" element={<AdminResearch />} />
+            <Route path="contacts" element={<AdminContacts />} />
+          </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
