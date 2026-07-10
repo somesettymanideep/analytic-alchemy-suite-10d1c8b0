@@ -4,7 +4,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
 import orcaJump from "@/assets/products/orca-jump.png";
-import orcaRest from "@/assets/products/orca-rest.png";
 import { ArrowRight, ChartLine, CheckCircle, ClipboardText, Database, Eye, Faders, HardDrives, MagnifyingGlass, MapTrifold, PlayCircle, Pulse, RocketLaunch, ShieldCheck, Stack, TreeStructure } from "@phosphor-icons/react";
 
 const highlights = [
@@ -234,14 +233,6 @@ export default function OrcaMigrate() {
                 >
                   Request a Demo <ArrowRight size={16} />
                 </Link>
-                <img
-                  src={orcaRest}
-                  alt="Orca mascot resting"
-                  width={180}
-                  height={120}
-                  loading="lazy"
-                  className="w-32 md:w-40 h-auto drop-shadow-xl"
-                />
               </div>
             </div>
           </Reveal>

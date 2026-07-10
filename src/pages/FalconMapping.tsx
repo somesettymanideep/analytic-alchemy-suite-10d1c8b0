@@ -4,7 +4,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
 import mascotAsset from "@/assets/products/falcon-mascot.png";
-import flyingAsset from "@/assets/products/falcon-flying.png";
 import sapLogo from "@/assets/logos/sap-v3.png";
 import oracleLogo from "@/assets/logos/oracle-v3.png";
 import salesforceLogo from "@/assets/logos/salesforce-v3.svg";
@@ -370,31 +369,19 @@ export default function FalconMapping() {
                   }}
                   aria-hidden
                 />
-                <div className="relative grid md:grid-cols-[1.3fr_1fr] gap-8 items-center">
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-heading leading-tight">
-                      Accelerate Integrations.<br />Eliminate Complexity.
-                    </h2>
-                    <p className="mt-4 text-sm md:text-base text-primary-foreground/85 max-w-lg">
-                      Falcon Mapping helps you deliver trusted data faster, with confidence.
-                    </p>
-                    <Link
-                      to="/contact"
-                      className="mt-7 inline-flex items-center gap-2 px-6 py-3 rounded-md bg-accent text-accent-foreground font-semibold shadow-lg hover:-translate-y-0.5 transition-all"
-                    >
-                      Request a Demo <ArrowRight size={16} />
-                    </Link>
-                  </div>
-                  <div className="relative flex justify-center md:justify-end">
-                    <img
-                      src={flyingAsset}
-                      alt="Falcon in flight"
-                      width={448}
-                      height={320}
-                      loading="lazy"
-                      className="w-full max-w-[360px] h-auto object-contain drop-shadow-2xl"
-                    />
-                  </div>
+                <div className="relative text-center max-w-2xl mx-auto">
+                  <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground font-heading leading-tight">
+                    Accelerate Integrations.<br />Eliminate Complexity.
+                  </h2>
+                  <p className="mt-4 text-sm md:text-base text-primary-foreground/85 mx-auto">
+                    Falcon Mapping helps you deliver trusted data faster, with confidence.
+                  </p>
+                  <Link
+                    to="/contact"
+                    className="mt-7 inline-flex items-center gap-2 px-6 py-3 rounded-md bg-accent text-accent-foreground font-semibold shadow-lg hover:-translate-y-0.5 transition-all"
+                  >
+                    Request a Demo <ArrowRight size={16} />
+                  </Link>
                 </div>
               </div>
             </Reveal>

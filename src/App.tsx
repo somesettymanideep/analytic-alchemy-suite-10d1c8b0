@@ -51,15 +51,9 @@ import OrcaMigrate from "./pages/OrcaMigrate.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
 import CaseStudyDetail from "./pages/CaseStudyDetail.tsx";
 import Edt from "./pages/Edt.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
+import TermsAndConditions from "./pages/TermsAndConditions.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import { AuthProvider } from "./hooks/useAuth";
-import AdminLogin from "./pages/AdminLogin.tsx";
-import AdminLayout from "./components/AdminLayout.tsx";
-import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
-import AdminBlogs from "./pages/admin/AdminBlogs.tsx";
-import AdminWhitepapers from "./pages/admin/AdminWhitepapers.tsx";
-import AdminResearch from "./pages/admin/AdminResearch.tsx";
-import AdminContacts from "./pages/admin/AdminContacts.tsx";
 
 const queryClient = new QueryClient();
 
@@ -70,7 +64,6 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTopOnRouteChange />
-        <AuthProvider>
         <Routes>
           <Route path="/" element={<HomePage3 />} />
           <Route path="/contact" element={<Contact />} />
@@ -114,23 +107,16 @@ const App = () => (
           <Route path="/products/bluegecko" element={<BlueGecko />} />
           <Route path="/products/falcon-mapping" element={<FalconMapping />} />
           <Route path="/products/code-cheetah" element={<CodeCheetah />} />
-          <Route path="/products/owl-sight" element={<OwlSight />} />
+          <Route path="/products/owlsight" element={<OwlSight />} />
           <Route path="/products/orca-migrate" element={<OrcaMigrate />} />
           <Route path="/client-work" element={<CaseStudy />} />
           <Route path="/client-work/:slug" element={<CaseStudyDetail />} />
           <Route path="/edt" element={<Edt />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="blogs" element={<AdminBlogs />} />
-            <Route path="whitepapers" element={<AdminWhitepapers />} />
-            <Route path="research" element={<AdminResearch />} />
-            <Route path="contacts" element={<AdminContacts />} />
-          </Route>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

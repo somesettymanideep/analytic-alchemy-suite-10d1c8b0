@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { postForm, ApiError } from "@/lib/api";
-import { supabase } from "@/integrations/supabase/client";
 
 type Mode = "consultation" | "demo";
 
@@ -41,7 +40,7 @@ const PRODUCT_OPTIONS = [
   "BlueGecko Platform",
   "Falcon Mapping",
   "Code Cheetah",
-  "Owl Sight",
+  "Owlsight",
 ];
 
 export default function Contact() {
@@ -76,19 +75,6 @@ export default function Contact() {
 
     setSubmitting(true);
     try {
-      // Always store submission in the admin database (best-effort, never blocks UX)
-      const subject = mode === "consultation"
-        ? (form.solution ? `Consultation: ${form.solution}` : "Consultation request")
-        : `Demo request: ${form.product}`;
-      supabase.from("contact_submissions").insert({
-        name: form.name,
-        email: form.email,
-        company: form.company || null,
-        phone: form.phone || null,
-        subject,
-        message: form.message || `Demo request for ${form.product}`,
-      }).then(({ error }) => { if (error) console.warn("contact_submissions:", error.message); });
-
       if (mode === "consultation") {
         await postForm("/api/forms/consultation", {
           name: form.name,

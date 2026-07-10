@@ -274,50 +274,43 @@ function FinalCta() {
             backgroundSize: "48px 48px",
           }}
         />
-        <div className="relative grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight">
-              Transform Your Data Journey <br />
-              with <span className="text-accent">BlueGecko</span>
-            </h2>
-            <p className="mt-4 text-primary-foreground/80 max-w-md">
-              Unify migrations, mappings and data quality in one AI-powered platform.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-accent-foreground font-semibold hover:-translate-y-0.5 transition-all shadow-lg"
-              >
-                Request a Demo <ArrowRight size={16} />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-primary-foreground/40 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all"
-              >
-                Talk to an Expert
-              </Link>
-            </div>
+        <div className="relative text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading leading-tight">
+            Transform Your Data Journey <br />
+            with <span className="text-accent">BlueGecko</span>
+          </h2>
+          <p className="mt-4 text-primary-foreground/80 mx-auto">
+            Unify migrations, mappings and data quality in one AI-powered platform.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-accent-foreground font-semibold hover:-translate-y-0.5 transition-all shadow-lg"
+            >
+              Request a Demo <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-primary-foreground/40 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all"
+            >
+              Talk to an Expert
+            </Link>
           </div>
 
-          <div className="relative">
-            <div className="relative mx-auto w-56 h-56 md:w-64 md:h-64 rounded-full bg-primary-foreground/5 border border-primary-foreground/20 flex items-center justify-center">
-              <img src={mascot} alt="" width={220} height={220} className="w-40 md:w-48 drop-shadow-2xl" />
-            </div>
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              {chips.map((c) => (
-                <div
-                  key={c.label}
-                  className="flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-xl px-3 py-2.5 backdrop-blur"
-                >
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-primary-foreground text-primary shrink-0">
-                    <c.Icon size={16} />
-                  </span>
-                  <span className="text-xs md:text-sm font-semibold text-primary-foreground">
-                    {c.label}
-                  </span>
-                </div>
-              ))}
-            </div>
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {chips.map((c) => (
+              <div
+                key={c.label}
+                className="flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-xl px-3 py-2.5 backdrop-blur"
+              >
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-primary-foreground text-primary shrink-0">
+                  <c.Icon size={16} />
+                </span>
+                <span className="text-xs md:text-sm font-semibold text-primary-foreground text-left">
+                  {c.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

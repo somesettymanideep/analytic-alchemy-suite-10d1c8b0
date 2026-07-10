@@ -31,7 +31,7 @@ function Intro() {
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
             <strong className="text-foreground">Nextgenlytics AI Testing</strong> provides a comprehensive validation framework
-            — powered by our <strong className="text-foreground">Owl Sight</strong> anomaly-detection and reconciliation
+            — powered by our <strong className="text-foreground">Owlsight</strong> anomaly-detection and reconciliation
             engine — that ensures every AI agent, model, and LLM-powered workflow you deploy is accurate, safe, fair, and
             ready for enterprise-scale use before it ever reaches a live environment. It applies to any AI implementation,
             including BlueGecko agents, conversational AI, and third-party models.
@@ -317,7 +317,7 @@ export default function AiTesting() {
         <SolutionHighlight
           eyebrow="AI Testing & Validation"
           headline="Structured testing frameworks for AI model outputs — accuracy benchmarking, bias detection, compliance checks, and production readiness validation before go-live."
-          evidence="Powered by Owl Sight's anomaly detection and reconciliation engine. Applicable to any AI implementation including BlueGecko agents, Conversational AI, and third-party models."
+          evidence="Powered by Owlsight's anomaly detection and reconciliation engine. Applicable to any AI implementation including BlueGecko agents, Conversational AI, and third-party models."
         />
         <Framework />
         <WhyUs />

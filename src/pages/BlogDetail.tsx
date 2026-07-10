@@ -389,7 +389,7 @@ const POSTS: Post[] = [
           "AI agents inside BlueGecko don’t replace teams — they augment them:",
           "Falcon Mapping → AI Data Steward Agent",
           "Code Cheetah → AI Data Migration Engineer Agent",
-          "Owl Sight → AI Data Quality Analyst, GRC Agent",
+          "Owlsight → AI Data Quality Analyst, GRC Agent",
           "These AI agents embed directly into the Data Operations & Stewardship layer and the ICT Enablement layer — ensuring that every part of the governance model operates consistently, continuously, and intelligently."
         ],
         image: blogCeoPlaybook3,

@@ -9,7 +9,7 @@ const productLinks = [
   { label: "BlueGecko", to: "/products/bluegecko" },
   { label: "Falcon Mapping", to: "/products/falcon-mapping" },
   { label: "Code Cheetah", to: "/products/code-cheetah" },
-  { label: "Owl Sight", to: "/products/owl-sight" },
+  { label: "Owlsight", to: "/products/owlsight" },
   { label: "Orca Migrate", to: "/products/orca-migrate" },
 ];
 
@@ -74,11 +74,7 @@ const industriesLinks = [
 ];
 
 const clientWorkLinks = [
-  { label: "All Case Studies", to: "/client-work" },
-  { label: "AMS Services", to: "/client-work/application-managed-services-d365" },
-  { label: "Data Maturity Assessment and Consulting", to: "/client-work/data-maturity-assessment-and-consulting" },
-  { label: "Ax2012 to SAP S/4HANA Data Migration", to: "/client-work/ax2012-to-sap-s4hana-data-migration" },
-  { label: "Unified Data & Analytics Platform", to: "/client-work/unified-data-and-analytics-platform" },
+  { label: "Client Work", to: "/client-work" },
 ];
 
 const edtLinks = [
@@ -195,7 +191,7 @@ export default function Footer() {
       />
 
       <div className="container relative">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-8 mb-12">
           {/* Brand */}
           <div>
             <img src={logo} alt="Nextgenlytics" className="h-20 rounded-lg mb-4 bg-white p-3 shadow-md" />
@@ -226,6 +222,28 @@ export default function Footer() {
           <FooterSolutionsMenu />
           <FooterLinkColumn title="Our Products" links={productLinks} />
           <FooterLinkColumn title="Industries" links={industriesLinks} />
+          {/* Contact */}
+          <div>
+            <h4 className="text-primary-foreground font-semibold mb-4">Contact</h4>
+            <ul className="space-y-3.5">
+              {contactItems.map(({ Icon, label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="group flex items-start gap-3 text-sm hover:text-primary-foreground transition-colors"
+                  >
+                    <span className="mt-0.5 w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-accent-foreground group-hover:scale-110 transition-all duration-300">
+                      <Icon className="w-4 h-4" />
+                    </span>
+                    <span className="leading-relaxed">{label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <FooterLinkColumn title="About" links={aboutLinks} />
+
           <FooterLinkColumn title="Client Work" links={clientWorkLinks} />
 
           {/* Extended Delivery Team — a standalone offering, kept separate from Client Work */}
@@ -247,32 +265,18 @@ export default function Footer() {
               Dedicated India delivery, governed from Amsterdam.
             </p>
           </div>
-
-          <FooterLinkColumn title="About" links={aboutLinks} />
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-primary-foreground font-semibold mb-4">Contact</h4>
-            <ul className="space-y-3.5">
-              {contactItems.map(({ Icon, label, href }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    className="group flex items-start gap-3 text-sm hover:text-primary-foreground transition-colors"
-                  >
-                    <span className="mt-0.5 w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-accent-foreground group-hover:scale-110 transition-all duration-300">
-                      <Icon className="w-4 h-4" />
-                    </span>
-                    <span className="leading-relaxed">{label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-6 text-center text-xs text-primary-foreground/40">
-          © {new Date().getFullYear()} Nextgenlytics. All rights reserved.
+        <div className="border-t border-primary-foreground/10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs text-primary-foreground/40 text-center">
+          <span>© {new Date().getFullYear()} Nextgenlytics. All rights reserved.</span>
+          <span className="hidden sm:inline text-primary-foreground/20">·</span>
+          <Link to="/privacy-policy" className="hover:text-primary-foreground transition-colors">
+            Privacy Policy
+          </Link>
+          <span className="hidden sm:inline text-primary-foreground/20">·</span>
+          <Link to="/terms-and-conditions" className="hover:text-primary-foreground transition-colors">
+            Terms and Conditions
+          </Link>
         </div>
       </div>
     </footer>

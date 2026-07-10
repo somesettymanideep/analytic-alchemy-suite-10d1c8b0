@@ -4,7 +4,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
 import cheetahRun from "@/assets/products/cheetah-running.png";
-import cheetahSprint from "@/assets/products/cheetah-sprint.png";
 import { ArrowRight, CheckCircle, CloudArrowUp, Database, FileCode, GitBranch, MagicWand, PlayCircle, RocketLaunch, ShieldCheck, Stack, Translate, Warning } from "@phosphor-icons/react";
 import AiChipIcon from "@/components/icons/AiChipIcon";
 
@@ -251,14 +250,6 @@ export default function CodeCheetah() {
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-[hsl(230_85%_22%)] p-6 md:p-8 shadow-2xl shadow-primary/30">
               <div className="absolute inset-y-0 right-0 w-1/3 bg-accent/10 blur-3xl" aria-hidden />
               <div className="relative flex flex-col md:flex-row items-center gap-6">
-                <img
-                  src={cheetahSprint}
-                  alt="Cheetah sprinting"
-                  width={180}
-                  height={120}
-                  loading="lazy"
-                  className="w-32 md:w-40 h-auto drop-shadow-xl"
-                />
                 <div className="flex-1 text-center md:text-left">
                   <h3 className="text-xl md:text-2xl font-bold text-white font-heading">
                     From Business Rules to Production Code—Automatically.

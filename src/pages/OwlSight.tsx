@@ -4,7 +4,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
 import owlReadingAsset from "@/assets/products/owl-reading.png";
-import owlFlyingAsset from "@/assets/products/owl-flying.png";
 import { ArrowRight, CaretRight, ChartLine, CheckCircle, Cpu, Database, FileText, GitBranch, Lightning, Lock, MagnifyingGlass, Plug, Scroll, ShieldCheck, ShieldWarning, Sparkle, Users, Warning, WarningOctagon } from "@phosphor-icons/react";
 
 const highlights = [
@@ -42,9 +41,9 @@ const steps = [
 
 const benefits = [
   { value: "Automated", label: "PII Detection & Masking" },
-  { value: "Up to 90%", label: "Automated Reconciliation & Quality Checks" },
+  { value: "Up to 90%", label: "Reconciliation & Quality" },
   { value: "Audit-Ready", label: "Traceability on Every Scan" },
-  { value: "Fewer", label: "Post-Migration Issues" },
+  { value: "Reduced", label: "Post-Migration Issues" },
   { value: "Reversible", label: "Web Mode PII Masking" },
 ];
 
@@ -130,20 +129,20 @@ export default function OwlSight() {
               <CaretRight size={12} />
               <span>Products</span>
               <CaretRight size={12} />
-              <span className="text-primary font-medium">Owl Sight</span>
+              <span className="text-primary font-medium">Owlsight</span>
             </nav>
 
             <div className="mt-8 grid lg:grid-cols-12 gap-10 items-center">
               <Reveal variant="left" className="lg:col-span-6">
                 <div className="flex items-center gap-4">
-                  <img src={owlReadingAsset} alt="Owl Sight mascot" width={180} height={180} className="w-36 md:w-44 h-auto drop-shadow-xl" />
-                  <h1 className="sr-only">Owl Sight</h1>
+                  <img src={owlReadingAsset} alt="Owlsight mascot" width={180} height={180} className="w-36 md:w-44 h-auto drop-shadow-xl" />
+                  <h1 className="sr-only">Owlsight</h1>
                 </div>
                 <p className="mt-6 text-2xl md:text-3xl font-bold text-primary font-heading leading-tight">
                   AI-Powered Data Quality<br />You Can Trust
                 </p>
                 <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Owl Sight ensures your data is accurate, compliant, and reliable with intelligent validations, automated PII detection, and real-time quality insights.
+                  Owlsight ensures your data is accurate, compliant, and reliable with intelligent validations, automated PII detection, and real-time quality insights.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all">
@@ -161,7 +160,7 @@ export default function OwlSight() {
             </div>
 
             {/* Highlight strip */}
-            <Reveal variant="up" delay={200} className="mt-14 md:mt-20">
+            <Reveal variant="up" delay={200} className="mt-10 md:mt-14">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 border-t border-border/60 pt-8">
                 {highlights.map((h) => (
                   <div key={h.title} className="flex items-start gap-3">
@@ -180,7 +179,7 @@ export default function OwlSight() {
         </section>
 
         {/* KEY CAPABILITIES */}
-        <section className="py-16 md:py-24 bg-secondary/30">
+        <section className="py-12 md:py-16 bg-secondary/30">
           <div className="container">
             <Reveal variant="up" className="text-center max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground inline-block relative">
@@ -205,16 +204,16 @@ export default function OwlSight() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="py-16 md:py-24">
+        <section className="py-12 md:py-16">
           <div className="container">
             <Reveal variant="up" className="text-center max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground">
-                How Owl Sight Works
+                How Owlsight Works
               </h2>
               <span className="block mx-auto mt-3 h-1 w-16 rounded-full bg-accent" />
             </Reveal>
 
-            <div className="relative mt-16">
+            <div className="relative mt-12">
               <div aria-hidden className="hidden md:block absolute top-8 left-[10%] right-[10%] h-px border-t-2 border-dashed border-primary/30" />
               <div className="grid grid-cols-2 md:grid-cols-5 gap-y-12 gap-x-4 relative">
                 {steps.map((s, i) => (
@@ -237,18 +236,18 @@ export default function OwlSight() {
         </section>
 
         {/* BUSINESS BENEFITS */}
-        <section className="py-16 md:py-24 bg-secondary/30">
+        <section className="py-12 md:py-16 bg-secondary/30">
           <div className="container">
             <Reveal variant="up" className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground">Business Benefits</h2>
               <span className="block mx-auto mt-3 h-1 w-16 rounded-full bg-accent" />
             </Reveal>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
               {benefits.map((b, i) => (
                 <Reveal key={b.label} variant="scale" delay={i * 90}>
-                  <div className="h-full rounded-2xl bg-card border border-border/60 p-6 text-center hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div className="text-3xl md:text-4xl font-bold text-primary font-heading">{b.value}</div>
-                    <div className="mt-2 text-xs md:text-sm text-muted-foreground font-medium">{b.label}</div>
+                  <div className="h-full rounded-2xl bg-card border border-border/60 p-4 text-center hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div className="text-xl md:text-3xl font-bold text-primary font-heading md:whitespace-nowrap">{b.value}</div>
+                    <div className="mt-2 text-xs md:text-sm text-muted-foreground font-medium md:whitespace-nowrap">{b.label}</div>
                   </div>
                 </Reveal>
               ))}
@@ -257,7 +256,7 @@ export default function OwlSight() {
         </section>
 
         {/* IDEAL USE CASES */}
-        <section className="py-16 md:py-24">
+        <section className="py-12 md:py-16">
           <div className="container">
             <Reveal variant="up" className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground">Ideal Use Cases</h2>
@@ -284,21 +283,16 @@ export default function OwlSight() {
             <Reveal variant="up">
               <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-primary to-[hsl(var(--primary)/0.85)] text-primary-foreground p-8 md:p-12">
                 <div aria-hidden className="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
-                <div className="relative grid md:grid-cols-2 gap-6 items-center">
-                  <div>
-                    <h3 className="text-3xl md:text-4xl font-bold font-heading leading-tight">
-                      See Your Data Clearly.<br />Trust It Completely.
-                    </h3>
-                    <p className="mt-4 text-base md:text-lg text-primary-foreground/80 max-w-lg">
-                      Owl Sight helps you uncover issues, ensure compliance and deliver trusted data every time.
-                    </p>
-                    <Link to="/contact" className="mt-7 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-semibold hover:-translate-y-0.5 transition-all shadow-lg">
-                      Request a Demo <ArrowRight size={16} />
-                    </Link>
-                  </div>
-                  <div className="hidden md:flex justify-end">
-                    <img src={owlFlyingAsset} alt="Owl Sight flying" width={320} height={320} loading="lazy" className="w-72 h-auto drop-shadow-2xl animate-float-y-slow" />
-                  </div>
+                <div className="relative text-center max-w-2xl mx-auto">
+                  <h3 className="text-3xl md:text-4xl font-bold font-heading leading-tight">
+                    See Your Data Clearly.<br />Trust It Completely.
+                  </h3>
+                  <p className="mt-4 text-base md:text-lg text-primary-foreground/80 mx-auto">
+                    Owlsight helps you uncover issues, ensure compliance and deliver trusted data every time.
+                  </p>
+                  <Link to="/contact" className="mt-7 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-semibold hover:-translate-y-0.5 transition-all shadow-lg">
+                    Request a Demo <ArrowRight size={16} />
+                  </Link>
                 </div>
               </div>
             </Reveal>

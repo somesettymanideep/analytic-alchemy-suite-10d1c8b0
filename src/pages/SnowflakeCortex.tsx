@@ -31,7 +31,7 @@ function Intro() {
             business teams without a data-team request.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            The service is <strong className="text-foreground">powered by Owl Sight</strong> for data quality and
+            The service is <strong className="text-foreground">powered by Owlsight</strong> for data quality and
             governance, and runs AI in place on your platform — using each vendor's native engine, such as Snowflake
             Cortex or Databricks ML, so your data never leaves its secure perimeter.
           </p>
@@ -54,7 +54,7 @@ function Intro() {
               <Snowflake size={20} />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Powered by Owl Sight</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Powered by Owlsight</p>
               <p className="text-sm font-bold text-foreground font-heading">Quality-Assured Insight</p>
             </div>
           </div>
@@ -72,7 +72,7 @@ function Enables() {
     {
       Icon: Eye,
       title: "Automated Anomaly Detection",
-      body: "We deploy models that continuously scan your data for outliers, errors, and emerging risks — surfacing the problems and opportunities that matter before they show up in a month-end report. Powered by Owl Sight's detection engine.",
+      body: "We deploy models that continuously scan your data for outliers, errors, and emerging risks — surfacing the problems and opportunities that matter before they show up in a month-end report. Powered by Owlsight's detection engine.",
     },
     {
       Icon: FileMagnifyingGlass,
@@ -92,7 +92,7 @@ function Enables() {
     {
       Icon: ShieldCheck,
       title: "Quality & Governance Built In",
-      body: "Owl Sight underpins the service with continuous data-quality monitoring and governance — so every insight is grounded in clean, verified, access-controlled data, never a dirty or unauthorised source.",
+      body: "Owlsight underpins the service with continuous data-quality monitoring and governance — so every insight is grounded in clean, verified, access-controlled data, never a dirty or unauthorised source.",
     },
   ];
 
@@ -138,8 +138,8 @@ function WhyUs() {
   const pillars = [
     {
       Icon: ShieldCheck,
-      title: "Powered by Owl Sight",
-      body: "Insight is only trustworthy when the data beneath it is. Owl Sight, our data-quality and governance engine, ensures every insight rests on clean, verified, continuously monitored data — not a silent data-quality problem.",
+      title: "Powered by Owlsight",
+      body: "Insight is only trustworthy when the data beneath it is. Owlsight, our data-quality and governance engine, ensures every insight rests on clean, verified, continuously monitored data — not a silent data-quality problem.",
     },
     {
       Icon: Lock,
@@ -165,7 +165,7 @@ function WhyUs() {
               Insight is only trustworthy when the data beneath it is — and that is where we start.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              A quality-first insights layer, powered by Owl Sight, running securely in place on your governed Snowflake or
+              A quality-first insights layer, powered by Owlsight, running securely in place on your governed Snowflake or
               Databricks platform.
             </p>
 
@@ -179,7 +179,7 @@ function WhyUs() {
                   AI-powered insight on a governed foundation.
                 </h3>
                 <p className="mt-3 text-sm md:text-base text-primary-foreground/85 leading-relaxed">
-                  Anomaly detection, pattern recognition, and automated delivery — powered by Owl Sight, running in place
+                  Anomaly detection, pattern recognition, and automated delivery — powered by Owlsight, running in place
                   on Snowflake or Databricks.
                 </p>
               </div>
@@ -230,15 +230,15 @@ function WhyUs() {
 const faqs = [
   {
     q: "What are AI-Powered Data Insights?",
-    a: "It is a Nextgenlytics service that adds an intelligent analytics layer on top of your governed data platform — automating anomaly detection, pattern recognition, and insight delivery so business teams receive relevant findings without commissioning bespoke analysis. It is powered by Owl Sight for data quality and governance.",
+    a: "It is a Nextgenlytics service that adds an intelligent analytics layer on top of your governed data platform — automating anomaly detection, pattern recognition, and insight delivery so business teams receive relevant findings without commissioning bespoke analysis. It is powered by Owlsight for data quality and governance.",
   },
   {
     q: "Which platforms does the service run on?",
-    a: "It runs in place on your governed Snowflake or Databricks platform, using each vendor's native AI and machine-learning engine — such as Snowflake Cortex or Databricks ML — as the underlying compute. Your data never leaves its secure perimeter, and Owl Sight ensures the quality of everything the models consume.",
+    a: "It runs in place on your governed Snowflake or Databricks platform, using each vendor's native AI and machine-learning engine — such as Snowflake Cortex or Databricks ML — as the underlying compute. Your data never leaves its secure perimeter, and Owlsight ensures the quality of everything the models consume.",
   },
   {
     q: "How do you make sure the insights are trustworthy?",
-    a: "Trust starts with the data. Owl Sight continuously monitors quality, detects anomalies, and enforces governance, while all AI activity respects your existing role-based access and column-level security — so every insight is grounded in clean, authorised data with a full audit trail.",
+    a: "Trust starts with the data. Owlsight continuously monitors quality, detects anomalies, and enforces governance, while all AI activity respects your existing role-based access and column-level security — so every insight is grounded in clean, authorised data with a full audit trail.",
   },
 ];
 
@@ -318,7 +318,7 @@ export default function SnowflakeCortex() {
         <SolutionHighlight
           eyebrow="AI-Powered Data Insights"
           headline="Intelligent analytics built on your governed Snowflake or Databricks data platform — AI-driven anomaly detection, pattern recognition, and automated insight delivery for business teams."
-          evidence="Powered by Owl Sight for data quality and governance. Connects to Snowflake Cortex and Databricks ML capabilities as the underlying engine — positioned as your service layer on top."
+          evidence="Powered by Owlsight for data quality and governance. Connects to Snowflake Cortex and Databricks ML capabilities as the underlying engine — positioned as your service layer on top."
         />
         <Enables />
         <WhyUs />

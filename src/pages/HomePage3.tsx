@@ -56,16 +56,19 @@ function Hero() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#0060F0] animate-pulse" />
             Enterprise AI Data Management Platform
           </span>
-          <h1 className="mt-8 font-heading font-bold leading-[1.05] tracking-tight text-3xl sm:text-4xl lg:text-5xl">
+          <h1 className="mt-8 font-heading font-bold leading-[1.05] tracking-tight text-2xl sm:text-3xl lg:text-4xl">
             MOST TRANSFORMATIONS
             <br />
             FAIL AT THE{" "}
             <span className="bg-gradient-to-r from-[#3B7EFF] via-[#0060F0] to-[#0050D0] bg-clip-text text-transparent">
-              DATA LAYER.
+              DATA LAYER
             </span>
+            <br />
+            WE MAKE SURE YOURS DOES{" "}
+            <span className="bg-gradient-to-r from-[#3B7EFF] via-[#0060F0] to-[#0050D0] bg-clip-text text-transparent">NOT</span>.
           </h1>
           <p className="mt-6 text-lg text-white/70 max-w-lg">
-            We make sure yours does not. A Dutch–Indian Data, AI &amp; ERP transformation company. We migrate, govern, and build on top of your data —{" "}
+            A Dutch–Indian Data, AI &amp; ERP transformation company. We Migrate, Govern, Build on top of your data —{" "}
             <span className="text-white font-semibold">50%+ faster</span> with{" "}
             <span className="text-[#3B7EFF] font-semibold">BlueGecko</span>, our AI-native platform.
           </p>
@@ -73,9 +76,9 @@ function Hero() {
             <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full btn-cta font-semibold px-6 py-3.5 shadow-[0_10px_30px_-8px_rgba(0,96,240,0.6)] transition">
               Book Assessment <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </Link>
-            <Link to="/bluegecko" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10 transition">
+            <a href="https://falcon.bluegecko.ai/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10 transition">
               <Play className="w-4 h-4" /> Watch Demo
-            </Link>
+            </a>
           </div>
           <div className="mt-8 flex items-center gap-3 text-sm text-white/70">
             <div className="flex gap-0.5">
@@ -150,24 +153,14 @@ function Hero() {
             <div className="flex items-center gap-2 text-xs text-white/70">
               <Cpu className="w-4 h-4 text-[#3B7EFF]" /> ERP
             </div>
-            <div className="mt-2 text-2xl font-bold">S/4HANA · D365</div>
-            <div className="mt-3 flex items-end gap-1 h-8">
-              {[4, 6, 5, 8, 7, 10, 9, 12].map((h, i) => (
-                <div key={i} className="w-2 rounded-sm bg-gradient-to-t from-blue-400 to-blue-200 animate-pulse" style={{ height: `${h * 7}%`, animationDelay: `${i * 120}ms` }} />
-              ))}
-            </div>
+            <div className="mt-2 text-2xl font-bold">S/4HANA D365</div>
           </div>
 
           <div className="absolute bottom-6 left-2 md:left-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/15 px-5 py-4 shadow-2xl w-[220px] animate-float-y hover-scale" style={{ animationDelay: "1s" }}>
             <div className="flex items-center gap-2 text-xs text-white/70">
               <Database className="w-4 h-4 text-[#3B7EFF]" /> DWH
             </div>
-            <div className="mt-2 text-2xl font-bold">Snowflake · Databricks</div>
-            <div className="mt-3 flex gap-1.5">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-1.5 flex-1 rounded-full bg-gradient-to-r from-[#3B7EFF] to-[#0050D0] animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
-              ))}
-            </div>
+            <div className="mt-2 text-2xl font-bold">Snowflake Databricks</div>
           </div>
         </div>
       </div>
@@ -197,7 +190,7 @@ function LogoStrip() {
   return (
     <section className="bg-[#000733] text-white py-14 border-y border-white/5">
       <div className="text-center text-xs uppercase tracking-[0.28em] text-white/50">
-        Trusted across the modern data stack
+        Proven expertise across the modern data stack
       </div>
       <div className="group mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <div className="flex items-center gap-16 animate-marquee whitespace-nowrap will-change-transform transform-gpu group-hover:[animation-play-state:paused] motion-reduce:animate-none">
@@ -231,9 +224,9 @@ function ProblemSection() {
       desc: "Cutovers slip, master data drifts, the business loses trust.",
     },
     {
-      icon: Robot,
-      title: "AI without quality data",
-      desc: "Models hallucinate when fed unreliable, ungoverned sources.",
+      icon: Stack,
+      title: "Disconnected systems",
+      desc: "Warehouses, lakes, and ERPs that don't talk to each other — insight stuck in every system.",
     },
   ];
   return (
@@ -242,10 +235,10 @@ function ProblemSection() {
         <div>
           <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#3B7EFF]">The Pattern</div>
           <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
-            Three failure modes.
+            Three failure modes
             <br />
             <span className="bg-gradient-to-r from-[#3B7EFF] to-[#0050D0] bg-clip-text text-transparent">
-              One root cause.
+              One root cause
             </span>
           </h2>
           <p className="mt-6 text-white/70 max-w-md">
@@ -279,7 +272,7 @@ function EngineeringPartner() {
       <div className="container">
         <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Why Nextgenlytics</div>
         <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900 max-w-3xl">
-          An engineering partner built for the data layer.
+          An engineering partner built for the data layer
         </h2>
 
         <div className="mt-12 grid md:grid-cols-3 gap-5">
@@ -328,7 +321,7 @@ function EngineeringPartner() {
             </div>
           </div>
 
-          <div className="md:col-span-2 rounded-3xl bg-slate-900 text-white p-6 flex items-start gap-4">
+          <div className="md:col-span-2 rounded-3xl bg-slate-900 text-white p-6 flex items-center gap-4">
             <div className="shrink-0 w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
               <Globe className="w-5 h-5 text-[#3B7EFF]" />
             </div>
@@ -395,9 +388,9 @@ function FourPractices() {
         <div className="text-center">
           <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Solutions</div>
           <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900">
-            Four practices.
+            Four practices
             <br />
-            <span className="text-blue-700">One data-first foundation.</span>
+            <span className="text-blue-700">One data-first foundation</span>
           </h2>
           <p className="mt-5 text-slate-600 max-w-2xl mx-auto">
             Each solution stands on its own — and each is strengthened by{" "}
@@ -687,10 +680,14 @@ function StatNumber({ end, suffix, delay = 0 }: { end: number; suffix: string; d
 
 function NumbersSection() {
   const stats = [
-    { v: 12, s: "", label: "Countries" },
-    { v: 17, s: "", label: "Legal Entities" },
-    { v: 70, s: "+", label: "Projects" },
-    { v: 99, s: "%", label: "Client Satisfaction" },
+    { v: 40, s: "%", label: "Lower Migration Cost" },
+    { v: 70, s: "%", label: "Faster Time-to-Value" },
+    { v: 500, s: "M+", label: "Records Validated" },
+    { v: 1000, s: "+", label: "Data Objects Migrated" },
+    { v: 95, s: "%+", label: "First-Pass Migration Success" },
+    { v: 90, s: "%", label: "Automated Data Quality Checks" },
+    { v: 98, s: "%", label: "On-Time Delivery" },
+    { v: 99, s: "%", label: "Customer Satisfaction" },
   ];
   return (
     <section className="bg-[#000733] text-white py-24 relative overflow-hidden">
@@ -700,9 +697,7 @@ function NumbersSection() {
           <div>
             <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#3B7EFF]">Index Report</div>
             <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
-              The numbers behind
-              <br />
-              our delivery.
+              The numbers behind our delivery
             </h2>
           </div>
           <a className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white">
@@ -767,8 +762,9 @@ function InteractiveChartsSection() {
         <div className="max-w-2xl">
           <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Live outcomes</div>
           <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900 leading-[1.05]">
-            Delivery velocity you can{" "}
-            <span className="text-blue-700">measure.</span>
+            Delivery velocity
+            <br />
+            <span className="text-blue-700">you can measure.</span>
           </h2>
           <p className="mt-5 text-slate-600">
             Hover the chart to inspect quarter-over-quarter gains from BlueGecko-accelerated engagements.
@@ -1002,9 +998,9 @@ function ProcessSection() {
         <div className="lg:sticky lg:top-28 self-start">
           <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#3B7EFF]">Process</div>
           <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl leading-[1.05]">
-            Five stages.
+            Five stages
             <br />
-            <span className="text-[#3B7EFF]">Zero surprises.</span>
+            <span className="text-[#3B7EFF]">Zero surprises</span>
           </h2>
           <p className="mt-5 text-white/70 max-w-sm">
             A delivery method engineered for enterprise scale — predictable outcomes, measured at every gate.
@@ -1129,16 +1125,22 @@ function CaseStudiesSection() {
   return (
     <section className="bg-[#000733] text-white py-24 border-t border-white/5">
       <div className="container">
-        <div className="flex items-end justify-between">
-          <h2 className="font-heading font-bold text-4xl sm:text-5xl">Case studies.</h2>
-          <Link to="/client-work" className="text-sm text-white/70 hover:text-white inline-flex items-center gap-1">All stories <ArrowRight className="w-4 h-4" /></Link>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <h2 className="font-heading font-bold text-4xl sm:text-5xl">Client Work</h2>
+            <p className="mt-2 text-lg font-heading font-semibold text-[#5A9AFF]">Real Challenges. Measurable Outcomes.</p>
+            <p className="mt-3 text-white/70">
+              Discover how Nextgenlytics helps organizations modernize their data landscape, accelerate digital transformation, and achieve measurable business value through AI-powered data engineering, migration, governance, and analytics.
+            </p>
+          </div>
+          <Link to="/client-work" className="shrink-0 text-sm text-white/70 hover:text-white inline-flex items-center gap-1">All stories <ArrowRight className="w-4 h-4" /></Link>
         </div>
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {cases.map((c, i) => (
             <RevealOnScroll key={i} delay={i * 160}>
               <Link to="/client-work" className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A1A70] to-[#000A5C] border border-white/10 p-8 min-h-[260px] hover:border-[#3B7EFF]/40 transition group h-full block">
               <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#0060F0]/10 blur-3xl group-hover:bg-[#0060F0]/20 transition" />
-              <div className="text-xs uppercase tracking-widest text-[#3B7EFF]">Case Study</div>
+              <div className="text-xs uppercase tracking-widest text-[#3B7EFF]">Client Work</div>
               <div className="mt-6 font-heading font-bold text-6xl bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                 {c.stat}
               </div>
@@ -1168,9 +1170,9 @@ function BlueGeckoPlatform() {
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-10 items-end">
           <div>
-            <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Platform</div>
+            <div className="text-xs font-semibold tracking-[0.28em] uppercase text-[#0050D0]">Product</div>
             <h2 className="mt-3 font-heading font-bold text-4xl sm:text-5xl text-slate-900">
-              The BlueGecko platform.
+              The BlueGecko Platform
             </h2>
           </div>
           <p className="text-slate-600 max-w-md">
@@ -1245,33 +1247,6 @@ function BlueGeckoPlatform() {
   );
 }
 
-// ============ TESTIMONIAL ============
-function Testimonial() {
-  return (
-    <section className="bg-slate-50 py-20">
-      <div className="container max-w-3xl">
-        <div className="flex gap-0.5 mb-6">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-[#0060F0] text-[#0060F0]" />
-          ))}
-        </div>
-        <blockquote className="font-heading font-semibold text-2xl sm:text-3xl text-slate-900 leading-snug">
-          &ldquo;NGSIT transformed our SAP migration. We cut cutover risk in half and shipped governed data products from day one.&rdquo;
-        </blockquote>
-        <div className="mt-8 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-700 to-blue-900 text-white flex items-center justify-center font-semibold">
-            C
-          </div>
-          <div>
-            <div className="font-semibold text-slate-900 text-sm">CTO</div>
-            <div className="text-xs text-slate-500">Fortune 500 Company</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ============ FINAL CTA ============
 function FinalCta() {
   return (
@@ -1287,14 +1262,14 @@ function FinalCta() {
           </span>
         </h2>
         <p className="mt-6 text-white/70 max-w-xl mx-auto">
-          Book a 45-minute assessment with our principal architects. Walk away with a costed roadmap.
+          Book an assessment with our principal architects. Walk away with a costed roadmap.
         </p>
         <div className="mt-9 flex justify-center gap-3">
           <Link to="/contact" className="inline-flex items-center gap-2 rounded-full btn-cta font-semibold px-6 py-3.5">
             Book Assessment <ArrowRight className="w-4 h-4" />
           </Link>
           <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-6 py-3.5 font-semibold hover:bg-white/10">
-            Contact Sales
+            Contact Us
           </Link>
         </div>
       </div>
@@ -1310,15 +1285,14 @@ const HomePage3 = () => {
       <Hero />
       <RevealOnScroll delay={0}><LogoStrip /></RevealOnScroll>
       <RevealOnScroll delay={80}><ProblemSection /></RevealOnScroll>
-      <RevealOnScroll delay={120}><EngineeringPartner /></RevealOnScroll>
       <RevealOnScroll delay={80}><FourPractices /></RevealOnScroll>
+      <RevealOnScroll delay={120}><BlueGeckoPlatform /></RevealOnScroll>
       <RevealOnScroll delay={120}><MigrationPathsSection /></RevealOnScroll>
+      <RevealOnScroll delay={120}><EngineeringPartner /></RevealOnScroll>
+      <RevealOnScroll delay={120}><ProcessSection /></RevealOnScroll>
       <RevealOnScroll delay={120}><NumbersSection /></RevealOnScroll>
       <RevealOnScroll delay={80}><InteractiveChartsSection /></RevealOnScroll>
-      <RevealOnScroll delay={120}><ProcessSection /></RevealOnScroll>
       <RevealOnScroll delay={80}><CaseStudiesSection /></RevealOnScroll>
-      <RevealOnScroll delay={120}><BlueGeckoPlatform /></RevealOnScroll>
-      <RevealOnScroll delay={80}><Testimonial /></RevealOnScroll>
       <RevealOnScroll delay={120}><FinalCta /></RevealOnScroll>
       <Footer />
       <ScrollToTop />

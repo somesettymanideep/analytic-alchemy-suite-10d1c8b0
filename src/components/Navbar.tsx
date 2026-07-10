@@ -105,7 +105,7 @@ const productsMenu: { label: string; image: MascotImage; viewImage?: MascotImage
     subItems: [
       { label: "Falcon Mapping", image: { src: falconMascot, naturalSize: 500, crop: { x: 35, y: 60, size: 155 } }, href: "/products/falcon-mapping" },
       { label: "Code Cheetah", image: { src: cheetahMascot, naturalSize: 800, crop: { x: 60, y: 90, size: 280 } }, href: "/products/code-cheetah" },
-      { label: "Owl Sight", image: { src: owlMascot, naturalSize: 612, crop: { x: 55, y: 45, size: 195 } }, href: "/products/owl-sight" },
+      { label: "Owlsight", image: { src: owlMascot, naturalSize: 612, crop: { x: 55, y: 45, size: 195 } }, href: "/products/owlsight" },
       { label: "Orca Migrate", image: { src: orcaMascot, naturalSize: 455, crop: { x: 258, y: 172, size: 185 } }, href: "/products/orca-migrate" },
     ],
   },

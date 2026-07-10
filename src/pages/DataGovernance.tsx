@@ -31,7 +31,7 @@ function Intro() {
             data ownership, quality standards, lineage tracking, and compliance controls — that make your data AI-ready.
           </p>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty">
-            Powered by <strong className="text-foreground">Owl Sight</strong> for continuous quality monitoring and anomaly detection.
+            Powered by <strong className="text-foreground">Owlsight</strong> for continuous quality monitoring and anomaly detection.
             Data Governance is the entry point to AI — organisations that skip it fail.
           </p>
         </Reveal>
@@ -97,7 +97,7 @@ function Evidence() {
               "DAMA-DMBOK aligned framework",
               "32 stakeholder interviews across business & IT",
               "Blueprint phase with prioritised control roadmap",
-              "Continuous quality monitoring via Owl Sight",
+              "Continuous quality monitoring via Owlsight",
             ].map((t) => (
               <li key={t} className="flex items-start gap-3 text-sm md:text-base text-foreground">
                 <ShieldCheck size={18} className="text-accent mt-0.5 shrink-0" />
@@ -117,7 +117,7 @@ function Evidence() {
               <h3 className="mt-3 text-2xl font-bold font-heading">Governance is the entry point to AI.</h3>
               <p className="mt-3 text-primary-foreground/85 leading-relaxed">
                 Every AI programme we deliver starts with governance — because organisations that skip it fail.
-                We design the framework, embed the controls, and monitor quality continuously with Owl Sight.
+                We design the framework, embed the controls, and monitor quality continuously with Owlsight.
               </p>
             </div>
           </div>
